@@ -1,0 +1,50 @@
+name: Update live monthly revenue
+
+on:
+  schedule:
+    # Companies normally file during the first half of the month.
+    - cron: "7,37 * 1-16 * *"
+    # Continue checking for late filings and restatements.
+    - cron: "17 0,6,12,18 17-31 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-monthly-revenue
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the latest default branch
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Run parser and forecast tests
+        run: node --test
+
+      - name: Poll official sources and update SQLite
+        run: node scripts/update-live-data.mjs
+
+      - name: Commit a meaningful database change
+        shell: bash
+        run: |
+          if git diff --quiet -- taiwan_semiconductor_companies.sqlite; then
+            echo "No relevant official-source change was found."
+            exit 0
+          fi
+
+          git config user.name "taiwan-revenue-bot"
+          git config user.email "taiwan-revenue-bot@users.noreply.github.com"
+          git add -- taiwan_semiconductor_companies.sqlite
+          git commit -m "Update live Taiwan monthly revenue"
+          git push

@@ -1,0 +1,38 @@
+[
+  {
+    "ticker": "2330",
+    "company": "Taiwan Semiconductor Manufacturing Company",
+    "sourceType": "investor_relations_calendar",
+    "sourceUrl": "https://investor.tsmc.com/english/financial-calendar",
+    "parserName": "tsmc",
+    "priority": 1,
+    "enabled": true
+  },
+  {
+    "ticker": "2317",
+    "company": "Hon Hai Precision Industry",
+    "sourceType": "investor_relations_calendar",
+    "sourceUrl": "https://www.honhai.com/en-us/investor-relations/investor-relations-activities/event-calendar",
+    "parserName": "honhai",
+    "priority": 1,
+    "enabled": true
+  },
+  {
+    "ticker": "2303",
+    "company": "United Microelectronics Corporation",
+    "sourceType": "investor_relations_calendar",
+    "sourceUrl": "https://www.umc.com/en/IR/ir_overview",
+    "parserName": "umc",
+    "priority": 1,
+    "enabled": true
+  },
+  {
+    "ticker": "2454",
+    "company": "MediaTek",
+    "sourceType": "investor_relations_calendar",
+    "sourceUrl": "https://www.mediatek.com/investor-relations/ir-events",
+    "parserName": "mediatek",
+    "priority": 1,
+    "enabled": true
+  }
+]

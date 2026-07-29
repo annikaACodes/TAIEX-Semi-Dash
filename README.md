@@ -1,34 +1,36 @@
 # Taiwan Monthly Sales Dashboard
 
-Prototype dashboard project for tracking Taiwan monthly sales / revenue momentum and comparing trends with Taiwan equity benchmarks such as TAIEX and, subject to licensing review, MSCI Taiwan.
+Research database and dashboard project for Taiwan-listed semiconductor-company
+monthly revenue.
 
-## Current Status
+## Current Data
 
-Project setup stage.
+`taiwan_semiconductor_companies.sqlite` contains:
 
-## Current Files
+- 314 companies searchable by English company name, ticker, or classification
+- Monthly revenue history in whole New Taiwan dollars
+- Month-over-month, year-over-year, cumulative YTD, and YTD YoY metrics
+- Publication timestamps and restatement flags
+- Release forecasts, official IR date overrides, first-seen times, confidence,
+  status, and unusual-date flags
 
-- `SOURCES_AND_DISCLOSURES.md` — source notes, licensing considerations, and disclosure language
+The database schema is version 4 and all user-facing tables and views are in
+English.
 
-## Planned Features
+## Automatic Updates
 
-- Taiwan monthly revenue data ingestion
-- Latest-month revenue dashboard
-- Year-over-year and month-over-month revenue growth
-- Three-month rolling growth metrics
-- Revenue breadth indicators
-- Sector-level views
-- Benchmark comparison with TAIEX
-- AI-generated commentary based only on dashboard metrics
+The GitHub workflow polls official MOPS and investor-relations sources without a
+manual prompt. It checks every 30 minutes during the normal reporting window and
+continues less frequently for late reports and restatements.
 
-## Collaboration Workflow
+See `LIVE_UPDATES.md` for source precedence, forecast behavior, table definitions,
+and local commands.
 
-Before starting work:
+## Key Files
 
-1. Pull or sync latest changes from GitHub.
-2. Make edits locally.
-3. Save files.
-4. Commit changes with a clear message.
-5. Push or sync changes back to GitHub.
-
-Avoid committing passwords, API keys, licensed data, or confidential internal data.
+- `SOURCES_AND_DISCLOSURES.md`: approved source hierarchy
+- `LIVE_UPDATES.md`: live collection and release-forecast specification
+- `scripts/update-live-data.mjs`: updater entry point
+- `config/ir_sources.json`: official IR calendar registry
+- `migrations/004_release_scheduler.sql`: version-4 schema migration
+- `test/`: source parser and forecasting tests
