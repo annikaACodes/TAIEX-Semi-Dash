@@ -35,16 +35,43 @@ jobs:
       - name: Poll official sources and update SQLite
         run: node scripts/update-live-data.mjs
 
-      - name: Commit a meaningful database change
+      - name: Regenerate website data
+        run: node web/scripts/build-dashboard-data.mjs
+
+      - name: Sync the live website dataset
+        shell: bash
+        env:
+          DASHBOARD_SYNC_URL: ${{ secrets.DASHBOARD_SYNC_URL }}
+          DASHBOARD_SYNC_TOKEN: ${{ secrets.DASHBOARD_SYNC_TOKEN }}
+        run: |
+          if git diff --quiet -- taiwan_semiconductor_companies.sqlite web/public/data; then
+            echo "No website data changed."
+            exit 0
+          fi
+
+          if [[ -z "$DASHBOARD_SYNC_URL" || -z "$DASHBOARD_SYNC_TOKEN" ]]; then
+            echo "Dashboard sync secrets are not configured; bundled data remains available."
+            exit 0
+          fi
+
+          curl --fail-with-body --retry 3 --retry-all-errors \
+            --request PUT \
+            --header "Authorization: Bearer ${DASHBOARD_SYNC_TOKEN}" \
+            --header "Content-Type: application/json" \
+            --header "Content-Encoding: gzip" \
+            --data-binary @web/public/data/dashboard-bundle.json.gz \
+            "${DASHBOARD_SYNC_URL%/}/api/dashboard-bundle"
+
+      - name: Commit a meaningful data change
         shell: bash
         run: |
-          if git diff --quiet -- taiwan_semiconductor_companies.sqlite; then
-            echo "No relevant official-source change was found."
+          if git diff --quiet -- taiwan_semiconductor_companies.sqlite web/public/data; then
+            echo "No relevant official-source or dashboard change was found."
             exit 0
           fi
 
           git config user.name "taiwan-revenue-bot"
           git config user.email "taiwan-revenue-bot@users.noreply.github.com"
-          git add -- taiwan_semiconductor_companies.sqlite
+          git add -- taiwan_semiconductor_companies.sqlite web/public/data
           git commit -m "Update live Taiwan monthly revenue"
           git push
