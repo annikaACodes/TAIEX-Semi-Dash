@@ -1291,35 +1291,6 @@ function MomentumView({ data }: { data: MomentumData }) {
         }
       />
 
-      <section className="metric-grid four-up">
-        <MetricCard
-          label="Accelerating"
-          value={String(counts.accelerating)}
-          tone="positive"
-          detail={`${periodDefinition.label} growth improved`}
-        />
-        <MetricCard
-          label="Decelerating"
-          value={String(counts.decelerating)}
-          tone="negative"
-          detail={`${periodDefinition.label} growth slowed`}
-        />
-        <MetricCard
-          label={`No ${periodDefinition.label} Rate Change`}
-          value={String(counts.unchanged)}
-          detail="Companies at 0.00pp vs prior rate"
-        />
-        <MetricCard
-          label="Breadth"
-          value={formatPercent(
-            (counts.accelerating / Math.max(1, counts.accelerating + counts.decelerating)) *
-              100,
-            0,
-          )}
-          detail="Share of directional names accelerating"
-        />
-      </section>
-
       <section className="panel chart-panel">
         <div className="panel-toolbar">
           <div className="segmented" aria-label="Acceleration direction">
@@ -1402,6 +1373,35 @@ function MomentumView({ data }: { data: MomentumData }) {
             </BarChart>
           </ResponsiveContainer>
         </div>
+      </section>
+
+      <section className="metric-grid four-up">
+        <MetricCard
+          label="Accelerating"
+          value={String(counts.accelerating)}
+          tone="positive"
+          detail={`${periodDefinition.label} growth improved`}
+        />
+        <MetricCard
+          label="Decelerating"
+          value={String(counts.decelerating)}
+          tone="negative"
+          detail={`${periodDefinition.label} growth slowed`}
+        />
+        <MetricCard
+          label={`No ${periodDefinition.label} Rate Change`}
+          value={String(counts.unchanged)}
+          detail="Companies at 0.00pp vs prior rate"
+        />
+        <MetricCard
+          label="Breadth"
+          value={formatPercent(
+            (counts.accelerating / Math.max(1, counts.accelerating + counts.decelerating)) *
+              100,
+            0,
+          )}
+          detail="Share of directional names accelerating"
+        />
       </section>
 
       <section className="panel table-panel">
