@@ -832,7 +832,6 @@ function CompanyView({
                     <th className="numeric">YTD YoY</th>
                     <th>Publication</th>
                     <th>Revision</th>
-                    <th>Source</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -857,15 +856,6 @@ function CompanyView({
                         <span className={`state-label ${row.restatementFlag ? "unusual" : "original"}`}>
                           {row.restatementFlag ? "Restated" : "Original"}
                         </span>
-                      </td>
-                      <td>
-                        {row.sourceUrl ? (
-                          <a href={row.sourceUrl} target="_blank" rel="noreferrer">
-                            {row.sourceMarket ?? "Official"}
-                          </a>
-                        ) : (
-                          row.sourceMarket ?? "Official"
-                        )}
                       </td>
                     </tr>
                   ))}
