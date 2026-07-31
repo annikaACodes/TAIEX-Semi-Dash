@@ -10,7 +10,7 @@ semiconductor companies.
 - **Subsectors:** Classification-level aggregate revenue with simple or
   current-revenue-weighted YoY.
 - **Acceleration:** Company rankings across MoM, rolling 3M, rolling 6M, and
-  LTM revenue-growth acceleration.
+  LTM revenue-growth acceleration for all names or a selected subsector.
 - **Freshness:** Reported, pending, overdue, and unusual release timing for the
   active reporting month.
 - **Exports:** CSV and Excel downloads for the data displayed in each view.

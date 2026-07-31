@@ -1124,13 +1124,27 @@ function SubsectorView({ data }: { data: SubsectorData }) {
 }
 
 type MomentumFilter = "all" | "accelerating" | "decelerating";
+const ALL_MOMENTUM_NAMES = "__all__";
 const MOMENTUM_PERIOD_ORDER: MomentumPeriodName[] = ["mom", "3m", "6m", "ltm"];
 
 function MomentumView({ data }: { data: MomentumData }) {
   const [filter, setFilter] = useState<MomentumFilter>("all");
   const [period, setPeriod] = useState<MomentumPeriodName>("mom");
+  const [subsector, setSubsector] = useState(ALL_MOMENTUM_NAMES);
   const [query, setQuery] = useState("");
   const periodDefinition = data.periods[period];
+  const subsectorOptions = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const company of data.companies) {
+      counts.set(
+        company.classification,
+        (counts.get(company.classification) ?? 0) + 1,
+      );
+    }
+    return [...counts.entries()].sort(([left], [right]) =>
+      left.localeCompare(right),
+    );
+  }, [data.companies]);
   const periodRows = useMemo<MomentumDisplayRow[]>(
     () =>
       data.companies.map(({ periods, ...company }) => ({
@@ -1139,17 +1153,28 @@ function MomentumView({ data }: { data: MomentumData }) {
       })),
     [data, period],
   );
+  const universeRows = useMemo(
+    () =>
+      subsector === ALL_MOMENTUM_NAMES
+        ? periodRows
+        : periodRows.filter((row) => row.classification === subsector),
+    [periodRows, subsector],
+  );
+  const universeLabel =
+    subsector === ALL_MOMENTUM_NAMES ? "All names" : subsector;
   const counts = useMemo(
     () => ({
-      accelerating: periodRows.filter((row) => row.direction === "accelerating").length,
-      decelerating: periodRows.filter((row) => row.direction === "decelerating").length,
-      unchanged: periodRows.filter((row) => row.direction === "unchanged").length,
+      accelerating: universeRows.filter((row) => row.direction === "accelerating")
+        .length,
+      decelerating: universeRows.filter((row) => row.direction === "decelerating")
+        .length,
+      unchanged: universeRows.filter((row) => row.direction === "unchanged").length,
     }),
-    [periodRows],
+    [universeRows],
   );
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return periodRows
+    return universeRows
       .filter((row) => filter === "all" || row.direction === filter)
       .filter(
         (row) =>
@@ -1167,7 +1192,7 @@ function MomentumView({ data }: { data: MomentumData }) {
           ? leftValue - rightValue
           : rightValue - leftValue;
       });
-  }, [filter, periodRows, query]);
+  }, [filter, query, universeRows]);
   const chartRows =
     filter === "all"
       ? [...filtered]
@@ -1193,6 +1218,7 @@ function MomentumView({ data }: { data: MomentumData }) {
     periodDefinition.priorPeriodEndMonth,
   );
   const exportRows: ExportRow[] = filtered.map((row) => ({
+    Universe: universeLabel,
     Ticker: row.ticker,
     Company: row.name,
     Subsector: row.classification,
@@ -1212,26 +1238,51 @@ function MomentumView({ data }: { data: MomentumData }) {
       <ScreenHeader
         eyebrow="Growth inflections"
         title="Acceleration monitor"
-        subtitle={`${periodDefinition.controlLabel} through ${formatMonth(
+        subtitle={`${universeLabel} | ${periodDefinition.controlLabel} through ${formatMonth(
           data.latestRevenueMonth,
         )}; acceleration vs preceding ${periodDefinition.label} growth rate`}
         actions={
           <>
-            <div className="segmented horizon-control" aria-label="Acceleration period">
-              {MOMENTUM_PERIOD_ORDER.map((value) => (
-                <button
-                  type="button"
-                  key={value}
-                  className={period === value ? "active" : ""}
-                  onClick={() => setPeriod(value)}
-                >
-                  {data.periods[value].controlLabel}
-                </button>
-              ))}
-            </div>
+            <label className="select-control momentum-universe-control">
+              <span>Universe</span>
+              <select
+                aria-label="Acceleration universe"
+                value={subsector}
+                onChange={(event) => setSubsector(event.target.value)}
+              >
+                <option value={ALL_MOMENTUM_NAMES}>
+                  All names ({data.companies.length})
+                </option>
+                {subsectorOptions.map(([classification, companyCount]) => (
+                  <option key={classification} value={classification}>
+                    {classification} ({companyCount})
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={16} />
+            </label>
+            <label className="select-control momentum-period-control">
+              <span>Period</span>
+              <select
+                aria-label="Acceleration period"
+                value={period}
+                onChange={(event) =>
+                  setPeriod(event.target.value as MomentumPeriodName)
+                }
+              >
+                {MOMENTUM_PERIOD_ORDER.map((value) => (
+                  <option key={value} value={value}>
+                    {data.periods[value].controlLabel}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={16} />
+            </label>
             <ExportMenu
               rows={exportRows}
-              filename={`${data.latestRevenueMonth}-${period}-growth-acceleration`}
+              filename={`${data.latestRevenueMonth}-${universeLabel
+                .toLowerCase()
+                .replaceAll(/[^a-z0-9]+/g, "-")}-${period}-growth-acceleration`}
             />
           </>
         }

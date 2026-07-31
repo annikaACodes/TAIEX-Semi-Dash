@@ -139,6 +139,10 @@ test("ships complete, internally consistent dashboard data", async () => {
     Object.values(momentum.periods).map((period) => period.controlLabel),
     ["MoM", "3M/3M", "6M/6M", "LTM YoY"],
   );
+  assert.equal(
+    new Set(momentum.companies.map((company) => company.classification)).size,
+    manifest.classificationCount,
+  );
   assert.equal(freshness.companies.length, manifest.companyCount);
   assert.equal(
     freshness.summary.reported + freshness.summary.pending,
