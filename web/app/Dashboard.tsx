@@ -476,14 +476,16 @@ function ScreenHeader({
   title,
   subtitle,
   actions,
+  className,
 }: {
   eyebrow: string;
   title: string;
   subtitle: string;
   actions: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="screen-header">
+    <div className={`screen-header${className ? ` ${className}` : ""}`}>
       <div>
         <span className="eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
@@ -1236,6 +1238,7 @@ function MomentumView({ data }: { data: MomentumData }) {
   return (
     <>
       <ScreenHeader
+        className="momentum-screen-header"
         eyebrow="Growth inflections"
         title="Acceleration monitor"
         subtitle={`${universeLabel} | ${periodDefinition.controlLabel} through ${formatMonth(
