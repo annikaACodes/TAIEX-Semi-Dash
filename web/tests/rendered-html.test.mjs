@@ -134,6 +134,7 @@ test("ships complete, internally consistent dashboard data", async () => {
     manifest.classificationCount,
   );
   assert.equal(momentum.companies.length, manifest.companyCount);
+  assert.deepEqual(Object.keys(momentum.periods), ["mom", "3m", "6m", "ltm"]);
   assert.equal(freshness.companies.length, manifest.companyCount);
   assert.equal(
     freshness.summary.reported + freshness.summary.pending,
@@ -163,6 +164,44 @@ test("ships complete, internally consistent dashboard data", async () => {
       (company) => company.accelerationPercentPoints !== null,
     ),
   );
+  const tsmcMomentum = momentum.companies.find(
+    (company) => company.ticker === "2330",
+  );
+  assert.ok(tsmcMomentum);
+  for (const period of ["mom", "3m", "6m", "ltm"]) {
+    assert.ok(
+      momentum.companies.every((company) => company.periods?.[period]),
+      `Momentum data is missing the ${period} period`,
+    );
+    const result = tsmcMomentum.periods[period];
+    for (const key of [
+      "currentPeriodRevenueNt",
+      "priorPeriodRevenueNt",
+      "currentGrowthPercent",
+      "previousGrowthPercent",
+      "accelerationPercentPoints",
+      "direction",
+    ]) {
+      assert.ok(key in result, `TSMC ${period} momentum is missing ${key}`);
+    }
+    assert.ok(result.currentPeriodRevenueNt > 0);
+    assert.ok(result.priorPeriodRevenueNt > 0);
+    assert.ok(
+      Math.abs(
+        result.currentGrowthPercent -
+          result.previousGrowthPercent -
+          result.accelerationPercentPoints,
+      ) <= 0.02,
+    );
+    assert.equal(
+      result.direction,
+      result.accelerationPercentPoints > 0
+        ? "accelerating"
+        : result.accelerationPercentPoints < 0
+          ? "decelerating"
+          : "unchanged",
+    );
+  }
   assert.match(subsectors.methodology.simple, /Arithmetic mean/i);
   assert.match(subsectors.methodology.revenueWeighted, /weighted/i);
 });

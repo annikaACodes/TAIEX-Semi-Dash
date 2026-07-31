@@ -8,8 +8,9 @@ const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const projectDirectory = resolve(scriptDirectory, "..");
 
 function argumentValue(name, fallback) {
-  const index = process.argv.indexOf(name);
-  return index === -1 ? fallback : process.argv[index + 1];
+  const argumentsList = typeof process === "undefined" ? [] : process.argv;
+  const index = argumentsList.indexOf(name);
+  return index === -1 ? fallback : argumentsList[index + 1];
 }
 
 const databasePath = resolve(
@@ -46,6 +47,33 @@ function shiftMonth(month, offset) {
 function monthKey(value) {
   return String(value).slice(0, 7);
 }
+
+const MOMENTUM_PERIOD_DEFINITIONS = [
+  {
+    id: "mom",
+    months: 1,
+    label: "MoM",
+    controlLabel: "MoM vs prior month",
+  },
+  {
+    id: "3m",
+    months: 3,
+    label: "3M",
+    controlLabel: "3M vs prior 3M",
+  },
+  {
+    id: "6m",
+    months: 6,
+    label: "6M",
+    controlLabel: "6M vs prior 6M",
+  },
+  {
+    id: "ltm",
+    months: 12,
+    label: "LTM",
+    controlLabel: "LTM vs prior LTM",
+  },
+];
 
 function taipeiDate() {
   const parts = new Intl.DateTimeFormat("en-CA", {
@@ -262,6 +290,111 @@ for (const series of Object.values(subsectorSeries)) {
   series.sort((left, right) => left.month.localeCompare(right.month));
 }
 
+function periodRevenue(companyId, endMonth, months) {
+  let total = 0;
+  for (let offset = 0; offset < months; offset += 1) {
+    const observation = revenueByCompanyMonth.get(
+      `${companyId}:${shiftMonth(endMonth, -offset)}`,
+    );
+    if (
+      observation?.revenueNt === null ||
+      observation?.revenueNt === undefined
+    ) {
+      return null;
+    }
+    total += observation.revenueNt;
+  }
+  return Math.round(total);
+}
+
+function periodGrowth(currentRevenue, comparisonRevenue) {
+  if (
+    currentRevenue === null ||
+    comparisonRevenue === null ||
+    comparisonRevenue === 0
+  ) {
+    return null;
+  }
+  return ((currentRevenue / comparisonRevenue) - 1) * 100;
+}
+
+function momentumPeriodForCompany(companyId, definition) {
+  const currentRevenue = periodRevenue(
+    companyId,
+    latestRevenueMonth,
+    definition.months,
+  );
+  const priorRevenue = periodRevenue(
+    companyId,
+    shiftMonth(latestRevenueMonth, -definition.months),
+    definition.months,
+  );
+  const baselineRevenue = periodRevenue(
+    companyId,
+    shiftMonth(latestRevenueMonth, -definition.months * 2),
+    definition.months,
+  );
+  const currentGrowth = periodGrowth(currentRevenue, priorRevenue);
+  const previousGrowth = periodGrowth(priorRevenue, baselineRevenue);
+  const acceleration =
+    currentGrowth === null || previousGrowth === null
+      ? null
+      : round(currentGrowth - previousGrowth);
+  const direction =
+    acceleration === null
+      ? "unavailable"
+      : acceleration > 0
+        ? "accelerating"
+        : acceleration < 0
+          ? "decelerating"
+          : "unchanged";
+  return {
+    currentPeriodRevenueNt: currentRevenue,
+    priorPeriodRevenueNt: priorRevenue,
+    currentGrowthPercent: round(currentGrowth),
+    previousGrowthPercent: round(previousGrowth),
+    accelerationPercentPoints: acceleration,
+    direction,
+  };
+}
+
+const momentumPeriods = Object.fromEntries(
+  MOMENTUM_PERIOD_DEFINITIONS.map((definition) => {
+    const currentEndMonth = latestRevenueMonth;
+    const priorEndMonth = shiftMonth(
+      latestRevenueMonth,
+      -definition.months,
+    );
+    const baselineEndMonth = shiftMonth(
+      latestRevenueMonth,
+      -definition.months * 2,
+    );
+    return [
+      definition.id,
+      {
+        months: definition.months,
+        label: definition.label,
+        controlLabel: definition.controlLabel,
+        currentPeriodStartMonth: shiftMonth(
+          currentEndMonth,
+          -(definition.months - 1),
+        ),
+        currentPeriodEndMonth: currentEndMonth,
+        priorPeriodStartMonth: shiftMonth(
+          priorEndMonth,
+          -(definition.months - 1),
+        ),
+        priorPeriodEndMonth: priorEndMonth,
+        baselinePeriodStartMonth: shiftMonth(
+          baselineEndMonth,
+          -(definition.months - 1),
+        ),
+        baselinePeriodEndMonth: baselineEndMonth,
+      },
+    ];
+  }),
+);
+
 const momentum = companyRows.map((company) => {
   const current = revenueByCompanyMonth.get(
     `${company.company_id}:${latestRevenueMonth}`,
@@ -298,6 +431,12 @@ const momentum = companyRows.map((company) => {
     ytdYoyPercent: current?.ytdYoyPercent ?? null,
     accelerationPercentPoints: acceleration,
     direction,
+    periods: Object.fromEntries(
+      MOMENTUM_PERIOD_DEFINITIONS.map((definition) => [
+        definition.id,
+        momentumPeriodForCompany(company.company_id, definition),
+      ]),
+    ),
   };
 });
 
@@ -396,6 +535,7 @@ const subsectorData = {
 const momentumData = {
   latestRevenueMonth,
   previousRevenueMonth,
+  periods: momentumPeriods,
   companies: momentum,
 };
 const freshnessData = {

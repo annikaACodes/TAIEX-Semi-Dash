@@ -108,26 +108,50 @@ interface SubsectorData {
   series: Record<string, SubsectorRow[]>;
 }
 
+type MomentumPeriodName = "mom" | "3m" | "6m" | "ltm";
+type MomentumDirection =
+  | "accelerating"
+  | "decelerating"
+  | "unchanged"
+  | "unavailable";
+
+interface MomentumPeriodResult {
+  currentPeriodRevenueNt: number | null;
+  priorPeriodRevenueNt: number | null;
+  currentGrowthPercent: number | null;
+  previousGrowthPercent: number | null;
+  accelerationPercentPoints: number | null;
+  direction: MomentumDirection;
+}
+
+interface MomentumPeriodDefinition {
+  months: number;
+  label: string;
+  controlLabel: string;
+  currentPeriodStartMonth: string;
+  currentPeriodEndMonth: string;
+  priorPeriodStartMonth: string;
+  priorPeriodEndMonth: string;
+  baselinePeriodStartMonth: string;
+  baselinePeriodEndMonth: string;
+}
+
 interface MomentumRow {
   companyId: number;
   ticker: string;
   name: string;
   classification: string;
-  latestMonth: string | null;
-  latestRevenueNt: number | null;
-  momPercent: number | null;
-  yoyPercent: number | null;
-  previousYoyPercent: number | null;
-  ytdYoyPercent: number | null;
-  accelerationPercentPoints: number | null;
-  direction: "accelerating" | "decelerating" | "unchanged" | "unavailable";
+  periods: Record<MomentumPeriodName, MomentumPeriodResult>;
 }
 
 interface MomentumData {
   latestRevenueMonth: string;
   previousRevenueMonth: string;
+  periods: Record<MomentumPeriodName, MomentumPeriodDefinition>;
   companies: MomentumRow[];
 }
+
+type MomentumDisplayRow = Omit<MomentumRow, "periods"> & MomentumPeriodResult;
 
 interface FreshnessRow {
   companyId: number;
@@ -206,6 +230,12 @@ function formatMonth(value: string | null | undefined) {
     year: "numeric",
     timeZone: "UTC",
   }).format(new Date(Date.UTC(year, month - 1, 1)));
+}
+
+function formatMonthRange(start: string, end: string) {
+  return start === end
+    ? formatMonth(end)
+    : `${formatMonth(start)} to ${formatMonth(end)}`;
 }
 
 function formatDate(value: string | null | undefined) {
@@ -1094,21 +1124,32 @@ function SubsectorView({ data }: { data: SubsectorData }) {
 }
 
 type MomentumFilter = "all" | "accelerating" | "decelerating";
+const MOMENTUM_PERIOD_ORDER: MomentumPeriodName[] = ["mom", "3m", "6m", "ltm"];
 
 function MomentumView({ data }: { data: MomentumData }) {
   const [filter, setFilter] = useState<MomentumFilter>("all");
+  const [period, setPeriod] = useState<MomentumPeriodName>("mom");
   const [query, setQuery] = useState("");
+  const periodDefinition = data.periods[period];
+  const periodRows = useMemo<MomentumDisplayRow[]>(
+    () =>
+      data.companies.map(({ periods, ...company }) => ({
+        ...company,
+        ...periods[period],
+      })),
+    [data, period],
+  );
   const counts = useMemo(
     () => ({
-      accelerating: data.companies.filter((row) => row.direction === "accelerating").length,
-      decelerating: data.companies.filter((row) => row.direction === "decelerating").length,
-      unchanged: data.companies.filter((row) => row.direction === "unchanged").length,
+      accelerating: periodRows.filter((row) => row.direction === "accelerating").length,
+      decelerating: periodRows.filter((row) => row.direction === "decelerating").length,
+      unchanged: periodRows.filter((row) => row.direction === "unchanged").length,
     }),
-    [data],
+    [periodRows],
   );
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return data.companies
+    return periodRows
       .filter((row) => filter === "all" || row.direction === filter)
       .filter(
         (row) =>
@@ -1126,7 +1167,7 @@ function MomentumView({ data }: { data: MomentumData }) {
           ? leftValue - rightValue
           : rightValue - leftValue;
       });
-  }, [data, filter, query]);
+  }, [filter, periodRows, query]);
   const chartRows =
     filter === "all"
       ? [...filtered]
@@ -1142,17 +1183,27 @@ function MomentumView({ data }: { data: MomentumData }) {
               (right.accelerationPercentPoints ?? 0),
           )
       : filtered.slice(0, 18).reverse();
+  const windowLabel = period === "mom" ? "Month" : periodDefinition.label;
+  const currentWindow = formatMonthRange(
+    periodDefinition.currentPeriodStartMonth,
+    periodDefinition.currentPeriodEndMonth,
+  );
+  const priorWindow = formatMonthRange(
+    periodDefinition.priorPeriodStartMonth,
+    periodDefinition.priorPeriodEndMonth,
+  );
   const exportRows: ExportRow[] = filtered.map((row) => ({
     Ticker: row.ticker,
     Company: row.name,
     Subsector: row.classification,
-    Month: row.latestMonth,
-    "Revenue (NT$)": row.latestRevenueNt,
-    "MoM (%)": row.momPercent,
-    "Current YoY (%)": row.yoyPercent,
-    "Prior-Month YoY (%)": row.previousYoyPercent,
-    "YoY Acceleration (pp)": row.accelerationPercentPoints,
-    "YTD YoY (%)": row.ytdYoyPercent,
+    Period: periodDefinition.controlLabel,
+    "Current Window": currentWindow,
+    "Prior Window": priorWindow,
+    [`Current ${windowLabel} Revenue (NT$)`]: row.currentPeriodRevenueNt,
+    [`Prior ${windowLabel} Revenue (NT$)`]: row.priorPeriodRevenueNt,
+    [`Current ${periodDefinition.label} Growth (%)`]: row.currentGrowthPercent,
+    [`Prior ${periodDefinition.label} Growth (%)`]: row.previousGrowthPercent,
+    [`${periodDefinition.label} Acceleration (pp)`]: row.accelerationPercentPoints,
     Direction: row.direction,
   }));
 
@@ -1161,14 +1212,28 @@ function MomentumView({ data }: { data: MomentumData }) {
       <ScreenHeader
         eyebrow="Growth inflections"
         title="Acceleration monitor"
-        subtitle={`Change in company YoY growth from ${formatMonth(
-          data.previousRevenueMonth,
-        )} to ${formatMonth(data.latestRevenueMonth)}`}
+        subtitle={`${periodDefinition.controlLabel} through ${formatMonth(
+          data.latestRevenueMonth,
+        )}; acceleration vs preceding ${periodDefinition.label} growth rate`}
         actions={
-          <ExportMenu
-            rows={exportRows}
-            filename={`${data.latestRevenueMonth}-growth-acceleration`}
-          />
+          <>
+            <div className="segmented horizon-control" aria-label="Acceleration period">
+              {MOMENTUM_PERIOD_ORDER.map((value) => (
+                <button
+                  type="button"
+                  key={value}
+                  className={period === value ? "active" : ""}
+                  onClick={() => setPeriod(value)}
+                >
+                  {data.periods[value].controlLabel}
+                </button>
+              ))}
+            </div>
+            <ExportMenu
+              rows={exportRows}
+              filename={`${data.latestRevenueMonth}-${period}-growth-acceleration`}
+            />
+          </>
         }
       />
 
@@ -1177,18 +1242,18 @@ function MomentumView({ data }: { data: MomentumData }) {
           label="Accelerating"
           value={String(counts.accelerating)}
           tone="positive"
-          detail="YoY growth improved"
+          detail={`${periodDefinition.label} growth improved`}
         />
         <MetricCard
           label="Decelerating"
           value={String(counts.decelerating)}
           tone="negative"
-          detail="YoY growth slowed"
+          detail={`${periodDefinition.label} growth slowed`}
         />
         <MetricCard
-          label="No YoY Rate Change"
+          label={`No ${periodDefinition.label} Rate Change`}
           value={String(counts.unchanged)}
-          detail="Companies at 0.00pp vs prior month"
+          detail="Companies at 0.00pp vs prior rate"
         />
         <MetricCard
           label="Breadth"
@@ -1229,7 +1294,7 @@ function MomentumView({ data }: { data: MomentumData }) {
         </div>
         <div className="chart-title-row">
           <div>
-            <span>YoY acceleration</span>
+            <span>{periodDefinition.label} growth acceleration</span>
             <strong>Percentage-point change</strong>
           </div>
           <span>{filter === "all" ? "Largest absolute changes" : `Top ${filter} names`}</span>
@@ -1265,7 +1330,7 @@ function MomentumView({ data }: { data: MomentumData }) {
               <ReferenceLine x={0} stroke="#64748b" />
               <Bar
                 dataKey="accelerationPercentPoints"
-                name="YoY acceleration"
+                name={`${periodDefinition.label} acceleration`}
                 radius={[2, 2, 2, 2]}
                 isAnimationActive={false}
               >
@@ -1299,10 +1364,10 @@ function MomentumView({ data }: { data: MomentumData }) {
                 <th>Ticker</th>
                 <th>Company</th>
                 <th>Subsector</th>
-                <th className="numeric">Revenue</th>
-                <th className="numeric">MoM</th>
-                <th className="numeric">Prior YoY</th>
-                <th className="numeric">Current YoY</th>
+                <th className="numeric">Current {windowLabel} Rev.</th>
+                <th className="numeric">Prior {windowLabel} Rev.</th>
+                <th className="numeric">Prior {periodDefinition.label} Growth</th>
+                <th className="numeric">Current {periodDefinition.label} Growth</th>
                 <th className="numeric">Acceleration</th>
                 <th>Direction</th>
               </tr>
@@ -1313,15 +1378,17 @@ function MomentumView({ data }: { data: MomentumData }) {
                   <td className="ticker-cell">{row.ticker}</td>
                   <td className="strong-cell">{row.name}</td>
                   <td>{row.classification}</td>
-                  <td className="numeric mono">{compactCurrency(row.latestRevenueNt)}</td>
-                  <td className={`numeric mono ${valueClass(row.momPercent)}`}>
-                    {formatPercent(row.momPercent)}
+                  <td className="numeric mono">
+                    {compactCurrency(row.currentPeriodRevenueNt)}
                   </td>
-                  <td className={`numeric mono ${valueClass(row.previousYoyPercent)}`}>
-                    {formatPercent(row.previousYoyPercent)}
+                  <td className="numeric mono">
+                    {compactCurrency(row.priorPeriodRevenueNt)}
                   </td>
-                  <td className={`numeric mono ${valueClass(row.yoyPercent)}`}>
-                    {formatPercent(row.yoyPercent)}
+                  <td className={`numeric mono ${valueClass(row.previousGrowthPercent)}`}>
+                    {formatPercent(row.previousGrowthPercent)}
+                  </td>
+                  <td className={`numeric mono ${valueClass(row.currentGrowthPercent)}`}>
+                    {formatPercent(row.currentGrowthPercent)}
                   </td>
                   <td
                     className={`numeric mono strong-cell ${valueClass(

@@ -37,6 +37,10 @@ jobs:
         working-directory: web
         run: npm ci
 
+      - name: Regenerate dashboard data
+        working-directory: web
+        run: node scripts/build-dashboard-data.mjs
+
       - name: Build the public dashboard
         working-directory: web
         run: npm run build:pages

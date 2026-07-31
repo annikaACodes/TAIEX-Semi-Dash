@@ -9,7 +9,8 @@ semiconductor companies.
   YTD revenue, YTD YoY, publication timestamp, restatement status, and source.
 - **Subsectors:** Classification-level aggregate revenue with simple or
   current-revenue-weighted YoY.
-- **Acceleration:** Company rankings based on the monthly change in YoY growth.
+- **Acceleration:** Company rankings across MoM, rolling 3M, rolling 6M, and
+  LTM revenue-growth acceleration.
 - **Freshness:** Reported, pending, overdue, and unusual release timing for the
   active reporting month.
 - **Exports:** CSV and Excel downloads for the data displayed in each view.
