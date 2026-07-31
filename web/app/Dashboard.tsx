@@ -1186,9 +1186,9 @@ function MomentumView({ data }: { data: MomentumData }) {
           detail="YoY growth slowed"
         />
         <MetricCard
-          label="Unchanged"
+          label="No YoY Rate Change"
           value={String(counts.unchanged)}
-          detail="No change in YoY rate"
+          detail="Companies at 0.00pp vs prior month"
         />
         <MetricCard
           label="Breadth"
