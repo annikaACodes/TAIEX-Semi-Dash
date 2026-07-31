@@ -30,7 +30,7 @@ jobs:
           node-version: "24"
 
       - name: Run parser and forecast tests
-        run: node --test
+        run: node --test test/*.test.mjs
 
       - name: Poll official sources and update SQLite
         run: node scripts/update-live-data.mjs
