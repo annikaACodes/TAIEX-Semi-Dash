@@ -53,25 +53,25 @@ const MOMENTUM_PERIOD_DEFINITIONS = [
     id: "mom",
     months: 1,
     label: "MoM",
-    controlLabel: "MoM vs prior month",
+    controlLabel: "MoM",
   },
   {
     id: "3m",
     months: 3,
     label: "3M",
-    controlLabel: "3M vs prior 3M",
+    controlLabel: "3M/3M",
   },
   {
     id: "6m",
     months: 6,
     label: "6M",
-    controlLabel: "6M vs prior 6M",
+    controlLabel: "6M/6M",
   },
   {
     id: "ltm",
     months: 12,
     label: "LTM",
-    controlLabel: "LTM vs prior LTM",
+    controlLabel: "LTM YoY",
   },
 ];
 

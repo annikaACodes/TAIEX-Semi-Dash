@@ -135,6 +135,10 @@ test("ships complete, internally consistent dashboard data", async () => {
   );
   assert.equal(momentum.companies.length, manifest.companyCount);
   assert.deepEqual(Object.keys(momentum.periods), ["mom", "3m", "6m", "ltm"]);
+  assert.deepEqual(
+    Object.values(momentum.periods).map((period) => period.controlLabel),
+    ["MoM", "3M/3M", "6M/6M", "LTM YoY"],
+  );
   assert.equal(freshness.companies.length, manifest.companyCount);
   assert.equal(
     freshness.summary.reported + freshness.summary.pending,
