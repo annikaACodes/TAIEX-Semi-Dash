@@ -1250,8 +1250,8 @@ function MomentumView({ data }: { data: MomentumData }) {
               />
               <YAxis
                 type="category"
-                dataKey="ticker"
-                width={48}
+                dataKey="name"
+                width={120}
                 tickLine={false}
                 axisLine={false}
               />
