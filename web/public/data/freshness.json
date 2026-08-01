@@ -2,8 +2,8 @@
   "asOfDateTaipei": "2026-08-01",
   "targetReportingMonth": "2026-07",
   "summary": {
-    "reported": 0,
-    "pending": 314,
+    "reported": 1,
+    "pending": 313,
     "overdue": 0,
     "unusual": 0
   },
@@ -754,19 +754,19 @@
       "ticker": "2402",
       "name": "ICHIA",
       "classification": "PCB & Flex Circuits",
-      "reported": false,
-      "expectedDate": "2026-08-10",
-      "expectedTime": null,
+      "reported": true,
+      "expectedDate": "2026-08-01",
+      "expectedTime": "19:02:52",
       "regulatoryDeadline": "2026-08-10",
-      "scheduleSource": "regulatory_prior",
+      "scheduleSource": "actual_first_seen",
       "forecastConfidence": null,
-      "releaseStatus": "forecast",
+      "releaseStatus": "reported",
       "overdue": false,
       "unusualReportDate": false,
       "unusualReason": null,
-      "deviationFromHistoryDays": null,
-      "publicationTimestamp": null,
-      "latestRevenueMonth": "2026-06"
+      "deviationFromHistoryDays": 0,
+      "publicationTimestamp": "2026-08-01T11:02:52.847Z",
+      "latestRevenueMonth": "2026-07"
     },
     {
       "companyId": 41,

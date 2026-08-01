@@ -1,10 +1,10 @@
 {
   "generatedDateTaipei": "2026-08-01",
-  "latestRevenueMonth": "2026-06",
+  "latestRevenueMonth": "2026-07",
   "targetReportingMonth": "2026-07",
   "companyCount": 314,
   "classificationCount": 27,
-  "revenueObservationCount": 18446,
+  "revenueObservationCount": 18447,
   "companies": [
     {
       "id": 1,
@@ -638,13 +638,13 @@
       "classifications": [
         "PCB & Flex Circuits"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 1134829000,
-      "latestMomPercent": 6.502012581331466,
-      "latestYoyPercent": 21.700742647255957,
-      "latestYtdRevenueNt": 6081262000,
-      "latestYtdYoyPercent": 16.07451047908592,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1166674000,
+      "latestMomPercent": 2.806149648977952,
+      "latestYoyPercent": 24.01504328452132,
+      "latestYtdRevenueNt": 7247936000,
+      "latestYtdYoyPercent": 17.28330754793035,
+      "latestPublicationTimestamp": "2026-08-01T11:02:52.847Z",
       "restatementFlag": false
     },
     {

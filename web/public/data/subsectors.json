@@ -1,5 +1,5 @@
 {
-  "latestRevenueMonth": "2026-06",
+  "latestRevenueMonth": "2026-07",
   "methodology": {
     "simple": "Arithmetic mean of reported company YoY percentages in the subsector.",
     "revenueWeighted": "Mean of reported company YoY percentages weighted by current-month revenue."
@@ -2535,6 +2535,13 @@
         "simpleYoyPercent": 28.38,
         "revenueWeightedYoyPercent": 33.19,
         "reportingCompanies": 20
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 1166674000,
+        "simpleYoyPercent": 24.02,
+        "revenueWeightedYoyPercent": 24.02,
+        "reportingCompanies": 1
       }
     ],
     "Passive Components": [
