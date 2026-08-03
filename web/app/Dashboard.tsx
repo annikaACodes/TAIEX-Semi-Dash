@@ -716,7 +716,7 @@ function CompanyView({
   useEffect(() => {
     if (bundledCompany) return;
     let active = true;
-    fetch(`./data/companies/${selectedTicker}.json`)
+    fetch(`./data/companies/${selectedTicker}.json`, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error("Company history could not be loaded.");
         return response.json() as Promise<CompanyData>;
@@ -1901,25 +1901,28 @@ function LoadingShell() {
 
 async function fetchDashboardData() {
   try {
-    const response = await fetch("/api/dashboard-bundle");
-    if (response.ok) return (await response.json()) as DashboardData;
+    const response = await fetch("/api/dashboard-bundle", { cache: "no-store" });
+    if (response.ok) {
+      const dashboardData = (await response.json()) as DashboardData;
+      if (Array.isArray(dashboardData.exchangeRates)) return dashboardData;
+    }
   } catch {
     // Static hosts use the generated data files below.
   }
 
-  const [manifest, subsectors, momentum, freshness] = await Promise.all([
-    fetch("./data/manifest.json").then((response) => response.json() as Promise<Manifest>),
-    fetch("./data/subsectors.json").then(
-      (response) => response.json() as Promise<SubsectorData>,
-    ),
-    fetch("./data/momentum.json").then(
-      (response) => response.json() as Promise<MomentumData>,
-    ),
-    fetch("./data/freshness.json").then(
-      (response) => response.json() as Promise<FreshnessData>,
-    ),
+  const fetchStaticJson = async <T,>(path: string) => {
+    const response = await fetch(path, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Dashboard data request failed: ${path}`);
+    return response.json() as Promise<T>;
+  };
+  const [manifest, exchangeRates, subsectors, momentum, freshness] = await Promise.all([
+    fetchStaticJson<Manifest>("./data/manifest.json"),
+    fetchStaticJson<MonthlyExchangeRate[]>("./data/exchange-rates.json"),
+    fetchStaticJson<SubsectorData>("./data/subsectors.json"),
+    fetchStaticJson<MomentumData>("./data/momentum.json"),
+    fetchStaticJson<FreshnessData>("./data/freshness.json"),
   ]);
-  return { manifest, subsectors, momentum, freshness, companies: {} };
+  return { manifest, exchangeRates, subsectors, momentum, freshness, companies: {} };
 }
 
 export function Dashboard() {

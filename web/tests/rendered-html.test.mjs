@@ -34,6 +34,20 @@ async function readJson(relativePath) {
   );
 }
 
+test("static Pages loader fetches historical exchange rates", async () => {
+  const source = await readFile(
+    new URL("../app/Dashboard.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(
+    source,
+    /fetchStaticJson<MonthlyExchangeRate\[\]>\("\.\/data\/exchange-rates\.json"\)/,
+  );
+  assert.match(source, /return \{ manifest, exchangeRates, subsectors/);
+  assert.match(source, /fetch\(path, \{ cache: "no-store" \}\)/);
+});
+
 test("server-renders the finance dashboard shell", async () => {
   const response = await render();
   assert.equal(response.status, 200);
