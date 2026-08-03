@@ -1592,31 +1592,6 @@ function FreshnessView({ data }: { data: FreshnessData }) {
       </section>
 
       <section className="panel chart-panel">
-        <div className="panel-toolbar">
-          <div className="segmented freshness-filters" aria-label="Freshness status">
-            {(["all", "reported", "pending", "overdue", "unusual"] as FreshnessFilter[]).map(
-              (value) => (
-                <button
-                  type="button"
-                  key={value}
-                  className={filter === value ? "active" : ""}
-                  onClick={() => setFilter(value)}
-                >
-                  {value[0].toUpperCase() + value.slice(1)}
-                </button>
-              ),
-            )}
-          </div>
-          <label className="search-field table-search">
-            <Search size={16} />
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search names"
-              aria-label="Search freshness names"
-            />
-          </label>
-        </div>
         <div className="chart-title-row">
           <div>
             <span>Expected release distribution</span>
@@ -1671,6 +1646,31 @@ function FreshnessView({ data }: { data: FreshnessData }) {
             <h3>Company reporting status</h3>
             <span>{filtered.length} companies in the current view</span>
           </div>
+        </div>
+        <div className="panel-toolbar">
+          <div className="segmented freshness-filters" aria-label="Freshness status">
+            {(["all", "reported", "pending", "overdue", "unusual"] as FreshnessFilter[]).map(
+              (value) => (
+                <button
+                  type="button"
+                  key={value}
+                  className={filter === value ? "active" : ""}
+                  onClick={() => setFilter(value)}
+                >
+                  {value[0].toUpperCase() + value.slice(1)}
+                </button>
+              ),
+            )}
+          </div>
+          <label className="search-field table-search">
+            <Search size={16} />
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search names"
+              aria-label="Search freshness names"
+            />
+          </label>
         </div>
         <div className="table-scroll">
           <table>
