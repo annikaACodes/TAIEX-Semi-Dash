@@ -5918,6 +5918,13 @@
         "simpleYoyPercent": 51.85,
         "revenueWeightedYoyPercent": 69.34,
         "reportingCompanies": 18
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 638075000,
+        "simpleYoyPercent": 5.38,
+        "revenueWeightedYoyPercent": 5.38,
+        "reportingCompanies": 1
       }
     ],
     "Test & Inspection Equipment": [
@@ -6343,10 +6350,10 @@
       },
       {
         "month": "2026-07",
-        "aggregateRevenueNt": 359659000,
-        "simpleYoyPercent": 31.84,
-        "revenueWeightedYoyPercent": 31.84,
-        "reportingCompanies": 1
+        "aggregateRevenueNt": 1393068000,
+        "simpleYoyPercent": 35.01,
+        "revenueWeightedYoyPercent": 36.55,
+        "reportingCompanies": 2
       }
     ],
     "Connectivity & Interface IC Design": [

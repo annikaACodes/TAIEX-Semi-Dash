@@ -4,7 +4,7 @@
   "targetReportingMonth": "2026-07",
   "companyCount": 314,
   "classificationCount": 27,
-  "revenueObservationCount": 18449,
+  "revenueObservationCount": 18451,
   "companies": [
     {
       "id": 1,
@@ -1585,13 +1585,13 @@
       "classifications": [
         "Test & Inspection Equipment"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 763581000,
-      "latestMomPercent": -28.690738343783444,
-      "latestYoyPercent": 0.43471055248357177,
-      "latestYtdRevenueNt": 5387967000,
-      "latestYtdYoyPercent": 24.768939846552716,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1033409000,
+      "latestMomPercent": 35.337180993241056,
+      "latestYoyPercent": 38.18565711160527,
+      "latestYtdRevenueNt": 6421376000,
+      "latestYtdYoyPercent": 26.74943354946521,
+      "latestPublicationTimestamp": "2026-08-03T12:34:05.771Z",
       "restatementFlag": false
     },
     {
@@ -3973,13 +3973,13 @@
       "classifications": [
         "Fab Equipment & Automation"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 592925000,
-      "latestMomPercent": 0.09217072178453321,
-      "latestYoyPercent": -3.1260109336043316,
-      "latestYtdRevenueNt": 3568453000,
-      "latestYtdYoyPercent": 11.989095002587536,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 638075000,
+      "latestMomPercent": 7.6147910781296115,
+      "latestYoyPercent": 5.380721558394372,
+      "latestYtdRevenueNt": 4206528000,
+      "latestYtdYoyPercent": 10.933868927752771,
+      "latestPublicationTimestamp": "2026-08-03T12:34:05.771Z",
       "restatementFlag": false
     },
     {

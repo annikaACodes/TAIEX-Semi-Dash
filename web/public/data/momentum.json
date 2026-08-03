@@ -4757,46 +4757,46 @@
       "ticker": "3030",
       "name": "TRI",
       "classification": "Test & Inspection Equipment",
-      "latestMonth": null,
-      "latestRevenueNt": null,
-      "momPercent": null,
-      "yoyPercent": null,
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1033409000,
+      "momPercent": 35.337180993241056,
+      "yoyPercent": 38.18565711160527,
       "previousYoyPercent": 0.43471055248357177,
-      "ytdYoyPercent": null,
-      "accelerationPercentPoints": null,
-      "direction": "unavailable",
+      "ytdYoyPercent": 26.74943354946521,
+      "accelerationPercentPoints": 37.75,
+      "direction": "accelerating",
       "periods": {
         "mom": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 1033409000,
           "priorPeriodRevenueNt": 763581000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 35.34,
           "previousGrowthPercent": -28.69,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 64.03,
+          "direction": "accelerating"
         },
         "3m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 2867792000,
           "priorPeriodRevenueNt": 2659983000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 7.81,
           "previousGrowthPercent": 9.19,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": -1.38,
+          "direction": "decelerating"
         },
         "6m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 5527775000,
           "priorPeriodRevenueNt": 4294838000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 28.71,
           "previousGrowthPercent": -2.86,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 31.56,
+          "direction": "accelerating"
         },
         "ltm": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 9822613000,
           "priorPeriodRevenueNt": 7646167000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 28.46,
           "previousGrowthPercent": 30.59,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": -2.12,
+          "direction": "decelerating"
         }
       }
     },
@@ -11909,46 +11909,46 @@
       "ticker": "6438",
       "name": "SAA",
       "classification": "Fab Equipment & Automation",
-      "latestMonth": null,
-      "latestRevenueNt": null,
-      "momPercent": null,
-      "yoyPercent": null,
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 638075000,
+      "momPercent": 7.6147910781296115,
+      "yoyPercent": 5.380721558394372,
       "previousYoyPercent": -3.1260109336043316,
-      "ytdYoyPercent": null,
-      "accelerationPercentPoints": null,
-      "direction": "unavailable",
+      "ytdYoyPercent": 10.933868927752771,
+      "accelerationPercentPoints": 8.51,
+      "direction": "accelerating",
       "periods": {
         "mom": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 638075000,
           "priorPeriodRevenueNt": 592925000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 7.61,
           "previousGrowthPercent": 0.09,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 7.52,
+          "direction": "accelerating"
         },
         "3m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 1823379000,
           "priorPeriodRevenueNt": 1817616000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 0.32,
           "previousGrowthPercent": 9.85,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": -9.53,
+          "direction": "decelerating"
         },
         "6m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 3640995000,
           "priorPeriodRevenueNt": 3241046000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 12.34,
           "previousGrowthPercent": -1.28,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 13.62,
+          "direction": "accelerating"
         },
         "ltm": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 6882041000,
           "priorPeriodRevenueNt": 5962901000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 15.41,
           "previousGrowthPercent": 14.7,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 0.71,
+          "direction": "accelerating"
         }
       }
     },
