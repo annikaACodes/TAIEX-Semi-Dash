@@ -1703,7 +1703,11 @@ function FreshnessView({ data }: { data: FreshnessData }) {
                     {row.expectedTime && <small className="block-detail">{row.expectedTime} Taipei</small>}
                   </td>
                   <td>{formatTimestamp(row.publicationTimestamp)}</td>
-                  <td>{row.scheduleSource?.replaceAll("_", " ") ?? "Not available"}</td>
+                  <td>
+                    {row.scheduleSource === "ir_calendar"
+                      ? "IR calendar"
+                      : row.scheduleSource?.replaceAll("_", " ") ?? "Not available"}
+                  </td>
                   <td>
                     {row.overdue ? (
                       <span className="state-label overdue">
