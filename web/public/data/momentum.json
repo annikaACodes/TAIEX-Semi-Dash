@@ -7397,46 +7397,46 @@
       "ticker": "3563",
       "name": "MACHVISION",
       "classification": "Test & Inspection Equipment",
-      "latestMonth": null,
-      "latestRevenueNt": null,
-      "momPercent": null,
-      "yoyPercent": null,
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 359659000,
+      "momPercent": 1.2815819412685718,
+      "yoyPercent": 31.844159081494624,
       "previousYoyPercent": 15.616880791295232,
-      "ytdYoyPercent": null,
-      "accelerationPercentPoints": null,
-      "direction": "unavailable",
+      "ytdYoyPercent": 11.608288699743282,
+      "accelerationPercentPoints": 16.23,
+      "direction": "accelerating",
       "periods": {
         "mom": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 359659000,
           "priorPeriodRevenueNt": 355108000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 1.28,
           "previousGrowthPercent": 1.74,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": -0.46,
+          "direction": "decelerating"
         },
         "3m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 1063787000,
           "priorPeriodRevenueNt": 966858000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 10.03,
           "previousGrowthPercent": 38.72,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": -28.7,
+          "direction": "decelerating"
         },
         "6m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 2030645000,
           "priorPeriodRevenueNt": 1397820000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 45.27,
           "previousGrowthPercent": -23.16,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 68.43,
+          "direction": "accelerating"
         },
         "ltm": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 3428465000,
           "priorPeriodRevenueNt": 2876578000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 19.19,
           "previousGrowthPercent": 144.88,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": -125.7,
+          "direction": "decelerating"
         }
       }
     },
@@ -14357,46 +14357,46 @@
       "ticker": "8046",
       "name": "N.P.C",
       "classification": "IC Substrates",
-      "latestMonth": null,
-      "latestRevenueNt": null,
-      "momPercent": null,
-      "yoyPercent": null,
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 5439751000,
+      "momPercent": 16.126529060393043,
+      "yoyPercent": 50.241184043103516,
       "previousYoyPercent": 50.025381450371334,
-      "ytdYoyPercent": null,
-      "accelerationPercentPoints": null,
-      "direction": "unavailable",
+      "ytdYoyPercent": 39.38224870427572,
+      "accelerationPercentPoints": 0.22,
+      "direction": "accelerating",
       "periods": {
         "mom": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 5439751000,
           "priorPeriodRevenueNt": 4684331000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 16.13,
           "previousGrowthPercent": 5.5,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 10.63,
+          "direction": "accelerating"
         },
         "3m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 14564369000,
           "priorPeriodRevenueNt": 11907673000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 22.31,
           "previousGrowthPercent": 6.52,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 15.79,
+          "direction": "accelerating"
         },
         "6m": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 26472042000,
           "priorPeriodRevenueNt": 22231785000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 19.07,
           "previousGrowthPercent": 16.42,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 2.65,
+          "direction": "accelerating"
         },
         "ltm": {
-          "currentPeriodRevenueNt": null,
+          "currentPeriodRevenueNt": 48703827000,
           "priorPeriodRevenueNt": 35598371000,
-          "currentGrowthPercent": null,
+          "currentGrowthPercent": 36.81,
           "previousGrowthPercent": 3.03,
-          "accelerationPercentPoints": null,
-          "direction": "unavailable"
+          "accelerationPercentPoints": 33.78,
+          "direction": "accelerating"
         }
       }
     },

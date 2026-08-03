@@ -6340,6 +6340,13 @@
         "simpleYoyPercent": 49.16,
         "revenueWeightedYoyPercent": 102.13,
         "reportingCompanies": 12
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 359659000,
+        "simpleYoyPercent": 31.84,
+        "revenueWeightedYoyPercent": 31.84,
+        "reportingCompanies": 1
       }
     ],
     "Connectivity & Interface IC Design": [
@@ -10982,6 +10989,13 @@
         "simpleYoyPercent": 23.78,
         "revenueWeightedYoyPercent": 38.07,
         "reportingCompanies": 4
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 5439751000,
+        "simpleYoyPercent": 50.24,
+        "revenueWeightedYoyPercent": 50.24,
+        "reportingCompanies": 1
       }
     ],
     "Sensor & Imaging IC Design": [

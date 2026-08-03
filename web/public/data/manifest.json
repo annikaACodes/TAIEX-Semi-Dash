@@ -4,7 +4,7 @@
   "targetReportingMonth": "2026-07",
   "companyCount": 314,
   "classificationCount": 27,
-  "revenueObservationCount": 18447,
+  "revenueObservationCount": 18449,
   "companies": [
     {
       "id": 1,
@@ -2466,13 +2466,13 @@
       "classifications": [
         "Test & Inspection Equipment"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 355108000,
-      "latestMomPercent": 1.7443126468397228,
-      "latestYoyPercent": 15.616880791295232,
-      "latestYtdRevenueNt": 1911044000,
-      "latestYtdYoyPercent": 8.474926464661602,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 359659000,
+      "latestMomPercent": 1.2815819412685718,
+      "latestYoyPercent": 31.844159081494624,
+      "latestYtdRevenueNt": 2270703000,
+      "latestYtdYoyPercent": 11.608288699743282,
+      "latestPublicationTimestamp": "2026-08-03T08:49:17.994Z",
       "restatementFlag": false
     },
     {
@@ -4794,13 +4794,13 @@
       "classifications": [
         "IC Substrates"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 4684331000,
-      "latestMomPercent": 5.4961312185451074,
-      "latestYoyPercent": 50.025381450371334,
-      "latestYtdRevenueNt": 24752716000,
-      "latestYtdYoyPercent": 37.202944567611766,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 5439751000,
+      "latestMomPercent": 16.126529060393043,
+      "latestYoyPercent": 50.241184043103516,
+      "latestYtdRevenueNt": 30192467000,
+      "latestYtdYoyPercent": 39.38224870427572,
+      "latestPublicationTimestamp": "2026-08-03T08:49:17.994Z",
       "restatementFlag": false
     },
     {
