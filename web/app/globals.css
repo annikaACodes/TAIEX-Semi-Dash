@@ -288,6 +288,25 @@ footer {
   gap: 10px;
 }
 
+.currency-control {
+  min-width: 220px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.currency-toggle button {
+  min-width: 48px;
+}
+
+.fx-rate-note {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
 .button {
   height: 38px;
   padding: 0 13px;
@@ -1267,6 +1286,23 @@ footer > div {
 
   .screen-actions {
     justify-content: stretch;
+  }
+
+  .company-screen-header .screen-actions {
+    flex-wrap: wrap;
+  }
+
+  .company-screen-header .currency-control {
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .company-screen-header .company-selector {
+    width: auto;
+    flex: 1 1 220px;
   }
 
   .company-selector,

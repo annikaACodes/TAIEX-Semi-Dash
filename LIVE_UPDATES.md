@@ -11,6 +11,12 @@ commits only meaningful changes.
 - Time interpretation: Asia/Taipei (UTC+8)
 - Manual fallback: GitHub Actions > Update live monthly revenue > Run workflow
 
+The same workflow checks the official TAIFEX daily USD/NTD reference rate on
+every run. It writes a new dashboard rate only when TAIFEX publishes a new date
+or corrects the value, so weekends and holidays retain the latest business-day
+rate without creating duplicate commits. A temporary API failure preserves the
+last verified rate and its visible as-of date.
+
 SQLite does not contain a clock or background process. The workflow in
 `.github/workflows/live-monthly-revenue.yml` is the unattended scheduler.
 
@@ -41,6 +47,8 @@ Official inputs:
   `https://mops.twse.com.tw/mops/api/t05st01`
 - TWSE holiday calendar:
   `https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule`
+- TAIFEX daily foreign-exchange reference rates:
+  `https://openapi.taifex.com.tw/v1/DailyForeignExchangeRates`
 - TSMC calendar:
   `https://investor.tsmc.com/english/financial-calendar`
 - Hon Hai calendar:

@@ -33,6 +33,9 @@ jobs:
       - name: Run parser and forecast tests
         run: node --test test/*.test.mjs
 
+      - name: Refresh official USD/TWD reference rate
+        run: node scripts/update-exchange-rate.mjs
+
       - name: Poll official sources and update SQLite
         run: node scripts/update-live-data.mjs
 

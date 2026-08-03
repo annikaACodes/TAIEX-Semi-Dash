@@ -129,6 +129,11 @@ test("ships complete, internally consistent dashboard data", async () => {
   assert.equal(manifest.companyCount, 314);
   assert.equal(manifest.companies.length, manifest.companyCount);
   assert.ok(manifest.revenueObservationCount >= 18_446);
+  assert.equal(manifest.exchangeRate.baseCurrency, "USD");
+  assert.equal(manifest.exchangeRate.quoteCurrency, "TWD");
+  assert.ok(manifest.exchangeRate.twdPerUsd > 0);
+  assert.match(manifest.exchangeRate.rateDate, /^\d{4}-\d{2}-\d{2}$/);
+  assert.match(manifest.exchangeRate.sourceName, /TAIFEX/i);
   assert.equal(
     Object.keys(subsectors.series).length,
     manifest.classificationCount,
@@ -151,6 +156,7 @@ test("ships complete, internally consistent dashboard data", async () => {
   assert.equal(tsmc.company.ticker, "2330");
   assert.ok(tsmc.history.length >= 60);
   assert.equal(bundle.manifest.companyCount, manifest.companyCount);
+  assert.deepEqual(bundle.manifest.exchangeRate, manifest.exchangeRate);
   assert.equal(Object.keys(bundle.companies).length, manifest.companyCount);
   assert.equal(
     Object.values(bundle.companies).reduce(

@@ -1,5 +1,5 @@
 import { DatabaseSync } from "node:sqlite";
-import { mkdir, readdir, unlink, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, unlink, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
@@ -23,6 +23,12 @@ const outputDirectory = resolve(
   argumentValue("--output", resolve(projectDirectory, "public", "data")),
 );
 const companiesDirectory = resolve(outputDirectory, "companies");
+const exchangeRatePath = resolve(
+  argumentValue(
+    "--exchange-rate",
+    resolve(projectDirectory, "public", "data", "exchange-rate.json"),
+  ),
+);
 
 function nullableNumber(value) {
   return value === null || value === undefined ? null : Number(value);
@@ -97,6 +103,26 @@ async function removeFileIfPresent(path) {
     if (error.code !== "ENOENT") throw error;
   }
 }
+
+function validateExchangeRate(value) {
+  if (
+    value?.baseCurrency !== "USD" ||
+    value?.quoteCurrency !== "TWD" ||
+    !Number.isFinite(value?.twdPerUsd) ||
+    value.twdPerUsd <= 0 ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(value?.rateDate ?? "") ||
+    typeof value?.retrievedAtUtc !== "string" ||
+    typeof value?.sourceName !== "string" ||
+    typeof value?.sourceUrl !== "string"
+  ) {
+    throw new Error(`Invalid exchange-rate data in ${exchangeRatePath}.`);
+  }
+  return value;
+}
+
+const exchangeRate = validateExchangeRate(
+  JSON.parse(await readFile(exchangeRatePath, "utf8")),
+);
 
 const database = new DatabaseSync(databasePath, { readOnly: true });
 
@@ -531,6 +557,7 @@ const manifestData = {
   generatedDateTaipei: asOfDateTaipei,
   latestRevenueMonth,
   targetReportingMonth,
+  exchangeRate,
   companyCount: companies.length,
   classificationCount: Object.keys(subsectorSeries).length,
   revenueObservationCount: revenueRows.length,

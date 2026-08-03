@@ -38,7 +38,18 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 type ViewName = "company" | "subsectors" | "momentum" | "freshness";
 type RangeName = 12 | 24 | 60 | "all";
+type DisplayCurrency = "TWD" | "USD";
 type ExportRow = Record<string, string | number | boolean | null>;
+
+interface ExchangeRate {
+  baseCurrency: "USD";
+  quoteCurrency: "TWD";
+  twdPerUsd: number;
+  rateDate: string;
+  retrievedAtUtc: string;
+  sourceName: string;
+  sourceUrl: string;
+}
 
 interface CompanySummary {
   id: number;
@@ -59,6 +70,7 @@ interface Manifest {
   generatedDateTaipei: string;
   latestRevenueMonth: string;
   targetReportingMonth: string;
+  exchangeRate: ExchangeRate;
   companyCount: number;
   classificationCount: number;
   revenueObservationCount: number;
@@ -276,19 +288,46 @@ function formatTimestamp(value: string | null | undefined) {
   }).format(new Date(value));
 }
 
-function compactCurrency(value: number | null | undefined) {
+function compactCurrency(
+  value: number | null | undefined,
+  currency: DisplayCurrency = "TWD",
+) {
   if (value === null || value === undefined) return "N/A";
-  return `NT$${new Intl.NumberFormat("en-US", {
+  const prefix = currency === "USD" ? "$" : "NT$";
+  return `${prefix}${new Intl.NumberFormat("en-US", {
     notation: "compact",
     maximumFractionDigits: 1,
   }).format(value)}`;
 }
 
-function fullCurrency(value: number | null | undefined) {
+function fullCurrency(
+  value: number | null | undefined,
+  currency: DisplayCurrency = "TWD",
+) {
   if (value === null || value === undefined) return "";
-  return `NT$${new Intl.NumberFormat("en-US", {
+  const prefix = currency === "USD" ? "$" : "NT$";
+  return `${prefix}${new Intl.NumberFormat("en-US", {
     maximumFractionDigits: 0,
   }).format(value)}`;
+}
+
+function revenueInCurrency(
+  valueNt: number | null | undefined,
+  currency: DisplayCurrency,
+  exchangeRate: ExchangeRate,
+) {
+  if (valueNt === null || valueNt === undefined) return null;
+  return currency === "USD" ? valueNt / exchangeRate.twdPerUsd : valueNt;
+}
+
+function exportRevenue(
+  valueNt: number | null | undefined,
+  currency: DisplayCurrency,
+  exchangeRate: ExchangeRate,
+) {
+  const value = revenueInCurrency(valueNt, currency, exchangeRate);
+  if (value === null) return null;
+  return currency === "USD" ? Math.round(value * 100) / 100 : value;
 }
 
 function formatPercent(value: number | null | undefined, digits = 1) {
@@ -510,6 +549,43 @@ function ScreenHeader({
   );
 }
 
+function CurrencyControl({
+  value,
+  onChange,
+  exchangeRate,
+}: {
+  value: DisplayCurrency;
+  onChange: (value: DisplayCurrency) => void;
+  exchangeRate: ExchangeRate;
+}) {
+  return (
+    <div className="currency-control">
+      <div className="segmented currency-toggle" aria-label="Revenue currency">
+        {(["TWD", "USD"] as DisplayCurrency[]).map((currency) => (
+          <button
+            type="button"
+            key={currency}
+            className={value === currency ? "active" : ""}
+            aria-pressed={value === currency}
+            onClick={() => onChange(currency)}
+          >
+            {currency === "TWD" ? "NT$" : "USD"}
+          </button>
+        ))}
+      </div>
+      <span
+        className="fx-rate-note"
+        title={`${exchangeRate.sourceName}; retrieved ${formatTimestamp(
+          exchangeRate.retrievedAtUtc,
+        )}`}
+      >
+        1 USD = NT${exchangeRate.twdPerUsd.toFixed(3)} ·{" "}
+        {formatDate(exchangeRate.rateDate)} · TAIFEX
+      </span>
+    </div>
+  );
+}
+
 function CompanySelector({
   companies,
   selectedTicker,
@@ -628,6 +704,7 @@ function CompanyView({
   const [loadedCompany, setLoadedCompany] = useState<CompanyData | null>(null);
   const [metric, setMetric] = useState<CompanyMetric>("revenueNt");
   const [range, setRange] = useState<RangeName>(60);
+  const [currency, setCurrency] = useState<DisplayCurrency>("TWD");
 
   useEffect(() => {
     if (bundledCompany) return;
@@ -656,15 +733,44 @@ function CompanyView({
     () => rangeRows(companyData?.history ?? [], range),
     [companyData, range],
   );
+  const displayHistory = useMemo(
+    () =>
+      visibleHistory.map((row) => ({
+        ...row,
+        revenueNt: revenueInCurrency(
+          row.revenueNt,
+          currency,
+          manifest.exchangeRate,
+        ),
+        cumulativeYtdRevenueNt: revenueInCurrency(
+          row.cumulativeYtdRevenueNt,
+          currency,
+          manifest.exchangeRate,
+        ),
+      })),
+    [currency, manifest.exchangeRate, visibleHistory],
+  );
   const latest = companyData?.history.at(-1);
   const metricDefinition = COMPANY_METRICS[metric];
+  const currencyLabel = currency === "USD" ? "USD" : "NT$";
   const exportRows: ExportRow[] = visibleHistory.map((row) => ({
     Month: row.month,
-    "Revenue (NT$)": row.revenueNt,
+    [`Revenue (${currencyLabel})`]: exportRevenue(
+      row.revenueNt,
+      currency,
+      manifest.exchangeRate,
+    ),
     "MoM (%)": row.momPercent,
     "YoY (%)": row.yoyPercent,
-    "Cumulative YTD Revenue (NT$)": row.cumulativeYtdRevenueNt,
+    [`Cumulative YTD Revenue (${currencyLabel})`]: exportRevenue(
+      row.cumulativeYtdRevenueNt,
+      currency,
+      manifest.exchangeRate,
+    ),
     "YTD YoY (%)": row.ytdYoyPercent,
+    "USD/NTD Rate": currency === "USD" ? manifest.exchangeRate.twdPerUsd : null,
+    "Exchange Rate Date":
+      currency === "USD" ? manifest.exchangeRate.rateDate : null,
     "Publication Timestamp": row.publicationTimestamp,
     Restated: row.restatementFlag,
     Market: row.sourceMarket,
@@ -679,8 +785,14 @@ function CompanyView({
         subtitle={`${manifest.companyCount} Taiwan-listed semiconductor companies · data through ${formatMonth(
           manifest.latestRevenueMonth,
         )}`}
+        className="company-screen-header"
         actions={
           <>
+            <CurrencyControl
+              value={currency}
+              onChange={setCurrency}
+              exchangeRate={manifest.exchangeRate}
+            />
             <CompanySelector
               companies={manifest.companies}
               selectedTicker={selectedTicker}
@@ -688,7 +800,7 @@ function CompanyView({
             />
             <ExportMenu
               rows={exportRows}
-              filename={`${selectedTicker}-monthly-revenue`}
+              filename={`${selectedTicker}-monthly-revenue-${currency.toLowerCase()}`}
             />
           </>
         }
@@ -725,7 +837,14 @@ function CompanyView({
           <section className="metric-grid">
             <MetricCard
               label="Monthly revenue"
-              value={compactCurrency(latest?.revenueNt)}
+              value={compactCurrency(
+                revenueInCurrency(
+                  latest?.revenueNt,
+                  currency,
+                  manifest.exchangeRate,
+                ),
+                currency,
+              )}
               detail={formatMonth(latest?.month)}
             />
             <MetricCard
@@ -742,7 +861,14 @@ function CompanyView({
             />
             <MetricCard
               label="Cumulative YTD"
-              value={compactCurrency(latest?.cumulativeYtdRevenueNt)}
+              value={compactCurrency(
+                revenueInCurrency(
+                  latest?.cumulativeYtdRevenueNt,
+                  currency,
+                  manifest.exchangeRate,
+                ),
+                currency,
+              )}
               detail="Reported year to date"
             />
             <MetricCard
@@ -779,10 +905,22 @@ function CompanyView({
             </div>
             <div className="chart-title-row">
               <div>
-                <span>{metricDefinition.label}</span>
+                <span>
+                  {metricDefinition.label}
+                  {metricDefinition.kind === "currency"
+                    ? ` (${currencyLabel})`
+                    : ""}
+                </span>
                 <strong>
                   {metricDefinition.kind === "currency"
-                    ? compactCurrency(latest?.[metric])
+                    ? compactCurrency(
+                        revenueInCurrency(
+                          latest?.[metric],
+                          currency,
+                          manifest.exchangeRate,
+                        ),
+                        currency,
+                      )
                     : formatPercent(latest?.[metric])}
                 </strong>
               </div>
@@ -790,7 +928,7 @@ function CompanyView({
             </div>
             <div className="chart company-chart">
               <ResponsiveContainer width="100%" height="100%">
-                <ComposedChart data={visibleHistory} margin={{ top: 10, right: 10, left: 4, bottom: 0 }}>
+                <ComposedChart data={displayHistory} margin={{ top: 10, right: 10, left: 4, bottom: 0 }}>
                   <defs>
                     <linearGradient id="companyArea" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#1b66d1" stopOpacity={0.25} />
@@ -823,7 +961,7 @@ function CompanyView({
                       <ChartTooltip
                         formatter={(value) =>
                           metricDefinition.kind === "currency"
-                            ? fullCurrency(value)
+                            ? fullCurrency(value, currency)
                             : formatPercent(value, 2)
                         }
                       />
@@ -834,7 +972,7 @@ function CompanyView({
                     <Area
                       type="monotone"
                       dataKey={metric}
-                      name={metricDefinition.shortLabel}
+                      name={`${metricDefinition.shortLabel} (${currencyLabel})`}
                       stroke="#1b66d1"
                       strokeWidth={2}
                       fill="url(#companyArea)"
@@ -871,20 +1009,22 @@ function CompanyView({
                 <thead>
                   <tr>
                     <th>Month</th>
-                    <th className="numeric">Revenue (NT$)</th>
+                    <th className="numeric">Revenue ({currencyLabel})</th>
                     <th className="numeric">MoM</th>
                     <th className="numeric">YoY</th>
-                    <th className="numeric">Cumulative YTD</th>
+                    <th className="numeric">Cumulative YTD ({currencyLabel})</th>
                     <th className="numeric">YTD YoY</th>
                     <th>Publication</th>
                     <th>Revision</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {[...visibleHistory].reverse().map((row) => (
+                  {[...displayHistory].reverse().map((row) => (
                     <tr key={row.month}>
                       <td className="period-cell">{formatMonth(row.month)}</td>
-                      <td className="numeric mono">{fullCurrency(row.revenueNt)}</td>
+                      <td className="numeric mono">
+                        {fullCurrency(row.revenueNt, currency)}
+                      </td>
                       <td className={`numeric mono ${valueClass(row.momPercent)}`}>
                         {formatPercent(row.momPercent)}
                       </td>
@@ -892,7 +1032,7 @@ function CompanyView({
                         {formatPercent(row.yoyPercent)}
                       </td>
                       <td className="numeric mono">
-                        {fullCurrency(row.cumulativeYtdRevenueNt)}
+                        {fullCurrency(row.cumulativeYtdRevenueNt, currency)}
                       </td>
                       <td className={`numeric mono ${valueClass(row.ytdYoyPercent)}`}>
                         {formatPercent(row.ytdYoyPercent)}
