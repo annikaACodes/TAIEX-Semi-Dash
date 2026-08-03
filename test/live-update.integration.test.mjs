@@ -5,7 +5,10 @@ import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
 
-import { runLiveUpdate } from "../src/live-update.mjs";
+import {
+  refreshReleaseForecasts,
+  runLiveUpdate,
+} from "../src/live-update.mjs";
 
 const HEADER = [
   "\u51fa\u8868\u65e5\u671f",
@@ -114,6 +117,23 @@ test(
           WHERE r.ticker = '2330' AND r.reporting_month = '2034-12-01'
         `)
         .get();
+      const reportDate = database
+        .prepare(`
+          SELECT reported_date_local, reported_time_local, report_date_basis
+          FROM company_report_date_history
+          WHERE ticker = '2330' AND reporting_month = '2034-12-01'
+        `)
+        .get();
+      const maximumHistoryRows = database
+        .prepare(`
+          SELECT MAX(month_count) AS maximum_count
+          FROM (
+            SELECT company_id, COUNT(*) AS month_count
+            FROM company_monthly_report_dates
+            GROUP BY company_id
+          )
+        `)
+        .get();
       database.close();
       assert.equal(revenue.revenue_nt, 500_000_000_000);
       assert.equal(revenue.publication_timestamp, options.nowUtc);
@@ -123,6 +143,10 @@ test(
       );
       assert.equal(revenue.release_status, "reported");
       assert.equal(revenue.actual_first_seen_at_utc, options.nowUtc);
+      assert.equal(reportDate.reported_date_local, "2035-01-03");
+      assert.equal(reportDate.reported_time_local, "08:00:00");
+      assert.equal(reportDate.report_date_basis, "mops_first_observed");
+      assert.ok(maximumHistoryRows.maximum_count <= 12);
 
       const second = await runLiveUpdate(options);
       assert.equal(second.databaseChanged, false);
@@ -132,3 +156,81 @@ test(
     }
   },
 );
+
+test("the version 5 migration seeds official announcement history", async () => {
+  const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-v5-test-"));
+  const databasePath = join(temporaryDirectory, "test.sqlite");
+  const sourceDatabase = new URL(
+    "../taiwan_semiconductor_companies.sqlite",
+    import.meta.url,
+  );
+  await copyFile(sourceDatabase, databasePath);
+
+  try {
+    const versionFour = new DatabaseSync(databasePath);
+    versionFour.exec(`
+      UPDATE monthly_release_schedule
+      SET actual_first_seen_at_utc = NULL,
+          actual_first_seen_date_local = NULL,
+          actual_first_seen_time_local = NULL;
+      DROP VIEW company_report_date_history;
+      DROP TRIGGER trim_company_monthly_report_dates_after_insert;
+      DROP TABLE company_monthly_report_dates;
+      PRAGMA user_version = 4;
+    `);
+    versionFour.close();
+
+    const result = await refreshReleaseForecasts({
+      databasePath,
+      nowUtc: "2026-08-03T13:30:00.000Z",
+    });
+    assert.equal(result.migrationApplied, true);
+    assert.equal(result.databaseVersion, 5);
+
+    const database = new DatabaseSync(databasePath, { readOnly: true });
+    const mopsSeeds = database
+      .prepare(`
+        SELECT COUNT(*) AS row_count,
+               COUNT(DISTINCT company_id) AS company_count
+        FROM company_monthly_report_dates
+        WHERE report_date_basis = 'mops_revenue_announcement'
+      `)
+      .get();
+    const tsmc = database
+      .prepare(`
+        SELECT COUNT(*) AS row_count
+        FROM company_monthly_report_dates AS d
+        JOIN companies AS c ON c.company_id = d.company_id
+        WHERE c.ticker = '2330'
+          AND d.report_date_basis = 'mops_revenue_announcement'
+      `)
+      .get();
+    const correctionOnlyCompany = database
+      .prepare(`
+        SELECT COUNT(*) AS row_count
+        FROM company_monthly_report_dates AS d
+        JOIN companies AS c ON c.company_id = d.company_id
+        WHERE c.ticker = '2392'
+      `)
+      .get();
+    const maximumHistoryRows = database
+      .prepare(`
+        SELECT MAX(month_count) AS maximum_count
+        FROM (
+          SELECT company_id, COUNT(*) AS month_count
+          FROM company_monthly_report_dates
+          GROUP BY company_id
+        )
+      `)
+      .get();
+    database.close();
+
+    assert.equal(mopsSeeds.row_count, 197);
+    assert.equal(mopsSeeds.company_count, 17);
+    assert.equal(tsmc.row_count, 12);
+    assert.equal(correctionOnlyCompany.row_count, 0);
+    assert.equal(maximumHistoryRows.maximum_count, 12);
+  } finally {
+    await rm(temporaryDirectory, { recursive: true, force: true });
+  }
+});

@@ -249,6 +249,20 @@ function formatDate(value: string | null | undefined) {
   }).format(new Date(Date.UTC(year, month - 1, day)));
 }
 
+function formatScheduleBasis(value: string | null | undefined) {
+  if (!value) return "Not available";
+  if (value === "ir_calendar") return "IR calendar";
+  if (value === "actual_first_seen") return "Actual";
+  if (
+    value === "company_history" ||
+    value === "regulatory_prior" ||
+    value === "late_roll_forward"
+  ) {
+    return "Historical estimate";
+  }
+  return value.replaceAll("_", " ");
+}
+
 function formatTimestamp(value: string | null | undefined) {
   if (!value) return "Not available";
   return new Intl.DateTimeFormat("en-US", {
@@ -1531,7 +1545,7 @@ function FreshnessView({ data }: { data: FreshnessData }) {
     Overdue: row.overdue,
     "Unusual Report Date": row.unusualReportDate,
     "Unusual Reason": row.unusualReason,
-    "Schedule Source": row.scheduleSource,
+    "Schedule Basis": formatScheduleBasis(row.scheduleSource),
     "Regulatory Deadline": row.regulatoryDeadline,
   }));
 
@@ -1704,9 +1718,7 @@ function FreshnessView({ data }: { data: FreshnessData }) {
                   </td>
                   <td>{formatTimestamp(row.publicationTimestamp)}</td>
                   <td>
-                    {row.scheduleSource === "ir_calendar"
-                      ? "IR calendar"
-                      : row.scheduleSource?.replaceAll("_", " ") ?? "Not available"}
+                    {formatScheduleBasis(row.scheduleSource)}
                   </td>
                   <td>
                     {row.overdue ? (

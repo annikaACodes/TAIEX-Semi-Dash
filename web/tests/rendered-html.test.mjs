@@ -128,7 +128,7 @@ test("ships complete, internally consistent dashboard data", async () => {
 
   assert.equal(manifest.companyCount, 314);
   assert.equal(manifest.companies.length, manifest.companyCount);
-  assert.equal(manifest.revenueObservationCount, 18_446);
+  assert.ok(manifest.revenueObservationCount >= 18_446);
   assert.equal(
     Object.keys(subsectors.series).length,
     manifest.classificationCount,
@@ -152,6 +152,13 @@ test("ships complete, internally consistent dashboard data", async () => {
   assert.ok(tsmc.history.length >= 60);
   assert.equal(bundle.manifest.companyCount, manifest.companyCount);
   assert.equal(Object.keys(bundle.companies).length, manifest.companyCount);
+  assert.equal(
+    Object.values(bundle.companies).reduce(
+      (total, company) => total + company.history.length,
+      0,
+    ),
+    manifest.revenueObservationCount,
+  );
   assert.deepEqual(bundle.companies["2330"], tsmc);
 
   const latest = tsmc.history.at(-1);

@@ -2,9 +2,16 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  buildHistoricalFallbackProfile,
   buildMonthlySchedule,
   buildReleaseProfile,
+  resolveHistoricalEstimate,
 } from "../src/release-model.mjs";
+import {
+  addDays,
+  addMonths,
+  reportingMonthEnd,
+} from "../src/dates.mjs";
 
 const NOW = "2026-07-29T12:00:00.000Z";
 
@@ -44,6 +51,52 @@ test("a consistent company history produces a high-confidence forecast", () => {
   assert.equal(profile.confidence, "high");
 });
 
+test("release profiles retain only the latest 12 reporting months", () => {
+  const months = Array.from({ length: 13 }, (_, index) =>
+    addMonths("2025-06-01", index),
+  );
+  const profile = buildReleaseProfile(
+    months.map((reportingMonth, index) => ({
+      kind: "actual",
+      reportingMonth,
+      releaseDateLocal: addDays(
+        reportingMonthEnd(reportingMonth),
+        index === 0 ? 1 : 8,
+      ),
+      releaseMinuteLocal: null,
+    })),
+    NOW,
+  );
+  assert.equal(profile.historySampleCount, 12);
+  assert.equal(profile.medianReleaseOffsetDays, 8);
+  assert.equal(profile.profileAsOfReportingMonth, "2026-06-01");
+});
+
+test("sparse company history is blended toward the cross-company median", () => {
+  const fallback = buildHistoricalFallbackProfile(
+    [
+      history(["2026-05-01"], ["2026-06-05"]),
+      history(["2026-05-01"], ["2026-06-11"]),
+    ],
+    NOW,
+  );
+  const company = buildReleaseProfile(
+    history(["2026-06-01"], ["2026-07-02"]),
+    NOW,
+  );
+  const estimate = resolveHistoricalEstimate(company, fallback);
+  const schedule = buildMonthlySchedule({
+    reportingMonth: "2026-07-01",
+    profile: estimate,
+    nowUtc: NOW,
+  });
+
+  assert.equal(fallback.medianReleaseOffsetDays, 8);
+  assert.equal(Math.round(estimate.medianReleaseOffsetDays), 6);
+  assert.equal(schedule.historyExpectedReleaseDateLocal, "2026-08-06");
+  assert.equal(schedule.scheduleSource, "company_history");
+});
+
 test("an announced date overrides history and flags an early month", () => {
   const profile = {
     historySampleCount: 12,
@@ -70,7 +123,7 @@ test("an announced date overrides history and flags an early month", () => {
   assert.equal(schedule.unusualReason, "EARLY");
 });
 
-test("a missing report rolls its effective expectation forward", () => {
+test("an overdue report keeps its original historical expectation", () => {
   const profile = {
     historySampleCount: 10,
     medianReleaseOffsetDays: 5,
@@ -85,7 +138,7 @@ test("a missing report rolls its effective expectation forward", () => {
     nowUtc: NOW,
   });
   assert.equal(schedule.releaseStatus, "overdue");
-  assert.equal(schedule.effectiveExpectedReleaseDateLocal, "2026-07-29");
+  assert.equal(schedule.effectiveExpectedReleaseDateLocal, "2026-07-05");
   assert.equal(schedule.unusualReportDate, 1);
   assert.equal(schedule.unusualReason, "LATE_NOT_YET_REPORTED");
 });

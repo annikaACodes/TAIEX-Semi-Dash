@@ -182,7 +182,21 @@ const latestRevenueMonth = allRevenueMonths.at(-1);
 if (!latestRevenueMonth) {
   throw new Error("The database contains no monthly revenue data.");
 }
-const previousRevenueMonth = shiftMonth(latestRevenueMonth, -1);
+const revenueCompanyCountByMonth = new Map();
+for (const row of revenueRows) {
+  const month = monthKey(row.reporting_month);
+  revenueCompanyCountByMonth.set(
+    month,
+    (revenueCompanyCountByMonth.get(month) ?? 0) + 1,
+  );
+}
+const momentumRevenueMonth =
+  allRevenueMonths
+    .toReversed()
+    .find(
+      (month) => revenueCompanyCountByMonth.get(month) === companyRows.length,
+    ) ?? latestRevenueMonth;
+const previousMomentumRevenueMonth = shiftMonth(momentumRevenueMonth, -1);
 
 const companyDirectoryEntries = await readdir(companiesDirectory, {
   withFileTypes: true,
@@ -321,17 +335,17 @@ function periodGrowth(currentRevenue, comparisonRevenue) {
 function momentumPeriodForCompany(companyId, definition) {
   const currentRevenue = periodRevenue(
     companyId,
-    latestRevenueMonth,
+    momentumRevenueMonth,
     definition.months,
   );
   const priorRevenue = periodRevenue(
     companyId,
-    shiftMonth(latestRevenueMonth, -definition.months),
+    shiftMonth(momentumRevenueMonth, -definition.months),
     definition.months,
   );
   const baselineRevenue = periodRevenue(
     companyId,
-    shiftMonth(latestRevenueMonth, -definition.months * 2),
+    shiftMonth(momentumRevenueMonth, -definition.months * 2),
     definition.months,
   );
   const currentGrowth = periodGrowth(currentRevenue, priorRevenue);
@@ -360,13 +374,13 @@ function momentumPeriodForCompany(companyId, definition) {
 
 const momentumPeriods = Object.fromEntries(
   MOMENTUM_PERIOD_DEFINITIONS.map((definition) => {
-    const currentEndMonth = latestRevenueMonth;
+    const currentEndMonth = momentumRevenueMonth;
     const priorEndMonth = shiftMonth(
-      latestRevenueMonth,
+      momentumRevenueMonth,
       -definition.months,
     );
     const baselineEndMonth = shiftMonth(
-      latestRevenueMonth,
+      momentumRevenueMonth,
       -definition.months * 2,
     );
     return [
@@ -397,10 +411,10 @@ const momentumPeriods = Object.fromEntries(
 
 const momentum = companyRows.map((company) => {
   const current = revenueByCompanyMonth.get(
-    `${company.company_id}:${latestRevenueMonth}`,
+    `${company.company_id}:${momentumRevenueMonth}`,
   );
   const previous = revenueByCompanyMonth.get(
-    `${company.company_id}:${previousRevenueMonth}`,
+    `${company.company_id}:${previousMomentumRevenueMonth}`,
   );
   const acceleration =
     current?.yoyPercent !== null &&
@@ -533,8 +547,8 @@ const subsectorData = {
   series: subsectorSeries,
 };
 const momentumData = {
-  latestRevenueMonth,
-  previousRevenueMonth,
+  latestRevenueMonth: momentumRevenueMonth,
+  previousRevenueMonth: previousMomentumRevenueMonth,
   periods: momentumPeriods,
   companies: momentum,
 };

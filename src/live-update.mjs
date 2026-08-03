@@ -20,13 +20,18 @@ import {
   selectUniverseRows,
 } from "./mops.mjs";
 import {
+  buildHistoricalFallbackProfile,
   buildMonthlySchedule,
   buildReleaseProfile,
+  resolveHistoricalEstimate,
 } from "./release-model.mjs";
 import { translateMopsNote } from "./translation.mjs";
 
 const DEFAULT_MIGRATION_PATH = fileURLToPath(
-  new URL("../migrations/004_release_scheduler.sql", import.meta.url),
+  new URL("../migrations/005_rolling_report_dates.sql", import.meta.url),
+);
+const DEFAULT_REPORT_DATE_SEED_PATH = fileURLToPath(
+  new URL("../migrations/005_mops_announcement_seeds.sql", import.meta.url),
 );
 const DEFAULT_IR_CONFIG_PATH = fileURLToPath(
   new URL("../config/ir_sources.json", import.meta.url),
@@ -67,17 +72,18 @@ async function fetchTextWithRetry(fetchFn, url, attempts = 3) {
   throw new Error(`${url}: ${lastError?.message ?? "request failed"}`);
 }
 
-function applyMigration(database, migrationSql) {
+function applyMigration(database, migrationSql, reportDateSeedSql) {
   const version = Number(database.prepare("PRAGMA user_version").get().user_version);
-  if (version === 4) {
+  if (version === 5) {
     return false;
   }
-  if (version !== 3) {
-    throw new Error(`Expected SQLite user_version 3 or 4, found ${version}`);
+  if (version !== 4) {
+    throw new Error(`Expected SQLite user_version 4 or 5, found ${version}`);
   }
   database.exec("BEGIN IMMEDIATE");
   try {
     database.exec(migrationSql);
+    database.exec(reportDateSeedSql);
     database.exec("COMMIT");
     return true;
   } catch (error) {
@@ -766,8 +772,57 @@ function syncRevenueRows(
   return { inserted, restatements, firstSeen };
 }
 
-function collectReleaseHistory(database, nowUtc) {
-  const nowLocalDate = utcToTaipeiParts(nowUtc).date;
+function syncReportDateHistory(database, firstSeen, nowUtc) {
+  const upsert = database.prepare(`
+    INSERT INTO company_monthly_report_dates (
+      company_id,
+      reporting_month,
+      reported_date_local,
+      reported_time_local,
+      reported_at_utc,
+      report_date_basis,
+      source_priority,
+      first_recorded_at_utc,
+      updated_at_utc
+    ) VALUES (?, ?, ?, ?, ?, 'mops_first_observed', 1, ?, ?)
+    ON CONFLICT (company_id, reporting_month) DO UPDATE SET
+      reported_date_local = excluded.reported_date_local,
+      reported_time_local = excluded.reported_time_local,
+      reported_at_utc = excluded.reported_at_utc,
+      report_date_basis = excluded.report_date_basis,
+      source_priority = excluded.source_priority,
+      updated_at_utc = excluded.updated_at_utc
+    WHERE excluded.source_priority < company_monthly_report_dates.source_priority
+       OR (
+         excluded.source_priority = company_monthly_report_dates.source_priority
+         AND excluded.reported_at_utc IS NOT NULL
+         AND (
+           company_monthly_report_dates.reported_at_utc IS NULL
+           OR excluded.reported_at_utc < company_monthly_report_dates.reported_at_utc
+         )
+       )
+  `);
+
+  let changed = 0;
+  for (const [key, firstSeenAtUtc] of firstSeen) {
+    const [companyIdText, reportingMonth] = key.split("|");
+    const local = utcToTaipeiParts(firstSeenAtUtc);
+    changed += Number(
+      upsert.run(
+        Number(companyIdText),
+        reportingMonth,
+        local.date,
+        local.time,
+        firstSeenAtUtc,
+        firstSeenAtUtc,
+        nowUtc,
+      ).changes,
+    );
+  }
+  return changed;
+}
+
+function collectReleaseHistory(database) {
   const historyByCompany = new Map();
   const add = (companyId, item) => {
     if (!historyByCompany.has(companyId)) {
@@ -776,68 +831,27 @@ function collectReleaseHistory(database, nowUtc) {
     historyByCompany.get(companyId).push(item);
   };
 
-  const actualRows = database
+  const rows = database
     .prepare(`
       SELECT
         company_id,
         reporting_month,
-        actual_first_seen_date_local,
-        actual_first_seen_time_local
-      FROM monthly_release_schedule
-      WHERE actual_first_seen_date_local IS NOT NULL
+        reported_date_local,
+        reported_time_local,
+        report_date_basis
+      FROM company_monthly_report_dates
+      ORDER BY company_id, reporting_month
     `)
     .all();
-  for (const row of actualRows) {
+  for (const row of rows) {
     add(Number(row.company_id), {
-      kind: "actual",
+      kind: row.report_date_basis === "ir_calendar_matched" ? "ir" : "actual",
       reportingMonth: row.reporting_month,
-      releaseDateLocal: row.actual_first_seen_date_local,
-      releaseMinuteLocal: timeToMinute(row.actual_first_seen_time_local),
-    });
-  }
-
-  const irRows = database
-    .prepare(`
-      SELECT
-        e.company_id,
-        e.reporting_month,
-        e.announced_release_date_local,
-        e.announced_release_time_local
-      FROM company_release_events AS e
-      JOIN company_reporting_sources AS s
-        ON s.reporting_source_id = e.reporting_source_id
-      WHERE e.is_current = 1
-        AND s.enabled = 1
-        AND e.announced_release_date_local <= ?
-      ORDER BY s.source_priority, e.release_event_id
-    `)
-    .all(nowLocalDate);
-  for (const row of irRows) {
-    add(Number(row.company_id), {
-      kind: "ir",
-      reportingMonth: row.reporting_month,
-      releaseDateLocal: row.announced_release_date_local,
-      releaseMinuteLocal: timeToMinute(row.announced_release_time_local),
+      releaseDateLocal: row.reported_date_local,
+      releaseMinuteLocal: timeToMinute(row.reported_time_local),
     });
   }
   return historyByCompany;
-}
-
-function addNewFirstSeenHistory(historyByCompany, firstSeen) {
-  for (const [key, firstSeenAtUtc] of firstSeen) {
-    const [companyIdText, reportingMonth] = key.split("|");
-    const companyId = Number(companyIdText);
-    const local = utcToTaipeiParts(firstSeenAtUtc);
-    if (!historyByCompany.has(companyId)) {
-      historyByCompany.set(companyId, []);
-    }
-    historyByCompany.get(companyId).push({
-      kind: "actual",
-      reportingMonth,
-      releaseDateLocal: local.date,
-      releaseMinuteLocal: timeToMinute(local.time),
-    });
-  }
 }
 
 const PROFILE_FIELDS = [
@@ -1010,6 +1024,7 @@ function syncSchedules({
   database,
   companies,
   profiles,
+  fallbackProfile,
   targetReportingMonth,
   scheduleMonthCount,
   holidays,
@@ -1095,9 +1110,13 @@ function syncSchedules({
       const month = addMonths(targetReportingMonth, offset);
       const key = `${company.companyId}|${month}`;
       const existing = find.get(company.companyId, month);
+      const profile = resolveHistoricalEstimate(
+        profiles.get(company.companyId),
+        fallbackProfile,
+      );
       const schedule = buildMonthlySchedule({
         reportingMonth: month,
-        profile: profiles.get(company.companyId),
+        profile,
         announcement: announcements.get(key) ?? null,
         existing: existingScheduleForModel(existing, firstSeen.get(key)),
         hasHistoricalBackfill: Boolean(
@@ -1135,6 +1154,41 @@ function syncSchedules({
   return changed;
 }
 
+function refreshReleaseModel({
+  database,
+  companies,
+  targetReportingMonth,
+  scheduleMonthCount,
+  holidays,
+  nowUtc,
+  firstSeen = new Map(),
+}) {
+  const history = collectReleaseHistory(database);
+  const profileSync = syncProfiles(database, companies, history, nowUtc);
+  const fallbackProfile = buildHistoricalFallbackProfile(
+    [...history.values()].map((items) =>
+      items.filter((item) => item.reportingMonth < targetReportingMonth),
+    ),
+    nowUtc,
+  );
+  const schedulesChanged = syncSchedules({
+    database,
+    companies,
+    profiles: profileSync.profiles,
+    fallbackProfile,
+    targetReportingMonth,
+    scheduleMonthCount,
+    holidays,
+    nowUtc,
+    firstSeen,
+  });
+  return {
+    fallbackCompanyCount: fallbackProfile?.fallbackCompanyCount ?? 0,
+    profilesChanged: profileSync.changed,
+    schedulesChanged,
+  };
+}
+
 function checkDatabase(database) {
   const foreignKeyFailures = database.prepare("PRAGMA foreign_key_check").all();
   if (foreignKeyFailures.length > 0) {
@@ -1148,11 +1202,73 @@ function checkDatabase(database) {
   }
 }
 
+export async function refreshReleaseForecasts({
+  databasePath,
+  nowUtc = new Date().toISOString(),
+  migrationPath = DEFAULT_MIGRATION_PATH,
+  reportDateSeedPath = DEFAULT_REPORT_DATE_SEED_PATH,
+  scheduleMonthCount = 13,
+  holidays = new Set(),
+} = {}) {
+  if (!databasePath) {
+    throw new Error("databasePath is required");
+  }
+  const normalizedNowUtc = new Date(nowUtc).toISOString();
+  const targetReportingMonth = previousTaipeiMonth(normalizedNowUtc);
+  const [migrationSql, reportDateSeedSql] = await Promise.all([
+    readFile(migrationPath, "utf8"),
+    readFile(reportDateSeedPath, "utf8"),
+  ]);
+  const database = new DatabaseSync(databasePath);
+  database.exec("PRAGMA foreign_keys = ON; PRAGMA busy_timeout = 30000");
+
+  let migrationApplied = false;
+  try {
+    migrationApplied = applyMigration(
+      database,
+      migrationSql,
+      reportDateSeedSql,
+    );
+    const companies = getCompanies(database);
+    database.exec("BEGIN IMMEDIATE");
+    let refreshed;
+    try {
+      refreshed = refreshReleaseModel({
+        database,
+        companies,
+        targetReportingMonth,
+        scheduleMonthCount,
+        holidays,
+        nowUtc: normalizedNowUtc,
+      });
+      database.exec("COMMIT");
+    } catch (error) {
+      database.exec("ROLLBACK");
+      throw error;
+    }
+    checkDatabase(database);
+    return {
+      databaseVersion: 5,
+      migrationApplied,
+      targetReportingMonth,
+      companies: companies.length,
+      ...refreshed,
+      databaseChanged:
+        migrationApplied ||
+        refreshed.profilesChanged > 0 ||
+        refreshed.schedulesChanged > 0,
+    };
+  } finally {
+    database.close();
+  }
+}
+
 export async function runLiveUpdate({
   databasePath,
   fetchFn = globalThis.fetch,
   nowUtc = new Date().toISOString(),
   migrationPath = DEFAULT_MIGRATION_PATH,
+  reportDateSeedPath = DEFAULT_REPORT_DATE_SEED_PATH,
   irConfigPath = DEFAULT_IR_CONFIG_PATH,
   scheduleMonthCount = 13,
   overrides = null,
@@ -1162,8 +1278,9 @@ export async function runLiveUpdate({
   }
   const normalizedNowUtc = new Date(nowUtc).toISOString();
   const targetReportingMonth = previousTaipeiMonth(normalizedNowUtc);
-  const [migrationSql, irConfigText] = await Promise.all([
+  const [migrationSql, reportDateSeedSql, irConfigText] = await Promise.all([
     readFile(migrationPath, "utf8"),
+    readFile(reportDateSeedPath, "utf8"),
     readFile(irConfigPath, "utf8"),
   ]);
   const irConfig = JSON.parse(irConfigText);
@@ -1172,7 +1289,11 @@ export async function runLiveUpdate({
 
   let migrationApplied = false;
   try {
-    migrationApplied = applyMigration(database, migrationSql);
+    migrationApplied = applyMigration(
+      database,
+      migrationSql,
+      reportDateSeedSql,
+    );
     const companies = getCompanies(database);
     const companiesByTicker = new Map(
       companies.map((company) => [company.ticker, company]),
@@ -1215,18 +1336,14 @@ export async function runLiveUpdate({
         companiesByTicker,
         normalizedNowUtc,
       );
-      const history = collectReleaseHistory(database, normalizedNowUtc);
-      addNewFirstSeenHistory(history, revenue.firstSeen);
-      const profileSync = syncProfiles(
+      const reportDatesChanged = syncReportDateHistory(
         database,
-        companies,
-        history,
+        revenue.firstSeen,
         normalizedNowUtc,
       );
-      const schedulesChanged = syncSchedules({
+      const releaseModel = refreshReleaseModel({
         database,
         companies,
-        profiles: profileSync.profiles,
         targetReportingMonth,
         scheduleMonthCount,
         holidays: remote.holidays,
@@ -1240,8 +1357,9 @@ export async function runLiveUpdate({
         irSync.eventsChanged +
         translationsChanged +
         revenue.inserted +
-        profileSync.changed +
-        schedulesChanged;
+        reportDatesChanged +
+        releaseModel.profilesChanged +
+        releaseModel.schedulesChanged;
       if (meaningfulChanges > 0) {
         database
           .prepare(`
@@ -1268,13 +1386,13 @@ export async function runLiveUpdate({
             irSync.eventsChanged,
             revenue.inserted,
             revenue.restatements,
-            schedulesChanged,
+            releaseModel.schedulesChanged,
             translationsChanged,
             JSON.stringify(remote.errors),
           );
       }
       result = {
-        databaseVersion: 4,
+        databaseVersion: 5,
         migrationApplied,
         targetReportingMonth,
         companies: companies.length,
@@ -1284,8 +1402,10 @@ export async function runLiveUpdate({
         irEventsChanged: irSync.eventsChanged,
         revenueObservationsInserted: revenue.inserted,
         revenueRestatementsInserted: revenue.restatements,
-        profilesChanged: profileSync.changed,
-        schedulesChanged,
+        reportDatesChanged,
+        fallbackCompanyCount: releaseModel.fallbackCompanyCount,
+        profilesChanged: releaseModel.profilesChanged,
+        schedulesChanged: releaseModel.schedulesChanged,
         translationsChanged,
         databaseChanged: meaningfulChanges > 0,
         errors: remote.errors,

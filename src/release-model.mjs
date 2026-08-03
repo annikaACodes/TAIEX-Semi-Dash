@@ -27,7 +27,11 @@ export function buildReleaseProfile(history, updatedAtUtc) {
     }
   }
 
-  const observations = [...byMonth.values()];
+  const observations = [...byMonth.values()]
+    .sort((left, right) =>
+      left.reportingMonth.localeCompare(right.reportingMonth),
+    )
+    .slice(-12);
   if (observations.length === 0) {
     return {
       historySampleCount: 0,
@@ -76,6 +80,74 @@ export function buildReleaseProfile(history, updatedAtUtc) {
   };
 }
 
+export function buildHistoricalFallbackProfile(histories, updatedAtUtc) {
+  const companyProfiles = [...histories]
+    .map((history) => buildReleaseProfile(history, updatedAtUtc))
+    .filter(
+      (profile) =>
+        profile.historySampleCount > 0 &&
+        profile.medianReleaseOffsetDays !== null,
+    );
+  if (companyProfiles.length === 0) {
+    return null;
+  }
+
+  const offsets = companyProfiles.map(
+    (profile) => profile.medianReleaseOffsetDays,
+  );
+  const offsetMedian = median(offsets);
+  const deviations = offsets.map((offset) => Math.abs(offset - offsetMedian));
+  const profileMonths = companyProfiles
+    .map((profile) => profile.profileAsOfReportingMonth)
+    .filter(Boolean)
+    .sort();
+
+  return {
+    historySampleCount: 0,
+    actualFirstSeenSampleCount: 0,
+    irCalendarSampleCount: 0,
+    medianReleaseOffsetDays: offsetMedian,
+    medianReleaseMinuteLocal: null,
+    medianAbsoluteDeviationDays: median(deviations),
+    forecastMethod: "historical_estimate",
+    confidence: "low",
+    profileAsOfReportingMonth: profileMonths.at(-1) ?? null,
+    fallbackCompanyCount: companyProfiles.length,
+    isFallback: true,
+    updatedAtUtc,
+  };
+}
+
+export function resolveHistoricalEstimate(profile, fallbackProfile) {
+  if (
+    fallbackProfile?.medianReleaseOffsetDays === null ||
+    fallbackProfile?.medianReleaseOffsetDays === undefined
+  ) {
+    return profile;
+  }
+  if (profile.medianReleaseOffsetDays === null) {
+    return fallbackProfile;
+  }
+  if (profile.historySampleCount >= 3) {
+    return profile;
+  }
+
+  const companyWeight = profile.historySampleCount / 3;
+  const fallbackWeight = 1 - companyWeight;
+  return {
+    ...profile,
+    medianReleaseOffsetDays:
+      profile.medianReleaseOffsetDays * companyWeight +
+      fallbackProfile.medianReleaseOffsetDays * fallbackWeight,
+    medianAbsoluteDeviationDays: Math.max(
+      profile.medianAbsoluteDeviationDays ?? 0,
+      fallbackProfile.medianAbsoluteDeviationDays ?? 0,
+    ),
+    forecastMethod: "historical_estimate",
+    confidence: "low",
+  };
+}
+
 export function buildMonthlySchedule({
   reportingMonth,
   profile,
@@ -87,27 +159,32 @@ export function buildMonthlySchedule({
 }) {
   const monthEnd = reportingMonthEnd(reportingMonth);
   const deadline = regulatoryDeadline(reportingMonth, holidays);
+  const hasHistoricalEstimate = profile.medianReleaseOffsetDays !== null;
   const historyOffset =
-    profile.historySampleCount > 0
+    hasHistoricalEstimate
       ? Math.round(profile.medianReleaseOffsetDays)
       : differenceInDays(deadline, monthEnd);
   const historyExpectedDate = addDays(monthEnd, historyOffset);
   const historyTime = minuteToTime(profile.medianReleaseMinuteLocal);
   const radius =
-    profile.historySampleCount > 0
+    hasHistoricalEstimate
       ? Math.max(
           1,
           Math.ceil(2 * (profile.medianAbsoluteDeviationDays ?? 0)),
         )
       : Math.max(1, differenceInDays(deadline, addDays(monthEnd, 1)));
   const historyWindowStart =
-    profile.historySampleCount > 0
+    hasHistoricalEstimate
       ? addDays(historyExpectedDate, -radius)
       : addDays(monthEnd, 1);
-  const historyWindowEnd =
-    profile.historySampleCount > 0
+  const unboundedHistoryWindowEnd =
+    hasHistoricalEstimate
       ? addDays(historyExpectedDate, radius)
       : deadline;
+  const historyWindowEnd =
+    profile.isFallback && unboundedHistoryWindowEnd > deadline
+      ? deadline
+      : unboundedHistoryWindowEnd;
 
   const nowLocalDate = new Date(
     new Date(nowUtc).valueOf() + 8 * 60 * 60 * 1000,
@@ -121,7 +198,7 @@ export function buildMonthlySchedule({
   let effectiveDate = historyExpectedDate;
   let effectiveTime = historyTime;
   let scheduleSource =
-    profile.historySampleCount > 0 ? "company_history" : "regulatory_prior";
+    hasHistoricalEstimate ? "company_history" : "regulatory_prior";
   let status = "forecast";
   let unusual = 0;
   let unusualReason = null;
@@ -144,9 +221,6 @@ export function buildMonthlySchedule({
   ) {
     status = "historical_backfill";
   } else if (nowLocalDate > historyWindowEnd && !announcement) {
-    effectiveDate = nowLocalDate;
-    effectiveTime = null;
-    scheduleSource = "late_roll_forward";
     status = "overdue";
     unusual = 1;
     unusualReason = "LATE_NOT_YET_REPORTED";

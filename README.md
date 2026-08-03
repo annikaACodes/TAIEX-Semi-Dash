@@ -11,10 +11,11 @@ monthly revenue.
 - Monthly revenue history in whole New Taiwan dollars
 - Month-over-month, year-over-year, cumulative YTD, and YTD YoY metrics
 - Publication timestamps and restatement flags
+- A rolling 12-month company report-date history with source basis
 - Release forecasts, official IR date overrides, first-seen times, confidence,
   status, and unusual-date flags
 
-The database schema is version 4 and all user-facing tables and views are in
+The database schema is version 5 and all user-facing tables and views are in
 English.
 
 ## Automatic Updates
@@ -32,5 +33,6 @@ and local commands.
 - `LIVE_UPDATES.md`: live collection and release-forecast specification
 - `scripts/update-live-data.mjs`: updater entry point
 - `config/ir_sources.json`: official IR calendar registry
-- `migrations/004_release_scheduler.sql`: version-4 schema migration
+- `migrations/005_rolling_report_dates.sql`: version-5 schema migration
+- `migrations/005_mops_announcement_seeds.sql`: official historical date seeds
 - `test/`: source parser and forecasting tests
