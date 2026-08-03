@@ -11,11 +11,16 @@ commits only meaningful changes.
 - Time interpretation: Asia/Taipei (UTC+8)
 - Manual fallback: GitHub Actions > Update live monthly revenue > Run workflow
 
-The same workflow checks the official TAIFEX daily USD/NTD reference rate on
-every run. It writes a new dashboard rate only when TAIFEX publishes a new date
-or corrects the value, so weekends and holidays retain the latest business-day
-rate without creating duplicate commits. A temporary API failure preserves the
-last verified rate and its visible as-of date.
+The same workflow checks the official Central Bank of Taiwan daily NTD/USD
+series on every run. The database stores the arithmetic mean of the published
+16:00 interbank spot rates for each calendar month. The current month's average
+is revised as new business-day observations appear; completed months change only
+if the Central Bank corrects its history. A no-change poll creates no commit, and
+a temporary API failure preserves the verified monthly history.
+
+Each revenue month is converted with its own monthly-average rate. USD cumulative
+YTD revenue is the sum of the individually converted monthly amounts. MoM, YoY,
+and YTD YoY remain the official NT$ growth rates in either currency view.
 
 SQLite does not contain a clock or background process. The workflow in
 `.github/workflows/live-monthly-revenue.yml` is the unattended scheduler.
@@ -47,8 +52,8 @@ Official inputs:
   `https://mops.twse.com.tw/mops/api/t05st01`
 - TWSE holiday calendar:
   `https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule`
-- TAIFEX daily foreign-exchange reference rates:
-  `https://openapi.taifex.com.tw/v1/DailyForeignExchangeRates`
+- Central Bank daily NTD/USD interbank spot rates:
+  `https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01`
 - TSMC calendar:
   `https://investor.tsmc.com/english/financial-calendar`
 - Hon Hai calendar:
@@ -96,6 +101,9 @@ rolling history. The oldest row is removed automatically once a company exceeds
 - `monthly_release_schedule`: forecast, override, actual, status, and anomaly
   fields by company and reporting month
 - `live_ingestion_runs`: audit rows for runs that changed the database
+- `monthly_exchange_rates`: official monthly-average USD/TWD rates and source
+  observation counts
+- `monthly_usd_twd_exchange_rates`: searchable English monthly FX view
 - `company_release_calendar`: searchable English release-calendar view
 - `monthly_revenue_live`: revenue and release status in one English view
 
@@ -128,6 +136,7 @@ Requires Node.js 24 or newer; there are no third-party packages.
 
 ```powershell
 node --test
+node scripts/update-exchange-rate.mjs
 node scripts/update-live-data.mjs
 ```
 

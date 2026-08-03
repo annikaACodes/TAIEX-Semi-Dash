@@ -36,19 +36,29 @@ import {
 } from "recharts";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import {
+  translateRevenueHistory,
+  type MonthlyExchangeRate,
+  type TranslatedRevenueRow,
+} from "./fx-calculations";
+
 type ViewName = "company" | "subsectors" | "momentum" | "freshness";
 type RangeName = 12 | 24 | 60 | "all";
 type DisplayCurrency = "TWD" | "USD";
 type ExportRow = Record<string, string | number | boolean | null>;
 
-interface ExchangeRate {
+interface ExchangeRateHistory {
   baseCurrency: "USD";
   quoteCurrency: "TWD";
-  twdPerUsd: number;
-  rateDate: string;
-  retrievedAtUtc: string;
+  averageMethod: "arithmetic_mean_daily_1600_interbank_spot";
   sourceName: string;
   sourceUrl: string;
+  coverageStartMonth: string;
+  coverageEndMonth: string;
+  monthlyRateCount: number;
+  latestAverageTwdPerUsd: number;
+  latestObservationDate: string;
+  sourceLastUpdatedDate: string | null;
 }
 
 interface CompanySummary {
@@ -70,7 +80,7 @@ interface Manifest {
   generatedDateTaipei: string;
   latestRevenueMonth: string;
   targetReportingMonth: string;
-  exchangeRate: ExchangeRate;
+  exchangeRateHistory: ExchangeRateHistory;
   companyCount: number;
   classificationCount: number;
   revenueObservationCount: number;
@@ -199,6 +209,7 @@ interface FreshnessData {
 
 interface DashboardData {
   manifest: Manifest;
+  exchangeRates: MonthlyExchangeRate[];
   subsectors: SubsectorData;
   momentum: MomentumData;
   freshness: FreshnessData;
@@ -312,22 +323,15 @@ function fullCurrency(
 }
 
 function revenueInCurrency(
-  valueNt: number | null | undefined,
+  row: TranslatedRevenueRow<HistoryRow> | null | undefined,
+  metric: "revenueNt" | "cumulativeYtdRevenueNt",
   currency: DisplayCurrency,
-  exchangeRate: ExchangeRate,
 ) {
-  if (valueNt === null || valueNt === undefined) return null;
-  return currency === "USD" ? valueNt / exchangeRate.twdPerUsd : valueNt;
-}
-
-function exportRevenue(
-  valueNt: number | null | undefined,
-  currency: DisplayCurrency,
-  exchangeRate: ExchangeRate,
-) {
-  const value = revenueInCurrency(valueNt, currency, exchangeRate);
-  if (value === null) return null;
-  return currency === "USD" ? Math.round(value * 100) / 100 : value;
+  if (!row) return null;
+  if (currency === "TWD") return row[metric];
+  return metric === "revenueNt"
+    ? row.revenueUsd
+    : row.cumulativeYtdRevenueUsd;
 }
 
 function formatPercent(value: number | null | undefined, digits = 1) {
@@ -552,11 +556,11 @@ function ScreenHeader({
 function CurrencyControl({
   value,
   onChange,
-  exchangeRate,
+  exchangeRateHistory,
 }: {
   value: DisplayCurrency;
   onChange: (value: DisplayCurrency) => void;
-  exchangeRate: ExchangeRate;
+  exchangeRateHistory: ExchangeRateHistory;
 }) {
   return (
     <div className="currency-control">
@@ -575,12 +579,13 @@ function CurrencyControl({
       </div>
       <span
         className="fx-rate-note"
-        title={`${exchangeRate.sourceName}; retrieved ${formatTimestamp(
-          exchangeRate.retrievedAtUtc,
-        )}`}
+        title={
+          `${exchangeRateHistory.sourceName}; arithmetic mean of published ` +
+          `daily 16:00 NTD/USD interbank spot rates; latest monthly average ` +
+          `${exchangeRateHistory.latestAverageTwdPerUsd.toFixed(3)}`
+        }
       >
-        1 USD = NT${exchangeRate.twdPerUsd.toFixed(3)} ·{" "}
-        {formatDate(exchangeRate.rateDate)} · TAIFEX
+        USD uses each month&apos;s CBC average
       </span>
     </div>
   );
@@ -690,9 +695,11 @@ function CompanySelector({
 
 function CompanyView({
   manifest,
+  exchangeRates,
   companies,
 }: {
   manifest: Manifest;
+  exchangeRates: MonthlyExchangeRate[];
   companies: Record<string, CompanyData>;
 }) {
   const [selectedTicker, setSelectedTicker] = useState(
@@ -729,48 +736,52 @@ function CompanyView({
     bundledCompany ??
     (loadedCompany?.company.ticker === selectedTicker ? loadedCompany : null);
 
+  const translatedHistory = useMemo(
+    () => translateRevenueHistory(companyData?.history ?? [], exchangeRates),
+    [companyData, exchangeRates],
+  );
   const visibleHistory = useMemo(
-    () => rangeRows(companyData?.history ?? [], range),
-    [companyData, range],
+    () => rangeRows(translatedHistory, range),
+    [range, translatedHistory],
   );
   const displayHistory = useMemo(
     () =>
       visibleHistory.map((row) => ({
         ...row,
-        revenueNt: revenueInCurrency(
-          row.revenueNt,
-          currency,
-          manifest.exchangeRate,
-        ),
+        revenueNt: revenueInCurrency(row, "revenueNt", currency),
         cumulativeYtdRevenueNt: revenueInCurrency(
-          row.cumulativeYtdRevenueNt,
+          row,
+          "cumulativeYtdRevenueNt",
           currency,
-          manifest.exchangeRate,
         ),
       })),
-    [currency, manifest.exchangeRate, visibleHistory],
+    [currency, visibleHistory],
   );
-  const latest = companyData?.history.at(-1);
+  const latest = translatedHistory.at(-1);
+  const latestDisplay = displayHistory.at(-1);
   const metricDefinition = COMPANY_METRICS[metric];
   const currencyLabel = currency === "USD" ? "USD" : "NT$";
   const exportRows: ExportRow[] = visibleHistory.map((row) => ({
     Month: row.month,
-    [`Revenue (${currencyLabel})`]: exportRevenue(
-      row.revenueNt,
+    [`Revenue (${currencyLabel})`]: revenueInCurrency(
+      row,
+      "revenueNt",
       currency,
-      manifest.exchangeRate,
     ),
     "MoM (%)": row.momPercent,
     "YoY (%)": row.yoyPercent,
-    [`Cumulative YTD Revenue (${currencyLabel})`]: exportRevenue(
-      row.cumulativeYtdRevenueNt,
+    [`Cumulative YTD Revenue (${currencyLabel})`]: revenueInCurrency(
+      row,
+      "cumulativeYtdRevenueNt",
       currency,
-      manifest.exchangeRate,
     ),
     "YTD YoY (%)": row.ytdYoyPercent,
-    "USD/NTD Rate": currency === "USD" ? manifest.exchangeRate.twdPerUsd : null,
-    "Exchange Rate Date":
-      currency === "USD" ? manifest.exchangeRate.rateDate : null,
+    "Monthly Average USD/NTD Rate":
+      currency === "USD" ? row.averageTwdPerUsd : null,
+    "FX Daily Observations":
+      currency === "USD" ? row.exchangeRateObservationCount : null,
+    "FX Latest Observation":
+      currency === "USD" ? row.exchangeRateLastObservationDate : null,
     "Publication Timestamp": row.publicationTimestamp,
     Restated: row.restatementFlag,
     Market: row.sourceMarket,
@@ -791,7 +802,7 @@ function CompanyView({
             <CurrencyControl
               value={currency}
               onChange={setCurrency}
-              exchangeRate={manifest.exchangeRate}
+              exchangeRateHistory={manifest.exchangeRateHistory}
             />
             <CompanySelector
               companies={manifest.companies}
@@ -838,11 +849,7 @@ function CompanyView({
             <MetricCard
               label="Monthly revenue"
               value={compactCurrency(
-                revenueInCurrency(
-                  latest?.revenueNt,
-                  currency,
-                  manifest.exchangeRate,
-                ),
+                latestDisplay?.revenueNt,
                 currency,
               )}
               detail={formatMonth(latest?.month)}
@@ -862,11 +869,7 @@ function CompanyView({
             <MetricCard
               label="Cumulative YTD"
               value={compactCurrency(
-                revenueInCurrency(
-                  latest?.cumulativeYtdRevenueNt,
-                  currency,
-                  manifest.exchangeRate,
-                ),
+                latestDisplay?.cumulativeYtdRevenueNt,
                 currency,
               )}
               detail="Reported year to date"
@@ -914,11 +917,7 @@ function CompanyView({
                 <strong>
                   {metricDefinition.kind === "currency"
                     ? compactCurrency(
-                        revenueInCurrency(
-                          latest?.[metric],
-                          currency,
-                          manifest.exchangeRate,
-                        ),
+                        latestDisplay?.[metric],
                         currency,
                       )
                     : formatPercent(latest?.[metric])}
@@ -2043,7 +2042,11 @@ export function Dashboard() {
         ) : !data ? (
           <LoadingShell />
         ) : view === "company" ? (
-          <CompanyView manifest={data.manifest} companies={data.companies} />
+          <CompanyView
+            manifest={data.manifest}
+            exchangeRates={data.exchangeRates}
+            companies={data.companies}
+          />
         ) : view === "subsectors" ? (
           <SubsectorView data={data.subsectors} />
         ) : view === "momentum" ? (

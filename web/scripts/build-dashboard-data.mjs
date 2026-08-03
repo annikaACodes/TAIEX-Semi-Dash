@@ -1,5 +1,5 @@
 import { DatabaseSync } from "node:sqlite";
-import { mkdir, readFile, readdir, unlink, writeFile } from "node:fs/promises";
+import { mkdir, readdir, unlink, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
@@ -23,12 +23,6 @@ const outputDirectory = resolve(
   argumentValue("--output", resolve(projectDirectory, "public", "data")),
 );
 const companiesDirectory = resolve(outputDirectory, "companies");
-const exchangeRatePath = resolve(
-  argumentValue(
-    "--exchange-rate",
-    resolve(projectDirectory, "public", "data", "exchange-rate.json"),
-  ),
-);
 
 function nullableNumber(value) {
   return value === null || value === undefined ? null : Number(value);
@@ -104,26 +98,6 @@ async function removeFileIfPresent(path) {
   }
 }
 
-function validateExchangeRate(value) {
-  if (
-    value?.baseCurrency !== "USD" ||
-    value?.quoteCurrency !== "TWD" ||
-    !Number.isFinite(value?.twdPerUsd) ||
-    value.twdPerUsd <= 0 ||
-    !/^\d{4}-\d{2}-\d{2}$/.test(value?.rateDate ?? "") ||
-    typeof value?.retrievedAtUtc !== "string" ||
-    typeof value?.sourceName !== "string" ||
-    typeof value?.sourceUrl !== "string"
-  ) {
-    throw new Error(`Invalid exchange-rate data in ${exchangeRatePath}.`);
-  }
-  return value;
-}
-
-const exchangeRate = validateExchangeRate(
-  JSON.parse(await readFile(exchangeRatePath, "utf8")),
-);
-
 const database = new DatabaseSync(databasePath, { readOnly: true });
 
 const companyRows = database
@@ -167,8 +141,40 @@ const calendarRows = database
       ORDER BY reporting_month, company_id`,
   )
   .all();
+const exchangeRateRows = database
+  .prepare(
+    `SELECT rate_month, base_currency, quote_currency,
+            average_twd_per_usd, daily_observation_count,
+            first_observation_date, last_observation_date,
+            average_method, source_name, source_url,
+            source_last_updated_date, retrieved_at_utc
+       FROM monthly_exchange_rates
+      ORDER BY rate_month`,
+  )
+  .all();
 
 database.close();
+
+const exchangeRates = exchangeRateRows.map((row) => ({
+  month: monthKey(row.rate_month),
+  baseCurrency: row.base_currency,
+  quoteCurrency: row.quote_currency,
+  averageTwdPerUsd: Number(row.average_twd_per_usd),
+  dailyObservationCount: Number(row.daily_observation_count),
+  firstObservationDate: row.first_observation_date,
+  lastObservationDate: row.last_observation_date,
+  averageMethod: row.average_method,
+  sourceName: row.source_name,
+  sourceUrl: row.source_url,
+  sourceLastUpdatedDate: row.source_last_updated_date,
+  retrievedAtUtc: row.retrieved_at_utc,
+}));
+if (exchangeRates.length === 0) {
+  throw new Error("The database contains no monthly USD/TWD exchange rates.");
+}
+const exchangeRateByMonth = new Map(
+  exchangeRates.map((rate) => [rate.month, rate]),
+);
 
 const classificationsByCompany = new Map();
 for (const row of classificationRows) {
@@ -181,9 +187,11 @@ const historyByCompany = new Map();
 const revenueByCompanyMonth = new Map();
 for (const row of revenueRows) {
   const history = historyByCompany.get(row.company_id) ?? [];
+  const month = monthKey(row.reporting_month);
+  const revenueNt = nullableNumber(row.revenue_nt);
   const item = {
-    month: monthKey(row.reporting_month),
-    revenueNt: nullableNumber(row.revenue_nt),
+    month,
+    revenueNt,
     momPercent: nullableNumber(row.mom_percent),
     yoyPercent: nullableNumber(row.yoy_percent),
     cumulativeYtdRevenueNt: nullableNumber(row.cumulative_ytd_revenue_nt),
@@ -208,6 +216,21 @@ const latestRevenueMonth = allRevenueMonths.at(-1);
 if (!latestRevenueMonth) {
   throw new Error("The database contains no monthly revenue data.");
 }
+const missingExchangeRateMonths = allRevenueMonths.filter(
+  (month) => !exchangeRateByMonth.has(month),
+);
+if (missingExchangeRateMonths.length > 0) {
+  throw new Error(
+    `Missing monthly USD/TWD exchange rates for ${missingExchangeRateMonths.join(
+      ", ",
+    )}.`,
+  );
+}
+const revenueExchangeRates = exchangeRates.filter(
+  (rate) =>
+    rate.month >= allRevenueMonths[0] && rate.month <= latestRevenueMonth,
+);
+const latestRevenueExchangeRate = exchangeRateByMonth.get(latestRevenueMonth);
 const revenueCompanyCountByMonth = new Map();
 for (const row of revenueRows) {
   const month = monthKey(row.reporting_month);
@@ -557,7 +580,19 @@ const manifestData = {
   generatedDateTaipei: asOfDateTaipei,
   latestRevenueMonth,
   targetReportingMonth,
-  exchangeRate,
+  exchangeRateHistory: {
+    baseCurrency: "USD",
+    quoteCurrency: "TWD",
+    averageMethod: latestRevenueExchangeRate.averageMethod,
+    sourceName: latestRevenueExchangeRate.sourceName,
+    sourceUrl: latestRevenueExchangeRate.sourceUrl,
+    coverageStartMonth: revenueExchangeRates[0].month,
+    coverageEndMonth: latestRevenueExchangeRate.month,
+    monthlyRateCount: revenueExchangeRates.length,
+    latestAverageTwdPerUsd: latestRevenueExchangeRate.averageTwdPerUsd,
+    latestObservationDate: latestRevenueExchangeRate.lastObservationDate,
+    sourceLastUpdatedDate: latestRevenueExchangeRate.sourceLastUpdatedDate,
+  },
   companyCount: companies.length,
   classificationCount: Object.keys(subsectorSeries).length,
   revenueObservationCount: revenueRows.length,
@@ -587,6 +622,7 @@ const freshnessData = {
 };
 const bundleData = {
   manifest: manifestData,
+  exchangeRates: revenueExchangeRates,
   subsectors: subsectorData,
   momentum: momentumData,
   freshness: freshnessData,
@@ -595,8 +631,13 @@ const bundleData = {
 
 await mkdir(outputDirectory, { recursive: true });
 await removeFileIfPresent(resolve(outputDirectory, "dashboard-bundle.json"));
+await removeFileIfPresent(resolve(outputDirectory, "exchange-rate.json"));
 await Promise.all([
   writeJson(resolve(outputDirectory, "manifest.json"), manifestData),
+  writeJson(
+    resolve(outputDirectory, "exchange-rates.json"),
+    revenueExchangeRates,
+  ),
   writeJson(resolve(outputDirectory, "subsectors.json"), subsectorData),
   writeJson(resolve(outputDirectory, "momentum.json"), momentumData),
   writeJson(resolve(outputDirectory, "freshness.json"), freshnessData),

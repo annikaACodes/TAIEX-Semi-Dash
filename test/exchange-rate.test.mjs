@@ -1,59 +1,195 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { DatabaseSync } from "node:sqlite";
 
 import {
-  fetchLatestUsdTwdRate,
-  isExchangeRateRecord,
-  selectLatestUsdTwdRate,
-  TAIFEX_DAILY_FX_URL,
+  buildMonthlyUsdTwdRates,
+  CBC_DAILY_FX_URL,
+  fetchMonthlyUsdTwdRates,
+  parseCbcDailyUsdTwdRates,
+  syncMonthlyUsdTwdRates,
 } from "../src/exchange-rate.mjs";
+import { translateRevenueHistory } from "../web/app/fx-calculations.ts";
 
-test("TAIFEX parser selects the latest valid USD/NTD business-day rate", () => {
-  const result = selectLatestUsdTwdRate(
-    [
-      { Date: "20260731", "USD/NTD": "32.292" },
-      { Date: "invalid", "USD/NTD": "500" },
-      { Date: "20260730", "USD/NTD": "32.454" },
-    ],
-    "2026-08-03T14:30:00Z",
+function payload(rows) {
+  return {
+    meta: { last_updated: "2026-08-03" },
+    data: { dataSets: rows },
+  };
+}
+
+test("CBC parser extracts valid NTD/USD daily rates", () => {
+  const dailyRates = parseCbcDailyUsdTwdRates(
+    payload([
+      ["20260702", "32.500", "unused"],
+      ["invalid", "32.000"],
+      ["20260701", "32.300"],
+      ["20260701", "32.400"],
+      ["20260703", "-"],
+    ]),
   );
 
-  assert.deepEqual(result, {
+  assert.deepEqual(dailyRates, [
+    { date: "2026-07-01", twdPerUsd: 32.4 },
+    { date: "2026-07-02", twdPerUsd: 32.5 },
+  ]);
+});
+
+test("CBC daily rates become arithmetic monthly averages", () => {
+  const rates = buildMonthlyUsdTwdRates(
+    payload([
+      ["20260630", "31.000"],
+      ["20260701", "32.000"],
+      ["20260702", "34.000"],
+    ]),
+    "2026-08-03T15:00:00Z",
+  );
+
+  assert.equal(rates.length, 2);
+  assert.deepEqual(rates[1], {
+    rateMonth: "2026-07-01",
     baseCurrency: "USD",
     quoteCurrency: "TWD",
-    twdPerUsd: 32.292,
-    rateDate: "2026-07-31",
-    retrievedAtUtc: "2026-08-03T14:30:00.000Z",
-    sourceName: "Taiwan Futures Exchange (TAIFEX)",
-    sourceUrl: TAIFEX_DAILY_FX_URL,
+    averageTwdPerUsd: 33,
+    dailyObservationCount: 2,
+    firstObservationDate: "2026-07-01",
+    lastObservationDate: "2026-07-02",
+    averageMethod: "arithmetic_mean_daily_1600_interbank_spot",
+    sourceName: "Central Bank of the Republic of China (Taiwan)",
+    sourceUrl: CBC_DAILY_FX_URL,
+    sourceLastUpdatedDate: "2026-08-03",
+    retrievedAtUtc: "2026-08-03T15:00:00.000Z",
   });
-  assert.equal(isExchangeRateRecord(result), true);
 });
 
-test("TAIFEX parser rejects a response without a plausible USD/NTD rate", () => {
-  assert.throws(
-    () => selectLatestUsdTwdRate([{ Date: "20260731", "USD/NTD": "-" }]),
-    /no valid USD\/NTD daily rate/i,
+test("historical conversion sums individually translated months and keeps growth", () => {
+  const history = [
+    { month: "2026-01", revenueNt: 3_200, yoyPercent: 10 },
+    { month: "2026-02", revenueNt: 3_400, yoyPercent: 20 },
+    { month: "2027-01", revenueNt: 3_600, yoyPercent: 30 },
+  ];
+  const rates = [
+    {
+      month: "2026-01",
+      averageTwdPerUsd: 32,
+      dailyObservationCount: 20,
+      lastObservationDate: "2026-01-30",
+    },
+    {
+      month: "2026-02",
+      averageTwdPerUsd: 34,
+      dailyObservationCount: 18,
+      lastObservationDate: "2026-02-27",
+    },
+    {
+      month: "2027-01",
+      averageTwdPerUsd: 36,
+      dailyObservationCount: 21,
+      lastObservationDate: "2027-01-29",
+    },
+  ];
+
+  const translated = translateRevenueHistory(history, rates);
+  assert.deepEqual(
+    translated.map((row) => ({
+      month: row.month,
+      revenueUsd: row.revenueUsd,
+      cumulativeYtdRevenueUsd: row.cumulativeYtdRevenueUsd,
+      yoyPercent: row.yoyPercent,
+    })),
+    [
+      {
+        month: "2026-01",
+        revenueUsd: 100,
+        cumulativeYtdRevenueUsd: 100,
+        yoyPercent: 10,
+      },
+      {
+        month: "2026-02",
+        revenueUsd: 100,
+        cumulativeYtdRevenueUsd: 200,
+        yoyPercent: 20,
+      },
+      {
+        month: "2027-01",
+        revenueUsd: 100,
+        cumulativeYtdRevenueUsd: 100,
+        yoyPercent: 30,
+      },
+    ],
   );
 });
 
-test("exchange-rate fetch retries and parses octet-stream JSON responses", async () => {
+test("monthly exchange-rate sync is idempotent and updates corrections", async () => {
+  const database = new DatabaseSync(":memory:");
+  const migrationSql = await readFile(
+    new URL("../migrations/006_monthly_exchange_rates.sql", import.meta.url),
+    "utf8",
+  );
+  database.exec(migrationSql);
+  const rates = buildMonthlyUsdTwdRates(
+    payload([
+      ["20260701", "32.000"],
+      ["20260702", "34.000"],
+    ]),
+    "2026-08-03T15:00:00Z",
+  );
+
+  assert.equal(syncMonthlyUsdTwdRates(database, rates), 1);
+  assert.equal(syncMonthlyUsdTwdRates(database, rates), 0);
+
+  const corrected = buildMonthlyUsdTwdRates(
+    payload([
+      ["20260701", "32.000"],
+      ["20260702", "35.000"],
+    ]),
+    "2026-08-04T15:00:00Z",
+  );
+  assert.equal(syncMonthlyUsdTwdRates(database, corrected), 1);
+  assert.deepEqual(
+    {
+      ...database
+      .prepare(`
+        SELECT average_twd_per_usd, daily_observation_count,
+               last_observation_date
+        FROM monthly_exchange_rates
+      `)
+      .get(),
+    },
+    {
+      average_twd_per_usd: 33.5,
+      daily_observation_count: 2,
+      last_observation_date: "2026-07-02",
+    },
+  );
+  database.close();
+});
+
+test("CBC exchange-rate fetch retries and parses JSON", async () => {
   let calls = 0;
-  const result = await fetchLatestUsdTwdRate({
-    nowUtc: "2026-08-03T14:30:00Z",
+  const rates = await fetchMonthlyUsdTwdRates({
+    nowUtc: "2026-08-03T15:00:00Z",
     retryDelayMs: 0,
     fetchFn: async (url) => {
       calls += 1;
-      assert.equal(url, TAIFEX_DAILY_FX_URL);
+      assert.equal(url, CBC_DAILY_FX_URL);
       if (calls === 1) return new Response("unavailable", { status: 503 });
       return new Response(
-        JSON.stringify([{ Date: "20260731", "USD/NTD": "32.292" }]),
-        { headers: { "Content-Type": "application/octet-stream" } },
+        JSON.stringify(payload([["20260731", "32.292"]])),
+        { headers: { "Content-Type": "application/json" } },
       );
     },
   });
 
   assert.equal(calls, 2);
-  assert.equal(result.twdPerUsd, 32.292);
-  assert.equal(result.rateDate, "2026-07-31");
+  assert.equal(rates.at(-1).rateMonth, "2026-07-01");
+  assert.equal(rates.at(-1).averageTwdPerUsd, 32.292);
+});
+
+test("CBC parser rejects a response without a plausible NTD/USD rate", () => {
+  assert.throws(
+    () => buildMonthlyUsdTwdRates(payload([["20260731", "-"]])),
+    /no valid NTD\/USD daily rates/i,
+  );
 });

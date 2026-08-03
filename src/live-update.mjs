@@ -33,6 +33,9 @@ const DEFAULT_MIGRATION_PATH = fileURLToPath(
 const DEFAULT_REPORT_DATE_SEED_PATH = fileURLToPath(
   new URL("../migrations/005_mops_announcement_seeds.sql", import.meta.url),
 );
+const DEFAULT_EXCHANGE_RATE_MIGRATION_PATH = fileURLToPath(
+  new URL("../migrations/006_monthly_exchange_rates.sql", import.meta.url),
+);
 const DEFAULT_IR_CONFIG_PATH = fileURLToPath(
   new URL("../config/ir_sources.json", import.meta.url),
 );
@@ -72,18 +75,26 @@ async function fetchTextWithRetry(fetchFn, url, attempts = 3) {
   throw new Error(`${url}: ${lastError?.message ?? "request failed"}`);
 }
 
-function applyMigration(database, migrationSql, reportDateSeedSql) {
+function applyMigration(
+  database,
+  migrationSql,
+  reportDateSeedSql,
+  exchangeRateMigrationSql,
+) {
   const version = Number(database.prepare("PRAGMA user_version").get().user_version);
-  if (version === 5) {
+  if (version === 6) {
     return false;
   }
-  if (version !== 4) {
-    throw new Error(`Expected SQLite user_version 4 or 5, found ${version}`);
+  if (version !== 4 && version !== 5) {
+    throw new Error(`Expected SQLite user_version 4, 5, or 6, found ${version}`);
   }
   database.exec("BEGIN IMMEDIATE");
   try {
-    database.exec(migrationSql);
-    database.exec(reportDateSeedSql);
+    if (version === 4) {
+      database.exec(migrationSql);
+      database.exec(reportDateSeedSql);
+    }
+    database.exec(exchangeRateMigrationSql);
     database.exec("COMMIT");
     return true;
   } catch (error) {
@@ -1207,6 +1218,7 @@ export async function refreshReleaseForecasts({
   nowUtc = new Date().toISOString(),
   migrationPath = DEFAULT_MIGRATION_PATH,
   reportDateSeedPath = DEFAULT_REPORT_DATE_SEED_PATH,
+  exchangeRateMigrationPath = DEFAULT_EXCHANGE_RATE_MIGRATION_PATH,
   scheduleMonthCount = 13,
   holidays = new Set(),
 } = {}) {
@@ -1215,10 +1227,12 @@ export async function refreshReleaseForecasts({
   }
   const normalizedNowUtc = new Date(nowUtc).toISOString();
   const targetReportingMonth = previousTaipeiMonth(normalizedNowUtc);
-  const [migrationSql, reportDateSeedSql] = await Promise.all([
-    readFile(migrationPath, "utf8"),
-    readFile(reportDateSeedPath, "utf8"),
-  ]);
+  const [migrationSql, reportDateSeedSql, exchangeRateMigrationSql] =
+    await Promise.all([
+      readFile(migrationPath, "utf8"),
+      readFile(reportDateSeedPath, "utf8"),
+      readFile(exchangeRateMigrationPath, "utf8"),
+    ]);
   const database = new DatabaseSync(databasePath);
   database.exec("PRAGMA foreign_keys = ON; PRAGMA busy_timeout = 30000");
 
@@ -1228,6 +1242,7 @@ export async function refreshReleaseForecasts({
       database,
       migrationSql,
       reportDateSeedSql,
+      exchangeRateMigrationSql,
     );
     const companies = getCompanies(database);
     database.exec("BEGIN IMMEDIATE");
@@ -1248,7 +1263,7 @@ export async function refreshReleaseForecasts({
     }
     checkDatabase(database);
     return {
-      databaseVersion: 5,
+      databaseVersion: 6,
       migrationApplied,
       targetReportingMonth,
       companies: companies.length,
@@ -1269,6 +1284,7 @@ export async function runLiveUpdate({
   nowUtc = new Date().toISOString(),
   migrationPath = DEFAULT_MIGRATION_PATH,
   reportDateSeedPath = DEFAULT_REPORT_DATE_SEED_PATH,
+  exchangeRateMigrationPath = DEFAULT_EXCHANGE_RATE_MIGRATION_PATH,
   irConfigPath = DEFAULT_IR_CONFIG_PATH,
   scheduleMonthCount = 13,
   overrides = null,
@@ -1278,9 +1294,15 @@ export async function runLiveUpdate({
   }
   const normalizedNowUtc = new Date(nowUtc).toISOString();
   const targetReportingMonth = previousTaipeiMonth(normalizedNowUtc);
-  const [migrationSql, reportDateSeedSql, irConfigText] = await Promise.all([
+  const [
+    migrationSql,
+    reportDateSeedSql,
+    exchangeRateMigrationSql,
+    irConfigText,
+  ] = await Promise.all([
     readFile(migrationPath, "utf8"),
     readFile(reportDateSeedPath, "utf8"),
+    readFile(exchangeRateMigrationPath, "utf8"),
     readFile(irConfigPath, "utf8"),
   ]);
   const irConfig = JSON.parse(irConfigText);
@@ -1293,6 +1315,7 @@ export async function runLiveUpdate({
       database,
       migrationSql,
       reportDateSeedSql,
+      exchangeRateMigrationSql,
     );
     const companies = getCompanies(database);
     const companiesByTicker = new Map(
@@ -1392,7 +1415,7 @@ export async function runLiveUpdate({
           );
       }
       result = {
-        databaseVersion: 5,
+        databaseVersion: 6,
         migrationApplied,
         targetReportingMonth,
         companies: companies.length,

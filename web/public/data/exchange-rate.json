@@ -1,9 +1,0 @@
-{
-  "baseCurrency": "USD",
-  "quoteCurrency": "TWD",
-  "twdPerUsd": 32.292,
-  "rateDate": "2026-07-31",
-  "retrievedAtUtc": "2026-08-03T14:29:50.454Z",
-  "sourceName": "Taiwan Futures Exchange (TAIFEX)",
-  "sourceUrl": "https://openapi.taifex.com.tw/v1/DailyForeignExchangeRates"
-}

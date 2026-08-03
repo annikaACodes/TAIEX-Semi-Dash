@@ -103,6 +103,14 @@ For benchmark data, use the following priority:
 2. Licensed market-data vendor data
 3. Public delayed benchmark data for prototype testing only, subject to terms of use
 
+For USD translation, use the Central Bank of the Republic of China (Taiwan)
+daily NTD/USD interbank spot series as the authoritative source:
+https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01
+
+Revenue is translated using the arithmetic average of each calendar month's
+published daily 16:00 rates. USD cumulative periods sum the individually
+translated months. Source NT$ MoM, YoY, and YTD YoY rates are not recalculated.
+
 ## 5. Data Refresh and Timestamping
 
 Every dashboard run should show:

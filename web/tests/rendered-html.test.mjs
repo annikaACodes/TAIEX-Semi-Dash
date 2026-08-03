@@ -115,9 +115,17 @@ test("serves and accepts the compressed live dashboard bundle", async () => {
 });
 
 test("ships complete, internally consistent dashboard data", async () => {
-  const [manifest, subsectors, momentum, freshness, tsmc, compressedBundle] =
-    await Promise.all([
+  const [
+    manifest,
+    exchangeRates,
+    subsectors,
+    momentum,
+    freshness,
+    tsmc,
+    compressedBundle,
+  ] = await Promise.all([
     readJson("../public/data/manifest.json"),
+    readJson("../public/data/exchange-rates.json"),
     readJson("../public/data/subsectors.json"),
     readJson("../public/data/momentum.json"),
     readJson("../public/data/freshness.json"),
@@ -129,11 +137,21 @@ test("ships complete, internally consistent dashboard data", async () => {
   assert.equal(manifest.companyCount, 314);
   assert.equal(manifest.companies.length, manifest.companyCount);
   assert.ok(manifest.revenueObservationCount >= 18_446);
-  assert.equal(manifest.exchangeRate.baseCurrency, "USD");
-  assert.equal(manifest.exchangeRate.quoteCurrency, "TWD");
-  assert.ok(manifest.exchangeRate.twdPerUsd > 0);
-  assert.match(manifest.exchangeRate.rateDate, /^\d{4}-\d{2}-\d{2}$/);
-  assert.match(manifest.exchangeRate.sourceName, /TAIFEX/i);
+  assert.equal(manifest.exchangeRateHistory.baseCurrency, "USD");
+  assert.equal(manifest.exchangeRateHistory.quoteCurrency, "TWD");
+  assert.equal(
+    manifest.exchangeRateHistory.averageMethod,
+    "arithmetic_mean_daily_1600_interbank_spot",
+  );
+  assert.match(manifest.exchangeRateHistory.sourceName, /Central Bank/i);
+  assert.equal(
+    manifest.exchangeRateHistory.monthlyRateCount,
+    exchangeRates.length,
+  );
+  assert.equal(
+    exchangeRates.at(-1).month,
+    manifest.exchangeRateHistory.coverageEndMonth,
+  );
   assert.equal(
     Object.keys(subsectors.series).length,
     manifest.classificationCount,
@@ -156,7 +174,11 @@ test("ships complete, internally consistent dashboard data", async () => {
   assert.equal(tsmc.company.ticker, "2330");
   assert.ok(tsmc.history.length >= 60);
   assert.equal(bundle.manifest.companyCount, manifest.companyCount);
-  assert.deepEqual(bundle.manifest.exchangeRate, manifest.exchangeRate);
+  assert.deepEqual(
+    bundle.manifest.exchangeRateHistory,
+    manifest.exchangeRateHistory,
+  );
+  assert.deepEqual(bundle.exchangeRates, exchangeRates);
   assert.equal(Object.keys(bundle.companies).length, manifest.companyCount);
   assert.equal(
     Object.values(bundle.companies).reduce(
@@ -178,6 +200,23 @@ test("ships complete, internally consistent dashboard data", async () => {
     "restatementFlag",
   ]) {
     assert.ok(key in latest, `TSMC history is missing ${key}`);
+  }
+  assert.equal("revenueUsd" in latest, false);
+
+  const exchangeRateByMonth = new Map(
+    exchangeRates.map((rate) => [rate.month, rate]),
+  );
+  const latestYearRows = tsmc.history.filter((row) =>
+    row.month.startsWith(latest.month.slice(0, 4)),
+  );
+  let cumulativeUsd = 0;
+  for (const row of latestYearRows) {
+    const rate = exchangeRateByMonth.get(row.month);
+    assert.ok(rate, `Missing exchange rate for ${row.month}`);
+    cumulativeUsd += row.revenueNt / rate.averageTwdPerUsd;
+    assert.ok(cumulativeUsd > 0);
+    assert.equal(typeof row.yoyPercent, "number");
+    assert.equal(typeof row.ytdYoyPercent, "number");
   }
 
   assert.ok(

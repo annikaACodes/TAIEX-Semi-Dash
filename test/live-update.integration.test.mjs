@@ -157,7 +157,7 @@ test(
   },
 );
 
-test("the version 5 migration seeds official announcement history", async () => {
+test("migrations reach version 6 and seed official announcement history", async () => {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-v5-test-"));
   const databasePath = join(temporaryDirectory, "test.sqlite");
   const sourceDatabase = new URL(
@@ -169,6 +169,8 @@ test("the version 5 migration seeds official announcement history", async () => 
   try {
     const versionFour = new DatabaseSync(databasePath);
     versionFour.exec(`
+      DROP VIEW IF EXISTS monthly_usd_twd_exchange_rates;
+      DROP TABLE IF EXISTS monthly_exchange_rates;
       UPDATE monthly_release_schedule
       SET actual_first_seen_at_utc = NULL,
           actual_first_seen_date_local = NULL,
@@ -185,7 +187,7 @@ test("the version 5 migration seeds official announcement history", async () => 
       nowUtc: "2026-08-03T13:30:00.000Z",
     });
     assert.equal(result.migrationApplied, true);
-    assert.equal(result.databaseVersion, 5);
+    assert.equal(result.databaseVersion, 6);
 
     const database = new DatabaseSync(databasePath, { readOnly: true });
     const mopsSeeds = database
@@ -223,6 +225,13 @@ test("the version 5 migration seeds official announcement history", async () => 
         )
       `)
       .get();
+    const exchangeRateTable = database
+      .prepare(`
+        SELECT COUNT(*) AS row_count
+        FROM sqlite_master
+        WHERE type = 'table' AND name = 'monthly_exchange_rates'
+      `)
+      .get();
     database.close();
 
     assert.equal(mopsSeeds.row_count, 197);
@@ -230,6 +239,7 @@ test("the version 5 migration seeds official announcement history", async () => 
     assert.equal(tsmc.row_count, 12);
     assert.equal(correctionOnlyCompany.row_count, 0);
     assert.equal(maximumHistoryRows.maximum_count, 12);
+    assert.equal(exchangeRateTable.row_count, 1);
   } finally {
     await rm(temporaryDirectory, { recursive: true, force: true });
   }
