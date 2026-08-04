@@ -42,13 +42,30 @@ const DEFAULT_IR_CONFIG_PATH = fileURLToPath(
 const HOLIDAY_URL =
   "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule";
 const USER_AGENT = "Taiwan-Monthly-Revenue-Research/1.0";
+const DEFAULT_RETRY_DELAYS_MS = [500, 1_000];
+const MOPS_RETRY_DELAYS_MS = [2_000, 5_000, 15_000, 30_000, 60_000];
+const RETRYABLE_HTTP_STATUSES = new Set([
+  307,
+  408,
+  425,
+  429,
+  500,
+  502,
+  503,
+  504,
+]);
 
 function sleep(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
-async function fetchTextWithRetry(fetchFn, url, attempts = 3) {
+async function fetchTextWithRetry(
+  fetchFn,
+  url,
+  { retryDelaysMs = DEFAULT_RETRY_DELAYS_MS, sleepFn = sleep } = {},
+) {
   let lastError;
+  const attempts = retryDelaysMs.length + 1;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const response = await fetchFn(url, {
@@ -59,20 +76,32 @@ async function fetchTextWithRetry(fetchFn, url, attempts = 3) {
         signal: AbortSignal.timeout(30_000),
       });
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status} ${response.statusText}`.trim());
+        const error = new Error(
+          `HTTP ${response.status} ${response.statusText}`.trim(),
+        );
+        error.status = response.status;
+        error.transient = RETRYABLE_HTTP_STATUSES.has(response.status);
+        throw error;
       }
       return {
         text: await response.text(),
         lastModified: response.headers?.get?.("last-modified") ?? null,
       };
     } catch (error) {
-      lastError = error;
+      const requestError =
+        error instanceof Error ? error : new Error(String(error));
+      if (requestError.transient === undefined) requestError.transient = true;
+      lastError = requestError;
+      if (!requestError.transient) break;
       if (attempt < attempts) {
-        await sleep(500 * 2 ** (attempt - 1));
+        await sleepFn(retryDelaysMs[attempt - 1]);
       }
     }
   }
-  throw new Error(`${url}: ${lastError?.message ?? "request failed"}`);
+  const error = new Error(`${url}: ${lastError?.message ?? "request failed"}`);
+  error.status = lastError?.status ?? null;
+  error.transient = lastError?.transient === true;
+  throw error;
 }
 
 function applyMigration(
@@ -139,6 +168,7 @@ async function collectRemoteInputs({
   fetchFn,
   targetReportingMonth,
   irConfig,
+  mopsRetryDelaysMs,
   overrides,
 }) {
   const errors = [];
@@ -192,7 +222,9 @@ async function collectRemoteInputs({
           typeof override === "string"
             ? { text: override, lastModified: null }
             : override ??
-              (await fetchTextWithRetry(fetchFn, sourceUrl));
+              (await fetchTextWithRetry(fetchFn, sourceUrl, {
+                retryDelaysMs: mopsRetryDelaysMs,
+              }));
         const parsed = parseMopsArchive({
           text: fetched.text,
           marketCode: market.code,
@@ -211,7 +243,12 @@ async function collectRemoteInputs({
         }
         return { market, payload: parsed, error: null };
       } catch (error) {
-        return { market, payload: null, error: error.message };
+        return {
+          market,
+          payload: null,
+          error: error.message,
+          transient: error.transient === true,
+        };
       }
     }),
   );
@@ -227,7 +264,25 @@ async function collectRemoteInputs({
   const mopsPayloads = mopsResults
     .map((result) => result.payload)
     .filter(Boolean);
+  const remote = {
+    holidays: parseTwseHolidaySchedule(holidayPayload),
+    irResults,
+    mopsPayloads,
+    errors,
+  };
   if (mopsPayloads.length === 0) {
+    const mopsFailures = mopsResults.filter((result) => result.error);
+    if (
+      mopsFailures.length === MOPS_MARKETS.length &&
+      mopsFailures.every((result) => result.transient)
+    ) {
+      return {
+        ...remote,
+        deferred: true,
+        deferredReason:
+          "Every MOPS market was temporarily unavailable; preserved the last successful dataset for the next scheduled poll.",
+      };
+    }
     throw new Error(
       `Every MOPS market request failed: ${errors
         .filter((error) => error.source.startsWith("mops:"))
@@ -237,10 +292,9 @@ async function collectRemoteInputs({
   }
 
   return {
-    holidays: parseTwseHolidaySchedule(holidayPayload),
-    irResults,
-    mopsPayloads,
-    errors,
+    ...remote,
+    deferred: false,
+    deferredReason: null,
   };
 }
 
@@ -1287,6 +1341,7 @@ export async function runLiveUpdate({
   exchangeRateMigrationPath = DEFAULT_EXCHANGE_RATE_MIGRATION_PATH,
   irConfigPath = DEFAULT_IR_CONFIG_PATH,
   scheduleMonthCount = 13,
+  mopsRetryDelaysMs = MOPS_RETRY_DELAYS_MS,
   overrides = null,
 } = {}) {
   if (!databasePath) {
@@ -1325,11 +1380,36 @@ export async function runLiveUpdate({
       fetchFn,
       targetReportingMonth,
       irConfig,
+      mopsRetryDelaysMs,
       overrides: {
         ...overrides,
         observedAtUtc: normalizedNowUtc,
       },
     });
+    if (remote.deferred) {
+      checkDatabase(database);
+      return {
+        databaseVersion: 6,
+        migrationApplied,
+        targetReportingMonth,
+        companies: companies.length,
+        mopsMarketsChecked: 0,
+        mopsUniverseRowsSeen: 0,
+        irSourcesChecked: remote.irResults.length,
+        irEventsChanged: 0,
+        revenueObservationsInserted: 0,
+        revenueRestatementsInserted: 0,
+        reportDatesChanged: 0,
+        fallbackCompanyCount: 0,
+        profilesChanged: 0,
+        schedulesChanged: 0,
+        translationsChanged: 0,
+        databaseChanged: migrationApplied,
+        deferred: true,
+        deferredReason: remote.deferredReason,
+        errors: remote.errors,
+      };
+    }
     const selectedRows = selectUniverseRows(
       remote.mopsPayloads,
       new Set(companiesByTicker.keys()),
@@ -1431,6 +1511,8 @@ export async function runLiveUpdate({
         schedulesChanged: releaseModel.schedulesChanged,
         translationsChanged,
         databaseChanged: meaningfulChanges > 0,
+        deferred: false,
+        deferredReason: null,
         errors: remote.errors,
       };
       database.exec("COMMIT");

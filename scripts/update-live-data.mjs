@@ -17,7 +17,9 @@ const databasePath = resolve(
 try {
   const result = await runLiveUpdate({ databasePath });
   console.log(JSON.stringify(result, null, 2));
-  if (result.errors.length > 0) {
+  if (result.deferred) {
+    console.warn(`Poll deferred safely: ${result.deferredReason}`);
+  } else if (result.errors.length > 0) {
     console.warn(
       `Completed with ${result.errors.length} non-fatal source error(s).`,
     );

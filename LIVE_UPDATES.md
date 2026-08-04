@@ -18,6 +18,12 @@ is revised as new business-day observations appear; completed months change only
 if the Central Bank corrects its history. A no-change poll creates no commit, and
 a temporary API failure preserves the verified monthly history.
 
+MOPS requests use a longer staggered retry window for temporary redirects, rate
+limits, timeouts, and server errors. If every MOPS market remains temporarily
+unavailable, that poll is safely deferred without changing SQLite or failing the
+workflow; the next scheduled poll tries again. Non-transient HTTP responses,
+parser failures, database failures, and test failures still stop the workflow.
+
 Each revenue month is converted with its own monthly-average rate. USD cumulative
 YTD revenue is the sum of the individually converted monthly amounts. MoM, YoY,
 and YTD YoY remain the official NT$ growth rates in either currency view.

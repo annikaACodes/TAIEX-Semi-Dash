@@ -157,6 +157,87 @@ test(
   },
 );
 
+test("temporary all-market MOPS redirects defer without changing data", async () => {
+  const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-live-defer-"));
+  const databasePath = join(temporaryDirectory, "test.sqlite");
+  await copyFile(
+    new URL("../taiwan_semiconductor_companies.sqlite", import.meta.url),
+    databasePath,
+  );
+
+  try {
+    const before = new DatabaseSync(databasePath, { readOnly: true });
+    const runCountBefore = before
+      .prepare("SELECT COUNT(*) AS count FROM live_ingestion_runs")
+      .get().count;
+    before.close();
+
+    let requestCount = 0;
+    const result = await runLiveUpdate({
+      databasePath,
+      nowUtc: "2026-08-04T16:28:53.000Z",
+      mopsRetryDelaysMs: [0, 0],
+      fetchFn: async () => {
+        requestCount += 1;
+        return new Response(null, {
+          status: 307,
+          statusText: "Temporary Redirect",
+        });
+      },
+      overrides: {
+        holidayPayload: "[]",
+        irPayloads: IR_PAYLOADS,
+      },
+    });
+
+    const after = new DatabaseSync(databasePath, { readOnly: true });
+    const runCountAfter = after
+      .prepare("SELECT COUNT(*) AS count FROM live_ingestion_runs")
+      .get().count;
+    const integrity = after.prepare("PRAGMA integrity_check").get().integrity_check;
+    after.close();
+
+    assert.equal(requestCount, 12);
+    assert.equal(result.deferred, true);
+    assert.equal(result.databaseChanged, false);
+    assert.equal(result.revenueObservationsInserted, 0);
+    assert.equal(result.errors.length, 4);
+    assert.match(result.deferredReason, /temporarily unavailable/i);
+    assert.equal(runCountAfter, runCountBefore);
+    assert.equal(integrity, "ok");
+  } finally {
+    await rm(temporaryDirectory, { recursive: true, force: true });
+  }
+});
+
+test("non-retryable all-market MOPS failures still fail loudly", async () => {
+  const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-live-fail-"));
+  const databasePath = join(temporaryDirectory, "test.sqlite");
+  await copyFile(
+    new URL("../taiwan_semiconductor_companies.sqlite", import.meta.url),
+    databasePath,
+  );
+
+  try {
+    await assert.rejects(
+      runLiveUpdate({
+        databasePath,
+        nowUtc: "2026-08-04T16:28:53.000Z",
+        mopsRetryDelaysMs: [0, 0],
+        fetchFn: async () =>
+          new Response(null, { status: 404, statusText: "Not Found" }),
+        overrides: {
+          holidayPayload: "[]",
+          irPayloads: IR_PAYLOADS,
+        },
+      }),
+      /Every MOPS market request failed:.*HTTP 404 Not Found/,
+    );
+  } finally {
+    await rm(temporaryDirectory, { recursive: true, force: true });
+  }
+});
+
 test("migrations reach version 6 and seed official announcement history", async () => {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-v5-test-"));
   const databasePath = join(temporaryDirectory, "test.sqlite");
