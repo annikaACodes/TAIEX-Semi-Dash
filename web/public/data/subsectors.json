@@ -2120,6 +2120,13 @@
         "simpleYoyPercent": 10.47,
         "revenueWeightedYoyPercent": 50.69,
         "reportingCompanies": 14
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 1121521000,
+        "simpleYoyPercent": 11.17,
+        "revenueWeightedYoyPercent": 11.17,
+        "reportingCompanies": 1
       }
     ],
     "PCB & Flex Circuits": [
@@ -8499,6 +8506,13 @@
         "simpleYoyPercent": 18.2,
         "revenueWeightedYoyPercent": 20.76,
         "reportingCompanies": 17
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 335190000,
+        "simpleYoyPercent": 42.29,
+        "revenueWeightedYoyPercent": 33.93,
+        "reportingCompanies": 2
       }
     ],
     "Solar & PV": [
@@ -9346,10 +9360,10 @@
       },
       {
         "month": "2026-07",
-        "aggregateRevenueNt": 1847878000,
-        "simpleYoyPercent": 17.31,
-        "revenueWeightedYoyPercent": 12.56,
-        "reportingCompanies": 2
+        "aggregateRevenueNt": 2216845000,
+        "simpleYoyPercent": 25.02,
+        "revenueWeightedYoyPercent": 17.21,
+        "reportingCompanies": 3
       }
     ],
     "Analog & Power IC Design": [

@@ -17,7 +17,7 @@
   },
   "companyCount": 314,
   "classificationCount": 27,
-  "revenueObservationCount": 18460,
+  "revenueObservationCount": 18464,
   "companies": [
     {
       "id": 1,
@@ -1983,13 +1983,13 @@
       "classifications": [
         "Display & Optical Components"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 407461000,
-      "latestMomPercent": 35.81806969883835,
-      "latestYoyPercent": 25.681211096785336,
-      "latestYtdRevenueNt": 1889565000,
-      "latestYtdYoyPercent": 10.911639422492776,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 368967000,
+      "latestMomPercent": -9.44728452539016,
+      "latestYoyPercent": 40.46307470334515,
+      "latestYtdRevenueNt": 2258532000,
+      "latestYtdYoyPercent": 14.859338081904202,
+      "latestPublicationTimestamp": "2026-08-04T11:44:48.836Z",
       "restatementFlag": false
     },
     {
@@ -2544,13 +2544,13 @@
       "classifications": [
         "LED & Optoelectronics"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 241900000,
-      "latestMomPercent": 12.145979851739213,
-      "latestYoyPercent": 34.83384056274595,
-      "latestYtdRevenueNt": 1271933000,
-      "latestYtdYoyPercent": 7.15291830170527,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 269503000,
+      "latestMomPercent": 11.41091360066143,
+      "latestYoyPercent": 28.53123107225807,
+      "latestYtdRevenueNt": 1541436000,
+      "latestYtdYoyPercent": 10.362317024711732,
+      "latestPublicationTimestamp": "2026-08-04T11:44:48.836Z",
       "restatementFlag": false
     },
     {
@@ -3201,13 +3201,13 @@
       "classifications": [
         "EMS & ODM"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 948274000,
-      "latestMomPercent": 6.18803288638252,
-      "latestYoyPercent": 17.803426989811953,
-      "latestYtdRevenueNt": 4999304000,
-      "latestYtdYoyPercent": -4.529539140031315,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1121521000,
+      "latestMomPercent": 18.26971951144922,
+      "latestYoyPercent": 11.173440205867747,
+      "latestYtdRevenueNt": 6120825000,
+      "latestYtdYoyPercent": -1.993036038644125,
+      "latestPublicationTimestamp": "2026-08-04T11:44:48.836Z",
       "restatementFlag": false
     },
     {
@@ -3506,13 +3506,13 @@
       "classifications": [
         "LED & Optoelectronics"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 69942000,
-      "latestMomPercent": 20.647898985717244,
-      "latestYoyPercent": 28.04261862917399,
-      "latestYtdRevenueNt": 398491000,
-      "latestYtdYoyPercent": -5.718753992551968,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 65687000,
+      "latestMomPercent": -6.083612135769638,
+      "latestYoyPercent": 56.05578257151002,
+      "latestYtdRevenueNt": 464178000,
+      "latestYtdYoyPercent": -0.12393653416646226,
+      "latestPublicationTimestamp": "2026-08-04T11:44:48.836Z",
       "restatementFlag": false
     },
     {
