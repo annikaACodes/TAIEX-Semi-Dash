@@ -124,6 +124,7 @@ interface SubsectorRow {
 interface SubsectorCompanyRow {
   ticker: string;
   name: string;
+  reportingMonth: string | null;
   revenueNt: number | null;
   yoyPercent: number | null;
   revenueWeightPercent: number | null;
@@ -142,15 +143,19 @@ interface SubsectorConstituentSnapshot {
 
 interface SubsectorData {
   latestRevenueMonth: string;
+  monthOptions: string[];
   methodology: {
     simple: string;
     revenueWeighted: string;
   };
   series: Record<string, SubsectorRow[]>;
-  constituents: Record<string, SubsectorConstituentSnapshot>;
+  snapshots: Record<
+    string,
+    Record<string, SubsectorConstituentSnapshot>
+  >;
 }
 
-type MomentumPeriodName = "mom" | "3m" | "6m" | "ltm";
+type MomentumPeriodName = "mom" | "yoy" | "3m" | "6m" | "ltm";
 type MomentumDirection =
   | "accelerating"
   | "decelerating"
@@ -170,12 +175,6 @@ interface MomentumPeriodDefinition {
   months: number;
   label: string;
   controlLabel: string;
-  currentPeriodStartMonth: string;
-  currentPeriodEndMonth: string;
-  priorPeriodStartMonth: string;
-  priorPeriodEndMonth: string;
-  baselinePeriodStartMonth: string;
-  baselinePeriodEndMonth: string;
 }
 
 interface MomentumRow {
@@ -183,14 +182,15 @@ interface MomentumRow {
   ticker: string;
   name: string;
   classification: string;
+  analysisMonth: string;
   periods: Record<MomentumPeriodName, MomentumPeriodResult>;
 }
 
 interface MomentumData {
   latestRevenueMonth: string;
-  previousRevenueMonth: string;
+  monthOptions: string[];
   periods: Record<MomentumPeriodName, MomentumPeriodDefinition>;
-  companies: MomentumRow[];
+  snapshots: Record<string, MomentumRow[]>;
 }
 
 type MomentumDisplayRow = Omit<MomentumRow, "periods"> & MomentumPeriodResult;
@@ -247,6 +247,8 @@ const NAV_ITEMS: Array<{
   { id: "freshness", label: "Freshness", icon: CalendarClock },
 ];
 
+const ANALYSIS_MIX_KEY = "mix";
+
 const COMPANY_METRICS = {
   revenueNt: { label: "Revenue", shortLabel: "Revenue", kind: "currency" },
   momPercent: { label: "Month over month", shortLabel: "MoM", kind: "percent" },
@@ -273,6 +275,18 @@ function formatMonth(value: string | null | undefined) {
     year: "numeric",
     timeZone: "UTC",
   }).format(new Date(Date.UTC(year, month - 1, 1)));
+}
+
+function shiftReportingMonth(month: string, offset: number) {
+  const [year, monthNumber] = month.split("-").map(Number);
+  const shifted = new Date(Date.UTC(year, monthNumber - 1 + offset, 1));
+  return `${shifted.getUTCFullYear()}-${String(
+    shifted.getUTCMonth() + 1,
+  ).padStart(2, "0")}`;
+}
+
+function formatAnalysisMonth(value: string) {
+  return value === ANALYSIS_MIX_KEY ? "Mix" : formatMonth(value);
 }
 
 function formatMonthRange(start: string, end: string) {
@@ -506,6 +520,37 @@ function RangeControl({
   );
 }
 
+function AnalysisMonthControl({
+  value,
+  options,
+  onChange,
+  ariaLabel,
+}: {
+  value: string;
+  options: string[];
+  onChange: (value: string) => void;
+  ariaLabel: string;
+}) {
+  return (
+    <label className="select-control analysis-month-control">
+      <span>Month</span>
+      <select
+        aria-label={ariaLabel}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+      >
+        <option value={ANALYSIS_MIX_KEY}>Mix (latest reports)</option>
+        {options.map((month) => (
+          <option key={month} value={month}>
+            {formatMonth(month)}
+          </option>
+        ))}
+      </select>
+      <ChevronDown size={16} />
+    </label>
+  );
+}
+
 function ChartTooltip({
   active,
   payload,
@@ -525,7 +570,13 @@ function ChartTooltip({
   if (!active || !payload?.length) return null;
   return (
     <div className="chart-tooltip">
-      <strong>{label && /^\d{4}-\d{2}$/.test(label) ? formatMonth(label) : label}</strong>
+      <strong>
+        {label === ANALYSIS_MIX_KEY
+          ? "Mix (latest reports)"
+          : label && /^\d{4}-\d{2}$/.test(label)
+            ? formatMonth(label)
+            : label}
+      </strong>
       {payload.map((item) => (
         <div key={item.dataKey ?? item.name} style={{ color: item.color }}>
           <span>{item.name}</span>
@@ -1141,18 +1192,41 @@ function SubsectorView({
 }) {
   const classifications = useMemo(() => Object.keys(data.series).sort(), [data]);
   const [selected, setSelected] = useState(ALL_SUBSECTORS);
+  const [analysisMonth, setAnalysisMonth] = useState(ANALYSIS_MIX_KEY);
   const [method, setMethod] = useState<"simple" | "weighted">("weighted");
   const [range, setRange] = useState<RangeName>(60);
   const isAll = selected === ALL_SUBSECTORS;
+  const isMix = analysisMonth === ANALYSIS_MIX_KEY;
+  const snapshots =
+    data.snapshots[analysisMonth] ?? data.snapshots[ANALYSIS_MIX_KEY];
   const series = isAll ? [] : (data.series[selected] ?? []);
-  const visibleSeries = rangeRows(series, range);
   const valueKey =
     method === "simple" ? "simpleYoyPercent" : "revenueWeightedYoyPercent";
-  const latest = series.at(-1);
-  const constituentSnapshot = isAll ? null : data.constituents[selected];
+  const constituentSnapshot = isAll ? null : snapshots[selected];
+  const selectedChartRow = constituentSnapshot
+    ? {
+        month: analysisMonth,
+        aggregateRevenueNt: constituentSnapshot.aggregateRevenueNt,
+        simpleYoyPercent: constituentSnapshot.simpleYoyPercent,
+        revenueWeightedYoyPercent:
+          constituentSnapshot.revenueWeightedYoyPercent,
+        reportingCompanies: constituentSnapshot.reportingCompanies,
+      }
+    : null;
+  const seriesThroughSelection = isMix
+    ? series
+    : series.filter((row) => row.month <= analysisMonth);
+  const chartSeries = selectedChartRow
+    ? [
+        ...seriesThroughSelection.filter((row) => row.month !== analysisMonth),
+        selectedChartRow,
+      ]
+    : seriesThroughSelection;
+  const visibleSeries = rangeRows(chartSeries, range);
+  const latest = constituentSnapshot;
   const leaderboard = classifications
     .map((classification) => {
-      const row = data.series[classification].at(-1);
+      const row = snapshots[classification];
       return { classification, ...row };
     })
     .filter((row) => row.month)
@@ -1176,14 +1250,15 @@ function SubsectorView({
     ? leaderboard.map((row, index) => ({
         Rank: index + 1,
         Subsector: row.classification,
-        Month: row.month,
+        "Data Selection": formatAnalysisMonth(analysisMonth),
         "Aggregate Revenue (NT$)": row.aggregateRevenueNt,
         "Simple YoY (%)": row.simpleYoyPercent,
         "Revenue-Weighted YoY (%)": row.revenueWeightedYoyPercent,
         "Reporting Companies": row.reportingCompanies,
       }))
     : (constituentSnapshot?.companies ?? []).map((company) => ({
-        Month: constituentSnapshot?.month ?? null,
+        "Data Selection": formatAnalysisMonth(analysisMonth),
+        "Company Reporting Month": company.reportingMonth,
         Subsector: selected,
         Ticker: company.ticker,
         Company: company.name,
@@ -1199,11 +1274,20 @@ function SubsectorView({
   return (
     <>
       <ScreenHeader
+        className="subsector-screen-header"
         eyebrow="Subsector aggregates"
         title="Industry growth breadth"
-        subtitle={`${classifications.length} classifications · simple and revenue-weighted company YoY`}
+        subtitle={`${classifications.length} classifications | ${
+          isMix ? "latest report per company" : formatMonth(analysisMonth)
+        } | simple and revenue-weighted company YoY`}
         actions={
           <>
+            <AnalysisMonthControl
+              value={analysisMonth}
+              options={data.monthOptions}
+              onChange={setAnalysisMonth}
+              ariaLabel="Subsector data month"
+            />
             <label className="select-control">
               <span>Subsector</span>
               <select value={selected} onChange={(event) => setSelected(event.target.value)}>
@@ -1218,7 +1302,7 @@ function SubsectorView({
             </label>
             <ExportMenu
               rows={exportRows}
-              filename={`${isAll ? "all" : selected.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}-subsector`}
+              filename={`${analysisMonth}-${isAll ? "all" : selected.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}-subsector`}
             />
           </>
         }
@@ -1233,9 +1317,9 @@ function SubsectorView({
               detail="Current classification universe"
             />
             <MetricCard
-              label="Latest month"
-              value={formatMonth(data.latestRevenueMonth)}
-              detail="Latest official observations"
+              label="Data selection"
+              value={formatAnalysisMonth(analysisMonth)}
+              detail={isMix ? "Latest report per company" : "Fixed reporting month"}
             />
             <MetricCard
               label="Top simple YoY"
@@ -1255,12 +1339,12 @@ function SubsectorView({
             <MetricCard
               label="Selected subsector"
               value={selected}
-              detail={`${latest?.reportingCompanies ?? 0} reporting companies`}
+              detail={`${latest?.reportingCompanies ?? 0} of ${latest?.companies.length ?? 0} companies`}
             />
             <MetricCard
               label="Aggregate revenue"
               value={compactCurrency(latest?.aggregateRevenueNt)}
-              detail={formatMonth(latest?.month)}
+              detail={formatAnalysisMonth(analysisMonth)}
             />
             <MetricCard
               label="Simple YoY"
@@ -1272,7 +1356,7 @@ function SubsectorView({
               label="Revenue-weighted YoY"
               value={formatPercent(latest?.revenueWeightedYoyPercent)}
               tone={valueClass(latest?.revenueWeightedYoyPercent)}
-              detail="Current revenue weights"
+              detail="Selected revenue weights"
             />
           </>
         )}
@@ -1302,12 +1386,12 @@ function SubsectorView({
           {isAll ? (
             <>
               <div>
-                <span>Latest subsector ranking</span>
+                <span>Subsector ranking</span>
                 <strong>
                   {method === "simple" ? "Simple YoY" : "Revenue-weighted YoY"}
                 </strong>
               </div>
-              <span>{formatMonth(data.latestRevenueMonth)}</span>
+              <span>{formatAnalysisMonth(analysisMonth)}</span>
             </>
           ) : (
             <>
@@ -1377,7 +1461,9 @@ function SubsectorView({
               <CartesianGrid stroke="#e2e8f0" vertical={false} />
               <XAxis
                 dataKey="month"
-                tickFormatter={(value) => String(value).slice(2)}
+                tickFormatter={(value) =>
+                  value === ANALYSIS_MIX_KEY ? "Mix" : String(value).slice(2)
+                }
                 minTickGap={28}
                 tickLine={false}
                 axisLine={false}
@@ -1444,11 +1530,11 @@ function SubsectorView({
       <section className="panel table-panel">
         <div className="panel-heading">
           <div>
-            <h3>{isAll ? "Latest subsector ranking" : "Subsector companies"}</h3>
+            <h3>{isAll ? "Subsector ranking" : "Subsector companies"}</h3>
             <span>
               {isAll
-                ? `${formatMonth(data.latestRevenueMonth)} | ${method === "simple" ? "simple" : "revenue-weighted"} YoY ranking`
-                : `${formatMonth(constituentSnapshot?.month)} | ${constituentSnapshot?.reportingCompanies ?? 0} of ${constituentSnapshot?.companies.length ?? 0} companies reported`}
+                ? `${formatAnalysisMonth(analysisMonth)} | ${method === "simple" ? "simple" : "revenue-weighted"} YoY ranking`
+                : `${formatAnalysisMonth(analysisMonth)} | ${constituentSnapshot?.reportingCompanies ?? 0} of ${constituentSnapshot?.companies.length ?? 0} companies represented`}
             </span>
           </div>
         </div>
@@ -1485,7 +1571,9 @@ function SubsectorView({
                   <td className={`numeric mono ${valueClass(row.revenueWeightedYoyPercent)}`}>
                     {formatPercent(row.revenueWeightedYoyPercent)}
                   </td>
-                  <td className="numeric">{row.reportingCompanies}</td>
+                  <td className="numeric">
+                    {row.reportingCompanies} / {row.companies.length}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -1496,6 +1584,7 @@ function SubsectorView({
                 <tr>
                   <th>Ticker</th>
                   <th>Company</th>
+                  <th>Data month</th>
                   <th className="numeric">Revenue (NT$)</th>
                   <th className="numeric">Company YoY</th>
                   <th className="numeric">Revenue share</th>
@@ -1513,6 +1602,11 @@ function SubsectorView({
                         name={company.name}
                         onOpenCompany={onOpenCompany}
                       />
+                    </td>
+                    <td>
+                      {company.reportingMonth
+                        ? formatMonth(company.reportingMonth)
+                        : "N/A"}
                     </td>
                     <td className="numeric mono">
                       {company.revenueNt === null
@@ -1552,6 +1646,7 @@ function SubsectorView({
                 <tr className="aggregate-row">
                   <td />
                   <td>Subsector aggregate</td>
+                  <td>{formatAnalysisMonth(analysisMonth)}</td>
                   <td className="numeric mono">
                     {fullCurrency(constituentSnapshot?.aggregateRevenueNt)}
                   </td>
@@ -1588,7 +1683,37 @@ function SubsectorView({
 
 type MomentumFilter = "all" | "accelerating" | "decelerating";
 const ALL_MOMENTUM_NAMES = "__all__";
-const MOMENTUM_PERIOD_ORDER: MomentumPeriodName[] = ["mom", "3m", "6m", "ltm"];
+const MOMENTUM_PERIOD_ORDER: MomentumPeriodName[] = [
+  "mom",
+  "yoy",
+  "3m",
+  "6m",
+  "ltm",
+];
+
+function momentumWindowLabels(
+  endMonth: string,
+  period: MomentumPeriodName,
+  definition: MomentumPeriodDefinition,
+) {
+  if (period === "yoy") {
+    return {
+      current: formatMonth(endMonth),
+      prior: formatMonth(shiftReportingMonth(endMonth, -12)),
+    };
+  }
+  const priorEndMonth = shiftReportingMonth(endMonth, -definition.months);
+  return {
+    current: formatMonthRange(
+      shiftReportingMonth(endMonth, -(definition.months - 1)),
+      endMonth,
+    ),
+    prior: formatMonthRange(
+      shiftReportingMonth(priorEndMonth, -(definition.months - 1)),
+      priorEndMonth,
+    ),
+  };
+}
 
 function MomentumView({
   data,
@@ -1600,11 +1725,18 @@ function MomentumView({
   const [filter, setFilter] = useState<MomentumFilter>("all");
   const [period, setPeriod] = useState<MomentumPeriodName>("mom");
   const [subsector, setSubsector] = useState(ALL_MOMENTUM_NAMES);
+  const [analysisMonth, setAnalysisMonth] = useState(ANALYSIS_MIX_KEY);
   const [query, setQuery] = useState("");
   const periodDefinition = data.periods[period];
+  const selectedCompanies =
+    data.snapshots[analysisMonth] ?? data.snapshots[ANALYSIS_MIX_KEY];
+  const isMix = analysisMonth === ANALYSIS_MIX_KEY;
+  const analysisLabel = isMix
+    ? "Mix (latest per company)"
+    : formatMonth(analysisMonth);
   const subsectorOptions = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const company of data.companies) {
+    for (const company of selectedCompanies) {
       counts.set(
         company.classification,
         (counts.get(company.classification) ?? 0) + 1,
@@ -1613,14 +1745,14 @@ function MomentumView({
     return [...counts.entries()].sort(([left], [right]) =>
       left.localeCompare(right),
     );
-  }, [data.companies]);
+  }, [selectedCompanies]);
   const periodRows = useMemo<MomentumDisplayRow[]>(
     () =>
-      data.companies.map(({ periods, ...company }) => ({
+      selectedCompanies.map(({ periods, ...company }) => ({
         ...company,
         ...periods[period],
       })),
-    [data, period],
+    [period, selectedCompanies],
   );
   const universeRows = useMemo(
     () =>
@@ -1641,6 +1773,8 @@ function MomentumView({
     }),
     [universeRows],
   );
+  const availableCount =
+    counts.accelerating + counts.decelerating + counts.unchanged;
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     return universeRows
@@ -1677,30 +1811,41 @@ function MomentumView({
               (right.accelerationPercentPoints ?? 0),
           )
       : filtered.slice(0, 18).reverse();
-  const windowLabel = period === "mom" ? "Month" : periodDefinition.label;
-  const currentWindow = formatMonthRange(
-    periodDefinition.currentPeriodStartMonth,
-    periodDefinition.currentPeriodEndMonth,
-  );
-  const priorWindow = formatMonthRange(
-    periodDefinition.priorPeriodStartMonth,
-    periodDefinition.priorPeriodEndMonth,
-  );
-  const exportRows: ExportRow[] = filtered.map((row) => ({
-    Universe: universeLabel,
-    Ticker: row.ticker,
-    Company: row.name,
-    Subsector: row.classification,
-    Period: periodDefinition.controlLabel,
-    "Current Window": currentWindow,
-    "Prior Window": priorWindow,
-    [`Current ${windowLabel} Revenue (NT$)`]: row.currentPeriodRevenueNt,
-    [`Prior ${windowLabel} Revenue (NT$)`]: row.priorPeriodRevenueNt,
-    [`Current ${periodDefinition.label} Growth (%)`]: row.currentGrowthPercent,
-    [`Prior ${periodDefinition.label} Growth (%)`]: row.previousGrowthPercent,
-    [`${periodDefinition.label} Acceleration (pp)`]: row.accelerationPercentPoints,
-    Direction: row.direction,
-  }));
+  const windowLabel =
+    period === "mom" || period === "yoy" ? "Month" : periodDefinition.label;
+  const priorRevenueHeader =
+    period === "yoy"
+      ? "Year-ago Month Rev."
+      : `Prior ${windowLabel} Rev.`;
+  const previousGrowthHeader =
+    period === "yoy"
+      ? "Prior Month YoY Growth"
+      : `Prior ${periodDefinition.label} Growth`;
+  const exportRows: ExportRow[] = filtered.map((row) => {
+    const windows = momentumWindowLabels(
+      row.analysisMonth,
+      period,
+      periodDefinition,
+    );
+    return {
+      Universe: universeLabel,
+      "Data Selection": formatAnalysisMonth(analysisMonth),
+      "Company Data Month": row.analysisMonth,
+      Ticker: row.ticker,
+      Company: row.name,
+      Subsector: row.classification,
+      Period: periodDefinition.controlLabel,
+      "Current Window": windows.current,
+      "Prior Window": windows.prior,
+      [`Current ${windowLabel} Revenue (NT$)`]: row.currentPeriodRevenueNt,
+      [`Prior ${windowLabel} Revenue (NT$)`]: row.priorPeriodRevenueNt,
+      [`Current ${periodDefinition.label} Growth (%)`]: row.currentGrowthPercent,
+      [`Prior ${periodDefinition.label} Growth (%)`]: row.previousGrowthPercent,
+      [`${periodDefinition.label} Acceleration (pp)`]:
+        row.accelerationPercentPoints,
+      Direction: row.direction,
+    };
+  });
 
   return (
     <>
@@ -1708,9 +1853,7 @@ function MomentumView({
         className="momentum-screen-header"
         eyebrow="Growth inflections"
         title="Acceleration monitor"
-        subtitle={`${universeLabel} | ${periodDefinition.controlLabel} through ${formatMonth(
-          data.latestRevenueMonth,
-        )}; acceleration vs preceding ${periodDefinition.label} growth rate`}
+        subtitle={`${universeLabel} | ${analysisLabel} | ${periodDefinition.controlLabel}; acceleration vs preceding ${periodDefinition.label} growth rate`}
         actions={
           <>
             <label className="select-control momentum-universe-control">
@@ -1721,7 +1864,7 @@ function MomentumView({
                 onChange={(event) => setSubsector(event.target.value)}
               >
                 <option value={ALL_MOMENTUM_NAMES}>
-                  All names ({data.companies.length})
+                  All names ({selectedCompanies.length})
                 </option>
                 {subsectorOptions.map(([classification, companyCount]) => (
                   <option key={classification} value={classification}>
@@ -1731,6 +1874,12 @@ function MomentumView({
               </select>
               <ChevronDown size={16} />
             </label>
+            <AnalysisMonthControl
+              value={analysisMonth}
+              options={data.monthOptions}
+              onChange={setAnalysisMonth}
+              ariaLabel="Acceleration data month"
+            />
             <label className="select-control momentum-period-control">
               <span>Period</span>
               <select
@@ -1750,7 +1899,7 @@ function MomentumView({
             </label>
             <ExportMenu
               rows={exportRows}
-              filename={`${data.latestRevenueMonth}-${universeLabel
+              filename={`${analysisMonth}-${universeLabel
                 .toLowerCase()
                 .replaceAll(/[^a-z0-9]+/g, "-")}-${period}-growth-acceleration`}
             />
@@ -1875,7 +2024,9 @@ function MomentumView({
         <div className="panel-heading">
           <div>
             <h3>Company momentum</h3>
-            <span>{filtered.length} names in the current view</span>
+            <span>
+              {availableCount} with {periodDefinition.label} data | {filtered.length} names shown
+            </span>
           </div>
         </div>
         <div className="table-scroll">
@@ -1885,9 +2036,10 @@ function MomentumView({
                 <th>Ticker</th>
                 <th>Company</th>
                 <th>Subsector</th>
+                <th>Data month</th>
                 <th className="numeric">Current {windowLabel} Rev.</th>
-                <th className="numeric">Prior {windowLabel} Rev.</th>
-                <th className="numeric">Prior {periodDefinition.label} Growth</th>
+                <th className="numeric">{priorRevenueHeader}</th>
+                <th className="numeric">{previousGrowthHeader}</th>
                 <th className="numeric">Current {periodDefinition.label} Growth</th>
                 <th className="numeric">Acceleration</th>
                 <th>Direction</th>
@@ -1905,6 +2057,7 @@ function MomentumView({
                     />
                   </td>
                   <td>{row.classification}</td>
+                  <td>{formatMonth(row.analysisMonth)}</td>
                   <td className="numeric mono">
                     {compactCurrency(row.currentPeriodRevenueNt)}
                   </td>

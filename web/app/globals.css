@@ -759,8 +759,14 @@ footer {
   min-width: 120px;
 }
 
+.analysis-month-control {
+  width: 170px;
+  min-width: 170px;
+}
+
 .momentum-universe-control select,
-.momentum-period-control select {
+.momentum-period-control select,
+.analysis-month-control select {
   width: 100%;
   max-width: none;
 }
@@ -1247,14 +1253,17 @@ footer > div {
 }
 
 @media (max-width: 1100px) {
+  .subsector-screen-header,
   .momentum-screen-header {
     align-items: stretch;
     flex-direction: column;
     gap: 14px;
   }
 
+  .subsector-screen-header .screen-actions,
   .momentum-screen-header .screen-actions {
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .metric-grid {
@@ -1358,8 +1367,15 @@ footer > div {
     flex: 0 0 120px;
   }
 
+  .analysis-month-control {
+    width: 170px;
+    min-width: 150px;
+    flex: 1 1 160px;
+  }
+
   .momentum-universe-control select,
-  .momentum-period-control select {
+  .momentum-period-control select,
+  .analysis-month-control select {
     max-width: none;
   }
 
@@ -1475,6 +1491,12 @@ footer > div {
     width: 120px;
     min-width: 120px;
     flex: 0 0 120px;
+  }
+
+  .analysis-month-control {
+    width: auto;
+    min-width: 150px;
+    flex: 1 1 160px;
   }
 
   .screen-actions .export-menu {

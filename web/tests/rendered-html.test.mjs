@@ -170,20 +170,35 @@ test("ships complete, internally consistent dashboard data", async () => {
     Object.keys(subsectors.series).length,
     manifest.classificationCount,
   );
+  assert.equal(subsectors.monthOptions.length, 3);
+  assert.equal(subsectors.monthOptions[0], manifest.latestRevenueMonth);
   assert.deepEqual(
-    Object.keys(subsectors.constituents).sort(),
-    Object.keys(subsectors.series).sort(),
+    Object.keys(subsectors.snapshots),
+    ["mix", ...subsectors.monthOptions],
   );
-  assert.equal(momentum.companies.length, manifest.companyCount);
-  assert.deepEqual(Object.keys(momentum.periods), ["mom", "3m", "6m", "ltm"]);
+  assert.deepEqual(momentum.monthOptions, subsectors.monthOptions);
+  assert.deepEqual(Object.keys(momentum.snapshots), [
+    "mix",
+    ...momentum.monthOptions,
+  ]);
+  assert.deepEqual(Object.keys(momentum.periods), [
+    "mom",
+    "yoy",
+    "3m",
+    "6m",
+    "ltm",
+  ]);
   assert.deepEqual(
     Object.values(momentum.periods).map((period) => period.controlLabel),
-    ["MoM", "3M/3M", "6M/6M", "LTM YoY"],
+    ["MoM", "YoY", "3M/3M", "6M/6M", "LTM YoY"],
   );
-  assert.equal(
-    new Set(momentum.companies.map((company) => company.classification)).size,
-    manifest.classificationCount,
-  );
+  for (const companies of Object.values(momentum.snapshots)) {
+    assert.equal(companies.length, manifest.companyCount);
+    assert.equal(
+      new Set(companies.map((company) => company.classification)).size,
+      manifest.classificationCount,
+    );
+  }
   assert.equal(freshness.companies.length, manifest.companyCount);
   assert.equal(
     freshness.summary.reported + freshness.summary.pending,
@@ -207,63 +222,106 @@ test("ships complete, internally consistent dashboard data", async () => {
   );
   assert.deepEqual(bundle.companies["2330"], tsmc);
   assert.deepEqual(bundle.subsectors, subsectors);
+  assert.deepEqual(bundle.momentum, momentum);
 
-  for (const [classification, snapshot] of Object.entries(
-    subsectors.constituents,
+  const manifestByTicker = new Map(
+    manifest.companies.map((company) => [company.ticker, company]),
+  );
+  for (const [analysisKey, snapshots] of Object.entries(
+    subsectors.snapshots,
   )) {
-    const latestSubsectorRow = subsectors.series[classification].at(-1);
-    assert.equal(snapshot.month, latestSubsectorRow.month);
-    assert.equal(
-      snapshot.aggregateRevenueNt,
-      latestSubsectorRow.aggregateRevenueNt,
+    assert.deepEqual(
+      Object.keys(snapshots).sort(),
+      Object.keys(subsectors.series).sort(),
     );
-    assert.equal(snapshot.reportingCompanies, latestSubsectorRow.reportingCompanies);
-    assert.equal(
-      snapshot.companies.filter((company) => company.revenueNt !== null).length,
-      snapshot.reportingCompanies,
-    );
-    assert.equal(
-      snapshot.companies.reduce(
-        (total, company) => total + (company.revenueNt ?? 0),
-        0,
-      ),
-      snapshot.aggregateRevenueNt,
-    );
+    for (const [classification, snapshot] of Object.entries(snapshots)) {
+      assert.equal(snapshot.month, analysisKey);
+      assert.equal(
+        snapshot.companies.filter((company) => company.revenueNt !== null)
+          .length,
+        snapshot.reportingCompanies,
+      );
+      assert.equal(
+        snapshot.companies.reduce(
+          (total, company) => total + (company.revenueNt ?? 0),
+          0,
+        ),
+        snapshot.aggregateRevenueNt,
+      );
 
-    const companiesWithYoy = snapshot.companies.filter(
-      (company) => company.yoyPercent !== null,
-    );
-    const calculatedSimpleYoy =
-      companiesWithYoy.reduce(
-        (total, company) => total + company.yoyPercent,
-        0,
-      ) / companiesWithYoy.length;
-    assert.ok(
-      Math.abs(calculatedSimpleYoy - snapshot.simpleYoyPercent) <= 0.01,
-      `${classification} simple YoY does not reconcile`,
-    );
+      if (analysisKey === "mix") {
+        for (const company of snapshot.companies) {
+          assert.equal(
+            company.reportingMonth,
+            manifestByTicker.get(company.ticker)?.latestMonth ?? null,
+          );
+        }
+      } else {
+        assert.ok(
+          snapshot.companies.every(
+            (company) =>
+              company.reportingMonth === null ||
+              company.reportingMonth === analysisKey,
+          ),
+        );
+        const seriesRow = subsectors.series[classification].find(
+          (row) => row.month === analysisKey,
+        );
+        assert.equal(
+          snapshot.aggregateRevenueNt,
+          seriesRow?.aggregateRevenueNt ?? 0,
+        );
+        assert.equal(
+          snapshot.reportingCompanies,
+          seriesRow?.reportingCompanies ?? 0,
+        );
+      }
 
-    const companiesWithWeightedYoy = companiesWithYoy.filter(
-      (company) => company.revenueNt > 0,
-    );
-    const weightedRevenue = companiesWithWeightedYoy.reduce(
-      (total, company) => total + company.revenueNt,
-      0,
-    );
-    const calculatedWeightedYoy =
-      companiesWithWeightedYoy.reduce(
-        (total, company) => total + company.yoyPercent * company.revenueNt,
-        0,
-      ) / weightedRevenue;
-    assert.ok(
-      Math.abs(calculatedWeightedYoy - snapshot.revenueWeightedYoyPercent) <=
-        0.01,
-      `${classification} weighted YoY does not reconcile`,
-    );
+      const companiesWithYoy = snapshot.companies.filter(
+        (company) => company.yoyPercent !== null,
+      );
+      if (companiesWithYoy.length === 0) {
+        assert.equal(snapshot.simpleYoyPercent, null);
+      } else {
+        const calculatedSimpleYoy =
+          companiesWithYoy.reduce(
+            (total, company) => total + company.yoyPercent,
+            0,
+          ) / companiesWithYoy.length;
+        assert.ok(
+          Math.abs(calculatedSimpleYoy - snapshot.simpleYoyPercent) <= 0.01,
+          `${analysisKey} ${classification} simple YoY does not reconcile`,
+        );
+      }
+
+      const companiesWithWeightedYoy = companiesWithYoy.filter(
+        (company) => company.revenueNt > 0,
+      );
+      if (companiesWithWeightedYoy.length === 0) {
+        assert.equal(snapshot.revenueWeightedYoyPercent, null);
+      } else {
+        const weightedRevenue = companiesWithWeightedYoy.reduce(
+          (total, company) => total + company.revenueNt,
+          0,
+        );
+        const calculatedWeightedYoy =
+          companiesWithWeightedYoy.reduce(
+            (total, company) =>
+              total + company.yoyPercent * company.revenueNt,
+            0,
+          ) / weightedRevenue;
+        assert.ok(
+          Math.abs(
+            calculatedWeightedYoy - snapshot.revenueWeightedYoyPercent,
+          ) <= 0.01,
+          `${analysisKey} ${classification} weighted YoY does not reconcile`,
+        );
+      }
+    }
   }
 
   assert.ok(
-    Object.values(subsectors.constituents).some((snapshot) =>
+    Object.values(subsectors.snapshots.mix).some((snapshot) =>
       snapshot.companies.some((company) => company.ticker === "2330"),
     ),
   );
@@ -298,18 +356,32 @@ test("ships complete, internally consistent dashboard data", async () => {
     assert.equal(typeof row.ytdYoyPercent, "number");
   }
 
-  assert.ok(
-    momentum.companies.every(
-      (company) => company.accelerationPercentPoints !== null,
-    ),
+  for (const [analysisKey, companies] of Object.entries(momentum.snapshots)) {
+    for (const company of companies) {
+      assert.equal(
+        company.analysisMonth,
+        analysisKey === "mix"
+          ? manifestByTicker.get(company.ticker)?.latestMonth
+          : analysisKey,
+      );
+    }
+  }
+  const latestFixedMomentum = momentum.snapshots[momentum.monthOptions[0]];
+  const pendingLatestCompany = latestFixedMomentum.find(
+    (company) =>
+      manifestByTicker.get(company.ticker)?.latestMonth !==
+      momentum.monthOptions[0],
   );
-  const tsmcMomentum = momentum.companies.find(
+  assert.ok(pendingLatestCompany);
+  assert.equal(pendingLatestCompany.periods.yoy.direction, "unavailable");
+
+  const tsmcMomentum = momentum.snapshots.mix.find(
     (company) => company.ticker === "2330",
   );
   assert.ok(tsmcMomentum);
-  for (const period of ["mom", "3m", "6m", "ltm"]) {
+  for (const period of ["mom", "yoy", "3m", "6m", "ltm"]) {
     assert.ok(
-      momentum.companies.every((company) => company.periods?.[period]),
+      momentum.snapshots.mix.every((company) => company.periods?.[period]),
       `Momentum data is missing the ${period} period`,
     );
     const result = tsmcMomentum.periods[period];
@@ -341,6 +413,16 @@ test("ships complete, internally consistent dashboard data", async () => {
           : "unchanged",
     );
   }
+  assert.ok(
+    Math.abs(tsmcMomentum.periods.yoy.currentGrowthPercent - latest.yoyPercent) <=
+      0.02,
+  );
+  assert.ok(
+    Math.abs(
+      tsmcMomentum.periods.yoy.previousGrowthPercent -
+        tsmc.history.at(-2).yoyPercent,
+    ) <= 0.02,
+  );
   assert.match(subsectors.methodology.simple, /Arithmetic mean/i);
   assert.match(subsectors.methodology.revenueWeighted, /weighted/i);
 });
