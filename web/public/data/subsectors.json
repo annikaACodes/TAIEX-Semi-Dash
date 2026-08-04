@@ -425,6 +425,13 @@
         "simpleYoyPercent": 20.2,
         "revenueWeightedYoyPercent": 47.46,
         "reportingCompanies": 22
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 2531200000,
+        "simpleYoyPercent": -12.99,
+        "revenueWeightedYoyPercent": -12.99,
+        "reportingCompanies": 1
       }
     ],
     "Precision Mechanics": [
@@ -3386,6 +3393,13 @@
         "simpleYoyPercent": 17.19,
         "revenueWeightedYoyPercent": 20.73,
         "reportingCompanies": 24
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 3167179000,
+        "simpleYoyPercent": 28.97,
+        "revenueWeightedYoyPercent": 28.97,
+        "reportingCompanies": 1
       }
     ],
     "OSAT": [
@@ -9308,6 +9322,13 @@
         "simpleYoyPercent": -2.73,
         "revenueWeightedYoyPercent": 10.05,
         "reportingCompanies": 22
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 184034000,
+        "simpleYoyPercent": 23.23,
+        "revenueWeightedYoyPercent": 23.23,
+        "reportingCompanies": 1
       }
     ],
     "Analog & Power IC Design": [
@@ -11425,6 +11446,13 @@
         "simpleYoyPercent": 7.35,
         "revenueWeightedYoyPercent": 13.85,
         "reportingCompanies": 3
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 172444000,
+        "simpleYoyPercent": 32.48,
+        "revenueWeightedYoyPercent": 32.48,
+        "reportingCompanies": 1
       }
     ]
   }
