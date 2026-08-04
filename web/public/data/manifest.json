@@ -17,7 +17,7 @@
   },
   "companyCount": 314,
   "classificationCount": 27,
-  "revenueObservationCount": 18455,
+  "revenueObservationCount": 18460,
   "companies": [
     {
       "id": 1,
@@ -699,13 +699,13 @@
       "classifications": [
         "Memory"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 29388309000,
-      "latestMomPercent": 6.211684658698802,
-      "latestYoyPercent": 621.3354284927444,
-      "latestYtdRevenueNt": 131636005000,
-      "latestYtdYoyPercent": 643.1170392921229,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 43867609000,
+      "latestMomPercent": 49.268911661436526,
+      "latestYoyPercent": 719.6141344528174,
+      "latestYtdRevenueNt": 175503614000,
+      "latestYtdYoyPercent": 660.8671990662033,
+      "latestPublicationTimestamp": "2026-08-04T09:23:33.163Z",
       "restatementFlag": false
     },
     {
@@ -1243,13 +1243,13 @@
       "classifications": [
         "Passive Components"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 197699000,
-      "latestMomPercent": 9.204246669170773,
-      "latestYoyPercent": 34.27810719209949,
-      "latestYtdRevenueNt": 1046073000,
-      "latestYtdYoyPercent": 17.454601799422647,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 201159000,
+      "latestMomPercent": 1.7501353067036252,
+      "latestYoyPercent": 37.189096290638275,
+      "latestYtdRevenueNt": 1247232000,
+      "latestYtdYoyPercent": 20.24433886592213,
+      "latestPublicationTimestamp": "2026-08-04T09:23:33.163Z",
       "restatementFlag": false
     },
     {
@@ -1388,13 +1388,13 @@
         "Memory",
         "Logic IC Design"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 4845479000,
-      "latestMomPercent": 8.484532463333839,
-      "latestYoyPercent": 328.3542479788894,
-      "latestYtdRevenueNt": 21213118000,
-      "latestYtdYoyPercent": 242.62430701861496,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 6784662000,
+      "latestMomPercent": 40.02046030949675,
+      "latestYoyPercent": 491.0617601014743,
+      "latestYtdRevenueNt": 27997780000,
+      "latestYtdYoyPercent": 281.4805917941651,
+      "latestPublicationTimestamp": "2026-08-04T09:23:33.163Z",
       "restatementFlag": false
     },
     {
@@ -4518,13 +4518,13 @@
       "classifications": [
         "Test & Inspection Equipment"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 206268000,
-      "latestMomPercent": -4.992469151155881,
-      "latestYoyPercent": 10.360989390218455,
-      "latestYtdRevenueNt": 1213881000,
-      "latestYtdYoyPercent": 20.242311018306555,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 240751000,
+      "latestMomPercent": 16.717571314988266,
+      "latestYoyPercent": 26.147373054089883,
+      "latestYtdRevenueNt": 1454632000,
+      "latestYtdYoyPercent": 21.18116126753406,
+      "latestPublicationTimestamp": "2026-08-04T09:23:33.163Z",
       "restatementFlag": false
     },
     {
@@ -5000,13 +5000,13 @@
       "classifications": [
         "Display & Optical Components"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 1639054000,
-      "latestMomPercent": 0.46621161078992407,
-      "latestYoyPercent": 13.046860828656538,
-      "latestYtdRevenueNt": 9491823000,
-      "latestYtdYoyPercent": 5.465508568899028,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1663844000,
+      "latestMomPercent": 1.5124577957773204,
+      "latestYoyPercent": 11.384063355625623,
+      "latestYtdRevenueNt": 11155667000,
+      "latestYtdYoyPercent": 6.3080198148969275,
+      "latestPublicationTimestamp": "2026-08-04T09:23:33.163Z",
       "restatementFlag": false
     },
     {

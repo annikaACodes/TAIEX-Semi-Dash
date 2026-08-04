@@ -2971,6 +2971,13 @@
         "simpleYoyPercent": 31.71,
         "revenueWeightedYoyPercent": 35.61,
         "reportingCompanies": 17
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 201159000,
+        "simpleYoyPercent": 37.19,
+        "revenueWeightedYoyPercent": 37.19,
+        "reportingCompanies": 1
       }
     ],
     "Interconnect": [
@@ -4244,6 +4251,13 @@
         "simpleYoyPercent": 225.11,
         "revenueWeightedYoyPercent": 350.43,
         "reportingCompanies": 10
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 50652271000,
+        "simpleYoyPercent": 605.34,
+        "revenueWeightedYoyPercent": 689,
+        "reportingCompanies": 2
       }
     ],
     "Wafer & Process Materials": [
@@ -6364,10 +6378,10 @@
       },
       {
         "month": "2026-07",
-        "aggregateRevenueNt": 1393068000,
-        "simpleYoyPercent": 35.01,
-        "revenueWeightedYoyPercent": 36.55,
-        "reportingCompanies": 2
+        "aggregateRevenueNt": 1633819000,
+        "simpleYoyPercent": 32.06,
+        "revenueWeightedYoyPercent": 35.02,
+        "reportingCompanies": 3
       }
     ],
     "Connectivity & Interface IC Design": [
@@ -8056,6 +8070,13 @@
         "simpleYoyPercent": 58.8,
         "revenueWeightedYoyPercent": 27.76,
         "reportingCompanies": 13
+      },
+      {
+        "month": "2026-07",
+        "aggregateRevenueNt": 6784662000,
+        "simpleYoyPercent": 491.06,
+        "revenueWeightedYoyPercent": 491.06,
+        "reportingCompanies": 1
       }
     ],
     "LED & Optoelectronics": [
@@ -9325,10 +9346,10 @@
       },
       {
         "month": "2026-07",
-        "aggregateRevenueNt": 184034000,
-        "simpleYoyPercent": 23.23,
-        "revenueWeightedYoyPercent": 23.23,
-        "reportingCompanies": 1
+        "aggregateRevenueNt": 1847878000,
+        "simpleYoyPercent": 17.31,
+        "revenueWeightedYoyPercent": 12.56,
+        "reportingCompanies": 2
       }
     ],
     "Analog & Power IC Design": [
