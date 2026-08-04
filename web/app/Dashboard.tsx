@@ -121,6 +121,25 @@ interface SubsectorRow {
   reportingCompanies: number;
 }
 
+interface SubsectorCompanyRow {
+  ticker: string;
+  name: string;
+  revenueNt: number | null;
+  yoyPercent: number | null;
+  revenueWeightPercent: number | null;
+  simpleYoyContributionPercentPoints: number | null;
+  revenueWeightedYoyContributionPercentPoints: number | null;
+}
+
+interface SubsectorConstituentSnapshot {
+  month: string;
+  aggregateRevenueNt: number;
+  simpleYoyPercent: number | null;
+  revenueWeightedYoyPercent: number | null;
+  reportingCompanies: number;
+  companies: SubsectorCompanyRow[];
+}
+
 interface SubsectorData {
   latestRevenueMonth: string;
   methodology: {
@@ -128,6 +147,7 @@ interface SubsectorData {
     revenueWeighted: string;
   };
   series: Record<string, SubsectorRow[]>;
+  constituents: Record<string, SubsectorConstituentSnapshot>;
 }
 
 type MomentumPeriodName = "mom" | "3m" | "6m" | "ltm";
@@ -337,6 +357,14 @@ function revenueInCurrency(
 function formatPercent(value: number | null | undefined, digits = 1) {
   if (value === null || value === undefined) return "N/A";
   return `${value > 0 ? "+" : ""}${value.toFixed(digits)}%`;
+}
+
+function formatPercentagePoints(
+  value: number | null | undefined,
+  digits = 2,
+) {
+  if (value === null || value === undefined) return "N/A";
+  return `${value > 0 ? "+" : ""}${value.toFixed(digits)}pp`;
 }
 
 function valueClass(value: number | null | undefined) {
@@ -553,6 +581,38 @@ function ScreenHeader({
   );
 }
 
+function CompanyLink({
+  ticker,
+  name,
+  onOpenCompany,
+}: {
+  ticker: string;
+  name: string;
+  onOpenCompany: (ticker: string) => void;
+}) {
+  return (
+    <a
+      className="table-link"
+      href={`#company/${encodeURIComponent(ticker)}`}
+      onClick={(event) => {
+        if (
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        ) {
+          return;
+        }
+        event.preventDefault();
+        onOpenCompany(ticker);
+      }}
+    >
+      {name}
+    </a>
+  );
+}
+
 function CurrencyControl({
   value,
   onChange,
@@ -697,17 +757,25 @@ function CompanyView({
   manifest,
   exchangeRates,
   companies,
+  selectedTicker,
+  onSelectTicker,
 }: {
   manifest: Manifest;
   exchangeRates: MonthlyExchangeRate[];
   companies: Record<string, CompanyData>;
+  selectedTicker: string;
+  onSelectTicker: (ticker: string) => void;
 }) {
-  const [selectedTicker, setSelectedTicker] = useState(
+  const defaultTicker =
     manifest.companies.find((company) => company.ticker === "2330")?.ticker ??
-      manifest.companies[0]?.ticker ??
-      "",
-  );
-  const bundledCompany = companies[selectedTicker] ?? null;
+    manifest.companies[0]?.ticker ??
+    "";
+  const activeTicker = manifest.companies.some(
+    (company) => company.ticker === selectedTicker,
+  )
+    ? selectedTicker
+    : defaultTicker;
+  const bundledCompany = companies[activeTicker] ?? null;
   const [loadedCompany, setLoadedCompany] = useState<CompanyData | null>(null);
   const [metric, setMetric] = useState<CompanyMetric>("revenueNt");
   const [range, setRange] = useState<RangeName>(60);
@@ -716,7 +784,7 @@ function CompanyView({
   useEffect(() => {
     if (bundledCompany) return;
     let active = true;
-    fetch(`./data/companies/${selectedTicker}.json`, { cache: "no-store" })
+    fetch(`./data/companies/${activeTicker}.json`, { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error("Company history could not be loaded.");
         return response.json() as Promise<CompanyData>;
@@ -730,11 +798,11 @@ function CompanyView({
     return () => {
       active = false;
     };
-  }, [bundledCompany, selectedTicker]);
+  }, [activeTicker, bundledCompany]);
 
   const companyData =
     bundledCompany ??
-    (loadedCompany?.company.ticker === selectedTicker ? loadedCompany : null);
+    (loadedCompany?.company.ticker === activeTicker ? loadedCompany : null);
 
   const translatedHistory = useMemo(
     () => translateRevenueHistory(companyData?.history ?? [], exchangeRates),
@@ -806,12 +874,12 @@ function CompanyView({
             />
             <CompanySelector
               companies={manifest.companies}
-              selectedTicker={selectedTicker}
-              onSelect={setSelectedTicker}
+              selectedTicker={activeTicker}
+              onSelect={onSelectTicker}
             />
             <ExportMenu
               rows={exportRows}
-              filename={`${selectedTicker}-monthly-revenue-${currency.toLowerCase()}`}
+              filename={`${activeTicker}-monthly-revenue-${currency.toLowerCase()}`}
             />
           </>
         }
@@ -1008,6 +1076,7 @@ function CompanyView({
                 <thead>
                   <tr>
                     <th>Month</th>
+                    <th>Company</th>
                     <th className="numeric">Revenue ({currencyLabel})</th>
                     <th className="numeric">MoM</th>
                     <th className="numeric">YoY</th>
@@ -1021,6 +1090,13 @@ function CompanyView({
                   {[...displayHistory].reverse().map((row) => (
                     <tr key={row.month}>
                       <td className="period-cell">{formatMonth(row.month)}</td>
+                      <td className="strong-cell">
+                        <CompanyLink
+                          ticker={activeTicker}
+                          name={companyData.company.name}
+                          onOpenCompany={onSelectTicker}
+                        />
+                      </td>
                       <td className="numeric mono">
                         {fullCurrency(row.revenueNt, currency)}
                       </td>
@@ -1054,18 +1130,26 @@ function CompanyView({
   );
 }
 
-function SubsectorView({ data }: { data: SubsectorData }) {
+const ALL_SUBSECTORS = "__all__";
+
+function SubsectorView({
+  data,
+  onOpenCompany,
+}: {
+  data: SubsectorData;
+  onOpenCompany: (ticker: string) => void;
+}) {
   const classifications = useMemo(() => Object.keys(data.series).sort(), [data]);
-  const [selected, setSelected] = useState(
-    classifications.find((name) => /foundry/i.test(name)) ?? classifications[0],
-  );
+  const [selected, setSelected] = useState(ALL_SUBSECTORS);
   const [method, setMethod] = useState<"simple" | "weighted">("weighted");
   const [range, setRange] = useState<RangeName>(60);
-  const series = data.series[selected] ?? [];
+  const isAll = selected === ALL_SUBSECTORS;
+  const series = isAll ? [] : (data.series[selected] ?? []);
   const visibleSeries = rangeRows(series, range);
   const valueKey =
     method === "simple" ? "simpleYoyPercent" : "revenueWeightedYoyPercent";
   const latest = series.at(-1);
+  const constituentSnapshot = isAll ? null : data.constituents[selected];
   const leaderboard = classifications
     .map((classification) => {
       const row = data.series[classification].at(-1);
@@ -1077,14 +1161,40 @@ function SubsectorView({ data }: { data: SubsectorData }) {
         (right[valueKey] ?? Number.NEGATIVE_INFINITY) -
         (left[valueKey] ?? Number.NEGATIVE_INFINITY),
     );
-  const exportRows: ExportRow[] = visibleSeries.map((row) => ({
-    Month: row.month,
-    Subsector: selected,
-    "Aggregate Revenue (NT$)": row.aggregateRevenueNt,
-    "Simple YoY (%)": row.simpleYoyPercent,
-    "Revenue-Weighted YoY (%)": row.revenueWeightedYoyPercent,
-    "Reporting Companies": row.reportingCompanies,
-  }));
+  const simpleLeader = [...leaderboard].sort(
+    (left, right) =>
+      (right.simpleYoyPercent ?? Number.NEGATIVE_INFINITY) -
+      (left.simpleYoyPercent ?? Number.NEGATIVE_INFINITY),
+  )[0];
+  const weightedLeader = [...leaderboard].sort(
+    (left, right) =>
+      (right.revenueWeightedYoyPercent ?? Number.NEGATIVE_INFINITY) -
+      (left.revenueWeightedYoyPercent ?? Number.NEGATIVE_INFINITY),
+  )[0];
+  const rankingChartRows = leaderboard;
+  const exportRows: ExportRow[] = isAll
+    ? leaderboard.map((row, index) => ({
+        Rank: index + 1,
+        Subsector: row.classification,
+        Month: row.month,
+        "Aggregate Revenue (NT$)": row.aggregateRevenueNt,
+        "Simple YoY (%)": row.simpleYoyPercent,
+        "Revenue-Weighted YoY (%)": row.revenueWeightedYoyPercent,
+        "Reporting Companies": row.reportingCompanies,
+      }))
+    : (constituentSnapshot?.companies ?? []).map((company) => ({
+        Month: constituentSnapshot?.month ?? null,
+        Subsector: selected,
+        Ticker: company.ticker,
+        Company: company.name,
+        "Revenue (NT$)": company.revenueNt,
+        "Company YoY (%)": company.yoyPercent,
+        "Revenue Share (%)": company.revenueWeightPercent,
+        "Simple YoY Contribution (pp)":
+          company.simpleYoyContributionPercentPoints,
+        "Revenue-Weighted YoY Contribution (pp)":
+          company.revenueWeightedYoyContributionPercentPoints,
+      }));
 
   return (
     <>
@@ -1097,43 +1207,75 @@ function SubsectorView({ data }: { data: SubsectorData }) {
             <label className="select-control">
               <span>Subsector</span>
               <select value={selected} onChange={(event) => setSelected(event.target.value)}>
+                <option value={ALL_SUBSECTORS}>All</option>
                 {classifications.map((classification) => (
-                  <option key={classification}>{classification}</option>
+                  <option key={classification} value={classification}>
+                    {classification}
+                  </option>
                 ))}
               </select>
               <ChevronDown size={16} />
             </label>
             <ExportMenu
               rows={exportRows}
-              filename={`${selected.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}-subsector`}
+              filename={`${isAll ? "all" : selected.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}-subsector`}
             />
           </>
         }
       />
 
       <section className="metric-grid four-up">
-        <MetricCard
-          label="Selected subsector"
-          value={selected}
-          detail={`${latest?.reportingCompanies ?? 0} reporting companies`}
-        />
-        <MetricCard
-          label="Aggregate revenue"
-          value={compactCurrency(latest?.aggregateRevenueNt)}
-          detail={formatMonth(latest?.month)}
-        />
-        <MetricCard
-          label="Simple YoY"
-          value={formatPercent(latest?.simpleYoyPercent)}
-          tone={valueClass(latest?.simpleYoyPercent)}
-          detail="Equal weight per company"
-        />
-        <MetricCard
-          label="Revenue-weighted YoY"
-          value={formatPercent(latest?.revenueWeightedYoyPercent)}
-          tone={valueClass(latest?.revenueWeightedYoyPercent)}
-          detail="Current revenue weights"
-        />
+        {isAll ? (
+          <>
+            <MetricCard
+              label="Subsectors"
+              value={String(classifications.length)}
+              detail="Current classification universe"
+            />
+            <MetricCard
+              label="Latest month"
+              value={formatMonth(data.latestRevenueMonth)}
+              detail="Latest official observations"
+            />
+            <MetricCard
+              label="Top simple YoY"
+              value={formatPercent(simpleLeader?.simpleYoyPercent)}
+              tone={valueClass(simpleLeader?.simpleYoyPercent)}
+              detail={simpleLeader?.classification}
+            />
+            <MetricCard
+              label="Top weighted YoY"
+              value={formatPercent(weightedLeader?.revenueWeightedYoyPercent)}
+              tone={valueClass(weightedLeader?.revenueWeightedYoyPercent)}
+              detail={weightedLeader?.classification}
+            />
+          </>
+        ) : (
+          <>
+            <MetricCard
+              label="Selected subsector"
+              value={selected}
+              detail={`${latest?.reportingCompanies ?? 0} reporting companies`}
+            />
+            <MetricCard
+              label="Aggregate revenue"
+              value={compactCurrency(latest?.aggregateRevenueNt)}
+              detail={formatMonth(latest?.month)}
+            />
+            <MetricCard
+              label="Simple YoY"
+              value={formatPercent(latest?.simpleYoyPercent)}
+              tone={valueClass(latest?.simpleYoyPercent)}
+              detail="Equal weight per company"
+            />
+            <MetricCard
+              label="Revenue-weighted YoY"
+              value={formatPercent(latest?.revenueWeightedYoyPercent)}
+              tone={valueClass(latest?.revenueWeightedYoyPercent)}
+              detail="Current revenue weights"
+            />
+          </>
+        )}
       </section>
 
       <section className="panel chart-panel">
@@ -1154,16 +1296,82 @@ function SubsectorView({ data }: { data: SubsectorData }) {
               Revenue-weighted YoY
             </button>
           </div>
-          <RangeControl value={range} onChange={setRange} />
+          {!isAll && <RangeControl value={range} onChange={setRange} />}
         </div>
         <div className="chart-title-row">
-          <div>
-            <span>{method === "simple" ? "Simple" : "Revenue-weighted"} YoY</span>
-            <strong>{formatPercent(latest?.[valueKey])}</strong>
-          </div>
-          <span>{data.methodology[method === "simple" ? "simple" : "revenueWeighted"]}</span>
+          {isAll ? (
+            <>
+              <div>
+                <span>Latest subsector ranking</span>
+                <strong>
+                  {method === "simple" ? "Simple YoY" : "Revenue-weighted YoY"}
+                </strong>
+              </div>
+              <span>{formatMonth(data.latestRevenueMonth)}</span>
+            </>
+          ) : (
+            <>
+              <div>
+                <span>{method === "simple" ? "Simple" : "Revenue-weighted"} YoY</span>
+                <strong>{formatPercent(latest?.[valueKey])}</strong>
+              </div>
+              <span>{data.methodology[method === "simple" ? "simple" : "revenueWeighted"]}</span>
+            </>
+          )}
         </div>
-        <div className="chart subsector-chart">
+        {isAll ? (
+          <div
+            className="chart subsector-ranking-chart"
+            style={{ height: Math.max(440, leaderboard.length * 29) }}
+          >
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={rankingChartRows}
+                layout="vertical"
+                margin={{ top: 4, right: 30, left: 4, bottom: 0 }}
+              >
+                <CartesianGrid stroke="#e2e8f0" horizontal={false} />
+                <XAxis
+                  type="number"
+                  tickFormatter={(value) => `${Number(value).toFixed(0)}%`}
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <YAxis
+                  type="category"
+                  dataKey="classification"
+                  width={180}
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <Tooltip
+                  content={
+                    <ChartTooltip
+                      formatter={(value) => formatPercent(value, 2)}
+                    />
+                  }
+                />
+                <ReferenceLine x={0} stroke="#64748b" />
+                <Bar
+                  dataKey={valueKey}
+                  name={
+                    method === "simple" ? "Simple YoY" : "Revenue-weighted YoY"
+                  }
+                  radius={[2, 2, 2, 2]}
+                  isAnimationActive={false}
+                >
+                  {rankingChartRows.map((row) => (
+                    <Cell
+                      key={row.classification}
+                      fill={(row[valueKey] ?? 0) >= 0 ? "#138a61" : "#c74646"}
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        ) : (
+          <div className="chart subsector-chart">
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart data={visibleSeries} margin={{ top: 12, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid stroke="#e2e8f0" vertical={false} />
@@ -1229,18 +1437,24 @@ function SubsectorView({ data }: { data: SubsectorData }) {
               />
             </ComposedChart>
           </ResponsiveContainer>
-        </div>
+          </div>
+        )}
       </section>
 
       <section className="panel table-panel">
         <div className="panel-heading">
           <div>
-            <h3>Latest subsector ranking</h3>
-            <span>{formatMonth(data.latestRevenueMonth)} · click a row to chart it</span>
+            <h3>{isAll ? "Latest subsector ranking" : "Subsector companies"}</h3>
+            <span>
+              {isAll
+                ? `${formatMonth(data.latestRevenueMonth)} | ${method === "simple" ? "simple" : "revenue-weighted"} YoY ranking`
+                : `${formatMonth(constituentSnapshot?.month)} | ${constituentSnapshot?.reportingCompanies ?? 0} of ${constituentSnapshot?.companies.length ?? 0} companies reported`}
+            </span>
           </div>
         </div>
         <div className="table-scroll">
-          <table>
+          {isAll ? (
+            <table>
             <thead>
               <tr>
                 <th>#</th>
@@ -1253,13 +1467,17 @@ function SubsectorView({ data }: { data: SubsectorData }) {
             </thead>
             <tbody>
               {leaderboard.map((row, index) => (
-                <tr
-                  key={row.classification}
-                  className={row.classification === selected ? "selected-row" : ""}
-                  onClick={() => setSelected(row.classification)}
-                >
+                <tr key={row.classification}>
                   <td className="rank-cell">{index + 1}</td>
-                  <td className="strong-cell">{row.classification}</td>
+                  <td className="strong-cell">
+                    <button
+                      type="button"
+                      className="table-link"
+                      onClick={() => setSelected(row.classification)}
+                    >
+                      {row.classification}
+                    </button>
+                  </td>
                   <td className="numeric mono">{fullCurrency(row.aggregateRevenueNt)}</td>
                   <td className={`numeric mono ${valueClass(row.simpleYoyPercent)}`}>
                     {formatPercent(row.simpleYoyPercent)}
@@ -1271,7 +1489,97 @@ function SubsectorView({ data }: { data: SubsectorData }) {
                 </tr>
               ))}
             </tbody>
-          </table>
+            </table>
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>Ticker</th>
+                  <th>Company</th>
+                  <th className="numeric">Revenue (NT$)</th>
+                  <th className="numeric">Company YoY</th>
+                  <th className="numeric">Revenue share</th>
+                  <th className="numeric">Simple YoY contribution (pp)</th>
+                  <th className="numeric">Weighted YoY contribution (pp)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(constituentSnapshot?.companies ?? []).map((company) => (
+                  <tr key={company.ticker}>
+                    <td className="ticker-cell">{company.ticker}</td>
+                    <td className="strong-cell">
+                      <CompanyLink
+                        ticker={company.ticker}
+                        name={company.name}
+                        onOpenCompany={onOpenCompany}
+                      />
+                    </td>
+                    <td className="numeric mono">
+                      {company.revenueNt === null
+                        ? "N/A"
+                        : fullCurrency(company.revenueNt)}
+                    </td>
+                    <td className={`numeric mono ${valueClass(company.yoyPercent)}`}>
+                      {formatPercent(company.yoyPercent)}
+                    </td>
+                    <td className="numeric mono">
+                      {formatPercent(company.revenueWeightPercent, 2)}
+                    </td>
+                    <td
+                      className={`numeric mono ${valueClass(
+                        company.simpleYoyContributionPercentPoints,
+                      )}`}
+                    >
+                      {formatPercentagePoints(
+                        company.simpleYoyContributionPercentPoints,
+                        2,
+                      )}
+                    </td>
+                    <td
+                      className={`numeric mono ${valueClass(
+                        company.revenueWeightedYoyContributionPercentPoints,
+                      )}`}
+                    >
+                      {formatPercentagePoints(
+                        company.revenueWeightedYoyContributionPercentPoints,
+                        2,
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="aggregate-row">
+                  <td />
+                  <td>Subsector aggregate</td>
+                  <td className="numeric mono">
+                    {fullCurrency(constituentSnapshot?.aggregateRevenueNt)}
+                  </td>
+                  <td className="numeric">N/A</td>
+                  <td className="numeric mono">
+                    {constituentSnapshot?.aggregateRevenueNt ? "100.00%" : "N/A"}
+                  </td>
+                  <td
+                    className={`numeric mono ${valueClass(
+                      constituentSnapshot?.simpleYoyPercent,
+                    )}`}
+                  >
+                    {formatPercent(constituentSnapshot?.simpleYoyPercent, 2)}
+                  </td>
+                  <td
+                    className={`numeric mono ${valueClass(
+                      constituentSnapshot?.revenueWeightedYoyPercent,
+                    )}`}
+                  >
+                    {formatPercent(
+                      constituentSnapshot?.revenueWeightedYoyPercent,
+                      2,
+                    )}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          )}
         </div>
       </section>
     </>
@@ -1282,7 +1590,13 @@ type MomentumFilter = "all" | "accelerating" | "decelerating";
 const ALL_MOMENTUM_NAMES = "__all__";
 const MOMENTUM_PERIOD_ORDER: MomentumPeriodName[] = ["mom", "3m", "6m", "ltm"];
 
-function MomentumView({ data }: { data: MomentumData }) {
+function MomentumView({
+  data,
+  onOpenCompany,
+}: {
+  data: MomentumData;
+  onOpenCompany: (ticker: string) => void;
+}) {
   const [filter, setFilter] = useState<MomentumFilter>("all");
   const [period, setPeriod] = useState<MomentumPeriodName>("mom");
   const [subsector, setSubsector] = useState(ALL_MOMENTUM_NAMES);
@@ -1583,7 +1897,13 @@ function MomentumView({ data }: { data: MomentumData }) {
               {filtered.map((row) => (
                 <tr key={row.ticker}>
                   <td className="ticker-cell">{row.ticker}</td>
-                  <td className="strong-cell">{row.name}</td>
+                  <td className="strong-cell">
+                    <CompanyLink
+                      ticker={row.ticker}
+                      name={row.name}
+                      onOpenCompany={onOpenCompany}
+                    />
+                  </td>
                   <td>{row.classification}</td>
                   <td className="numeric mono">
                     {compactCurrency(row.currentPeriodRevenueNt)}
@@ -1630,7 +1950,13 @@ function MomentumView({ data }: { data: MomentumData }) {
 
 type FreshnessFilter = "all" | "reported" | "pending" | "overdue" | "unusual";
 
-function FreshnessView({ data }: { data: FreshnessData }) {
+function FreshnessView({
+  data,
+  onOpenCompany,
+}: {
+  data: FreshnessData;
+  onOpenCompany: (ticker: string) => void;
+}) {
   const [filter, setFilter] = useState<FreshnessFilter>("all");
   const [query, setQuery] = useState("");
   const filtered = useMemo(() => {
@@ -1843,7 +2169,13 @@ function FreshnessView({ data }: { data: FreshnessData }) {
               {filtered.map((row) => (
                 <tr key={row.ticker}>
                   <td className="ticker-cell">{row.ticker}</td>
-                  <td className="strong-cell">{row.name}</td>
+                  <td className="strong-cell">
+                    <CompanyLink
+                      ticker={row.ticker}
+                      name={row.name}
+                      onOpenCompany={onOpenCompany}
+                    />
+                  </td>
                   <td>{row.classification}</td>
                   <td>
                     <span className={`status-label ${row.reported ? "reported" : "pending"}`}>
@@ -1927,14 +2259,20 @@ async function fetchDashboardData() {
 
 export function Dashboard() {
   const [view, setView] = useState<ViewName>("company");
+  const [selectedCompanyTicker, setSelectedCompanyTicker] = useState("");
   const [data, setData] = useState<DashboardData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     const syncViewFromHash = () => {
-      const hash = window.location.hash.slice(1) as ViewName;
-      if (NAV_ITEMS.some((item) => item.id === hash)) setView(hash);
+      const [hashView, encodedTicker] = window.location.hash.slice(1).split("/");
+      if (NAV_ITEMS.some((item) => item.id === hashView)) {
+        setView(hashView as ViewName);
+        if (hashView === "company" && encodedTicker) {
+          setSelectedCompanyTicker(decodeURIComponent(encodedTicker));
+        }
+      }
     };
     const timer = window.setTimeout(syncViewFromHash, 0);
     window.addEventListener("hashchange", syncViewFromHash);
@@ -1960,7 +2298,21 @@ export function Dashboard() {
 
   const selectView = (nextView: ViewName) => {
     setView(nextView);
-    window.history.replaceState(null, "", `#${nextView}`);
+    const companyPath =
+      nextView === "company" && selectedCompanyTicker
+        ? `/${encodeURIComponent(selectedCompanyTicker)}`
+        : "";
+    window.history.replaceState(null, "", `#${nextView}${companyPath}`);
+  };
+
+  const openCompany = (ticker: string) => {
+    setSelectedCompanyTicker(ticker);
+    setView("company");
+    window.history.replaceState(
+      null,
+      "",
+      `#company/${encodeURIComponent(ticker)}`,
+    );
   };
 
   return (
@@ -2049,13 +2401,15 @@ export function Dashboard() {
             manifest={data.manifest}
             exchangeRates={data.exchangeRates}
             companies={data.companies}
+            selectedTicker={selectedCompanyTicker}
+            onSelectTicker={openCompany}
           />
         ) : view === "subsectors" ? (
-          <SubsectorView data={data.subsectors} />
+          <SubsectorView data={data.subsectors} onOpenCompany={openCompany} />
         ) : view === "momentum" ? (
-          <MomentumView data={data.momentum} />
+          <MomentumView data={data.momentum} onOpenCompany={openCompany} />
         ) : (
-          <FreshnessView data={data.freshness} />
+          <FreshnessView data={data.freshness} onOpenCompany={openCompany} />
         )}
       </main>
 

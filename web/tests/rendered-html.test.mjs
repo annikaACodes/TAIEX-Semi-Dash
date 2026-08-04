@@ -170,6 +170,10 @@ test("ships complete, internally consistent dashboard data", async () => {
     Object.keys(subsectors.series).length,
     manifest.classificationCount,
   );
+  assert.deepEqual(
+    Object.keys(subsectors.constituents).sort(),
+    Object.keys(subsectors.series).sort(),
+  );
   assert.equal(momentum.companies.length, manifest.companyCount);
   assert.deepEqual(Object.keys(momentum.periods), ["mom", "3m", "6m", "ltm"]);
   assert.deepEqual(
@@ -202,6 +206,67 @@ test("ships complete, internally consistent dashboard data", async () => {
     manifest.revenueObservationCount,
   );
   assert.deepEqual(bundle.companies["2330"], tsmc);
+  assert.deepEqual(bundle.subsectors, subsectors);
+
+  for (const [classification, snapshot] of Object.entries(
+    subsectors.constituents,
+  )) {
+    const latestSubsectorRow = subsectors.series[classification].at(-1);
+    assert.equal(snapshot.month, latestSubsectorRow.month);
+    assert.equal(
+      snapshot.aggregateRevenueNt,
+      latestSubsectorRow.aggregateRevenueNt,
+    );
+    assert.equal(snapshot.reportingCompanies, latestSubsectorRow.reportingCompanies);
+    assert.equal(
+      snapshot.companies.filter((company) => company.revenueNt !== null).length,
+      snapshot.reportingCompanies,
+    );
+    assert.equal(
+      snapshot.companies.reduce(
+        (total, company) => total + (company.revenueNt ?? 0),
+        0,
+      ),
+      snapshot.aggregateRevenueNt,
+    );
+
+    const companiesWithYoy = snapshot.companies.filter(
+      (company) => company.yoyPercent !== null,
+    );
+    const calculatedSimpleYoy =
+      companiesWithYoy.reduce(
+        (total, company) => total + company.yoyPercent,
+        0,
+      ) / companiesWithYoy.length;
+    assert.ok(
+      Math.abs(calculatedSimpleYoy - snapshot.simpleYoyPercent) <= 0.01,
+      `${classification} simple YoY does not reconcile`,
+    );
+
+    const companiesWithWeightedYoy = companiesWithYoy.filter(
+      (company) => company.revenueNt > 0,
+    );
+    const weightedRevenue = companiesWithWeightedYoy.reduce(
+      (total, company) => total + company.revenueNt,
+      0,
+    );
+    const calculatedWeightedYoy =
+      companiesWithWeightedYoy.reduce(
+        (total, company) => total + company.yoyPercent * company.revenueNt,
+        0,
+      ) / weightedRevenue;
+    assert.ok(
+      Math.abs(calculatedWeightedYoy - snapshot.revenueWeightedYoyPercent) <=
+        0.01,
+      `${classification} weighted YoY does not reconcile`,
+    );
+  }
+
+  assert.ok(
+    Object.values(subsectors.constituents).some((snapshot) =>
+      snapshot.companies.some((company) => company.ticker === "2330"),
+    ),
+  );
 
   const latest = tsmc.history.at(-1);
   for (const key of [

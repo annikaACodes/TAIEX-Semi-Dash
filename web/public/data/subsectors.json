@@ -11490,5 +11490,3202 @@
         "reportingCompanies": 1
       }
     ]
+  },
+  "constituents": {
+    "Power & Thermal Components": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 2531200000,
+      "simpleYoyPercent": -12.99,
+      "revenueWeightedYoyPercent": -12.99,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "6412",
+          "name": "Chicony Power",
+          "revenueNt": 2531200000,
+          "yoyPercent": -12.994578660298002,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": -12.99,
+          "revenueWeightedYoyContributionPercentPoints": -12.99
+        },
+        {
+          "ticker": "1471",
+          "name": "SL",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2308",
+          "name": "DELTA",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2420",
+          "name": "ZIPPY",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2421",
+          "name": "SUNON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2431",
+          "name": "LIEN CHANG",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2457",
+          "name": "PHIHONG",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3015",
+          "name": "FSP",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3032",
+          "name": "COMPUCASE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3043",
+          "name": "PCM",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3058",
+          "name": "LEI",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3296",
+          "name": "POWERTECH",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3308",
+          "name": "BESTEC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3338",
+          "name": "TAISOL",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3432",
+          "name": "TAI TWUN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3617",
+          "name": "CyberPower",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3653",
+          "name": "JENTECH",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4588",
+          "name": "Arch Meter",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6282",
+          "name": "Acbel",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6409",
+          "name": "VOLTRONIC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6558",
+          "name": "SYNergy",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6781",
+          "name": "AES-KY",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Precision Mechanics": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 27750096000,
+      "simpleYoyPercent": 16.66,
+      "revenueWeightedYoyPercent": 45.09,
+      "reportingCompanies": 17,
+      "companies": [
+        {
+          "ticker": "2354",
+          "name": "FTC",
+          "revenueNt": 15054892000,
+          "yoyPercent": 10.657353496661475,
+          "revenueWeightPercent": 54.25,
+          "simpleYoyContributionPercentPoints": 0.63,
+          "revenueWeightedYoyContributionPercentPoints": 5.78
+        },
+        {
+          "ticker": "2059",
+          "name": "king slide",
+          "revenueNt": 4442581000,
+          "yoyPercent": 220.52305812021433,
+          "revenueWeightPercent": 16.01,
+          "simpleYoyContributionPercentPoints": 12.97,
+          "revenueWeightedYoyContributionPercentPoints": 35.3
+        },
+        {
+          "ticker": "6805",
+          "name": "Fositek",
+          "revenueNt": 1206279000,
+          "yoyPercent": 32.66411737728933,
+          "revenueWeightPercent": 4.35,
+          "simpleYoyContributionPercentPoints": 1.92,
+          "revenueWeightedYoyContributionPercentPoints": 1.42
+        },
+        {
+          "ticker": "5243",
+          "name": "ESON",
+          "revenueNt": 1162478000,
+          "yoyPercent": 38.27451549477045,
+          "revenueWeightPercent": 4.19,
+          "simpleYoyContributionPercentPoints": 2.25,
+          "revenueWeightedYoyContributionPercentPoints": 1.6
+        },
+        {
+          "ticker": "3376",
+          "name": "SZS",
+          "revenueNt": 921919000,
+          "yoyPercent": -4.761909681151635,
+          "revenueWeightPercent": 3.32,
+          "simpleYoyContributionPercentPoints": -0.28,
+          "revenueWeightedYoyContributionPercentPoints": -0.16
+        },
+        {
+          "ticker": "2476",
+          "name": "GS",
+          "revenueNt": 915039000,
+          "yoyPercent": 53.76248321707817,
+          "revenueWeightPercent": 3.3,
+          "simpleYoyContributionPercentPoints": 3.16,
+          "revenueWeightedYoyContributionPercentPoints": 1.77
+        },
+        {
+          "ticker": "2474",
+          "name": "CATCHER",
+          "revenueNt": 804738000,
+          "yoyPercent": -55.06679360009827,
+          "revenueWeightPercent": 2.9,
+          "simpleYoyContributionPercentPoints": -3.24,
+          "revenueWeightedYoyContributionPercentPoints": -1.6
+        },
+        {
+          "ticker": "4912",
+          "name": "Lemtech-KY",
+          "revenueNt": 647288000,
+          "yoyPercent": 53.33200678435051,
+          "revenueWeightPercent": 2.33,
+          "simpleYoyContributionPercentPoints": 3.14,
+          "revenueWeightedYoyContributionPercentPoints": 1.24
+        },
+        {
+          "ticker": "1582",
+          "name": "SYNCMOLD",
+          "revenueNt": 624512000,
+          "yoyPercent": -9.502949610993333,
+          "revenueWeightPercent": 2.25,
+          "simpleYoyContributionPercentPoints": -0.56,
+          "revenueWeightedYoyContributionPercentPoints": -0.21
+        },
+        {
+          "ticker": "4942",
+          "name": "Chia Chang",
+          "revenueNt": 457954000,
+          "yoyPercent": -10.884126051303207,
+          "revenueWeightPercent": 1.65,
+          "simpleYoyContributionPercentPoints": -0.64,
+          "revenueWeightedYoyContributionPercentPoints": -0.18
+        },
+        {
+          "ticker": "3679",
+          "name": "Nishoku",
+          "revenueNt": 354620000,
+          "yoyPercent": 1.3463500510132635,
+          "revenueWeightPercent": 1.28,
+          "simpleYoyContributionPercentPoints": 0.08,
+          "revenueWeightedYoyContributionPercentPoints": 0.02
+        },
+        {
+          "ticker": "3607",
+          "name": "Coxon",
+          "revenueNt": 271469000,
+          "yoyPercent": 15.110692735961464,
+          "revenueWeightPercent": 0.98,
+          "simpleYoyContributionPercentPoints": 0.89,
+          "revenueWeightedYoyContributionPercentPoints": 0.15
+        },
+        {
+          "ticker": "3543",
+          "name": "JOCHU",
+          "revenueNt": 268764000,
+          "yoyPercent": 10.560155989682961,
+          "revenueWeightPercent": 0.97,
+          "simpleYoyContributionPercentPoints": 0.62,
+          "revenueWeightedYoyContributionPercentPoints": 0.1
+        },
+        {
+          "ticker": "4545",
+          "name": "MAP",
+          "revenueNt": 217948000,
+          "yoyPercent": 2.091023214854509,
+          "revenueWeightPercent": 0.79,
+          "simpleYoyContributionPercentPoints": 0.12,
+          "revenueWeightedYoyContributionPercentPoints": 0.02
+        },
+        {
+          "ticker": "2415",
+          "name": "CX TECH",
+          "revenueNt": 211964000,
+          "yoyPercent": 9.196189848181215,
+          "revenueWeightPercent": 0.76,
+          "simpleYoyContributionPercentPoints": 0.54,
+          "revenueWeightedYoyContributionPercentPoints": 0.07
+        },
+        {
+          "ticker": "4999",
+          "name": "Sinher",
+          "revenueNt": 134754000,
+          "yoyPercent": -27.50523184187733,
+          "revenueWeightPercent": 0.49,
+          "simpleYoyContributionPercentPoints": -1.62,
+          "revenueWeightedYoyContributionPercentPoints": -0.13
+        },
+        {
+          "ticker": "3593",
+          "name": "Logah",
+          "revenueNt": 52897000,
+          "yoyPercent": -56.58165819865223,
+          "revenueWeightPercent": 0.19,
+          "simpleYoyContributionPercentPoints": -3.33,
+          "revenueWeightedYoyContributionPercentPoints": -0.11
+        }
+      ]
+    },
+    "Discrete & Power Semiconductors": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 2967091000,
+      "simpleYoyPercent": 34.4,
+      "revenueWeightedYoyPercent": 25.55,
+      "reportingCompanies": 8,
+      "companies": [
+        {
+          "ticker": "2481",
+          "name": "PANJIT",
+          "revenueNt": 1388856000,
+          "yoyPercent": 27.366334018682334,
+          "revenueWeightPercent": 46.81,
+          "simpleYoyContributionPercentPoints": 3.42,
+          "revenueWeightedYoyContributionPercentPoints": 12.81
+        },
+        {
+          "ticker": "2340",
+          "name": "TASC",
+          "revenueNt": 483128000,
+          "yoyPercent": 16.342094806930515,
+          "revenueWeightPercent": 16.28,
+          "simpleYoyContributionPercentPoints": 2.04,
+          "revenueWeightedYoyContributionPercentPoints": 2.66
+        },
+        {
+          "ticker": "3016",
+          "name": "EPi",
+          "revenueNt": 448219000,
+          "yoyPercent": 41.1677815992038,
+          "revenueWeightPercent": 15.11,
+          "simpleYoyContributionPercentPoints": 5.15,
+          "revenueWeightedYoyContributionPercentPoints": 6.22
+        },
+        {
+          "ticker": "8261",
+          "name": "APEC",
+          "revenueNt": 296036000,
+          "yoyPercent": 16.085720447816794,
+          "revenueWeightPercent": 9.98,
+          "simpleYoyContributionPercentPoints": 2.01,
+          "revenueWeightedYoyContributionPercentPoints": 1.6
+        },
+        {
+          "ticker": "2342",
+          "name": "MVI",
+          "revenueNt": 176335000,
+          "yoyPercent": 4.567934911523317,
+          "revenueWeightPercent": 5.94,
+          "simpleYoyContributionPercentPoints": 0.57,
+          "revenueWeightedYoyContributionPercentPoints": 0.27
+        },
+        {
+          "ticker": "2302",
+          "name": "RECTRON",
+          "revenueNt": 99738000,
+          "yoyPercent": 45.70501957576112,
+          "revenueWeightPercent": 3.36,
+          "simpleYoyContributionPercentPoints": 5.71,
+          "revenueWeightedYoyContributionPercentPoints": 1.54
+        },
+        {
+          "ticker": "6573",
+          "name": "HY",
+          "revenueNt": 67271000,
+          "yoyPercent": 6.5679207920792075,
+          "revenueWeightPercent": 2.27,
+          "simpleYoyContributionPercentPoints": 0.82,
+          "revenueWeightedYoyContributionPercentPoints": 0.15
+        },
+        {
+          "ticker": "2434",
+          "name": "MOSPEC",
+          "revenueNt": 7508000,
+          "yoyPercent": 117.37116386797915,
+          "revenueWeightPercent": 0.25,
+          "simpleYoyContributionPercentPoints": 14.67,
+          "revenueWeightedYoyContributionPercentPoints": 0.3
+        }
+      ]
+    },
+    "Foundry": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 472903414000,
+      "simpleYoyPercent": 41.04,
+      "revenueWeightedYoyPercent": 65.63,
+      "reportingCompanies": 5,
+      "companies": [
+        {
+          "ticker": "2330",
+          "name": "TSMC",
+          "revenueNt": 442679969000,
+          "yoyPercent": 67.86685548491262,
+          "revenueWeightPercent": 93.61,
+          "simpleYoyContributionPercentPoints": 13.57,
+          "revenueWeightedYoyContributionPercentPoints": 63.53
+        },
+        {
+          "ticker": "2303",
+          "name": "UMC",
+          "revenueNt": 23124962000,
+          "yoyPercent": 22.8543590392003,
+          "revenueWeightPercent": 4.89,
+          "simpleYoyContributionPercentPoints": 4.57,
+          "revenueWeightedYoyContributionPercentPoints": 1.12
+        },
+        {
+          "ticker": "6770",
+          "name": "PSMC",
+          "revenueNt": 6473929000,
+          "yoyPercent": 68.75001629130628,
+          "revenueWeightPercent": 1.37,
+          "simpleYoyContributionPercentPoints": 13.75,
+          "revenueWeightedYoyContributionPercentPoints": 0.94
+        },
+        {
+          "ticker": "3016",
+          "name": "EPi",
+          "revenueNt": 448219000,
+          "yoyPercent": 41.1677815992038,
+          "revenueWeightPercent": 0.09,
+          "simpleYoyContributionPercentPoints": 8.23,
+          "revenueWeightedYoyContributionPercentPoints": 0.04
+        },
+        {
+          "ticker": "2342",
+          "name": "MVI",
+          "revenueNt": 176335000,
+          "yoyPercent": 4.567934911523317,
+          "revenueWeightPercent": 0.04,
+          "simpleYoyContributionPercentPoints": 0.91,
+          "revenueWeightedYoyContributionPercentPoints": 0
+        }
+      ]
+    },
+    "EMS & ODM": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 1121521000,
+      "simpleYoyPercent": 11.17,
+      "revenueWeightedYoyPercent": 11.17,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "5225",
+          "name": "EASTECH",
+          "revenueNt": 1121521000,
+          "yoyPercent": 11.173440205867747,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 11.17,
+          "revenueWeightedYoyContributionPercentPoints": 11.17
+        },
+        {
+          "ticker": "2312",
+          "name": "KINPO",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2317",
+          "name": "HON HAI",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2385",
+          "name": "CHICONY",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2459",
+          "name": "AUDIX",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2477",
+          "name": "MEILOON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2488",
+          "name": "HANPIN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3024",
+          "name": "ACTION",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4915",
+          "name": "Primax",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6201",
+          "name": "YAHORNG",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6278",
+          "name": "TSMT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6283",
+          "name": "SOE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6722",
+          "name": "Whetron",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6743",
+          "name": "AMPACS",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "PCB & Flex Circuits": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 1166674000,
+      "simpleYoyPercent": 24.02,
+      "revenueWeightedYoyPercent": 24.02,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "2402",
+          "name": "ICHIA",
+          "revenueNt": 1166674000,
+          "yoyPercent": 24.01504328452132,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 24.02,
+          "revenueWeightedYoyContributionPercentPoints": 24.02
+        },
+        {
+          "ticker": "2313",
+          "name": "COMPEQ",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2316",
+          "name": "WUS",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2355",
+          "name": "CHIN-POON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2367",
+          "name": "UNITECH",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2368",
+          "name": "GCE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3044",
+          "name": "Tripod",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3229",
+          "name": "CHEER TIME",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3321",
+          "name": "UNIFLEX",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3715",
+          "name": "Dynamic Holding",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4927",
+          "name": "Apex",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4958",
+          "name": "ZDT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "5469",
+          "name": "HSB",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6108",
+          "name": "APCB INC.",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6141",
+          "name": "PLOTECH",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6153",
+          "name": "Career Tech.",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6191",
+          "name": "GBM",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6269",
+          "name": "FLEXIUM",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6835",
+          "name": "CMI",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "8213",
+          "name": "tpt",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Passive Components": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 201159000,
+      "simpleYoyPercent": 37.19,
+      "revenueWeightedYoyPercent": 37.19,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "2483",
+          "name": "ECE",
+          "revenueNt": 201159000,
+          "yoyPercent": 37.189096290638275,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 37.19,
+          "revenueWeightedYoyContributionPercentPoints": 37.19
+        },
+        {
+          "ticker": "2327",
+          "name": "YAGEO",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2375",
+          "name": "KAIMEI",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2413",
+          "name": "UMEC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2428",
+          "name": "THINKING",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2472",
+          "name": "LELON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2478",
+          "name": "TA-I",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2484",
+          "name": "SIWARD",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2492",
+          "name": "WTC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3026",
+          "name": "HOLY STONE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3042",
+          "name": "TXC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6155",
+          "name": "KC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6224",
+          "name": "PTTC.",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6449",
+          "name": "APAQ",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6834",
+          "name": "EVEROHMS",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6862",
+          "name": "TRIO-KY",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "7788",
+          "name": "SONG CHUAN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Interconnect": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 3167179000,
+      "simpleYoyPercent": 28.97,
+      "revenueWeightedYoyPercent": 28.97,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "3023",
+          "name": "SINBON",
+          "revenueNt": 3167179000,
+          "yoyPercent": 28.97202845612878,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 28.97,
+          "revenueWeightedYoyContributionPercentPoints": 28.97
+        },
+        {
+          "ticker": "2328",
+          "name": "PI",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2392",
+          "name": "FOXLINK",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2440",
+          "name": "SPACE SHUTTLE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2460",
+          "name": "GEM",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2462",
+          "name": "LINETEK",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3003",
+          "name": "KST",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3011",
+          "name": "JH",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3021",
+          "name": "WELLTEND",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3092",
+          "name": "HOTRON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3501",
+          "name": "Well Shin",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3533",
+          "name": "LOTES",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3550",
+          "name": "COPARTNER",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3605",
+          "name": "ACES",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3665",
+          "name": "BHI (BizLink)",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4943",
+          "name": "CONCRAFT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6115",
+          "name": "I-SHENG",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6133",
+          "name": "GBE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6197",
+          "name": "JPC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6205",
+          "name": "COXOC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6272",
+          "name": "WIESON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6715",
+          "name": "Lintes",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6835",
+          "name": "CMI",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "8103",
+          "name": "CviLux",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "OSAT": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 92003421000,
+      "simpleYoyPercent": 31.1,
+      "revenueWeightedYoyPercent": 31.55,
+      "reportingCompanies": 15,
+      "companies": [
+        {
+          "ticker": "3711",
+          "name": "ASEH",
+          "revenueNt": 65783102000,
+          "yoyPercent": 32.861279955266355,
+          "revenueWeightPercent": 71.5,
+          "simpleYoyContributionPercentPoints": 2.19,
+          "revenueWeightedYoyContributionPercentPoints": 23.5
+        },
+        {
+          "ticker": "6239",
+          "name": "PTI",
+          "revenueNt": 7622977000,
+          "yoyPercent": 21.714018933029624,
+          "revenueWeightPercent": 8.29,
+          "simpleYoyContributionPercentPoints": 1.45,
+          "revenueWeightedYoyContributionPercentPoints": 1.8
+        },
+        {
+          "ticker": "2449",
+          "name": "KYEC",
+          "revenueNt": 3621671000,
+          "yoyPercent": 28.637381895574038,
+          "revenueWeightPercent": 3.94,
+          "simpleYoyContributionPercentPoints": 1.91,
+          "revenueWeightedYoyContributionPercentPoints": 1.13
+        },
+        {
+          "ticker": "8150",
+          "name": "ChipMOS",
+          "revenueNt": 2538350000,
+          "yoyPercent": 37.229842348004304,
+          "revenueWeightPercent": 2.76,
+          "simpleYoyContributionPercentPoints": 2.48,
+          "revenueWeightedYoyContributionPercentPoints": 1.03
+        },
+        {
+          "ticker": "6257",
+          "name": "SIGURD",
+          "revenueNt": 1958518000,
+          "yoyPercent": 20.995882409269367,
+          "revenueWeightPercent": 2.13,
+          "simpleYoyContributionPercentPoints": 1.4,
+          "revenueWeightedYoyContributionPercentPoints": 0.45
+        },
+        {
+          "ticker": "2441",
+          "name": "GTK",
+          "revenueNt": 1874548000,
+          "yoyPercent": 33.154803678942116,
+          "revenueWeightPercent": 2.04,
+          "simpleYoyContributionPercentPoints": 2.21,
+          "revenueWeightedYoyContributionPercentPoints": 0.68
+        },
+        {
+          "ticker": "2329",
+          "name": "OSE",
+          "revenueNt": 1822186000,
+          "yoyPercent": 3.620312967366914,
+          "revenueWeightPercent": 1.98,
+          "simpleYoyContributionPercentPoints": 0.24,
+          "revenueWeightedYoyContributionPercentPoints": 0.07
+        },
+        {
+          "ticker": "3450",
+          "name": "ELASER",
+          "revenueNt": 1138635000,
+          "yoyPercent": 88.17862702906383,
+          "revenueWeightPercent": 1.24,
+          "simpleYoyContributionPercentPoints": 5.88,
+          "revenueWeightedYoyContributionPercentPoints": 1.09
+        },
+        {
+          "ticker": "8131",
+          "name": "FATC",
+          "revenueNt": 1106275000,
+          "yoyPercent": 60.867801283132565,
+          "revenueWeightPercent": 1.2,
+          "simpleYoyContributionPercentPoints": 4.06,
+          "revenueWeightedYoyContributionPercentPoints": 0.73
+        },
+        {
+          "ticker": "6271",
+          "name": "THEIL",
+          "revenueNt": 1079530000,
+          "yoyPercent": 10.56385486887358,
+          "revenueWeightPercent": 1.17,
+          "simpleYoyContributionPercentPoints": 0.7,
+          "revenueWeightedYoyContributionPercentPoints": 0.12
+        },
+        {
+          "ticker": "6789",
+          "name": "VisEra",
+          "revenueNt": 853561000,
+          "yoyPercent": 15.55439129457698,
+          "revenueWeightPercent": 0.93,
+          "simpleYoyContributionPercentPoints": 1.04,
+          "revenueWeightedYoyContributionPercentPoints": 0.14
+        },
+        {
+          "ticker": "6451",
+          "name": "ShunSin",
+          "revenueNt": 750026000,
+          "yoyPercent": 40.55459044749156,
+          "revenueWeightPercent": 0.82,
+          "simpleYoyContributionPercentPoints": 2.7,
+          "revenueWeightedYoyContributionPercentPoints": 0.33
+        },
+        {
+          "ticker": "8110",
+          "name": "WALTON",
+          "revenueNt": 660016000,
+          "yoyPercent": 16.255262184489105,
+          "revenueWeightPercent": 0.72,
+          "simpleYoyContributionPercentPoints": 1.08,
+          "revenueWeightedYoyContributionPercentPoints": 0.12
+        },
+        {
+          "ticker": "2369",
+          "name": "LPI",
+          "revenueNt": 631125000,
+          "yoyPercent": 36.51642739564834,
+          "revenueWeightPercent": 0.69,
+          "simpleYoyContributionPercentPoints": 2.43,
+          "revenueWeightedYoyContributionPercentPoints": 0.25
+        },
+        {
+          "ticker": "6525",
+          "name": "GEM",
+          "revenueNt": 562901000,
+          "yoyPercent": 19.843686128900394,
+          "revenueWeightPercent": 0.61,
+          "simpleYoyContributionPercentPoints": 1.32,
+          "revenueWeightedYoyContributionPercentPoints": 0.12
+        }
+      ]
+    },
+    "Memory": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 50652271000,
+      "simpleYoyPercent": 605.34,
+      "revenueWeightedYoyPercent": 689,
+      "reportingCompanies": 2,
+      "companies": [
+        {
+          "ticker": "2408",
+          "name": "NTC",
+          "revenueNt": 43867609000,
+          "yoyPercent": 719.6141344528174,
+          "revenueWeightPercent": 86.61,
+          "simpleYoyContributionPercentPoints": 359.81,
+          "revenueWeightedYoyContributionPercentPoints": 623.22
+        },
+        {
+          "ticker": "3006",
+          "name": "ESMT",
+          "revenueNt": 6784662000,
+          "yoyPercent": 491.0617601014743,
+          "revenueWeightPercent": 13.39,
+          "simpleYoyContributionPercentPoints": 245.53,
+          "revenueWeightedYoyContributionPercentPoints": 65.78
+        },
+        {
+          "ticker": "2337",
+          "name": "Macronix",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2344",
+          "name": "WEC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2451",
+          "name": "Transcend",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3135",
+          "name": "Goldkey Tech.",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4967",
+          "name": "TEAM",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6531",
+          "name": "AP Memory",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6770",
+          "name": "PSMC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "8271",
+          "name": "Apacer",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Wafer & Process Materials": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 19260163000,
+      "simpleYoyPercent": 5.37,
+      "revenueWeightedYoyPercent": 21.12,
+      "reportingCompanies": 10,
+      "companies": [
+        {
+          "ticker": "3010",
+          "name": "WAH LEE",
+          "revenueNt": 7781396000,
+          "yoyPercent": 13.924876070361318,
+          "revenueWeightPercent": 40.4,
+          "simpleYoyContributionPercentPoints": 1.39,
+          "revenueWeightedYoyContributionPercentPoints": 5.63
+        },
+        {
+          "ticker": "5434",
+          "name": "TOPCO",
+          "revenueNt": 7507318000,
+          "yoyPercent": 32.85750640545324,
+          "revenueWeightPercent": 38.98,
+          "simpleYoyContributionPercentPoints": 3.29,
+          "revenueWeightedYoyContributionPercentPoints": 12.81
+        },
+        {
+          "ticker": "3532",
+          "name": "FST",
+          "revenueNt": 1224081000,
+          "yoyPercent": 23.7105244008926,
+          "revenueWeightPercent": 6.36,
+          "simpleYoyContributionPercentPoints": 2.37,
+          "revenueWeightedYoyContributionPercentPoints": 1.51
+        },
+        {
+          "ticker": "3583",
+          "name": "Scientech",
+          "revenueNt": 1034997000,
+          "yoyPercent": -2.6702288525774125,
+          "revenueWeightPercent": 5.37,
+          "simpleYoyContributionPercentPoints": -0.27,
+          "revenueWeightedYoyContributionPercentPoints": -0.14
+        },
+        {
+          "ticker": "2338",
+          "name": "TMC",
+          "revenueNt": 508943000,
+          "yoyPercent": 0.08416664208528755,
+          "revenueWeightPercent": 2.64,
+          "simpleYoyContributionPercentPoints": 0.01,
+          "revenueWeightedYoyContributionPercentPoints": 0
+        },
+        {
+          "ticker": "8028",
+          "name": "PSI",
+          "revenueNt": 482832000,
+          "yoyPercent": 33.62262688880279,
+          "revenueWeightPercent": 2.51,
+          "simpleYoyContributionPercentPoints": 3.36,
+          "revenueWeightedYoyContributionPercentPoints": 0.84
+        },
+        {
+          "ticker": "5234",
+          "name": "DAXIN",
+          "revenueNt": 453009000,
+          "yoyPercent": 21.773666766126627,
+          "revenueWeightPercent": 2.35,
+          "simpleYoyContributionPercentPoints": 2.18,
+          "revenueWeightedYoyContributionPercentPoints": 0.51
+        },
+        {
+          "ticker": "7768",
+          "name": "PVI",
+          "revenueNt": 193445000,
+          "yoyPercent": 11.905891336542021,
+          "revenueWeightPercent": 1,
+          "simpleYoyContributionPercentPoints": 1.19,
+          "revenueWeightedYoyContributionPercentPoints": 0.12
+        },
+        {
+          "ticker": "6698",
+          "name": "FINEMAT",
+          "revenueNt": 58171000,
+          "yoyPercent": -39.18348144276006,
+          "revenueWeightPercent": 0.3,
+          "simpleYoyContributionPercentPoints": -3.92,
+          "revenueWeightedYoyContributionPercentPoints": -0.12
+        },
+        {
+          "ticker": "3518",
+          "name": "PT TECH.",
+          "revenueNt": 15971000,
+          "yoyPercent": -42.361687538344945,
+          "revenueWeightPercent": 0.08,
+          "simpleYoyContributionPercentPoints": -4.24,
+          "revenueWeightedYoyContributionPercentPoints": -0.04
+        }
+      ]
+    },
+    "Semiconductor Distribution": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 579743429000,
+      "simpleYoyPercent": 67.25,
+      "revenueWeightedYoyPercent": 151.68,
+      "reportingCompanies": 19,
+      "companies": [
+        {
+          "ticker": "3702",
+          "name": "WPG",
+          "revenueNt": 192916333000,
+          "yoyPercent": 131.85418997881953,
+          "revenueWeightPercent": 33.28,
+          "simpleYoyContributionPercentPoints": 6.94,
+          "revenueWeightedYoyContributionPercentPoints": 43.88
+        },
+        {
+          "ticker": "3036",
+          "name": "WT",
+          "revenueNt": 181749400000,
+          "yoyPercent": 188.0864822148371,
+          "revenueWeightPercent": 31.35,
+          "simpleYoyContributionPercentPoints": 9.9,
+          "revenueWeightedYoyContributionPercentPoints": 58.97
+        },
+        {
+          "ticker": "2347",
+          "name": "Synnex",
+          "revenueNt": 76417552000,
+          "yoyPercent": 135.4532611228886,
+          "revenueWeightPercent": 13.18,
+          "simpleYoyContributionPercentPoints": 7.13,
+          "revenueWeightedYoyContributionPercentPoints": 17.85
+        },
+        {
+          "ticker": "8112",
+          "name": "Supreme",
+          "revenueNt": 61628573000,
+          "yoyPercent": 231.1669134937387,
+          "revenueWeightPercent": 10.63,
+          "simpleYoyContributionPercentPoints": 12.17,
+          "revenueWeightedYoyContributionPercentPoints": 24.57
+        },
+        {
+          "ticker": "3033",
+          "name": "Weikeng",
+          "revenueNt": 14527778000,
+          "yoyPercent": 54.44557676970354,
+          "revenueWeightPercent": 2.51,
+          "simpleYoyContributionPercentPoints": 2.87,
+          "revenueWeightedYoyContributionPercentPoints": 1.36
+        },
+        {
+          "ticker": "3048",
+          "name": "EDOM",
+          "revenueNt": 12572672000,
+          "yoyPercent": 60.10438064297345,
+          "revenueWeightPercent": 2.17,
+          "simpleYoyContributionPercentPoints": 3.16,
+          "revenueWeightedYoyContributionPercentPoints": 1.3
+        },
+        {
+          "ticker": "3010",
+          "name": "WAH LEE",
+          "revenueNt": 7781396000,
+          "yoyPercent": 13.924876070361318,
+          "revenueWeightPercent": 1.34,
+          "simpleYoyContributionPercentPoints": 0.73,
+          "revenueWeightedYoyContributionPercentPoints": 0.19
+        },
+        {
+          "ticker": "5434",
+          "name": "TOPCO",
+          "revenueNt": 7507318000,
+          "yoyPercent": 32.85750640545324,
+          "revenueWeightPercent": 1.29,
+          "simpleYoyContributionPercentPoints": 1.73,
+          "revenueWeightedYoyContributionPercentPoints": 0.43
+        },
+        {
+          "ticker": "3028",
+          "name": "ZENITRON",
+          "revenueNt": 5981740000,
+          "yoyPercent": 65.62443152383592,
+          "revenueWeightPercent": 1.03,
+          "simpleYoyContributionPercentPoints": 3.45,
+          "revenueWeightedYoyContributionPercentPoints": 0.68
+        },
+        {
+          "ticker": "3209",
+          "name": "ALLTEK",
+          "revenueNt": 5608271000,
+          "yoyPercent": 170.41456580742187,
+          "revenueWeightPercent": 0.97,
+          "simpleYoyContributionPercentPoints": 8.97,
+          "revenueWeightedYoyContributionPercentPoints": 1.65
+        },
+        {
+          "ticker": "6776",
+          "name": "Weblink",
+          "revenueNt": 3460970000,
+          "yoyPercent": 50.695530560848255,
+          "revenueWeightPercent": 0.6,
+          "simpleYoyContributionPercentPoints": 2.67,
+          "revenueWeightedYoyContributionPercentPoints": 0.3
+        },
+        {
+          "ticker": "6189",
+          "name": "Promate",
+          "revenueNt": 2413661000,
+          "yoyPercent": 4.486448836223708,
+          "revenueWeightPercent": 0.42,
+          "simpleYoyContributionPercentPoints": 0.24,
+          "revenueWeightedYoyContributionPercentPoints": 0.02
+        },
+        {
+          "ticker": "3312",
+          "name": "GMI",
+          "revenueNt": 2142123000,
+          "yoyPercent": 41.8182143185801,
+          "revenueWeightPercent": 0.37,
+          "simpleYoyContributionPercentPoints": 2.2,
+          "revenueWeightedYoyContributionPercentPoints": 0.15
+        },
+        {
+          "ticker": "8070",
+          "name": "CHANG WAH",
+          "revenueNt": 2107061000,
+          "yoyPercent": 32.821122170462495,
+          "revenueWeightPercent": 0.36,
+          "simpleYoyContributionPercentPoints": 1.73,
+          "revenueWeightedYoyContributionPercentPoints": 0.12
+        },
+        {
+          "ticker": "3090",
+          "name": "NDB",
+          "revenueNt": 1681036000,
+          "yoyPercent": 32.37494143262685,
+          "revenueWeightPercent": 0.29,
+          "simpleYoyContributionPercentPoints": 1.7,
+          "revenueWeightedYoyContributionPercentPoints": 0.09
+        },
+        {
+          "ticker": "3528",
+          "name": "ANSTEK",
+          "revenueNt": 1091604000,
+          "yoyPercent": 57.39755714580272,
+          "revenueWeightPercent": 0.19,
+          "simpleYoyContributionPercentPoints": 3.02,
+          "revenueWeightedYoyContributionPercentPoints": 0.11
+        },
+        {
+          "ticker": "8072",
+          "name": "AV TECH",
+          "revenueNt": 132045000,
+          "yoyPercent": 32.6805397855729,
+          "revenueWeightPercent": 0.02,
+          "simpleYoyContributionPercentPoints": 1.72,
+          "revenueWeightedYoyContributionPercentPoints": 0.01
+        },
+        {
+          "ticker": "3055",
+          "name": "Spirox Corp.",
+          "revenueNt": 13780000,
+          "yoyPercent": -84.05184885133963,
+          "revenueWeightPercent": 0,
+          "simpleYoyContributionPercentPoints": -4.42,
+          "revenueWeightedYoyContributionPercentPoints": 0
+        },
+        {
+          "ticker": "3686",
+          "name": "Danen",
+          "revenueNt": 10116000,
+          "yoyPercent": 25.617782192971564,
+          "revenueWeightPercent": 0,
+          "simpleYoyContributionPercentPoints": 1.35,
+          "revenueWeightedYoyContributionPercentPoints": 0
+        }
+      ]
+    },
+    "Packaging Materials": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 5370975000,
+      "simpleYoyPercent": 30.24,
+      "revenueWeightedYoyPercent": 46.02,
+      "reportingCompanies": 5,
+      "companies": [
+        {
+          "ticker": "8070",
+          "name": "CHANG WAH",
+          "revenueNt": 2107061000,
+          "yoyPercent": 32.821122170462495,
+          "revenueWeightPercent": 39.23,
+          "simpleYoyContributionPercentPoints": 6.56,
+          "revenueWeightedYoyContributionPercentPoints": 12.88
+        },
+        {
+          "ticker": "3305",
+          "name": "SHENMAO",
+          "revenueNt": 1445505000,
+          "yoyPercent": 76.00142700075368,
+          "revenueWeightPercent": 26.91,
+          "simpleYoyContributionPercentPoints": 15.2,
+          "revenueWeightedYoyContributionPercentPoints": 20.45
+        },
+        {
+          "ticker": "2351",
+          "name": "SDI",
+          "revenueNt": 1213743000,
+          "yoyPercent": 51.71958184529576,
+          "revenueWeightPercent": 22.6,
+          "simpleYoyContributionPercentPoints": 10.34,
+          "revenueWeightedYoyContributionPercentPoints": 11.69
+        },
+        {
+          "ticker": "5285",
+          "name": "Jih Lin",
+          "revenueNt": 520254000,
+          "yoyPercent": 14.12282395058262,
+          "revenueWeightPercent": 9.69,
+          "simpleYoyContributionPercentPoints": 2.82,
+          "revenueWeightedYoyContributionPercentPoints": 1.37
+        },
+        {
+          "ticker": "6552",
+          "name": "JMC",
+          "revenueNt": 84412000,
+          "yoyPercent": -23.476778866638263,
+          "revenueWeightPercent": 1.57,
+          "simpleYoyContributionPercentPoints": -4.7,
+          "revenueWeightedYoyContributionPercentPoints": -0.37
+        }
+      ]
+    },
+    "Fab Equipment & Automation": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 638075000,
+      "simpleYoyPercent": 5.38,
+      "revenueWeightedYoyPercent": 5.38,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "6438",
+          "name": "SAA",
+          "revenueNt": 638075000,
+          "yoyPercent": 5.380721558394372,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 5.38,
+          "revenueWeightedYoyContributionPercentPoints": 5.38
+        },
+        {
+          "ticker": "2359",
+          "name": "SOLOMON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2404",
+          "name": "UIS",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2464",
+          "name": "Mirle",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2467",
+          "name": "C SUN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2493",
+          "name": "AMPOC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3413",
+          "name": "Fiti",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3583",
+          "name": "Scientech",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4585",
+          "name": "TRI",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6139",
+          "name": "L & K",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6192",
+          "name": "LUMAX",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6196",
+          "name": "MIC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6215",
+          "name": "Aurotek",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6658",
+          "name": "SynPower",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6691",
+          "name": "YANKEY",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6937",
+          "name": "Skytech",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "7795",
+          "name": "EPM",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "8021",
+          "name": "Topoint",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Test & Inspection Equipment": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 1633819000,
+      "simpleYoyPercent": 32.06,
+      "revenueWeightedYoyPercent": 35.02,
+      "reportingCompanies": 3,
+      "companies": [
+        {
+          "ticker": "3030",
+          "name": "TRI",
+          "revenueNt": 1033409000,
+          "yoyPercent": 38.18565711160527,
+          "revenueWeightPercent": 63.25,
+          "simpleYoyContributionPercentPoints": 12.73,
+          "revenueWeightedYoyContributionPercentPoints": 24.15
+        },
+        {
+          "ticker": "3563",
+          "name": "MACHVISION",
+          "revenueNt": 359659000,
+          "yoyPercent": 31.844159081494624,
+          "revenueWeightPercent": 22.01,
+          "simpleYoyContributionPercentPoints": 10.61,
+          "revenueWeightedYoyContributionPercentPoints": 7.01
+        },
+        {
+          "ticker": "6830",
+          "name": "MSS",
+          "revenueNt": 240751000,
+          "yoyPercent": 26.147373054089883,
+          "revenueWeightPercent": 14.74,
+          "simpleYoyContributionPercentPoints": 8.72,
+          "revenueWeightedYoyContributionPercentPoints": 3.85
+        },
+        {
+          "ticker": "2360",
+          "name": "CHROMA",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2423",
+          "name": "GW",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3055",
+          "name": "Spirox Corp.",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3535",
+          "name": "Favite",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6515",
+          "name": "WinWay",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6706",
+          "name": "FitTech",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6909",
+          "name": "tCt",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "7769",
+          "name": "HON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "7822",
+          "name": "V5 TECHNOLOGIES",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Connectivity & Interface IC Design": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 16456139000,
+      "simpleYoyPercent": 25.2,
+      "revenueWeightedYoyPercent": 18.83,
+      "reportingCompanies": 8,
+      "companies": [
+        {
+          "ticker": "2379",
+          "name": "RT",
+          "revenueNt": 12310586000,
+          "yoyPercent": 20.600599623892947,
+          "revenueWeightPercent": 74.81,
+          "simpleYoyContributionPercentPoints": 2.58,
+          "revenueWeightedYoyContributionPercentPoints": 15.41
+        },
+        {
+          "ticker": "6526",
+          "name": "Airoha",
+          "revenueNt": 2209590000,
+          "yoyPercent": 14.401349875766075,
+          "revenueWeightPercent": 13.43,
+          "simpleYoyContributionPercentPoints": 1.8,
+          "revenueWeightedYoyContributionPercentPoints": 1.93
+        },
+        {
+          "ticker": "5269",
+          "name": "Asmedia",
+          "revenueNt": 867194000,
+          "yoyPercent": -22.40798186882456,
+          "revenueWeightPercent": 5.27,
+          "simpleYoyContributionPercentPoints": -2.8,
+          "revenueWeightedYoyContributionPercentPoints": -1.18
+        },
+        {
+          "ticker": "2363",
+          "name": "SiS",
+          "revenueNt": 466594000,
+          "yoyPercent": 74.79882516895688,
+          "revenueWeightPercent": 2.84,
+          "simpleYoyContributionPercentPoints": 9.35,
+          "revenueWeightedYoyContributionPercentPoints": 2.12
+        },
+        {
+          "ticker": "4968",
+          "name": "Richwave",
+          "revenueNt": 317192000,
+          "yoyPercent": -5.0061693640164355,
+          "revenueWeightPercent": 1.93,
+          "simpleYoyContributionPercentPoints": -0.63,
+          "revenueWeightedYoyContributionPercentPoints": -0.1
+        },
+        {
+          "ticker": "6756",
+          "name": "VLI",
+          "revenueNt": 182508000,
+          "yoyPercent": 50.05919884233375,
+          "revenueWeightPercent": 1.11,
+          "simpleYoyContributionPercentPoints": 6.26,
+          "revenueWeightedYoyContributionPercentPoints": 0.56
+        },
+        {
+          "ticker": "5222",
+          "name": "TRANSCOM",
+          "revenueNt": 78057000,
+          "yoyPercent": -4.967310712589941,
+          "revenueWeightPercent": 0.47,
+          "simpleYoyContributionPercentPoints": -0.62,
+          "revenueWeightedYoyContributionPercentPoints": -0.02
+        },
+        {
+          "ticker": "3094",
+          "name": "DAVICOM",
+          "revenueNt": 24418000,
+          "yoyPercent": 74.09097390560387,
+          "revenueWeightPercent": 0.15,
+          "simpleYoyContributionPercentPoints": 9.26,
+          "revenueWeightedYoyContributionPercentPoints": 0.11
+        }
+      ]
+    },
+    "Sensors & Optical Modules": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 18061613000,
+      "simpleYoyPercent": 76.51,
+      "revenueWeightedYoyPercent": 15.74,
+      "reportingCompanies": 16,
+      "companies": [
+        {
+          "ticker": "4915",
+          "name": "Primax",
+          "revenueNt": 6289319000,
+          "yoyPercent": 27.581916865193993,
+          "revenueWeightPercent": 34.82,
+          "simpleYoyContributionPercentPoints": 1.72,
+          "revenueWeightedYoyContributionPercentPoints": 9.6
+        },
+        {
+          "ticker": "3008",
+          "name": "LARGAN",
+          "revenueNt": 3712024000,
+          "yoyPercent": -10.464491392393583,
+          "revenueWeightPercent": 20.55,
+          "simpleYoyContributionPercentPoints": -0.65,
+          "revenueWeightedYoyContributionPercentPoints": -2.15
+        },
+        {
+          "ticker": "3019",
+          "name": "ASIA",
+          "revenueNt": 2914024000,
+          "yoyPercent": 13.138607630076296,
+          "revenueWeightPercent": 16.13,
+          "simpleYoyContributionPercentPoints": 0.82,
+          "revenueWeightedYoyContributionPercentPoints": 2.12
+        },
+        {
+          "ticker": "3406",
+          "name": "GSEO",
+          "revenueNt": 1739246000,
+          "yoyPercent": 4.508617586811304,
+          "revenueWeightPercent": 9.63,
+          "simpleYoyContributionPercentPoints": 0.28,
+          "revenueWeightedYoyContributionPercentPoints": 0.43
+        },
+        {
+          "ticker": "2374",
+          "name": "ABILITY",
+          "revenueNt": 1048813000,
+          "yoyPercent": 18.967126777593894,
+          "revenueWeightPercent": 5.81,
+          "simpleYoyContributionPercentPoints": 1.19,
+          "revenueWeightedYoyContributionPercentPoints": 1.1
+        },
+        {
+          "ticker": "3059",
+          "name": "Altek",
+          "revenueNt": 795387000,
+          "yoyPercent": 3.023665780273897,
+          "revenueWeightPercent": 4.4,
+          "simpleYoyContributionPercentPoints": 0.19,
+          "revenueWeightedYoyContributionPercentPoints": 0.13
+        },
+        {
+          "ticker": "6209",
+          "name": "KINKO",
+          "revenueNt": 432643000,
+          "yoyPercent": 73.30676173690114,
+          "revenueWeightPercent": 2.4,
+          "simpleYoyContributionPercentPoints": 4.58,
+          "revenueWeightedYoyContributionPercentPoints": 1.76
+        },
+        {
+          "ticker": "8249",
+          "name": "CSI",
+          "revenueNt": 343979000,
+          "yoyPercent": 12.50114470361988,
+          "revenueWeightPercent": 1.9,
+          "simpleYoyContributionPercentPoints": 0.78,
+          "revenueWeightedYoyContributionPercentPoints": 0.24
+        },
+        {
+          "ticker": "3504",
+          "name": "Young Optics",
+          "revenueNt": 245781000,
+          "yoyPercent": -2.381860210185163,
+          "revenueWeightPercent": 1.36,
+          "simpleYoyContributionPercentPoints": -0.15,
+          "revenueWeightedYoyContributionPercentPoints": -0.03
+        },
+        {
+          "ticker": "5484",
+          "name": "EverFocus",
+          "revenueNt": 132595000,
+          "yoyPercent": 224.3279602768877,
+          "revenueWeightPercent": 0.73,
+          "simpleYoyContributionPercentPoints": 14.02,
+          "revenueWeightedYoyContributionPercentPoints": 1.65
+        },
+        {
+          "ticker": "6668",
+          "name": "Zhong Yang",
+          "revenueNt": 107572000,
+          "yoyPercent": 9.383388920523876,
+          "revenueWeightPercent": 0.6,
+          "simpleYoyContributionPercentPoints": 0.59,
+          "revenueWeightedYoyContributionPercentPoints": 0.06
+        },
+        {
+          "ticker": "4976",
+          "name": "Calin",
+          "revenueNt": 95702000,
+          "yoyPercent": 0.6213792305832133,
+          "revenueWeightPercent": 0.53,
+          "simpleYoyContributionPercentPoints": 0.04,
+          "revenueWeightedYoyContributionPercentPoints": 0
+        },
+        {
+          "ticker": "3356",
+          "name": "GeoVision",
+          "revenueNt": 95430000,
+          "yoyPercent": 24.088160717768677,
+          "revenueWeightPercent": 0.53,
+          "simpleYoyContributionPercentPoints": 1.51,
+          "revenueWeightedYoyContributionPercentPoints": 0.13
+        },
+        {
+          "ticker": "2390",
+          "name": "EVERSPRING",
+          "revenueNt": 59823000,
+          "yoyPercent": 17.558166954881308,
+          "revenueWeightPercent": 0.33,
+          "simpleYoyContributionPercentPoints": 1.1,
+          "revenueWeightedYoyContributionPercentPoints": 0.06
+        },
+        {
+          "ticker": "6742",
+          "name": "Vti",
+          "revenueNt": 34064000,
+          "yoyPercent": -38.54702242427523,
+          "revenueWeightPercent": 0.19,
+          "simpleYoyContributionPercentPoints": -2.41,
+          "revenueWeightedYoyContributionPercentPoints": -0.07
+        },
+        {
+          "ticker": "6225",
+          "name": "aiPlex",
+          "revenueNt": 15211000,
+          "yoyPercent": 846.5463596764157,
+          "revenueWeightPercent": 0.08,
+          "simpleYoyContributionPercentPoints": 52.91,
+          "revenueWeightedYoyContributionPercentPoints": 0.71
+        }
+      ]
+    },
+    "CCL & PCB Materials": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 23943194000,
+      "simpleYoyPercent": 51.05,
+      "revenueWeightedYoyPercent": 100.39,
+      "reportingCompanies": 6,
+      "companies": [
+        {
+          "ticker": "2383",
+          "name": "EMC",
+          "revenueNt": 17732956000,
+          "yoyPercent": 120.69324458952983,
+          "revenueWeightPercent": 74.06,
+          "simpleYoyContributionPercentPoints": 20.12,
+          "revenueWeightedYoyContributionPercentPoints": 89.39
+        },
+        {
+          "ticker": "6213",
+          "name": "ITEQ",
+          "revenueNt": 4213673000,
+          "yoyPercent": 47.940002057417395,
+          "revenueWeightPercent": 17.6,
+          "simpleYoyContributionPercentPoints": 7.99,
+          "revenueWeightedYoyContributionPercentPoints": 8.44
+        },
+        {
+          "ticker": "8039",
+          "name": "TAIFLEX",
+          "revenueNt": 835178000,
+          "yoyPercent": -6.568877622365888,
+          "revenueWeightPercent": 3.49,
+          "simpleYoyContributionPercentPoints": -1.09,
+          "revenueWeightedYoyContributionPercentPoints": -0.23
+        },
+        {
+          "ticker": "6672",
+          "name": "Ventec",
+          "revenueNt": 573491000,
+          "yoyPercent": 68.12346641728693,
+          "revenueWeightPercent": 2.4,
+          "simpleYoyContributionPercentPoints": 11.35,
+          "revenueWeightedYoyContributionPercentPoints": 1.63
+        },
+        {
+          "ticker": "4989",
+          "name": "LCYT",
+          "revenueNt": 370182000,
+          "yoyPercent": 73.41090827325492,
+          "revenueWeightPercent": 1.55,
+          "simpleYoyContributionPercentPoints": 12.24,
+          "revenueWeightedYoyContributionPercentPoints": 1.13
+        },
+        {
+          "ticker": "3645",
+          "name": "TMT",
+          "revenueNt": 217714000,
+          "yoyPercent": 2.699642909368794,
+          "revenueWeightPercent": 0.91,
+          "simpleYoyContributionPercentPoints": 0.45,
+          "revenueWeightedYoyContributionPercentPoints": 0.02
+        }
+      ]
+    },
+    "Logic IC Design": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 6784662000,
+      "simpleYoyPercent": 491.06,
+      "revenueWeightedYoyPercent": 491.06,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "3006",
+          "name": "ESMT",
+          "revenueNt": 6784662000,
+          "yoyPercent": 491.0617601014743,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 491.06,
+          "revenueWeightedYoyContributionPercentPoints": 491.06
+        },
+        {
+          "ticker": "2388",
+          "name": "VIA",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2401",
+          "name": "SUNPLUS",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2454",
+          "name": "MediaTek",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3014",
+          "name": "ITE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3041",
+          "name": "ALi",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4919",
+          "name": "NTC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4952",
+          "name": "Generalplus",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "5471",
+          "name": "SONIX",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6202",
+          "name": "HOLTEK",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6243",
+          "name": "ENE",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6531",
+          "name": "AP Memory",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "7749",
+          "name": "iGo-KY",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "LED & Optoelectronics": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 335190000,
+      "simpleYoyPercent": 42.29,
+      "revenueWeightedYoyPercent": 33.93,
+      "reportingCompanies": 2,
+      "companies": [
+        {
+          "ticker": "3591",
+          "name": "EDISON OPTO",
+          "revenueNt": 269503000,
+          "yoyPercent": 28.53123107225807,
+          "revenueWeightPercent": 80.4,
+          "simpleYoyContributionPercentPoints": 14.27,
+          "revenueWeightedYoyContributionPercentPoints": 22.94
+        },
+        {
+          "ticker": "6164",
+          "name": "LEDTECH",
+          "revenueNt": 65687000,
+          "yoyPercent": 56.05578257151002,
+          "revenueWeightPercent": 19.6,
+          "simpleYoyContributionPercentPoints": 28.03,
+          "revenueWeightedYoyContributionPercentPoints": 10.99
+        },
+        {
+          "ticker": "2393",
+          "name": "EVERLIGHT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2426",
+          "name": "TYNTEK",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2429",
+          "name": "PWT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2438",
+          "name": "ENLIGHT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2466",
+          "name": "COSMO",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2486",
+          "name": "I-CHIUN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2491",
+          "name": "FOCL",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3031",
+          "name": "BRIGHT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3437",
+          "name": "AOT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3714",
+          "name": "ENNOSTAR",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4949",
+          "name": "WIN WIN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4956",
+          "name": "Epileds",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "5244",
+          "name": "BRIGHTEK",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6168",
+          "name": "HARVATEK CORPOR",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6226",
+          "name": "Para Light",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Solar & PV": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 1184950000,
+      "simpleYoyPercent": 40,
+      "revenueWeightedYoyPercent": 42.36,
+      "reportingCompanies": 5,
+      "companies": [
+        {
+          "ticker": "2406",
+          "name": "GSC",
+          "revenueNt": 805136000,
+          "yoyPercent": 62.99850390624209,
+          "revenueWeightPercent": 67.95,
+          "simpleYoyContributionPercentPoints": 12.6,
+          "revenueWeightedYoyContributionPercentPoints": 42.81
+        },
+        {
+          "ticker": "3576",
+          "name": "URE",
+          "revenueNt": 208221000,
+          "yoyPercent": -9.505721599527147,
+          "revenueWeightPercent": 17.57,
+          "simpleYoyContributionPercentPoints": -1.9,
+          "revenueWeightedYoyContributionPercentPoints": -1.67
+        },
+        {
+          "ticker": "6443",
+          "name": "TSEC",
+          "revenueNt": 79986000,
+          "yoyPercent": -11.71425733175863,
+          "revenueWeightPercent": 6.75,
+          "simpleYoyContributionPercentPoints": -2.34,
+          "revenueWeightedYoyContributionPercentPoints": -0.79
+        },
+        {
+          "ticker": "6477",
+          "name": "Anji",
+          "revenueNt": 72924000,
+          "yoyPercent": -10.44798113763631,
+          "revenueWeightPercent": 6.15,
+          "simpleYoyContributionPercentPoints": -2.09,
+          "revenueWeightedYoyContributionPercentPoints": -0.64
+        },
+        {
+          "ticker": "4934",
+          "name": "Tainergy",
+          "revenueNt": 18683000,
+          "yoyPercent": 168.6655162496405,
+          "revenueWeightPercent": 1.58,
+          "simpleYoyContributionPercentPoints": 33.73,
+          "revenueWeightedYoyContributionPercentPoints": 2.66
+        }
+      ]
+    },
+    "Display & Optical Components": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 2216845000,
+      "simpleYoyPercent": 25.02,
+      "revenueWeightedYoyPercent": 17.21,
+      "reportingCompanies": 3,
+      "companies": [
+        {
+          "ticker": "8215",
+          "name": "BMC",
+          "revenueNt": 1663844000,
+          "yoyPercent": 11.384063355625623,
+          "revenueWeightPercent": 75.05,
+          "simpleYoyContributionPercentPoints": 3.79,
+          "revenueWeightedYoyContributionPercentPoints": 8.54
+        },
+        {
+          "ticker": "3168",
+          "name": "DATA IMAGE",
+          "revenueNt": 368967000,
+          "yoyPercent": 40.46307470334515,
+          "revenueWeightPercent": 16.64,
+          "simpleYoyContributionPercentPoints": 13.49,
+          "revenueWeightedYoyContributionPercentPoints": 6.73
+        },
+        {
+          "ticker": "3051",
+          "name": "Optimax",
+          "revenueNt": 184034000,
+          "yoyPercent": 23.227426428738827,
+          "revenueWeightPercent": 8.3,
+          "simpleYoyContributionPercentPoints": 7.74,
+          "revenueWeightedYoyContributionPercentPoints": 1.93
+        },
+        {
+          "ticker": "2409",
+          "name": "AUO",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2461",
+          "name": "K LASER",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "2489",
+          "name": "AMTRAN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3038",
+          "name": "EDT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3049",
+          "name": "HannsTouch",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3149",
+          "name": "G-TECH",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3481",
+          "name": "INX",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3622",
+          "name": "YFO",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3673",
+          "name": "TPK",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4935",
+          "name": "GLT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "4960",
+          "name": "CMMT",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6116",
+          "name": "Hannstar",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6120",
+          "name": "DARWIN",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6176",
+          "name": "ROEC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6405",
+          "name": "ONANO",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6456",
+          "name": "GIS",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6916",
+          "name": "WINSTAR",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "8104",
+          "name": "RiTdisplay",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "8105",
+          "name": "GiantPlus",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Analog & Power IC Design": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 5724079000,
+      "simpleYoyPercent": 11.85,
+      "revenueWeightedYoyPercent": 24.53,
+      "reportingCompanies": 8,
+      "companies": [
+        {
+          "ticker": "6415",
+          "name": "Silergy",
+          "revenueNt": 2084305000,
+          "yoyPercent": 37.771677521318765,
+          "revenueWeightPercent": 36.41,
+          "simpleYoyContributionPercentPoints": 4.72,
+          "revenueWeightedYoyContributionPercentPoints": 13.75
+        },
+        {
+          "ticker": "4961",
+          "name": "FITIPOWER",
+          "revenueNt": 1859601000,
+          "yoyPercent": 24.761225552287513,
+          "revenueWeightPercent": 32.49,
+          "simpleYoyContributionPercentPoints": 3.1,
+          "revenueWeightedYoyContributionPercentPoints": 8.04
+        },
+        {
+          "ticker": "8081",
+          "name": "GMT",
+          "revenueNt": 743410000,
+          "yoyPercent": 7.187399522176132,
+          "revenueWeightPercent": 12.99,
+          "simpleYoyContributionPercentPoints": 0.9,
+          "revenueWeightedYoyContributionPercentPoints": 0.93
+        },
+        {
+          "ticker": "2436",
+          "name": "Weltrend",
+          "revenueNt": 372126000,
+          "yoyPercent": 18.283561926860667,
+          "revenueWeightPercent": 6.5,
+          "simpleYoyContributionPercentPoints": 2.29,
+          "revenueWeightedYoyContributionPercentPoints": 1.19
+        },
+        {
+          "ticker": "6719",
+          "name": "uPI",
+          "revenueNt": 371601000,
+          "yoyPercent": -3.5649222241253136,
+          "revenueWeightPercent": 6.49,
+          "simpleYoyContributionPercentPoints": -0.45,
+          "revenueWeightedYoyContributionPercentPoints": -0.23
+        },
+        {
+          "ticker": "3588",
+          "name": "LD",
+          "revenueNt": 147830000,
+          "yoyPercent": 46.382279258137025,
+          "revenueWeightPercent": 2.58,
+          "simpleYoyContributionPercentPoints": 5.8,
+          "revenueWeightedYoyContributionPercentPoints": 1.2
+        },
+        {
+          "ticker": "6799",
+          "name": "M3TEK",
+          "revenueNt": 83988000,
+          "yoyPercent": 6.471609852566459,
+          "revenueWeightPercent": 1.47,
+          "simpleYoyContributionPercentPoints": 0.81,
+          "revenueWeightedYoyContributionPercentPoints": 0.09
+        },
+        {
+          "ticker": "3257",
+          "name": "CHAMPION",
+          "revenueNt": 61218000,
+          "yoyPercent": -42.49941295261353,
+          "revenueWeightPercent": 1.07,
+          "simpleYoyContributionPercentPoints": -5.31,
+          "revenueWeightedYoyContributionPercentPoints": -0.45
+        }
+      ]
+    },
+    "Display IC Design": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 17720842000,
+      "simpleYoyPercent": 12.19,
+      "revenueWeightedYoyPercent": 16.57,
+      "reportingCompanies": 6,
+      "companies": [
+        {
+          "ticker": "3034",
+          "name": "NOVATEK",
+          "revenueNt": 10022596000,
+          "yoyPercent": 18.95885030532578,
+          "revenueWeightPercent": 56.56,
+          "simpleYoyContributionPercentPoints": 3.16,
+          "revenueWeightedYoyContributionPercentPoints": 10.72
+        },
+        {
+          "ticker": "3592",
+          "name": "Raydium",
+          "revenueNt": 2230464000,
+          "yoyPercent": 18.58858957849729,
+          "revenueWeightPercent": 12.59,
+          "simpleYoyContributionPercentPoints": 3.1,
+          "revenueWeightedYoyContributionPercentPoints": 2.34
+        },
+        {
+          "ticker": "8016",
+          "name": "Sitronix",
+          "revenueNt": 1997178000,
+          "yoyPercent": 26.606882946298615,
+          "revenueWeightPercent": 11.27,
+          "simpleYoyContributionPercentPoints": 4.43,
+          "revenueWeightedYoyContributionPercentPoints": 3
+        },
+        {
+          "ticker": "6962",
+          "name": "ITH-KY",
+          "revenueNt": 1511201000,
+          "yoyPercent": -0.3289827323638412,
+          "revenueWeightPercent": 8.53,
+          "simpleYoyContributionPercentPoints": -0.05,
+          "revenueWeightedYoyContributionPercentPoints": -0.03
+        },
+        {
+          "ticker": "2458",
+          "name": "ELAN",
+          "revenueNt": 1059324000,
+          "yoyPercent": 7.126864539616727,
+          "revenueWeightPercent": 5.98,
+          "simpleYoyContributionPercentPoints": 1.19,
+          "revenueWeightedYoyContributionPercentPoints": 0.43
+        },
+        {
+          "ticker": "3545",
+          "name": "FocalTech",
+          "revenueNt": 900079000,
+          "yoyPercent": 2.1625922503989665,
+          "revenueWeightPercent": 5.08,
+          "simpleYoyContributionPercentPoints": 0.36,
+          "revenueWeightedYoyContributionPercentPoints": 0.11
+        }
+      ]
+    },
+    "IP & Design Services": {
+      "month": "2026-06",
+      "aggregateRevenueNt": 10289913000,
+      "simpleYoyPercent": 98.18,
+      "revenueWeightedYoyPercent": 67.62,
+      "reportingCompanies": 4,
+      "companies": [
+        {
+          "ticker": "3443",
+          "name": "GUC",
+          "revenueNt": 4928512000,
+          "yoyPercent": 103.71897307865596,
+          "revenueWeightPercent": 47.9,
+          "simpleYoyContributionPercentPoints": 25.93,
+          "revenueWeightedYoyContributionPercentPoints": 49.68
+        },
+        {
+          "ticker": "3661",
+          "name": "Alchip",
+          "revenueNt": 3572404000,
+          "yoyPercent": 15.393764143989447,
+          "revenueWeightPercent": 34.72,
+          "simpleYoyContributionPercentPoints": 3.85,
+          "revenueWeightedYoyContributionPercentPoints": 5.34
+        },
+        {
+          "ticker": "3035",
+          "name": "Faraday",
+          "revenueNt": 1416828000,
+          "yoyPercent": 26.571210085474974,
+          "revenueWeightPercent": 13.77,
+          "simpleYoyContributionPercentPoints": 6.64,
+          "revenueWeightedYoyContributionPercentPoints": 3.66
+        },
+        {
+          "ticker": "6533",
+          "name": "ANDES",
+          "revenueNt": 372169000,
+          "yoyPercent": 247.04308093994777,
+          "revenueWeightPercent": 3.62,
+          "simpleYoyContributionPercentPoints": 61.76,
+          "revenueWeightedYoyContributionPercentPoints": 8.94
+        }
+      ]
+    },
+    "IC Substrates": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 5439751000,
+      "simpleYoyPercent": 50.24,
+      "revenueWeightedYoyPercent": 50.24,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "8046",
+          "name": "N.P.C",
+          "revenueNt": 5439751000,
+          "yoyPercent": 50.241184043103516,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 50.24,
+          "revenueWeightedYoyContributionPercentPoints": 50.24
+        },
+        {
+          "ticker": "3037",
+          "name": "UNIMICRON",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "3189",
+          "name": "KINSUS",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6552",
+          "name": "JMC",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    },
+    "Sensor & Imaging IC Design": {
+      "month": "2026-07",
+      "aggregateRevenueNt": 172444000,
+      "simpleYoyPercent": 32.48,
+      "revenueWeightedYoyPercent": 32.48,
+      "reportingCompanies": 1,
+      "companies": [
+        {
+          "ticker": "3530",
+          "name": "SOI",
+          "revenueNt": 172444000,
+          "yoyPercent": 32.482099505239546,
+          "revenueWeightPercent": 100,
+          "simpleYoyContributionPercentPoints": 32.48,
+          "revenueWeightedYoyContributionPercentPoints": 32.48
+        },
+        {
+          "ticker": "6695",
+          "name": "iCatchtek",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        },
+        {
+          "ticker": "6789",
+          "name": "VisEra",
+          "revenueNt": null,
+          "yoyPercent": null,
+          "revenueWeightPercent": null,
+          "simpleYoyContributionPercentPoints": null,
+          "revenueWeightedYoyContributionPercentPoints": null
+        }
+      ]
+    }
   }
 }

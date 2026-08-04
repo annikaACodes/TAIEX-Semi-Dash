@@ -951,6 +951,16 @@ tbody tr.selected-row td {
   background: #edf5ff;
 }
 
+tfoot td {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 0;
+  background: #edf4fc;
+  font-weight: 720;
+}
+
 .numeric {
   text-align: right;
 }
@@ -972,6 +982,27 @@ tbody tr.selected-row td {
 
 .rank-cell {
   color: #8794a5;
+}
+
+.table-link {
+  color: #0f5fbf;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+button.table-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.table-link:hover,
+.table-link:focus-visible {
+  color: #08488f;
+  text-decoration: underline;
 }
 
 .state-label,

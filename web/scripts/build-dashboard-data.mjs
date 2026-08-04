@@ -353,6 +353,82 @@ for (const series of Object.values(subsectorSeries)) {
   series.sort((left, right) => left.month.localeCompare(right.month));
 }
 
+const subsectorConstituents = {};
+for (const [classification, series] of Object.entries(subsectorSeries)) {
+  const latest = series.at(-1);
+  if (!latest) continue;
+
+  const members = companyRows
+    .filter((company) =>
+      (classificationsByCompany.get(company.company_id) ?? []).includes(
+        classification,
+      ),
+    )
+    .map((company) => {
+      const observation = revenueByCompanyMonth.get(
+        `${company.company_id}:${latest.month}`,
+      );
+      return {
+        ticker: String(company.ticker),
+        name: String(company.company_name_english),
+        revenueNt: observation?.revenueNt ?? null,
+        yoyPercent: observation?.yoyPercent ?? null,
+      };
+    });
+  const simpleYoyCount = members.filter(
+    (company) => company.yoyPercent !== null,
+  ).length;
+  const weightedRevenueTotal = members.reduce(
+    (total, company) =>
+      company.yoyPercent !== null &&
+      company.revenueNt !== null &&
+      company.revenueNt > 0
+        ? total + company.revenueNt
+        : total,
+    0,
+  );
+
+  const companiesForSnapshot = members
+    .map((company) => ({
+      ...company,
+      revenueWeightPercent:
+        company.revenueNt !== null && latest.aggregateRevenueNt > 0
+          ? round((company.revenueNt / latest.aggregateRevenueNt) * 100)
+          : null,
+      simpleYoyContributionPercentPoints:
+        company.yoyPercent !== null && simpleYoyCount > 0
+          ? round(company.yoyPercent / simpleYoyCount)
+          : null,
+      revenueWeightedYoyContributionPercentPoints:
+        company.yoyPercent !== null &&
+        company.revenueNt !== null &&
+        company.revenueNt > 0 &&
+        weightedRevenueTotal > 0
+          ? round(
+              (company.yoyPercent * company.revenueNt) /
+                weightedRevenueTotal,
+            )
+          : null,
+    }))
+    .sort((left, right) => {
+      if (left.revenueNt === null) return 1;
+      if (right.revenueNt === null) return -1;
+      if (left.revenueNt !== right.revenueNt) {
+        return right.revenueNt - left.revenueNt;
+      }
+      return left.ticker.localeCompare(right.ticker);
+    });
+
+  subsectorConstituents[classification] = {
+    month: latest.month,
+    aggregateRevenueNt: latest.aggregateRevenueNt,
+    simpleYoyPercent: latest.simpleYoyPercent,
+    revenueWeightedYoyPercent: latest.revenueWeightedYoyPercent,
+    reportingCompanies: latest.reportingCompanies,
+    companies: companiesForSnapshot,
+  };
+}
+
 function periodRevenue(companyId, endMonth, months) {
   let total = 0;
   for (let offset = 0; offset < months; offset += 1) {
@@ -607,6 +683,7 @@ const subsectorData = {
       "Mean of reported company YoY percentages weighted by current-month revenue.",
   },
   series: subsectorSeries,
+  constituents: subsectorConstituents,
 };
 const momentumData = {
   latestRevenueMonth: momentumRevenueMonth,
