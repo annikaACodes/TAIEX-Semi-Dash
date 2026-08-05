@@ -686,7 +686,7 @@ const freshnessRows = companyRows.map((company) => {
     releaseStatus: reported
       ? "reported"
       : (schedule?.release_status ?? "pending"),
-    overdue: !reported && expectedDate !== null && expectedDate < asOfDateTaipei,
+    overdue: !reported && schedule?.release_status === "overdue",
     unusualReportDate: Number(schedule?.unusual_report_date) === 1,
     unusualReason: schedule?.unusual_reason ?? null,
     deviationFromHistoryDays: nullableNumber(

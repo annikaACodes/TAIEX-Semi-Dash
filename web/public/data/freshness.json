@@ -4,7 +4,7 @@
   "summary": {
     "reported": 53,
     "pending": 261,
-    "overdue": 1,
+    "overdue": 0,
     "unusual": 0
   },
   "companies": [
@@ -1616,7 +1616,7 @@
       "scheduleSource": "company_history",
       "forecastConfidence": null,
       "releaseStatus": "forecast",
-      "overdue": true,
+      "overdue": false,
       "unusualReportDate": false,
       "unusualReason": null,
       "deviationFromHistoryDays": null,

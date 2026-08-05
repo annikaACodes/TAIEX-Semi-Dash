@@ -204,6 +204,17 @@ test("ships complete, internally consistent dashboard data", async () => {
     freshness.summary.reported + freshness.summary.pending,
     manifest.companyCount,
   );
+  assert.equal(
+    freshness.summary.overdue,
+    freshness.companies.filter((company) => company.overdue).length,
+  );
+  assert.ok(
+    freshness.companies.every(
+      (company) =>
+        company.overdue ===
+        (!company.reported && company.releaseStatus === "overdue"),
+    ),
+  );
   assert.equal(tsmc.company.ticker, "2330");
   assert.ok(tsmc.history.length >= 60);
   assert.equal(bundle.manifest.companyCount, manifest.companyCount);
