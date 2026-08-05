@@ -15,7 +15,7 @@ monthly revenue.
 - Release forecasts, official IR date overrides, first-seen times, confidence,
   status, and unusual-date flags
 
-The database schema is version 5 and all user-facing tables and views are in
+The database schema is version 7 and all user-facing tables and views are in
 English.
 
 ## Automatic Updates
@@ -35,4 +35,6 @@ and local commands.
 - `config/ir_sources.json`: official IR calendar registry
 - `migrations/005_rolling_report_dates.sql`: version-5 schema migration
 - `migrations/005_mops_announcement_seeds.sql`: official historical date seeds
+- `migrations/007_original_publication_timestamps.sql`: exact-time provenance
+  and backfill migration
 - `test/`: source parser and forecasting tests

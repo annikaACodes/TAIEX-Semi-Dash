@@ -33,27 +33,34 @@ SQLite does not contain a clock or background process. The workflow in
 
 ## Source Priority
 
-1. MOPS monthly revenue archive files are authoritative for revenue figures,
-   first-observed publication times, and restatements.
-2. Explicit monthly revenue announcements in the official MOPS historical
+1. The official MOPS latest financial/revenue feed provides the original
+   publication time for reports captured live.
+2. MOPS monthly revenue archive files are authoritative for revenue figures
+   and restatements; the updater's poll time is retained only as a clearly
+   labeled fallback when an exact filing time is unavailable.
+3. Explicit monthly revenue announcements in the official MOPS historical
    material-information feed provide exact backfill dates when they match a
    stored revenue month; corrections and multi-month summaries are excluded.
-3. Official company investor-relations calendars override forecast release dates.
-4. A company's rolling 12-month report-date history drives its forecast.
-5. A cross-company historical median provides a low-confidence cold-start
+4. Official company investor-relations calendars override forecast release dates.
+5. A company's rolling 12-month report-date history drives its forecast.
+6. A cross-company historical median provides a low-confidence cold-start
    estimate until the company has enough of its own observations.
 
-The official backfill archive timestamps are not used as historical filing times:
-the current archive server timestamp does not show when a company originally
-published an old month. The rolling table is seeded from explicit MOPS revenue
-announcements, official IR dates that match an existing MOPS revenue month, and
-MOPS rows observed live by the updater. Live observations replace announcement
-or IR seed dates for the same month.
+The official backfill archive timestamps are not used as historical filing
+times: the current archive server timestamp does not show when a company
+originally published an old month. MOPS does not expose a free public historical
+receipt-time endpoint for all monthly revenue filings. Exact history is therefore
+backfilled only from official MOPS revenue announcements, while official IR dates
+and updater first-observed times remain explicitly labeled lower-priority inputs.
+Completing a full-universe historical release-date backfill requires an approved
+licensed source, such as a TEJ export, or TWSE's paid MOPS push data.
 
 Official inputs:
 
 - MOPS archives:
   `https://mopsov.twse.com.tw/nas/t21/{market}/t21sc03_{roc_year}_{month}.csv`
+- MOPS latest financial/revenue reports:
+  `https://mops.twse.com.tw/mops/api/home_page/t51sb10`
 - MOPS historical material information:
   `https://mops.twse.com.tw/mops/api/t05st01`
 - TWSE holiday calendar:
@@ -83,7 +90,9 @@ For each company, the model uses the median number of calendar days after
 month-end across its latest 12 report dates. Median absolute deviation defines
 the normal date window. One- and two-month company histories are blended toward
 the median of company-level historical patterns; from three observations onward,
-the company's own median is used without shrinkage.
+the company's own median is used without shrinkage. A reporting month's forecast
+uses only dates from earlier reporting months, so the actual filing cannot leak
+into its own expected date.
 
 - `high`: at least 6 trustworthy observations
 - `medium`: 3-5 observations
@@ -99,9 +108,9 @@ the company's own median is used without shrinkage.
 An official IR date becomes the effective expectation as soon as it is detected.
 If no report arrives by the normal window, status becomes `overdue` while the
 original expected date remains visible. The first new MOPS row resolves the month
-to `reported`, preserves its first-seen UTC timestamp, and records the date in the
-rolling history. The oldest row is removed automatically once a company exceeds
-12 reporting months.
+to `reported`; an exact current-feed time supersedes the updater's first-observed
+time when available. The oldest row is removed automatically once a company
+exceeds 12 reporting months.
 
 ## Database Interfaces
 

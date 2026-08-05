@@ -62,8 +62,30 @@ const IR_PAYLOADS = {
   `,
 };
 
+const EMPTY_CURRENT_REPORTS = {
+  code: 200,
+  datetime: "124/01/03 08:00:00",
+  result: { data: [] },
+};
+
+const TSMC_CURRENT_REPORT = {
+  code: 200,
+  datetime: "124/01/03 08:00:00",
+  result: {
+    data: [
+      {
+        companyId: "2330",
+        time: "07:45:00",
+        subject:
+          "\u516c\u544a\u672c\u516c\u53f8123\u5e7412\u6708\u71df\u6536",
+        url: "/mops/web/t05st10_ifrs",
+      },
+    ],
+  },
+};
+
 test(
-  "the updater records first-seen revenue once and then becomes a no-op",
+  "the updater stores the exact MOPS publication time and then becomes a no-op",
   { timeout: 30_000 },
   async () => {
     const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-live-test-"));
@@ -96,6 +118,7 @@ test(
         holidayPayload: "[]",
         irPayloads: IR_PAYLOADS,
         mopsPayloads,
+        mopsCurrentReportsPayload: TSMC_CURRENT_REPORT,
       },
     };
 
@@ -119,8 +142,16 @@ test(
         .get();
       const reportDate = database
         .prepare(`
-          SELECT reported_date_local, reported_time_local, report_date_basis
+          SELECT reported_date_local, reported_time_local, report_date_basis,
+                 source_priority, source_url
           FROM company_report_date_history
+          WHERE ticker = '2330' AND reporting_month = '2034-12-01'
+        `)
+        .get();
+      const scheduleHistory = database
+        .prepare(`
+          SELECT history_sample_count
+          FROM company_release_calendar
           WHERE ticker = '2330' AND reporting_month = '2034-12-01'
         `)
         .get();
@@ -136,16 +167,25 @@ test(
         .get();
       database.close();
       assert.equal(revenue.revenue_nt, 500_000_000_000);
-      assert.equal(revenue.publication_timestamp, options.nowUtc);
+      assert.equal(revenue.publication_timestamp, "2035-01-02T23:45:00.000Z");
       assert.equal(
         revenue.publication_timestamp_basis,
-        "MOPS_ARCHIVE_FIRST_OBSERVED",
+        "MOPS_CURRENT_REPORT_FEED_EXACT",
       );
       assert.equal(revenue.release_status, "reported");
-      assert.equal(revenue.actual_first_seen_at_utc, options.nowUtc);
+      assert.equal(
+        revenue.actual_first_seen_at_utc,
+        "2035-01-02T23:45:00.000Z",
+      );
       assert.equal(reportDate.reported_date_local, "2035-01-03");
-      assert.equal(reportDate.reported_time_local, "08:00:00");
-      assert.equal(reportDate.report_date_basis, "mops_first_observed");
+      assert.equal(reportDate.reported_time_local, "07:45:00");
+      assert.equal(reportDate.report_date_basis, "mops_current_feed");
+      assert.equal(reportDate.source_priority, 1);
+      assert.equal(
+        reportDate.source_url,
+        "https://mops.twse.com.tw/mops/web/t05st10_ifrs",
+      );
+      assert.equal(scheduleHistory.history_sample_count, 11);
       assert.ok(maximumHistoryRows.maximum_count <= 12);
 
       const second = await runLiveUpdate(options);
@@ -224,6 +264,7 @@ test(
             2454: IR_PAYLOADS[2454],
           },
           mopsPayloads,
+          mopsCurrentReportsPayload: EMPTY_CURRENT_REPORTS,
         },
       });
 
@@ -308,6 +349,7 @@ test(
             2454: IR_PAYLOADS[2454],
           },
           mopsPayloads,
+          mopsCurrentReportsPayload: EMPTY_CURRENT_REPORTS,
         },
       });
 
@@ -388,6 +430,7 @@ test("IR parser failures remain visible instead of using historical fallback", a
             },
           ]),
         ),
+        mopsCurrentReportsPayload: EMPTY_CURRENT_REPORTS,
       },
     });
 
@@ -428,6 +471,7 @@ test("temporary all-market MOPS redirects defer without changing data", async ()
       overrides: {
         holidayPayload: "[]",
         irPayloads: IR_PAYLOADS,
+        mopsCurrentReportsPayload: EMPTY_CURRENT_REPORTS,
       },
     });
 
@@ -440,7 +484,7 @@ test("temporary all-market MOPS redirects defer without changing data", async ()
 
     assert.equal(requestCount, 12);
     assert.equal(result.deferred, true);
-    assert.equal(result.databaseChanged, false);
+    assert.equal(result.databaseChanged, result.migrationApplied);
     assert.equal(result.revenueObservationsInserted, 0);
     assert.equal(result.errors.length, 4);
     assert.match(result.deferredReason, /temporarily unavailable/i);
@@ -470,6 +514,7 @@ test("non-retryable all-market MOPS failures still fail loudly", async () => {
         overrides: {
           holidayPayload: "[]",
           irPayloads: IR_PAYLOADS,
+          mopsCurrentReportsPayload: EMPTY_CURRENT_REPORTS,
         },
       }),
       /Every MOPS market request failed:.*HTTP 404 Not Found/,
@@ -479,7 +524,7 @@ test("non-retryable all-market MOPS failures still fail loudly", async () => {
   }
 });
 
-test("migrations reach version 6 and seed official announcement history", async () => {
+test("migrations reach version 7 and promote exact announcement timestamps", async () => {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-v5-test-"));
   const databasePath = join(temporaryDirectory, "test.sqlite");
   const sourceDatabase = new URL(
@@ -509,7 +554,7 @@ test("migrations reach version 6 and seed official announcement history", async 
       nowUtc: "2026-08-03T13:30:00.000Z",
     });
     assert.equal(result.migrationApplied, true);
-    assert.equal(result.databaseVersion, 6);
+    assert.equal(result.databaseVersion, 7);
 
     const database = new DatabaseSync(databasePath, { readOnly: true });
     const mopsSeeds = database
@@ -554,6 +599,21 @@ test("migrations reach version 6 and seed official announcement history", async 
         WHERE type = 'table' AND name = 'monthly_exchange_rates'
       `)
       .get();
+    const exactPublicationTimestamps = database
+      .prepare(`
+        SELECT COUNT(*) AS row_count
+        FROM company_monthly_revenue_observations
+        WHERE is_current = 1
+          AND publication_timestamp_basis = 'MOPS_MATERIAL_ANNOUNCEMENT_EXACT'
+      `)
+      .get();
+    const sourcePriorities = database
+      .prepare(`
+        SELECT report_date_basis, MIN(source_priority) AS source_priority
+        FROM company_monthly_report_dates
+        GROUP BY report_date_basis
+      `)
+      .all();
     database.close();
 
     assert.equal(mopsSeeds.row_count, 197);
@@ -562,6 +622,13 @@ test("migrations reach version 6 and seed official announcement history", async 
     assert.equal(correctionOnlyCompany.row_count, 0);
     assert.equal(maximumHistoryRows.maximum_count, 12);
     assert.equal(exchangeRateTable.row_count, 1);
+    assert.ok(exactPublicationTimestamps.row_count >= 197);
+    assert.equal(
+      sourcePriorities.find(
+        (row) => row.report_date_basis === "mops_revenue_announcement",
+      ).source_priority,
+      1,
+    );
   } finally {
     await rm(temporaryDirectory, { recursive: true, force: true });
   }

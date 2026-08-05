@@ -228,7 +228,7 @@ SELECT
         '-8 hours'
     ),
     'mops_revenue_announcement',
-    2,
+    1,
     '2026-08-03T13:51:36.155Z',
     '2026-08-03T13:51:36.155Z'
 FROM mops_announcement_dates AS seed

@@ -111,7 +111,7 @@ SELECT
     actual_first_seen_time_local,
     actual_first_seen_at_utc,
     'mops_first_observed',
-    1,
+    2,
     actual_first_seen_at_utc,
     updated_at_utc
 FROM monthly_release_schedule

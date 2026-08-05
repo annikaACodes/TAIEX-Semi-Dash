@@ -205,13 +205,15 @@ interface FreshnessRow {
   expectedTime: string | null;
   regulatoryDeadline: string | null;
   scheduleSource: string | null;
-  forecastConfidence: number | null;
+  forecastConfidence: string | null;
+  historySampleCount: number;
   releaseStatus: string;
   overdue: boolean;
   unusualReportDate: boolean;
   unusualReason: string | null;
   deviationFromHistoryDays: number | null;
   publicationTimestamp: string | null;
+  publicationTimestampBasis: string | null;
   latestRevenueMonth: string | null;
 }
 
@@ -306,16 +308,20 @@ function formatDate(value: string | null | undefined) {
   }).format(new Date(Date.UTC(year, month - 1, day)));
 }
 
-function formatScheduleBasis(value: string | null | undefined) {
+function formatScheduleBasis(
+  value: string | null | undefined,
+  historySampleCount = 0,
+) {
   if (!value) return "Not available";
   if (value === "ir_calendar") return "IR calendar";
   if (value === "actual_first_seen") return "Actual";
-  if (
-    value === "company_history" ||
-    value === "regulatory_prior" ||
-    value === "late_roll_forward"
-  ) {
-    return "Historical estimate";
+  if (value === "company_history") {
+    if (historySampleCount >= 3) return "Historical estimate";
+    if (historySampleCount > 0) return "Blended estimate";
+    return "Market fallback";
+  }
+  if (value === "regulatory_prior" || value === "late_roll_forward") {
+    return "Regulatory deadline";
   }
   return value.replaceAll("_", " ");
 }
@@ -331,6 +337,41 @@ function formatTimestamp(value: string | null | undefined) {
     timeZone: "Asia/Taipei",
     timeZoneName: "short",
   }).format(new Date(value));
+}
+
+function formatPublicationBasis(value: string | null | undefined) {
+  if (value === "MOPS_CURRENT_REPORT_FEED_EXACT") return "Exact MOPS time";
+  if (value === "MOPS_MATERIAL_ANNOUNCEMENT_EXACT") {
+    return "Exact MOPS announcement";
+  }
+  if (value === "MOPS_ARCHIVE_FIRST_OBSERVED") return "First observed";
+  if (value === "MOPS_ARCHIVE_HTTP_LAST_MODIFIED_CURRENT_VERSION") {
+    return "Original time unavailable";
+  }
+  return value ?? "Not available";
+}
+
+function formatRevenuePublication(
+  timestamp: string | null | undefined,
+  basis: string | null | undefined,
+) {
+  if (basis === "MOPS_ARCHIVE_HTTP_LAST_MODIFIED_CURRENT_VERSION") {
+    return "Original time unavailable";
+  }
+  if (!timestamp) return "Not available";
+  const formatted = formatTimestamp(timestamp);
+  return basis === "MOPS_ARCHIVE_FIRST_OBSERVED"
+    ? `${formatted} (first observed)`
+    : formatted;
+}
+
+function exportPublicationTimestamp(
+  timestamp: string | null | undefined,
+  basis: string | null | undefined,
+) {
+  return basis === "MOPS_ARCHIVE_HTTP_LAST_MODIFIED_CURRENT_VERSION"
+    ? null
+    : (timestamp ?? null);
 }
 
 function compactCurrency(
@@ -901,7 +942,13 @@ function CompanyView({
       currency === "USD" ? row.exchangeRateObservationCount : null,
     "FX Latest Observation":
       currency === "USD" ? row.exchangeRateLastObservationDate : null,
-    "Publication Timestamp": row.publicationTimestamp,
+    "Publication Timestamp": exportPublicationTimestamp(
+      row.publicationTimestamp,
+      row.publicationTimestampBasis,
+    ),
+    "Publication Basis": formatPublicationBasis(
+      row.publicationTimestampBasis,
+    ),
     Restated: row.restatementFlag,
     Market: row.sourceMarket,
     "Source URL": row.sourceUrl,
@@ -959,7 +1006,12 @@ function CompanyView({
               <span className="status-dot reported" />
               <div>
                 <strong>{formatMonth(latest?.month)}</strong>
-                <span>Published {formatTimestamp(latest?.publicationTimestamp)}</span>
+                <span>
+                  {formatRevenuePublication(
+                    latest?.publicationTimestamp,
+                    latest?.publicationTimestampBasis,
+                  )}
+                </span>
               </div>
             </div>
           </section>
@@ -1003,7 +1055,9 @@ function CompanyView({
               label="Restatement"
               value={latest?.restatementFlag ? "Restated" : "Original"}
               tone={latest?.restatementFlag ? "pending" : "neutral"}
-              detail={latest?.publicationTimestampBasis ?? "Official filing"}
+              detail={formatPublicationBasis(
+                latest?.publicationTimestampBasis,
+              )}
             />
           </section>
 
@@ -1163,7 +1217,12 @@ function CompanyView({
                       <td className={`numeric mono ${valueClass(row.ytdYoyPercent)}`}>
                         {formatPercent(row.ytdYoyPercent)}
                       </td>
-                      <td>{formatTimestamp(row.publicationTimestamp)}</td>
+                      <td>
+                        {formatRevenuePublication(
+                          row.publicationTimestamp,
+                          row.publicationTimestampBasis,
+                        )}
+                      </td>
                       <td>
                         <span className={`state-label ${row.restatementFlag ? "unusual" : "original"}`}>
                           {row.restatementFlag ? "Restated" : "Original"}
@@ -2159,11 +2218,20 @@ function FreshnessView({
     Status: row.reported ? "Reported" : "Pending",
     "Expected Date": row.expectedDate,
     "Expected Time": row.expectedTime,
-    "Publication Timestamp": row.publicationTimestamp,
+    "Publication Timestamp": exportPublicationTimestamp(
+      row.publicationTimestamp,
+      row.publicationTimestampBasis,
+    ),
+    "Publication Basis": formatPublicationBasis(
+      row.publicationTimestampBasis,
+    ),
     Overdue: row.overdue,
     "Unusual Report Date": row.unusualReportDate,
     "Unusual Reason": row.unusualReason,
-    "Schedule Basis": formatScheduleBasis(row.scheduleSource),
+    "Schedule Basis": formatScheduleBasis(
+      row.scheduleSource,
+      row.historySampleCount,
+    ),
     "Regulatory Deadline": row.regulatoryDeadline,
   }));
 
@@ -2340,9 +2408,17 @@ function FreshnessView({
                     <strong>{formatDate(row.expectedDate)}</strong>
                     {row.expectedTime && <small className="block-detail">{row.expectedTime} Taipei</small>}
                   </td>
-                  <td>{formatTimestamp(row.publicationTimestamp)}</td>
                   <td>
-                    {formatScheduleBasis(row.scheduleSource)}
+                    {formatRevenuePublication(
+                      row.publicationTimestamp,
+                      row.publicationTimestampBasis,
+                    )}
+                  </td>
+                  <td>
+                    {formatScheduleBasis(
+                      row.scheduleSource,
+                      row.historySampleCount,
+                    )}
                   </td>
                   <td>
                     {row.overdue ? (

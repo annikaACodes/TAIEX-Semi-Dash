@@ -46,6 +46,9 @@ test("static Pages loader fetches historical exchange rates", async () => {
   );
   assert.match(source, /return \{ manifest, exchangeRates, subsectors/);
   assert.match(source, /fetch\(path, \{ cache: "no-store" \}\)/);
+  assert.match(source, /Market fallback/);
+  assert.match(source, /Blended estimate/);
+  assert.match(source, /Original time unavailable/);
 });
 
 test("server-renders the finance dashboard shell", async () => {
@@ -200,6 +203,13 @@ test("ships complete, internally consistent dashboard data", async () => {
     );
   }
   assert.equal(freshness.companies.length, manifest.companyCount);
+  assert.ok(
+    freshness.companies.every(
+      (company) =>
+        Number.isInteger(company.historySampleCount) &&
+        typeof company.forecastConfidence === "string",
+    ),
+  );
   assert.equal(
     freshness.summary.reported + freshness.summary.pending,
     manifest.companyCount,
@@ -350,6 +360,20 @@ test("ships complete, internally consistent dashboard data", async () => {
     assert.ok(key in latest, `TSMC history is missing ${key}`);
   }
   assert.equal("revenueUsd" in latest, false);
+  const archiveOnlyTimestamp = tsmc.history.find(
+    (row) =>
+      row.publicationTimestampBasis ===
+      "MOPS_ARCHIVE_HTTP_LAST_MODIFIED_CURRENT_VERSION",
+  );
+  assert.ok(archiveOnlyTimestamp);
+  assert.match(archiveOnlyTimestamp.publicationTimestamp, /^20\d{2}-/);
+  const exactTimestamp = tsmc.history.find(
+    (row) =>
+      row.publicationTimestampBasis ===
+      "MOPS_MATERIAL_ANNOUNCEMENT_EXACT",
+  );
+  assert.ok(exactTimestamp);
+  assert.match(exactTimestamp.publicationTimestamp, /^20\d{2}-/);
 
   const exchangeRateByMonth = new Map(
     exchangeRates.map((rate) => [rate.month, rate]),

@@ -1,4 +1,10 @@
-import { parseRocDate, parseRocMonth, utcToTaipeiParts } from "./dates.mjs";
+import {
+  parseRocDate,
+  parseRocMonth,
+  reportingMonth,
+  taipeiDateTimeToUtc,
+  utcToTaipeiParts,
+} from "./dates.mjs";
 import { sha256 } from "./hash.mjs";
 
 const HEADERS = {
@@ -32,8 +38,118 @@ export const MOPS_MARKETS = [
   { code: "pub", priority: 4 },
 ];
 
+export const MOPS_CURRENT_REPORTS_URL =
+  "https://mops.twse.com.tw/mops/api/home_page/t51sb10";
+
 const CORRECTION_PATTERN =
   /\u66f4\u6b63|\u91cd\u65b0\u516c\u544a|\u4fee\u6b63|\u91cd\u7de8|correct|restat|revis/iu;
+const CURRENT_REVENUE_PATTERN =
+  /\u6708(?:\u4efd)?(?:\u81ea\u7d50)?(?:\u5408\u4f75)?(?:\u71df\u6536|\u71df\u696d\u6536\u5165)|monthly\s+(?:sales|revenue|operating\s+revenue)/iu;
+
+function normalizedFeedDate(value, fallbackDate) {
+  const text = String(value ?? "").trim();
+  const match = /^(\d{2,4})[\/-](\d{1,2})[\/-](\d{1,2})/.exec(text);
+  if (!match) return fallbackDate;
+  const rawYear = Number(match[1]);
+  const year = rawYear < 1911 ? rawYear + 1911 : rawYear;
+  return `${year}-${String(Number(match[2])).padStart(2, "0")}-${String(
+    Number(match[3]),
+  ).padStart(2, "0")}`;
+}
+
+function exactFeedTimestamp(value, fallbackDate) {
+  const text = String(value ?? "").trim();
+  const date = normalizedFeedDate(text, fallbackDate);
+  const timeMatch = /(\d{1,2}):(\d{2})(?::(\d{2}))?/.exec(text);
+  if (!timeMatch) return null;
+  const time = `${String(Number(timeMatch[1])).padStart(2, "0")}:${timeMatch[2]}:${
+    timeMatch[3] ?? "00"
+  }`;
+  const reportedAtUtc = taipeiDateTimeToUtc(date, time);
+  if (!reportedAtUtc || Number.isNaN(new Date(reportedAtUtc).valueOf())) {
+    return null;
+  }
+  return { date, time, reportedAtUtc };
+}
+
+function reportingMonthFromSubject(subject, fallback) {
+  const text = String(subject ?? "");
+  const chineseMatch = /(\d{2,4})\s*\u5e74\s*(\d{1,2})\s*\u6708/u.exec(text);
+  if (chineseMatch) {
+    const rawYear = Number(chineseMatch[1]);
+    return reportingMonth(
+      rawYear < 1911 ? rawYear + 1911 : rawYear,
+      Number(chineseMatch[2]),
+    );
+  }
+  const numericMatch = /\b(20\d{2})[\/-](\d{1,2})\b/.exec(text);
+  return numericMatch
+    ? reportingMonth(Number(numericMatch[1]), Number(numericMatch[2]))
+    : fallback;
+}
+
+function absoluteMopsUrl(value) {
+  if (!value) return MOPS_CURRENT_REPORTS_URL;
+  try {
+    return new URL(String(value), "https://mops.twse.com.tw").href;
+  } catch {
+    return MOPS_CURRENT_REPORTS_URL;
+  }
+}
+
+export function parseMopsCurrentReports({
+  payload,
+  expectedReportingMonth,
+  observedAtUtc,
+}) {
+  const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
+  if (Number(parsed?.code) !== 200) {
+    throw new Error(
+      `MOPS current reports query failed: ${parsed?.message ?? "unknown error"}`,
+    );
+  }
+  const rows = parsed?.result?.data;
+  if (!Array.isArray(rows)) {
+    throw new Error("MOPS current reports response has no data array");
+  }
+
+  const observedDate = utcToTaipeiParts(observedAtUtc).date;
+  const feedDate = normalizedFeedDate(parsed?.datetime, observedDate);
+  const records = new Map();
+  for (const row of rows) {
+    const ticker = String(row?.companyId ?? "").trim();
+    const subject = String(row?.subject ?? "").trim();
+    if (
+      !ticker ||
+      !CURRENT_REVENUE_PATTERN.test(subject) ||
+      CORRECTION_PATTERN.test(subject)
+    ) {
+      continue;
+    }
+    const month = reportingMonthFromSubject(subject, expectedReportingMonth);
+    if (!month) continue;
+    const timestamp = exactFeedTimestamp(row?.time, feedDate);
+    if (!timestamp) continue;
+
+    const record = {
+      ticker,
+      reportingMonth: month,
+      reportedDateLocal: timestamp.date,
+      reportedTimeLocal: timestamp.time,
+      reportedAtUtc: timestamp.reportedAtUtc,
+      sourceUrl: absoluteMopsUrl(row?.url),
+      sourceSubject: subject,
+    };
+    const key = `${ticker}|${month}`;
+    const prior = records.get(key);
+    if (!prior || record.reportedAtUtc < prior.reportedAtUtc) {
+      records.set(key, record);
+    }
+  }
+  return [...records.values()].sort((left, right) =>
+    left.ticker.localeCompare(right.ticker),
+  );
+}
 
 export function parseCsv(text) {
   const rows = [];

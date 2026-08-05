@@ -144,7 +144,8 @@ const calendarRows = database
             schedule_source, announced_release_date_local,
             announced_release_time_local, actual_first_seen_at_utc,
             deviation_from_history_days, unusual_report_date,
-            unusual_reason, release_status, forecast_confidence
+            unusual_reason, release_status, forecast_confidence,
+            history_sample_count
        FROM company_release_calendar
       ORDER BY reporting_month, company_id`,
   )
@@ -682,7 +683,8 @@ const freshnessRows = companyRows.map((company) => {
       null,
     regulatoryDeadline: schedule?.regulatory_deadline_date_local ?? null,
     scheduleSource: schedule?.schedule_source ?? null,
-    forecastConfidence: nullableNumber(schedule?.forecast_confidence),
+    forecastConfidence: schedule?.forecast_confidence ?? null,
+    historySampleCount: nullableNumber(schedule?.history_sample_count) ?? 0,
     releaseStatus: reported
       ? "reported"
       : (schedule?.release_status ?? "pending"),
@@ -693,6 +695,8 @@ const freshnessRows = companyRows.map((company) => {
       schedule?.deviation_from_history_days,
     ),
     publicationTimestamp: revenue?.publicationTimestamp ?? null,
+    publicationTimestampBasis:
+      revenue?.publicationTimestampBasis ?? null,
     latestRevenueMonth:
       historyByCompany.get(company.company_id)?.at(-1)?.month ?? null,
   };
