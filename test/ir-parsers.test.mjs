@@ -26,30 +26,6 @@ test("TSMC calendar parser extracts the reporting month and Taipei time", () => 
   ]);
 });
 
-test("TSMC calendar parser reads a verified text-rendered official page", () => {
-  const events = parseTsmcCalendar(`
-    August 10, 2026 (Mon)
-
-    TSMC Monthly Sales - July 2026
-
-    July 13, 2026 (Mon)
-
-    TSMC Monthly Sales - June 2026 (postponed due to the typhoon day-off)
-  `);
-
-  assert.deepEqual(
-    events.map((event) => [
-      event.reportingMonth,
-      event.releaseDateLocal,
-      event.releaseTimeLocal,
-    ]),
-    [
-      ["2026-06-01", "2026-07-13", "13:30:00"],
-      ["2026-07-01", "2026-08-10", "13:30:00"],
-    ],
-  );
-});
-
 test("Hon Hai calendar parser rejects a title/date year mismatch", () => {
   const events = parseHonHaiCalendar(`
     "Hon Hai&#8217;s Unaudited Consolidated July 2026 Revenue","2026/08/05"

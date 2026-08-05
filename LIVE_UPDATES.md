@@ -72,10 +72,10 @@ Official inputs:
 More official IR calendars can be added to `config/ir_sources.json` after adding a
 matching parser in `src/ir-parsers.mjs`. Use `fallbackUrls` for equivalent pages
 on the same company's official site when the primary page is intermittently
-blocked. For sites that block GitHub-hosted runners, `readerFallback` enables a
-text-rendering transport only after all direct official URLs fail. The updater
-verifies the returned source host and path before accepting any dates, so the
-company IR page remains the underlying data source.
+blocked. If every configured URL returns an access-denied response,
+`historicalFallbackOnAccessDenied` preserves the last verified announcements
+and uses the rolling historical estimate for uncovered months. Parse failures
+and other unexpected responses remain ingestion errors.
 
 ## Forecast And Anomaly Logic
 

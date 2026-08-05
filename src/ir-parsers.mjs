@@ -41,31 +41,6 @@ function normalizeUsDate(value) {
   return `${match[3]}-${match[1].padStart(2, "0")}-${match[2].padStart(2, "0")}`;
 }
 
-const MONTH_NUMBER = new Map(
-  [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ].map((month, index) => [month.toLowerCase(), index + 1]),
-);
-
-function normalizeNamedDate(monthName, day, year) {
-  const month = MONTH_NUMBER.get(monthName.toLowerCase());
-  if (!month) {
-    return null;
-  }
-  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-}
-
 function makeEvent(monthName, year, dateValue, timeValue, title) {
   let month;
   try {
@@ -132,24 +107,6 @@ export function parseTsmcCalendar(html) {
     }
   }
 
-  const readerPattern =
-    /(?:^|\n)\s*(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s+(\d{4})\s+\([^)]+\)\s*(?:\r?\n\s*)+TSMC Monthly Sales\s*-\s*([A-Za-z]+)\s+(\d{4})([^\r\n]*)/gi;
-  for (const match of html.matchAll(readerPattern)) {
-    const releaseDate = normalizeNamedDate(match[1], match[2], match[3]);
-    if (!releaseDate) {
-      continue;
-    }
-    const title = `TSMC Monthly Sales - ${match[4]} ${match[5]}${match[6]}`.trim();
-    events.push(
-      makeEvent(
-        match[4],
-        match[5],
-        releaseDate,
-        `${releaseDate} 13:30:00`,
-        title,
-      ),
-    );
-  }
   return deduplicate(events);
 }
 

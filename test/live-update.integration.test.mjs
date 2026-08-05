@@ -263,11 +263,11 @@ test(
 );
 
 test(
-  "verified reader fallback recovers when every direct TSMC page blocks automation",
+  "access-denied IR calendars fall back to the historical schedule without errors",
   { timeout: 30_000 },
   async () => {
     const temporaryDirectory = await mkdtemp(
-      join(tmpdir(), "taiwan-ir-reader-test-"),
+      join(tmpdir(), "taiwan-ir-access-test-"),
     );
     const databasePath = join(temporaryDirectory, "test.sqlite");
     await copyFile(
@@ -279,10 +279,7 @@ test(
       ["sii", "otc", "rotc", "pub"].map((market) => [
         market,
         {
-          text:
-            market === "sii"
-              ? `${HEADER}\n${TSMC_ROW}\n`
-              : `${HEADER}\n`,
+          text: `${HEADER}\n`,
           lastModified: "Wed, 03 Jan 2035 00:00:00 GMT",
         },
       ]),
@@ -301,19 +298,6 @@ test(
               statusText: "Forbidden",
             });
           }
-          if (
-            url.startsWith("https://r.jina.ai/http://investor.tsmc.com/")
-          ) {
-            return new Response(`
-              Title: Financial Calendar - Taiwan Semiconductor Manufacturing Company Limited
-              URL Source: http://investor.tsmc.com/english/financial-calendar
-              Markdown Content:
-
-              January 10, 2035 (Wed)
-
-              TSMC Monthly Sales - December 2034
-            `, { status: 200 });
-          }
           throw new Error(`Unexpected URL: ${url}`);
         },
         overrides: {
@@ -331,42 +315,41 @@ test(
         "https://investor.tsmc.com/english/financial-calendar",
         "https://investor.tsmc.com/japanese/financial-calendar",
         "https://investor.tsmc.com/schinese/financial-calendar",
-        "https://r.jina.ai/http://investor.tsmc.com/english/financial-calendar",
       ]);
       assert.equal(result.errors.length, 0);
 
       const updated = new DatabaseSync(databasePath, { readOnly: true });
       const source = updated
         .prepare(`
-          SELECT s.last_error_message, s.last_success_at_utc
+          SELECT s.last_error_at_utc, s.last_error_message
           FROM company_reporting_sources AS s
           JOIN companies AS c ON c.company_id = s.company_id
           WHERE c.ticker = '2330' AND s.parser_name = 'tsmc'
         `)
         .get();
-      const event = updated
+      const schedule = updated
         .prepare(`
-          SELECT e.reporting_month, e.announced_release_date_local
-          FROM company_release_events AS e
-          JOIN companies AS c ON c.company_id = e.company_id
-          WHERE c.ticker = '2330' AND e.reporting_month = '2034-12-01'
-            AND e.is_current = 1
+          SELECT s.schedule_source, s.announced_release_date_local
+          FROM monthly_release_schedule AS s
+          JOIN companies AS c ON c.company_id = s.company_id
+          WHERE c.ticker = '2330' AND s.reporting_month = '2034-12-01'
         `)
         .get();
       updated.close();
 
+      assert.equal(source.last_error_at_utc, null);
       assert.equal(source.last_error_message, null);
-      assert.equal(source.last_success_at_utc, "2035-01-03T00:00:00.000Z");
-      assert.equal(event.announced_release_date_local, "2035-01-10");
+      assert.equal(schedule.schedule_source, "company_history");
+      assert.equal(schedule.announced_release_date_local, null);
     } finally {
       await rm(temporaryDirectory, { recursive: true, force: true });
     }
   },
 );
 
-test("reader fallback rejects content attributed to another source", async () => {
+test("IR parser failures remain visible instead of using historical fallback", async () => {
   const temporaryDirectory = await mkdtemp(
-    join(tmpdir(), "taiwan-ir-reader-source-test-"),
+    join(tmpdir(), "taiwan-ir-parser-test-"),
   );
   const databasePath = join(temporaryDirectory, "test.sqlite");
   await copyFile(
@@ -380,19 +363,9 @@ test("reader fallback rejects content attributed to another source", async () =>
       nowUtc: "2035-01-03T00:00:00.000Z",
       fetchFn: async (url) => {
         if (url.startsWith("https://investor.tsmc.com/")) {
-          return new Response(null, {
-            status: 403,
-            statusText: "Forbidden",
+          return new Response("<html><title>Financial Calendar</title></html>", {
+            status: 200,
           });
-        }
-        if (url.startsWith("https://r.jina.ai/http://investor.tsmc.com/")) {
-          return new Response(`
-            URL Source: https://example.com/financial-calendar
-
-            January 10, 2035 (Wed)
-
-            TSMC Monthly Sales - December 2034
-          `, { status: 200 });
         }
         throw new Error(`Unexpected URL: ${url}`);
       },
@@ -419,7 +392,7 @@ test("reader fallback rejects content attributed to another source", async () =>
     });
 
     assert.equal(result.errors.length, 1);
-    assert.match(result.errors[0].message, /reader source mismatch/i);
+    assert.match(result.errors[0].message, /found no monthly revenue events/i);
   } finally {
     await rm(temporaryDirectory, { recursive: true, force: true });
   }

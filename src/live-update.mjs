@@ -54,7 +54,6 @@ const RETRYABLE_HTTP_STATUSES = new Set([
   503,
   504,
 ]);
-const READER_BASE_URL = "https://r.jina.ai/http://";
 
 function sleep(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -117,33 +116,6 @@ function irSourceUrls(source) {
   );
 }
 
-function readerFallbackUrl(sourceUrl) {
-  const url = new URL(sourceUrl);
-  return `${READER_BASE_URL}${url.host}${url.pathname}${url.search}`;
-}
-
-function validateReaderPayload(text, sourceUrl) {
-  const sourceMatch = /^\s*URL Source:\s*(https?:\/\/\S+)\s*$/im.exec(text);
-  if (!sourceMatch) {
-    throw new Error("reader response did not identify its source URL");
-  }
-  if (/^\s*Warning:\s*Target URL returned error\b/im.test(text)) {
-    throw new Error("reader could not load the official source page");
-  }
-
-  const expected = new URL(sourceUrl);
-  const received = new URL(sourceMatch[1]);
-  const normalizePath = (value) => value.replace(/\/+$/, "") || "/";
-  if (
-    received.hostname.toLowerCase() !== expected.hostname.toLowerCase() ||
-    normalizePath(received.pathname) !== normalizePath(expected.pathname)
-  ) {
-    throw new Error(
-      `reader source mismatch: expected ${expected.hostname}${expected.pathname}, received ${received.hostname}${received.pathname}`,
-    );
-  }
-}
-
 async function collectIrCalendar({ source, fetchFn, override }) {
   const overrideText =
     typeof override === "string" ? override : override?.text;
@@ -153,6 +125,7 @@ async function collectIrCalendar({ source, fetchFn, override }) {
         source,
         events: parseIrCalendar(source.parserName, overrideText),
         error: null,
+        unavailable: false,
         fetchedUrl: source.sourceUrl,
       };
     } catch (error) {
@@ -160,6 +133,7 @@ async function collectIrCalendar({ source, fetchFn, override }) {
         source,
         events: [],
         error: error.message,
+        unavailable: false,
         fetchedUrl: source.sourceUrl,
       };
     }
@@ -173,37 +147,39 @@ async function collectIrCalendar({ source, fetchFn, override }) {
         source,
         events: parseIrCalendar(source.parserName, fetched.text),
         error: null,
+        unavailable: false,
         fetchedUrl: url,
       };
     } catch (error) {
-      failures.push(
-        error.message.startsWith(`${url}:`)
+      failures.push({
+        message: error.message.startsWith(`${url}:`)
           ? error.message
           : `${url}: ${error.message}`,
-      );
+        status: error.status ?? null,
+      });
     }
   }
 
-  if (source.readerFallback === true) {
-    const url = readerFallbackUrl(source.sourceUrl);
-    try {
-      const fetched = await fetchTextWithRetry(fetchFn, url);
-      validateReaderPayload(fetched.text, source.sourceUrl);
-      return {
-        source,
-        events: parseIrCalendar(source.parserName, fetched.text),
-        error: null,
-        fetchedUrl: source.sourceUrl,
-      };
-    } catch (error) {
-      failures.push(`verified reader fallback: ${error.message}`);
-    }
+  const accessDenied =
+    failures.length > 0 &&
+    failures.every(({ status }) => status === 401 || status === 403);
+  if (source.historicalFallbackOnAccessDenied === true && accessDenied) {
+    return {
+      source,
+      events: [],
+      error: null,
+      unavailable: true,
+      fetchedUrl: null,
+    };
   }
 
   return {
     source,
     events: [],
-    error: `All official IR calendar URLs failed: ${failures.join("; ")}`,
+    error: `All official IR calendar URLs failed: ${failures
+      .map(({ message }) => message)
+      .join("; ")}`,
+    unavailable: false,
     fetchedUrl: null,
   };
 }
@@ -443,6 +419,13 @@ function seedAndSyncIrSources(database, irResults, companiesByTicker, nowUtc) {
         updated_at_utc = ?
     WHERE reporting_source_id = ?
   `);
+  const clearSourceError = database.prepare(`
+    UPDATE company_reporting_sources
+    SET last_error_at_utc = NULL,
+        last_error_message = NULL,
+        updated_at_utc = ?
+    WHERE reporting_source_id = ?
+  `);
   const deactivateEvents = database.prepare(`
     UPDATE company_release_events
     SET is_current = 0,
@@ -551,6 +534,14 @@ function seedAndSyncIrSources(database, irResults, companiesByTicker, nowUtc) {
           result.source.sourceUrl,
         );
       }
+    }
+
+    if (result.unavailable) {
+      if (existing.last_error_at_utc || existing.last_error_message) {
+        clearSourceError.run(nowUtc, sourceId);
+        sourcesChanged += 1;
+      }
+      continue;
     }
 
     if (result.error) {
