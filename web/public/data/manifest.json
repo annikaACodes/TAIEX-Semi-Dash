@@ -17,7 +17,7 @@
   },
   "companyCount": 314,
   "classificationCount": 27,
-  "revenueObservationCount": 18498,
+  "revenueObservationCount": 18499,
   "companies": [
     {
       "id": 1,
@@ -4131,13 +4131,13 @@
         "Memory",
         "Logic IC Design"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 811206000,
-      "latestMomPercent": 8.371908477714587,
-      "latestYoyPercent": 59.477769215041754,
-      "latestYtdRevenueNt": 4464654000,
-      "latestYtdYoyPercent": 94.67605835240275,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1103906000,
+      "latestMomPercent": 36.08208026074758,
+      "latestYoyPercent": 144.57112219849168,
+      "latestYtdRevenueNt": 5568560000,
+      "latestYtdYoyPercent": 102.88114721248643,
+      "latestPublicationTimestamp": "2026-08-05T14:58:34.122Z",
       "restatementFlag": false
     },
     {

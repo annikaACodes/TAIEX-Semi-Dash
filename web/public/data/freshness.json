@@ -2,8 +2,8 @@
   "asOfDateTaipei": "2026-08-05",
   "targetReportingMonth": "2026-07",
   "summary": {
-    "reported": 52,
-    "pending": 262,
+    "reported": 53,
+    "pending": 261,
     "overdue": 0,
     "unusual": 0
   },
@@ -4877,19 +4877,19 @@
       "ticker": "6531",
       "name": "AP Memory",
       "classification": "Memory",
-      "reported": false,
-      "expectedDate": "2026-08-09",
-      "expectedTime": null,
+      "reported": true,
+      "expectedDate": "2026-08-05",
+      "expectedTime": "22:58:34",
       "regulatoryDeadline": "2026-08-10",
-      "scheduleSource": "company_history",
+      "scheduleSource": "actual_first_seen",
       "forecastConfidence": null,
-      "releaseStatus": "forecast",
+      "releaseStatus": "reported",
       "overdue": false,
       "unusualReportDate": false,
       "unusualReason": null,
-      "deviationFromHistoryDays": null,
-      "publicationTimestamp": null,
-      "latestRevenueMonth": "2026-06"
+      "deviationFromHistoryDays": -2,
+      "publicationTimestamp": "2026-08-05T14:58:34.122Z",
+      "latestRevenueMonth": "2026-07"
     },
     {
       "companyId": 258,

@@ -4280,10 +4280,10 @@
       },
       {
         "month": "2026-07",
-        "aggregateRevenueNt": 50652271000,
-        "simpleYoyPercent": 605.34,
-        "revenueWeightedYoyPercent": 689,
-        "reportingCompanies": 2
+        "aggregateRevenueNt": 51756177000,
+        "simpleYoyPercent": 451.75,
+        "revenueWeightedYoyPercent": 677.39,
+        "reportingCompanies": 3
       }
     ],
     "Wafer & Process Materials": [
@@ -8134,10 +8134,10 @@
       },
       {
         "month": "2026-07",
-        "aggregateRevenueNt": 6784662000,
-        "simpleYoyPercent": 491.06,
-        "revenueWeightedYoyPercent": 491.06,
-        "reportingCompanies": 1
+        "aggregateRevenueNt": 7888568000,
+        "simpleYoyPercent": 317.82,
+        "revenueWeightedYoyPercent": 442.57,
+        "reportingCompanies": 2
       }
     ],
     "LED & Optoelectronics": [
@@ -13071,9 +13071,9 @@
       },
       "Memory": {
         "month": "mix",
-        "aggregateRevenueNt": 98100458000,
-        "simpleYoyPercent": 251.21,
-        "revenueWeightedYoyPercent": 445.18,
+        "aggregateRevenueNt": 98393158000,
+        "simpleYoyPercent": 259.72,
+        "revenueWeightedYoyPercent": 444.99,
         "reportingCompanies": 10,
         "companies": [
           {
@@ -13082,9 +13082,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 43867609000,
             "yoyPercent": 719.6141344528174,
-            "revenueWeightPercent": 44.72,
+            "revenueWeightPercent": 44.58,
             "simpleYoyContributionPercentPoints": 71.96,
-            "revenueWeightedYoyContributionPercentPoints": 321.79
+            "revenueWeightedYoyContributionPercentPoints": 320.83
           },
           {
             "ticker": "2344",
@@ -13092,9 +13092,9 @@
             "reportingMonth": "2026-06",
             "revenueNt": 20596799000,
             "yoyPercent": 189.87676071204797,
-            "revenueWeightPercent": 21,
+            "revenueWeightPercent": 20.93,
             "simpleYoyContributionPercentPoints": 18.99,
-            "revenueWeightedYoyContributionPercentPoints": 39.87
+            "revenueWeightedYoyContributionPercentPoints": 39.75
           },
           {
             "ticker": "2337",
@@ -13102,9 +13102,9 @@
             "reportingMonth": "2026-06",
             "revenueNt": 6956348000,
             "yoyPercent": 216.09461825395996,
-            "revenueWeightPercent": 7.09,
+            "revenueWeightPercent": 7.07,
             "simpleYoyContributionPercentPoints": 21.61,
-            "revenueWeightedYoyContributionPercentPoints": 15.32
+            "revenueWeightedYoyContributionPercentPoints": 15.28
           },
           {
             "ticker": "3006",
@@ -13112,9 +13112,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 6784662000,
             "yoyPercent": 491.0617601014743,
-            "revenueWeightPercent": 6.92,
+            "revenueWeightPercent": 6.9,
             "simpleYoyContributionPercentPoints": 49.11,
-            "revenueWeightedYoyContributionPercentPoints": 33.96
+            "revenueWeightedYoyContributionPercentPoints": 33.86
           },
           {
             "ticker": "6770",
@@ -13122,9 +13122,9 @@
             "reportingMonth": "2026-06",
             "revenueNt": 6473929000,
             "yoyPercent": 68.75001629130628,
-            "revenueWeightPercent": 6.6,
+            "revenueWeightPercent": 6.58,
             "simpleYoyContributionPercentPoints": 6.88,
-            "revenueWeightedYoyContributionPercentPoints": 4.54
+            "revenueWeightedYoyContributionPercentPoints": 4.52
           },
           {
             "ticker": "2451",
@@ -13132,9 +13132,9 @@
             "reportingMonth": "2026-06",
             "revenueNt": 5068218000,
             "yoyPercent": 381.5468504599107,
-            "revenueWeightPercent": 5.17,
+            "revenueWeightPercent": 5.15,
             "simpleYoyContributionPercentPoints": 38.15,
-            "revenueWeightedYoyContributionPercentPoints": 19.71
+            "revenueWeightedYoyContributionPercentPoints": 19.65
           },
           {
             "ticker": "4967",
@@ -13142,9 +13142,9 @@
             "reportingMonth": "2026-06",
             "revenueNt": 3018031000,
             "yoyPercent": 34.996287416578696,
-            "revenueWeightPercent": 3.08,
+            "revenueWeightPercent": 3.07,
             "simpleYoyContributionPercentPoints": 3.5,
-            "revenueWeightedYoyContributionPercentPoints": 1.08
+            "revenueWeightedYoyContributionPercentPoints": 1.07
           },
           {
             "ticker": "8271",
@@ -13152,9 +13152,9 @@
             "reportingMonth": "2026-06",
             "revenueNt": 2913567000,
             "yoyPercent": 200.6454415625155,
-            "revenueWeightPercent": 2.97,
+            "revenueWeightPercent": 2.96,
             "simpleYoyContributionPercentPoints": 20.06,
-            "revenueWeightedYoyContributionPercentPoints": 5.96
+            "revenueWeightedYoyContributionPercentPoints": 5.94
           },
           {
             "ticker": "3135",
@@ -13164,17 +13164,17 @@
             "yoyPercent": 150.02313750823012,
             "revenueWeightPercent": 1.64,
             "simpleYoyContributionPercentPoints": 15,
-            "revenueWeightedYoyContributionPercentPoints": 2.46
+            "revenueWeightedYoyContributionPercentPoints": 2.45
           },
           {
             "ticker": "6531",
             "name": "AP Memory",
-            "reportingMonth": "2026-06",
-            "revenueNt": 811206000,
-            "yoyPercent": 59.477769215041754,
-            "revenueWeightPercent": 0.83,
-            "simpleYoyContributionPercentPoints": 5.95,
-            "revenueWeightedYoyContributionPercentPoints": 0.49
+            "reportingMonth": "2026-07",
+            "revenueNt": 1103906000,
+            "yoyPercent": 144.57112219849168,
+            "revenueWeightPercent": 1.12,
+            "simpleYoyContributionPercentPoints": 14.46,
+            "revenueWeightedYoyContributionPercentPoints": 1.62
           }
         ]
       },
@@ -14192,9 +14192,9 @@
       },
       "Logic IC Design": {
         "month": "mix",
-        "aggregateRevenueNt": 72232249000,
-        "simpleYoyPercent": 71.31,
-        "revenueWeightedYoyPercent": 51.11,
+        "aggregateRevenueNt": 72524949000,
+        "simpleYoyPercent": 77.86,
+        "revenueWeightedYoyPercent": 52.44,
         "reportingCompanies": 13,
         "companies": [
           {
@@ -14203,9 +14203,9 @@
             "reportingMonth": "2026-06",
             "revenueNt": 58011756000,
             "yoyPercent": 2.796444693846599,
-            "revenueWeightPercent": 80.31,
+            "revenueWeightPercent": 79.99,
             "simpleYoyContributionPercentPoints": 0.22,
-            "revenueWeightedYoyContributionPercentPoints": 2.25
+            "revenueWeightedYoyContributionPercentPoints": 2.24
           },
           {
             "ticker": "3006",
@@ -14213,9 +14213,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 6784662000,
             "yoyPercent": 491.0617601014743,
-            "revenueWeightPercent": 9.39,
+            "revenueWeightPercent": 9.35,
             "simpleYoyContributionPercentPoints": 37.77,
-            "revenueWeightedYoyContributionPercentPoints": 46.12
+            "revenueWeightedYoyContributionPercentPoints": 45.94
           },
           {
             "ticker": "4919",
@@ -14223,7 +14223,7 @@
             "reportingMonth": "2026-06",
             "revenueNt": 2711218000,
             "yoyPercent": 1.1580188054463485,
-            "revenueWeightPercent": 3.75,
+            "revenueWeightPercent": 3.74,
             "simpleYoyContributionPercentPoints": 0.09,
             "revenueWeightedYoyContributionPercentPoints": 0.04
           },
@@ -14233,19 +14233,19 @@
             "reportingMonth": "2026-06",
             "revenueNt": 1248016000,
             "yoyPercent": 34.01111161221461,
-            "revenueWeightPercent": 1.73,
+            "revenueWeightPercent": 1.72,
             "simpleYoyContributionPercentPoints": 2.62,
             "revenueWeightedYoyContributionPercentPoints": 0.59
           },
           {
             "ticker": "6531",
             "name": "AP Memory",
-            "reportingMonth": "2026-06",
-            "revenueNt": 811206000,
-            "yoyPercent": 59.477769215041754,
-            "revenueWeightPercent": 1.12,
-            "simpleYoyContributionPercentPoints": 4.58,
-            "revenueWeightedYoyContributionPercentPoints": 0.67
+            "reportingMonth": "2026-07",
+            "revenueNt": 1103906000,
+            "yoyPercent": 144.57112219849168,
+            "revenueWeightPercent": 1.52,
+            "simpleYoyContributionPercentPoints": 11.12,
+            "revenueWeightedYoyContributionPercentPoints": 2.2
           },
           {
             "ticker": "2401",
@@ -14253,7 +14253,7 @@
             "reportingMonth": "2026-06",
             "revenueNt": 734090000,
             "yoyPercent": 35.245576961695555,
-            "revenueWeightPercent": 1.02,
+            "revenueWeightPercent": 1.01,
             "simpleYoyContributionPercentPoints": 2.71,
             "revenueWeightedYoyContributionPercentPoints": 0.36
           },
@@ -14293,7 +14293,7 @@
             "reportingMonth": "2026-06",
             "revenueNt": 285811000,
             "yoyPercent": 50.028083252408074,
-            "revenueWeightPercent": 0.4,
+            "revenueWeightPercent": 0.39,
             "simpleYoyContributionPercentPoints": 3.85,
             "revenueWeightedYoyContributionPercentPoints": 0.2
           },
@@ -14303,7 +14303,7 @@
             "reportingMonth": "2026-06",
             "revenueNt": 177144000,
             "yoyPercent": 167.50830564784053,
-            "revenueWeightPercent": 0.25,
+            "revenueWeightPercent": 0.24,
             "simpleYoyContributionPercentPoints": 12.89,
             "revenueWeightedYoyContributionPercentPoints": 0.41
           },
@@ -16596,10 +16596,10 @@
       },
       "Memory": {
         "month": "2026-07",
-        "aggregateRevenueNt": 50652271000,
-        "simpleYoyPercent": 605.34,
-        "revenueWeightedYoyPercent": 689,
-        "reportingCompanies": 2,
+        "aggregateRevenueNt": 51756177000,
+        "simpleYoyPercent": 451.75,
+        "revenueWeightedYoyPercent": 677.39,
+        "reportingCompanies": 3,
         "companies": [
           {
             "ticker": "2408",
@@ -16607,9 +16607,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 43867609000,
             "yoyPercent": 719.6141344528174,
-            "revenueWeightPercent": 86.61,
-            "simpleYoyContributionPercentPoints": 359.81,
-            "revenueWeightedYoyContributionPercentPoints": 623.22
+            "revenueWeightPercent": 84.76,
+            "simpleYoyContributionPercentPoints": 239.87,
+            "revenueWeightedYoyContributionPercentPoints": 609.93
           },
           {
             "ticker": "3006",
@@ -16617,9 +16617,19 @@
             "reportingMonth": "2026-07",
             "revenueNt": 6784662000,
             "yoyPercent": 491.0617601014743,
-            "revenueWeightPercent": 13.39,
-            "simpleYoyContributionPercentPoints": 245.53,
-            "revenueWeightedYoyContributionPercentPoints": 65.78
+            "revenueWeightPercent": 13.11,
+            "simpleYoyContributionPercentPoints": 163.69,
+            "revenueWeightedYoyContributionPercentPoints": 64.37
+          },
+          {
+            "ticker": "6531",
+            "name": "AP Memory",
+            "reportingMonth": "2026-07",
+            "revenueNt": 1103906000,
+            "yoyPercent": 144.57112219849168,
+            "revenueWeightPercent": 2.13,
+            "simpleYoyContributionPercentPoints": 48.19,
+            "revenueWeightedYoyContributionPercentPoints": 3.08
           },
           {
             "ticker": "2337",
@@ -16664,16 +16674,6 @@
           {
             "ticker": "4967",
             "name": "TEAM",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "6531",
-            "name": "AP Memory",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -17717,10 +17717,10 @@
       },
       "Logic IC Design": {
         "month": "2026-07",
-        "aggregateRevenueNt": 6784662000,
-        "simpleYoyPercent": 491.06,
-        "revenueWeightedYoyPercent": 491.06,
-        "reportingCompanies": 1,
+        "aggregateRevenueNt": 7888568000,
+        "simpleYoyPercent": 317.82,
+        "revenueWeightedYoyPercent": 442.57,
+        "reportingCompanies": 2,
         "companies": [
           {
             "ticker": "3006",
@@ -17728,9 +17728,19 @@
             "reportingMonth": "2026-07",
             "revenueNt": 6784662000,
             "yoyPercent": 491.0617601014743,
-            "revenueWeightPercent": 100,
-            "simpleYoyContributionPercentPoints": 491.06,
-            "revenueWeightedYoyContributionPercentPoints": 491.06
+            "revenueWeightPercent": 86.01,
+            "simpleYoyContributionPercentPoints": 245.53,
+            "revenueWeightedYoyContributionPercentPoints": 422.34
+          },
+          {
+            "ticker": "6531",
+            "name": "AP Memory",
+            "reportingMonth": "2026-07",
+            "revenueNt": 1103906000,
+            "yoyPercent": 144.57112219849168,
+            "revenueWeightPercent": 13.99,
+            "simpleYoyContributionPercentPoints": 72.29,
+            "revenueWeightedYoyContributionPercentPoints": 20.23
           },
           {
             "ticker": "2388",
@@ -17825,16 +17835,6 @@
           {
             "ticker": "6243",
             "name": "ENE",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "6531",
-            "name": "AP Memory",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,

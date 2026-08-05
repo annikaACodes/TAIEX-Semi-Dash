@@ -14631,54 +14631,54 @@
         "ticker": "6531",
         "name": "AP Memory",
         "classification": "Memory",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 811206000,
-        "momPercent": 8.371908477714587,
-        "yoyPercent": 59.477769215041754,
-        "previousYoyPercent": 89.34296229779807,
-        "ytdYoyPercent": 94.67605835240275,
-        "accelerationPercentPoints": -29.87,
-        "direction": "decelerating",
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1103906000,
+        "momPercent": 36.08208026074758,
+        "yoyPercent": 144.57112219849168,
+        "previousYoyPercent": 59.477769215041754,
+        "ytdYoyPercent": 102.88114721248643,
+        "accelerationPercentPoints": 85.09,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 811206000,
-            "priorPeriodRevenueNt": 748539000,
-            "currentGrowthPercent": 8.37,
-            "previousGrowthPercent": -6.92,
-            "accelerationPercentPoints": 15.29,
+            "currentPeriodRevenueNt": 1103906000,
+            "priorPeriodRevenueNt": 811206000,
+            "currentGrowthPercent": 36.08,
+            "previousGrowthPercent": 8.37,
+            "accelerationPercentPoints": 27.71,
             "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 811206000,
-            "priorPeriodRevenueNt": 508664000,
-            "currentGrowthPercent": 59.48,
-            "previousGrowthPercent": 89.34,
-            "accelerationPercentPoints": -29.87,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 1103906000,
+            "priorPeriodRevenueNt": 451364000,
+            "currentGrowthPercent": 144.57,
+            "previousGrowthPercent": 59.48,
+            "accelerationPercentPoints": 85.09,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 2363893000,
-            "priorPeriodRevenueNt": 2100761000,
-            "currentGrowthPercent": 12.53,
-            "previousGrowthPercent": 12.78,
-            "accelerationPercentPoints": -0.26,
+            "currentPeriodRevenueNt": 2663651000,
+            "priorPeriodRevenueNt": 2291437000,
+            "currentGrowthPercent": 16.24,
+            "previousGrowthPercent": 16.41,
+            "accelerationPercentPoints": -0.16,
             "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 4464654000,
-            "priorPeriodRevenueNt": 3350171000,
-            "currentGrowthPercent": 33.27,
-            "previousGrowthPercent": 46.08,
-            "accelerationPercentPoints": -12.81,
+            "currentPeriodRevenueNt": 4955088000,
+            "priorPeriodRevenueNt": 3512279000,
+            "currentGrowthPercent": 41.08,
+            "previousGrowthPercent": 44.65,
+            "accelerationPercentPoints": -3.57,
             "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 7814825000,
-            "priorPeriodRevenueNt": 4784393000,
-            "currentGrowthPercent": 63.34,
-            "previousGrowthPercent": 17.23,
-            "accelerationPercentPoints": 46.11,
+            "currentPeriodRevenueNt": 8467367000,
+            "priorPeriodRevenueNt": 4896245000,
+            "currentGrowthPercent": 72.94,
+            "previousGrowthPercent": 23.1,
+            "accelerationPercentPoints": 49.83,
             "direction": "accelerating"
           }
         }
@@ -32532,54 +32532,54 @@
         "name": "AP Memory",
         "classification": "Memory",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1103906000,
+        "momPercent": 36.08208026074758,
+        "yoyPercent": 144.57112219849168,
         "previousYoyPercent": 59.477769215041754,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 102.88114721248643,
+        "accelerationPercentPoints": 85.09,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1103906000,
             "priorPeriodRevenueNt": 811206000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 36.08,
             "previousGrowthPercent": 8.37,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 27.71,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1103906000,
             "priorPeriodRevenueNt": 451364000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 144.57,
             "previousGrowthPercent": 59.48,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 85.09,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2663651000,
             "priorPeriodRevenueNt": 2291437000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 16.24,
             "previousGrowthPercent": 16.41,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -0.16,
+            "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 4955088000,
             "priorPeriodRevenueNt": 3512279000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 41.08,
             "previousGrowthPercent": 44.65,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -3.57,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 8467367000,
             "priorPeriodRevenueNt": 4896245000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 72.94,
             "previousGrowthPercent": 23.1,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 49.83,
+            "direction": "accelerating"
           }
         }
       },
