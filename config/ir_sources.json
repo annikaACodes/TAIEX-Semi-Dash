@@ -4,6 +4,10 @@
     "company": "Taiwan Semiconductor Manufacturing Company",
     "sourceType": "investor_relations_calendar",
     "sourceUrl": "https://investor.tsmc.com/english/financial-calendar",
+    "fallbackUrls": [
+      "https://investor.tsmc.com/japanese/financial-calendar",
+      "https://investor.tsmc.com/schinese/financial-calendar"
+    ],
     "parserName": "tsmc",
     "priority": 1,
     "enabled": true
@@ -21,7 +25,10 @@
     "ticker": "2303",
     "company": "United Microelectronics Corporation",
     "sourceType": "investor_relations_calendar",
-    "sourceUrl": "https://www.umc.com/en/IR/ir_overview",
+    "sourceUrl": "https://www.umc.com/en/IR_Event/ir_events",
+    "fallbackUrls": [
+      "https://www.umc.com/en/IR/ir_overview"
+    ],
     "parserName": "umc",
     "priority": 1,
     "enabled": true

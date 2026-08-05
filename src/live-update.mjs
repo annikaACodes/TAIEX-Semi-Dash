@@ -4,10 +4,8 @@ import { DatabaseSync } from "node:sqlite";
 
 import {
   addMonths,
-  differenceInDays,
   parseTwseHolidaySchedule,
   previousTaipeiMonth,
-  reportingMonthEnd,
   timeToMinute,
   utcToTaipeiParts,
 } from "./dates.mjs";
@@ -41,7 +39,9 @@ const DEFAULT_IR_CONFIG_PATH = fileURLToPath(
 );
 const HOLIDAY_URL =
   "https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule";
-const USER_AGENT = "Taiwan-Monthly-Revenue-Research/1.0";
+const USER_AGENT =
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 " +
+  "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 const DEFAULT_RETRY_DELAYS_MS = [500, 1_000];
 const MOPS_RETRY_DELAYS_MS = [2_000, 5_000, 15_000, 30_000, 60_000];
 const RETRYABLE_HTTP_STATUSES = new Set([
@@ -71,6 +71,8 @@ async function fetchTextWithRetry(
       const response = await fetchFn(url, {
         headers: {
           Accept: "text/html,text/csv,application/json;q=0.9,*/*;q=0.8",
+          "Accept-Language": "en-US,en;q=0.9",
+          "Cache-Control": "no-cache",
           "User-Agent": USER_AGENT,
         },
         signal: AbortSignal.timeout(30_000),
@@ -102,6 +104,64 @@ async function fetchTextWithRetry(
   error.status = lastError?.status ?? null;
   error.transient = lastError?.transient === true;
   throw error;
+}
+
+function irSourceUrls(source) {
+  const fallbacks = Array.isArray(source.fallbackUrls)
+    ? source.fallbackUrls
+    : [];
+  return [source.sourceUrl, ...fallbacks].filter(
+    (url, index, urls) =>
+      typeof url === "string" && url.length > 0 && urls.indexOf(url) === index,
+  );
+}
+
+async function collectIrCalendar({ source, fetchFn, override }) {
+  const overrideText =
+    typeof override === "string" ? override : override?.text;
+  if (typeof overrideText === "string") {
+    try {
+      return {
+        source,
+        events: parseIrCalendar(source.parserName, overrideText),
+        error: null,
+        fetchedUrl: source.sourceUrl,
+      };
+    } catch (error) {
+      return {
+        source,
+        events: [],
+        error: error.message,
+        fetchedUrl: source.sourceUrl,
+      };
+    }
+  }
+
+  const failures = [];
+  for (const url of irSourceUrls(source)) {
+    try {
+      const fetched = await fetchTextWithRetry(fetchFn, url);
+      return {
+        source,
+        events: parseIrCalendar(source.parserName, fetched.text),
+        error: null,
+        fetchedUrl: url,
+      };
+    } catch (error) {
+      failures.push(
+        error.message.startsWith(`${url}:`)
+          ? error.message
+          : `${url}: ${error.message}`,
+      );
+    }
+  }
+
+  return {
+    source,
+    events: [],
+    error: `All official IR calendar URLs failed: ${failures.join("; ")}`,
+    fetchedUrl: null,
+  };
 }
 
 function applyMigration(
@@ -186,23 +246,13 @@ async function collectRemoteInputs({
   const irResults = await Promise.all(
     irConfig
       .filter((source) => source.enabled)
-      .map(async (source) => {
-        try {
-          const override = overrides?.irPayloads?.[source.ticker];
-          const html =
-            typeof override === "string"
-              ? override
-              : override?.text ??
-                (await fetchTextWithRetry(fetchFn, source.sourceUrl)).text;
-          return {
-            source,
-            events: parseIrCalendar(source.parserName, html),
-            error: null,
-          };
-        } catch (error) {
-          return { source, events: [], error: error.message };
-        }
-      }),
+      .map((source) =>
+        collectIrCalendar({
+          source,
+          fetchFn,
+          override: overrides?.irPayloads?.[source.ticker],
+        }),
+      ),
   );
   for (const result of irResults) {
     if (result.error) {
@@ -299,10 +349,17 @@ async function collectRemoteInputs({
 }
 
 function seedAndSyncIrSources(database, irResults, companiesByTicker, nowUtc) {
-  const findSource = database.prepare(`
+  const findSourceByUrl = database.prepare(`
     SELECT *
     FROM company_reporting_sources
     WHERE company_id = ? AND source_url = ?
+  `);
+  const findSourceByParser = database.prepare(`
+    SELECT *
+    FROM company_reporting_sources
+    WHERE company_id = ? AND parser_name = ?
+    ORDER BY enabled DESC, reporting_source_id
+    LIMIT 1
   `);
   const insertSource = database.prepare(`
     INSERT INTO company_reporting_sources (
@@ -319,6 +376,7 @@ function seedAndSyncIrSources(database, irResults, companiesByTicker, nowUtc) {
   const updateSourceDefinition = database.prepare(`
     UPDATE company_reporting_sources
     SET source_type = ?,
+        source_url = ?,
         parser_name = ?,
         source_priority = ?,
         enabled = ?,
@@ -384,33 +442,21 @@ function seedAndSyncIrSources(database, irResults, companiesByTicker, nowUtc) {
     if (!company) {
       throw new Error(`IR source ticker is not in the universe: ${result.source.ticker}`);
     }
-    let existing = findSource.get(company.companyId, result.source.sourceUrl);
+    let existing = findSourceByUrl.get(
+      company.companyId,
+      result.source.sourceUrl,
+    );
     let sourceId;
     if (!existing) {
-      sourceId = Number(
-        insertSource.run(
-          company.companyId,
-          result.source.sourceType,
-          result.source.sourceUrl,
-          result.source.parserName,
-          result.source.priority,
-          result.source.enabled ? 1 : 0,
-          nowUtc,
-          nowUtc,
-        ).lastInsertRowid,
+      const previousUrlSource = findSourceByParser.get(
+        company.companyId,
+        result.source.parserName,
       );
-      sourcesChanged += 1;
-      existing = findSource.get(company.companyId, result.source.sourceUrl);
-    } else {
-      sourceId = Number(existing.reporting_source_id);
-      const definitionChanged =
-        existing.source_type !== result.source.sourceType ||
-        existing.parser_name !== result.source.parserName ||
-        Number(existing.source_priority) !== Number(result.source.priority) ||
-        Number(existing.enabled) !== (result.source.enabled ? 1 : 0);
-      if (definitionChanged) {
+      if (previousUrlSource) {
+        sourceId = Number(previousUrlSource.reporting_source_id);
         updateSourceDefinition.run(
           result.source.sourceType,
+          result.source.sourceUrl,
           result.source.parserName,
           result.source.priority,
           result.source.enabled ? 1 : 0,
@@ -418,7 +464,48 @@ function seedAndSyncIrSources(database, irResults, companiesByTicker, nowUtc) {
           sourceId,
         );
         sourcesChanged += 1;
-        existing = findSource.get(company.companyId, result.source.sourceUrl);
+      } else {
+        sourceId = Number(
+          insertSource.run(
+            company.companyId,
+            result.source.sourceType,
+            result.source.sourceUrl,
+            result.source.parserName,
+            result.source.priority,
+            result.source.enabled ? 1 : 0,
+            nowUtc,
+            nowUtc,
+          ).lastInsertRowid,
+        );
+        sourcesChanged += 1;
+      }
+      existing = findSourceByUrl.get(
+        company.companyId,
+        result.source.sourceUrl,
+      );
+    } else {
+      sourceId = Number(existing.reporting_source_id);
+      const definitionChanged =
+        existing.source_type !== result.source.sourceType ||
+        existing.source_url !== result.source.sourceUrl ||
+        existing.parser_name !== result.source.parserName ||
+        Number(existing.source_priority) !== Number(result.source.priority) ||
+        Number(existing.enabled) !== (result.source.enabled ? 1 : 0);
+      if (definitionChanged) {
+        updateSourceDefinition.run(
+          result.source.sourceType,
+          result.source.sourceUrl,
+          result.source.parserName,
+          result.source.priority,
+          result.source.enabled ? 1 : 0,
+          nowUtc,
+          sourceId,
+        );
+        sourcesChanged += 1;
+        existing = findSourceByUrl.get(
+          company.companyId,
+          result.source.sourceUrl,
+        );
       }
     }
 

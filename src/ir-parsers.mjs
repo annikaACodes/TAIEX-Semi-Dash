@@ -139,9 +139,9 @@ export function parseMediaTekCalendar(html) {
 
 export function parseUmcCalendar(html) {
   const events = [];
-  const pattern =
+  const overviewPattern =
     /<strong>\s*([A-Za-z]+)\s+(\d{4}),\s*Monthly Sales Announcement\s*<\/strong>[\s\S]{0,600}?<div\s+class=["']date["']>\s*(\d{1,2}\/\d{1,2}\/\d{4})\*?/gi;
-  for (const match of html.matchAll(pattern)) {
+  for (const match of html.matchAll(overviewPattern)) {
     const isoDate = normalizeUsDate(match[3]);
     if (isoDate) {
       events.push(
@@ -153,6 +153,27 @@ export function parseUmcCalendar(html) {
           `${match[1]} ${match[2]}, Monthly Sales Announcement`,
         ),
       );
+    }
+  }
+
+  const eventsPagePattern =
+    /Monthly Sales Announcement\s*-\s*(\d{4})([\s\S]{0,5000}?)(?=Quarterly Earnings Release|Monthly Sales Announcement\s*-\s*\d{4}|$)/gi;
+  const monthPattern =
+    /(January|February|March|April|May|June|July|August|September|October|November|December)\s*(?:\uFF1A|:|&#(?:x?ff1a|65306);)\s*(\d{1,2}\/\d{1,2}\/\d{4})/gi;
+  for (const section of html.matchAll(eventsPagePattern)) {
+    for (const match of section[2].matchAll(monthPattern)) {
+      const isoDate = normalizeUsDate(match[2]);
+      if (isoDate) {
+        events.push(
+          makeEvent(
+            match[1],
+            section[1],
+            isoDate,
+            null,
+            `${match[1]} ${section[1]}, Monthly Sales Announcement`,
+          ),
+        );
+      }
     }
   }
   return deduplicate(events);

@@ -157,6 +157,111 @@ test(
   },
 );
 
+test(
+  "IR fallbacks recover and migrate a calendar URL without duplicate sources",
+  { timeout: 30_000 },
+  async () => {
+    const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-ir-test-"));
+    const databasePath = join(temporaryDirectory, "test.sqlite");
+    await copyFile(
+      new URL("../taiwan_semiconductor_companies.sqlite", import.meta.url),
+      databasePath,
+    );
+
+    const database = new DatabaseSync(databasePath);
+    database
+      .prepare(`
+        UPDATE company_reporting_sources
+        SET source_url = 'https://www.umc.com/en/IR/ir_overview',
+            last_error_at_utc = '2035-01-02T00:00:00.000Z',
+            last_error_message = 'HTTP 403 Forbidden'
+        WHERE company_id = (SELECT company_id FROM companies WHERE ticker = '2303')
+          AND parser_name = 'umc'
+      `)
+      .run();
+    database.close();
+
+    const mopsPayloads = Object.fromEntries(
+      ["sii", "otc", "rotc", "pub"].map((market) => [
+        market,
+        {
+          text:
+            market === "sii"
+              ? `${HEADER}\n${TSMC_ROW}\n`
+              : `${HEADER}\n`,
+          lastModified: "Wed, 03 Jan 2035 00:00:00 GMT",
+        },
+      ]),
+    );
+    const requested = [];
+
+    try {
+      const result = await runLiveUpdate({
+        databasePath,
+        nowUtc: "2035-01-03T00:00:00.000Z",
+        fetchFn: async (url, init) => {
+          requested.push({ url, headers: init.headers });
+          if (url.endsWith("/english/financial-calendar")) {
+            return new Response(null, {
+              status: 403,
+              statusText: "Forbidden",
+            });
+          }
+          if (url.endsWith("/japanese/financial-calendar")) {
+            return new Response(IR_PAYLOADS[2330], { status: 200 });
+          }
+          throw new Error(`Unexpected URL: ${url}`);
+        },
+        overrides: {
+          holidayPayload: "[]",
+          irPayloads: {
+            2317: IR_PAYLOADS[2317],
+            2303: `
+              <div>Monthly Sales Announcement - 2034</div>
+              <div class="inner">December：1/6/2035(Sat)*</div>
+              <div>Quarterly Earnings Release</div>
+            `,
+            2454: IR_PAYLOADS[2454],
+          },
+          mopsPayloads,
+        },
+      });
+
+      assert.deepEqual(
+        requested.map(({ url }) => url),
+        [
+          "https://investor.tsmc.com/english/financial-calendar",
+          "https://investor.tsmc.com/japanese/financial-calendar",
+        ],
+      );
+      assert.match(requested[0].headers["User-Agent"], /^Mozilla\/5\.0/);
+      assert.equal(requested[0].headers["Accept-Language"], "en-US,en;q=0.9");
+      assert.equal(result.errors.length, 0);
+
+      const updated = new DatabaseSync(databasePath, { readOnly: true });
+      const umcSources = updated
+        .prepare(`
+          SELECT s.source_url, s.last_error_message, s.last_success_at_utc
+          FROM company_reporting_sources AS s
+          JOIN companies AS c ON c.company_id = s.company_id
+          WHERE c.ticker = '2303' AND s.parser_name = 'umc'
+        `)
+        .all();
+      updated.close();
+
+      assert.equal(umcSources.length, 1);
+      assert.equal(
+        umcSources[0].source_url,
+        "https://www.umc.com/en/IR_Event/ir_events",
+      );
+      assert.equal(umcSources[0].last_error_message, null);
+      assert.equal(umcSources[0].last_success_at_utc, "2035-01-03T00:00:00.000Z");
+    } finally {
+      await rm(temporaryDirectory, { recursive: true, force: true });
+    }
+  },
+);
+
 test("temporary all-market MOPS redirects defer without changing data", async () => {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-live-defer-"));
   const databasePath = join(temporaryDirectory, "test.sqlite");

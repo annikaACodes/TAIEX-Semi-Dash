@@ -51,3 +51,38 @@ test("UMC and MediaTek calendar parsers extract official overrides", () => {
   assert.equal(umc[0].releaseDateLocal, "2026-08-06");
   assert.equal(mediatek[0].releaseTimestampUtc, "2026-08-10T09:00:00.000Z");
 });
+
+test("UMC parser reads the dedicated annual events calendar", () => {
+  const events = parseUmcCalendar(`
+    <div class="table_title">Monthly Sales Announcement - 2026</div>
+    <div class="inner">January：2/5/2026(Thu)</div>
+    <div class="inner">July：8/6/2026(Thu)*</div>
+    <div class="inner">December：1/7/2027(Thu)*</div>
+    <div>Quarterly Earnings Release &amp; Investor Conference Call</div>
+  `);
+
+  assert.deepEqual(
+    events.map((event) => [
+      event.reportingMonth,
+      event.releaseDateLocal,
+      event.title,
+    ]),
+    [
+      [
+        "2026-01-01",
+        "2026-02-05",
+        "January 2026, Monthly Sales Announcement",
+      ],
+      [
+        "2026-07-01",
+        "2026-08-06",
+        "July 2026, Monthly Sales Announcement",
+      ],
+      [
+        "2026-12-01",
+        "2027-01-07",
+        "December 2026, Monthly Sales Announcement",
+      ],
+    ],
+  );
+});

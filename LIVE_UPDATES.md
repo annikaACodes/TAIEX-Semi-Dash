@@ -62,14 +62,17 @@ Official inputs:
   `https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01`
 - TSMC calendar:
   `https://investor.tsmc.com/english/financial-calendar`
+  (official Japanese and simplified-Chinese pages are transport fallbacks)
 - Hon Hai calendar:
   `https://www.honhai.com/en-us/investor-relations/investor-relations-activities/event-calendar`
-- UMC calendar: `https://www.umc.com/en/IR/ir_overview`
+- UMC calendar: `https://www.umc.com/en/IR_Event/ir_events`
 - MediaTek calendar:
   `https://www.mediatek.com/investor-relations/ir-events`
 
 More official IR calendars can be added to `config/ir_sources.json` after adding a
-matching parser in `src/ir-parsers.mjs`.
+matching parser in `src/ir-parsers.mjs`. Use `fallbackUrls` for equivalent pages
+on the same company's official site when the primary page is intermittently
+blocked.
 
 ## Forecast And Anomaly Logic
 
