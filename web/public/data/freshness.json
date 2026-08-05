@@ -1,10 +1,10 @@
 {
-  "asOfDateTaipei": "2026-08-05",
+  "asOfDateTaipei": "2026-08-06",
   "targetReportingMonth": "2026-07",
   "summary": {
     "reported": 53,
     "pending": 261,
-    "overdue": 0,
+    "overdue": 1,
     "unusual": 0
   },
   "companies": [
@@ -1616,7 +1616,7 @@
       "scheduleSource": "company_history",
       "forecastConfidence": null,
       "releaseStatus": "forecast",
-      "overdue": false,
+      "overdue": true,
       "unusualReportDate": false,
       "unusualReason": null,
       "deviationFromHistoryDays": null,
