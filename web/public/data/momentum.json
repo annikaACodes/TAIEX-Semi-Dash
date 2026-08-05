@@ -1920,54 +1920,54 @@
         "ticker": "2385",
         "name": "CHICONY",
         "classification": "EMS & ODM",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 7888735000,
-        "momPercent": 9.15751478359823,
-        "yoyPercent": -5.48446917125462,
-        "previousYoyPercent": -11.040460314504095,
-        "ytdYoyPercent": -5.266460618493234,
-        "accelerationPercentPoints": 5.56,
-        "direction": "accelerating",
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 7056988000,
+        "momPercent": -10.543477503047066,
+        "yoyPercent": -12.23975785742773,
+        "previousYoyPercent": -5.48446917125462,
+        "ytdYoyPercent": -6.271064905007405,
+        "accelerationPercentPoints": -6.76,
+        "direction": "decelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 7888735000,
-            "priorPeriodRevenueNt": 7226928000,
-            "currentGrowthPercent": 9.16,
-            "previousGrowthPercent": -0.63,
-            "accelerationPercentPoints": 9.79,
-            "direction": "accelerating"
-          },
-          "yoy": {
-            "currentPeriodRevenueNt": 7888735000,
-            "priorPeriodRevenueNt": 8346496000,
-            "currentGrowthPercent": -5.48,
-            "previousGrowthPercent": -11.04,
-            "accelerationPercentPoints": 5.56,
-            "direction": "accelerating"
-          },
-          "3m": {
-            "currentPeriodRevenueNt": 22388403000,
-            "priorPeriodRevenueNt": 22871040000,
-            "currentGrowthPercent": -2.11,
-            "previousGrowthPercent": -0.89,
-            "accelerationPercentPoints": -1.22,
+            "currentPeriodRevenueNt": 7056988000,
+            "priorPeriodRevenueNt": 7888735000,
+            "currentGrowthPercent": -10.54,
+            "previousGrowthPercent": 9.16,
+            "accelerationPercentPoints": -19.7,
             "direction": "decelerating"
           },
+          "yoy": {
+            "currentPeriodRevenueNt": 7056988000,
+            "priorPeriodRevenueNt": 8041213000,
+            "currentGrowthPercent": -12.24,
+            "previousGrowthPercent": -5.48,
+            "accelerationPercentPoints": -6.76,
+            "direction": "decelerating"
+          },
+          "3m": {
+            "currentPeriodRevenueNt": 22172651000,
+            "priorPeriodRevenueNt": 22448752000,
+            "currentGrowthPercent": -1.23,
+            "previousGrowthPercent": -3.82,
+            "accelerationPercentPoints": 2.59,
+            "direction": "accelerating"
+          },
           "6m": {
-            "currentPeriodRevenueNt": 45259443000,
-            "priorPeriodRevenueNt": 47885050000,
-            "currentGrowthPercent": -5.48,
-            "previousGrowthPercent": 0.23,
-            "accelerationPercentPoints": -5.71,
+            "currentPeriodRevenueNt": 44621403000,
+            "priorPeriodRevenueNt": 47538865000,
+            "currentGrowthPercent": -6.14,
+            "previousGrowthPercent": -1.58,
+            "accelerationPercentPoints": -4.56,
             "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 93144493000,
-            "priorPeriodRevenueNt": 101734464000,
-            "currentGrowthPercent": -8.44,
-            "previousGrowthPercent": 4.07,
-            "accelerationPercentPoints": -12.51,
+            "currentPeriodRevenueNt": 92160268000,
+            "priorPeriodRevenueNt": 101394818000,
+            "currentGrowthPercent": -9.11,
+            "previousGrowthPercent": 3.34,
+            "accelerationPercentPoints": -12.45,
             "direction": "decelerating"
           }
         }
@@ -3117,54 +3117,54 @@
         "ticker": "2436",
         "name": "Weltrend",
         "classification": "Analog & Power IC Design",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 372126000,
-        "momPercent": -6.275642688575293,
-        "yoyPercent": 18.283561926860667,
-        "previousYoyPercent": 26.11385863436977,
-        "ytdYoyPercent": 28.037723613453032,
-        "accelerationPercentPoints": -7.83,
-        "direction": "decelerating",
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 403610000,
+        "momPercent": 8.460575181524538,
+        "yoyPercent": 42.92897993873612,
+        "previousYoyPercent": 18.283561926860667,
+        "ytdYoyPercent": 30.13356778344465,
+        "accelerationPercentPoints": 24.65,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 372126000,
-            "priorPeriodRevenueNt": 397043000,
-            "currentGrowthPercent": -6.28,
-            "previousGrowthPercent": 1.68,
-            "accelerationPercentPoints": -7.95,
-            "direction": "decelerating"
-          },
-          "yoy": {
-            "currentPeriodRevenueNt": 372126000,
-            "priorPeriodRevenueNt": 314605000,
-            "currentGrowthPercent": 18.28,
-            "previousGrowthPercent": 26.11,
-            "accelerationPercentPoints": -7.83,
-            "direction": "decelerating"
-          },
-          "3m": {
-            "currentPeriodRevenueNt": 1159655000,
-            "priorPeriodRevenueNt": 1047731000,
-            "currentGrowthPercent": 10.68,
-            "previousGrowthPercent": 13.23,
-            "accelerationPercentPoints": -2.55,
-            "direction": "decelerating"
-          },
-          "6m": {
-            "currentPeriodRevenueNt": 2207386000,
-            "priorPeriodRevenueNt": 1844628000,
-            "currentGrowthPercent": 19.67,
-            "previousGrowthPercent": 7,
-            "accelerationPercentPoints": 12.67,
+            "currentPeriodRevenueNt": 403610000,
+            "priorPeriodRevenueNt": 372126000,
+            "currentGrowthPercent": 8.46,
+            "previousGrowthPercent": -6.28,
+            "accelerationPercentPoints": 14.74,
             "direction": "accelerating"
           },
+          "yoy": {
+            "currentPeriodRevenueNt": 403610000,
+            "priorPeriodRevenueNt": 282385000,
+            "currentGrowthPercent": 42.93,
+            "previousGrowthPercent": 18.28,
+            "accelerationPercentPoints": 24.65,
+            "direction": "accelerating"
+          },
+          "3m": {
+            "currentPeriodRevenueNt": 1172779000,
+            "priorPeriodRevenueNt": 1023754000,
+            "currentGrowthPercent": 14.56,
+            "previousGrowthPercent": -3.41,
+            "accelerationPercentPoints": 17.97,
+            "direction": "accelerating"
+          },
+          "6m": {
+            "currentPeriodRevenueNt": 2196533000,
+            "priorPeriodRevenueNt": 1976706000,
+            "currentGrowthPercent": 11.12,
+            "previousGrowthPercent": 13.06,
+            "accelerationPercentPoints": -1.94,
+            "direction": "decelerating"
+          },
           "ltm": {
-            "currentPeriodRevenueNt": 4052014000,
-            "priorPeriodRevenueNt": 3407680000,
-            "currentGrowthPercent": 18.91,
-            "previousGrowthPercent": 12.59,
-            "accelerationPercentPoints": 6.32,
+            "currentPeriodRevenueNt": 4173239000,
+            "priorPeriodRevenueNt": 3408502000,
+            "currentGrowthPercent": 22.44,
+            "previousGrowthPercent": 11.23,
+            "accelerationPercentPoints": 11.21,
             "direction": "accelerating"
           }
         }
@@ -4485,54 +4485,54 @@
         "ticker": "2486",
         "name": "I-CHIUN",
         "classification": "LED & Optoelectronics",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 701021000,
-        "momPercent": 1.0826040751939763,
-        "yoyPercent": 35.04104084435686,
-        "previousYoyPercent": 31.37477765212005,
-        "ytdYoyPercent": 24.86003037112044,
-        "accelerationPercentPoints": 3.34,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 739794000,
+        "momPercent": 5.530932739532767,
+        "yoyPercent": 42.51556067555775,
+        "previousYoyPercent": 35.04104084435686,
+        "ytdYoyPercent": 27.53104066349265,
+        "accelerationPercentPoints": 7.8,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 701021000,
-            "priorPeriodRevenueNt": 693513000,
-            "currentGrowthPercent": 1.08,
-            "previousGrowthPercent": 3.96,
-            "accelerationPercentPoints": -2.87,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 739794000,
+            "priorPeriodRevenueNt": 701021000,
+            "currentGrowthPercent": 5.53,
+            "previousGrowthPercent": 1.08,
+            "accelerationPercentPoints": 4.45,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 701021000,
-            "priorPeriodRevenueNt": 520374000,
-            "currentGrowthPercent": 34.71,
-            "previousGrowthPercent": 31.37,
-            "accelerationPercentPoints": 3.34,
+            "currentPeriodRevenueNt": 739794000,
+            "priorPeriodRevenueNt": 519097000,
+            "currentGrowthPercent": 42.52,
+            "previousGrowthPercent": 34.71,
+            "accelerationPercentPoints": 7.8,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 2061648000,
-            "priorPeriodRevenueNt": 1620292000,
-            "currentGrowthPercent": 27.24,
-            "previousGrowthPercent": 4.81,
-            "accelerationPercentPoints": 22.43,
+            "currentPeriodRevenueNt": 2134328000,
+            "priorPeriodRevenueNt": 1728828000,
+            "currentGrowthPercent": 23.46,
+            "previousGrowthPercent": 8.11,
+            "accelerationPercentPoints": 15.35,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 3681940000,
-            "priorPeriodRevenueNt": 3098327000,
-            "currentGrowthPercent": 18.84,
-            "previousGrowthPercent": 5.12,
-            "accelerationPercentPoints": 13.71,
+            "currentPeriodRevenueNt": 3863156000,
+            "priorPeriodRevenueNt": 3137808000,
+            "currentGrowthPercent": 23.12,
+            "previousGrowthPercent": 2.8,
+            "accelerationPercentPoints": 20.32,
             "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 6780267000,
-            "priorPeriodRevenueNt": 5931472000,
-            "currentGrowthPercent": 14.31,
-            "previousGrowthPercent": 12.72,
-            "accelerationPercentPoints": 1.59,
+            "currentPeriodRevenueNt": 7000964000,
+            "priorPeriodRevenueNt": 5974392000,
+            "currentGrowthPercent": 17.18,
+            "previousGrowthPercent": 12.42,
+            "accelerationPercentPoints": 4.76,
             "direction": "accelerating"
           }
         }
@@ -6195,54 +6195,54 @@
         "ticker": "3042",
         "name": "TXC",
         "classification": "Passive Components",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 1192921000,
-        "momPercent": -1.9913585653148027,
-        "yoyPercent": 19.977169638636614,
-        "previousYoyPercent": 10.495521748524347,
-        "ytdYoyPercent": 7.730089897581353,
-        "accelerationPercentPoints": 9.48,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1365597000,
+        "momPercent": 14.475057443032691,
+        "yoyPercent": 22.9140301957304,
+        "previousYoyPercent": 19.977169638636614,
+        "ytdYoyPercent": 9.936999019362617,
+        "accelerationPercentPoints": 2.94,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 1192921000,
-            "priorPeriodRevenueNt": 1217159000,
-            "currentGrowthPercent": -1.99,
-            "previousGrowthPercent": -5.55,
-            "accelerationPercentPoints": 3.56,
+            "currentPeriodRevenueNt": 1365597000,
+            "priorPeriodRevenueNt": 1192921000,
+            "currentGrowthPercent": 14.48,
+            "previousGrowthPercent": -1.99,
+            "accelerationPercentPoints": 16.47,
             "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 1192921000,
-            "priorPeriodRevenueNt": 994290000,
-            "currentGrowthPercent": 19.98,
-            "previousGrowthPercent": 10.5,
-            "accelerationPercentPoints": 9.48,
+            "currentPeriodRevenueNt": 1365597000,
+            "priorPeriodRevenueNt": 1111018000,
+            "currentGrowthPercent": 22.91,
+            "previousGrowthPercent": 19.98,
+            "accelerationPercentPoints": 2.94,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 3698788000,
-            "priorPeriodRevenueNt": 3339208000,
-            "currentGrowthPercent": 10.77,
-            "previousGrowthPercent": 0.45,
-            "accelerationPercentPoints": 10.32,
+            "currentPeriodRevenueNt": 3775677000,
+            "priorPeriodRevenueNt": 3411213000,
+            "currentGrowthPercent": 10.68,
+            "previousGrowthPercent": -0.1,
+            "accelerationPercentPoints": 10.78,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 7037996000,
-            "priorPeriodRevenueNt": 6815911000,
-            "currentGrowthPercent": 3.26,
-            "previousGrowthPercent": 4.33,
-            "accelerationPercentPoints": -1.07,
+            "currentPeriodRevenueNt": 7186890000,
+            "priorPeriodRevenueNt": 6921596000,
+            "currentGrowthPercent": 3.83,
+            "previousGrowthPercent": 6.45,
+            "accelerationPercentPoints": -2.62,
             "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 13853907000,
-            "priorPeriodRevenueNt": 13528945000,
-            "currentGrowthPercent": 2.4,
-            "previousGrowthPercent": 14.63,
-            "accelerationPercentPoints": -12.22,
+            "currentPeriodRevenueNt": 14108486000,
+            "priorPeriodRevenueNt": 13476486000,
+            "currentGrowthPercent": 4.69,
+            "previousGrowthPercent": 12.07,
+            "accelerationPercentPoints": -7.39,
             "direction": "decelerating"
           }
         }
@@ -7962,54 +7962,54 @@
         "ticker": "3443",
         "name": "GUC",
         "classification": "IP & Design Services",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 4928512000,
-        "momPercent": 5.445000997002147,
-        "yoyPercent": 103.71897307865596,
-        "previousYoyPercent": 132.1328905238472,
-        "ytdYoyPercent": 93.05257734463794,
-        "accelerationPercentPoints": -28.41,
-        "direction": "decelerating",
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 5769170000,
+        "momPercent": 17.057034658736754,
+        "yoyPercent": 158.38135946958366,
+        "previousYoyPercent": 103.71897307865596,
+        "ytdYoyPercent": 102.54848095176932,
+        "accelerationPercentPoints": 54.66,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 4928512000,
-            "priorPeriodRevenueNt": 4674012000,
-            "currentGrowthPercent": 5.45,
-            "previousGrowthPercent": 8.85,
-            "accelerationPercentPoints": -3.4,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 5769170000,
+            "priorPeriodRevenueNt": 4928512000,
+            "currentGrowthPercent": 17.06,
+            "previousGrowthPercent": 5.45,
+            "accelerationPercentPoints": 11.61,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 4928512000,
-            "priorPeriodRevenueNt": 2419270000,
-            "currentGrowthPercent": 103.72,
-            "previousGrowthPercent": 132.13,
-            "accelerationPercentPoints": -28.41,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 5769170000,
+            "priorPeriodRevenueNt": 2232812000,
+            "currentGrowthPercent": 158.38,
+            "previousGrowthPercent": 103.72,
+            "accelerationPercentPoints": 54.66,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 13896557000,
-            "priorPeriodRevenueNt": 11447812000,
-            "currentGrowthPercent": 21.39,
-            "previousGrowthPercent": -7.68,
-            "accelerationPercentPoints": 29.07,
+            "currentPeriodRevenueNt": 15371694000,
+            "priorPeriodRevenueNt": 11506003000,
+            "currentGrowthPercent": 33.6,
+            "previousGrowthPercent": -10.94,
+            "accelerationPercentPoints": 44.54,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 25344369000,
-            "priorPeriodRevenueNt": 21012757000,
-            "currentGrowthPercent": 20.61,
-            "previousGrowthPercent": 60.06,
-            "accelerationPercentPoints": -39.44,
+            "currentPeriodRevenueNt": 26877697000,
+            "priorPeriodRevenueNt": 23015787000,
+            "currentGrowthPercent": 16.78,
+            "previousGrowthPercent": 72.76,
+            "accelerationPercentPoints": -55.98,
             "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 46357126000,
-            "priorPeriodRevenueNt": 25762261000,
-            "currentGrowthPercent": 79.94,
-            "previousGrowthPercent": 0.89,
-            "accelerationPercentPoints": 79.05,
+            "currentPeriodRevenueNt": 49893484000,
+            "priorPeriodRevenueNt": 25091940000,
+            "currentGrowthPercent": 98.84,
+            "previousGrowthPercent": -4.32,
+            "accelerationPercentPoints": 103.16,
             "direction": "accelerating"
           }
         }
@@ -8703,54 +8703,54 @@
         "ticker": "3550",
         "name": "COPARTNER",
         "classification": "Interconnect",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 370328000,
-        "momPercent": -5.451630280764193,
-        "yoyPercent": 38.08316430020284,
-        "previousYoyPercent": 36.57033870529083,
-        "ytdYoyPercent": 27.351035395511612,
-        "accelerationPercentPoints": 1.51,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 412542000,
+        "momPercent": 11.399084055215917,
+        "yoyPercent": 38.32829254880396,
+        "previousYoyPercent": 38.08316430020284,
+        "ytdYoyPercent": 28.955961720508334,
+        "accelerationPercentPoints": 0.25,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 370328000,
-            "priorPeriodRevenueNt": 391681000,
-            "currentGrowthPercent": -5.45,
-            "previousGrowthPercent": -12.6,
-            "accelerationPercentPoints": 7.15,
+            "currentPeriodRevenueNt": 412542000,
+            "priorPeriodRevenueNt": 370328000,
+            "currentGrowthPercent": 11.4,
+            "previousGrowthPercent": -5.45,
+            "accelerationPercentPoints": 16.85,
             "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 370328000,
-            "priorPeriodRevenueNt": 268192000,
-            "currentGrowthPercent": 38.08,
-            "previousGrowthPercent": 36.57,
-            "accelerationPercentPoints": 1.51,
+            "currentPeriodRevenueNt": 412542000,
+            "priorPeriodRevenueNt": 298234000,
+            "currentGrowthPercent": 38.33,
+            "previousGrowthPercent": 38.08,
+            "accelerationPercentPoints": 0.25,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 1210143000,
-            "priorPeriodRevenueNt": 1007809000,
-            "currentGrowthPercent": 20.08,
-            "previousGrowthPercent": 10.98,
-            "accelerationPercentPoints": 9.1,
+            "currentPeriodRevenueNt": 1174551000,
+            "priorPeriodRevenueNt": 1080227000,
+            "currentGrowthPercent": 8.73,
+            "previousGrowthPercent": 6,
+            "accelerationPercentPoints": 2.73,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 2217952000,
-            "priorPeriodRevenueNt": 1789257000,
-            "currentGrowthPercent": 23.96,
-            "previousGrowthPercent": 2.74,
-            "accelerationPercentPoints": 21.22,
+            "currentPeriodRevenueNt": 2254778000,
+            "priorPeriodRevenueNt": 1866739000,
+            "currentGrowthPercent": 20.79,
+            "previousGrowthPercent": 3.34,
+            "accelerationPercentPoints": 17.45,
             "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 4007209000,
-            "priorPeriodRevenueNt": 3541596000,
-            "currentGrowthPercent": 13.15,
-            "previousGrowthPercent": 3,
-            "accelerationPercentPoints": 10.15,
+            "currentPeriodRevenueNt": 4121517000,
+            "priorPeriodRevenueNt": 3545466000,
+            "currentGrowthPercent": 16.25,
+            "previousGrowthPercent": 3.57,
+            "accelerationPercentPoints": 12.67,
             "direction": "accelerating"
           }
         }
@@ -13092,55 +13092,55 @@
         "ticker": "6213",
         "name": "ITEQ",
         "classification": "CCL & PCB Materials",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 4213673000,
-        "momPercent": 10.80262139271875,
-        "yoyPercent": 47.940002057417395,
-        "previousYoyPercent": 29.30658521499901,
-        "ytdYoyPercent": 25.61714895781241,
-        "accelerationPercentPoints": 18.63,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 4749174000,
+        "momPercent": 12.708651098459704,
+        "yoyPercent": 96.87955881359228,
+        "previousYoyPercent": 47.940002057417395,
+        "ytdYoyPercent": 34.72716429794154,
+        "accelerationPercentPoints": 48.94,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 4213673000,
-            "priorPeriodRevenueNt": 3802864000,
-            "currentGrowthPercent": 10.8,
-            "previousGrowthPercent": 8.24,
-            "accelerationPercentPoints": 2.57,
+            "currentPeriodRevenueNt": 4749174000,
+            "priorPeriodRevenueNt": 4213673000,
+            "currentGrowthPercent": 12.71,
+            "previousGrowthPercent": 10.8,
+            "accelerationPercentPoints": 1.91,
             "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 4213673000,
-            "priorPeriodRevenueNt": 2848231000,
-            "currentGrowthPercent": 47.94,
-            "previousGrowthPercent": 29.31,
-            "accelerationPercentPoints": 18.63,
+            "currentPeriodRevenueNt": 4749174000,
+            "priorPeriodRevenueNt": 2412223000,
+            "currentGrowthPercent": 96.88,
+            "previousGrowthPercent": 47.94,
+            "accelerationPercentPoints": 48.94,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 11530007000,
-            "priorPeriodRevenueNt": 9143071000,
-            "currentGrowthPercent": 26.11,
-            "previousGrowthPercent": 2.54,
-            "accelerationPercentPoints": 23.57,
+            "currentPeriodRevenueNt": 12765711000,
+            "priorPeriodRevenueNt": 9492849000,
+            "currentGrowthPercent": 34.48,
+            "previousGrowthPercent": 1.74,
+            "accelerationPercentPoints": 32.74,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 20673078000,
-            "priorPeriodRevenueNt": 16641073000,
-            "currentGrowthPercent": 24.23,
-            "previousGrowthPercent": 1.12,
-            "accelerationPercentPoints": 23.11,
+            "currentPeriodRevenueNt": 22258560000,
+            "priorPeriodRevenueNt": 17392542000,
+            "currentGrowthPercent": 27.98,
+            "previousGrowthPercent": 4.49,
+            "accelerationPercentPoints": 23.48,
             "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 37314151000,
-            "priorPeriodRevenueNt": 32084284000,
-            "currentGrowthPercent": 16.3,
-            "previousGrowthPercent": 18.2,
-            "accelerationPercentPoints": -1.9,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 39651102000,
+            "priorPeriodRevenueNt": 31770243000,
+            "currentGrowthPercent": 24.81,
+            "previousGrowthPercent": 14.25,
+            "accelerationPercentPoints": 10.56,
+            "direction": "accelerating"
           }
         }
       },
@@ -15600,54 +15600,54 @@
         "ticker": "6756",
         "name": "VLI",
         "classification": "Connectivity & Interface IC Design",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 182508000,
-        "momPercent": 0.09762518510393244,
-        "yoyPercent": 50.05919884233375,
-        "previousYoyPercent": 20.99755124793449,
-        "ytdYoyPercent": 16.36033607999941,
-        "accelerationPercentPoints": 29.06,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 177234000,
+        "momPercent": -2.8897363403248075,
+        "yoyPercent": 70.6831795681735,
+        "previousYoyPercent": 50.05919884233375,
+        "ytdYoyPercent": 22.500664022189227,
+        "accelerationPercentPoints": 20.62,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 182508000,
-            "priorPeriodRevenueNt": 182330000,
-            "currentGrowthPercent": 0.1,
-            "previousGrowthPercent": 8.28,
-            "accelerationPercentPoints": -8.19,
+            "currentPeriodRevenueNt": 177234000,
+            "priorPeriodRevenueNt": 182508000,
+            "currentGrowthPercent": -2.89,
+            "previousGrowthPercent": 0.1,
+            "accelerationPercentPoints": -2.99,
             "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 182508000,
-            "priorPeriodRevenueNt": 121624000,
-            "currentGrowthPercent": 50.06,
-            "previousGrowthPercent": 21,
-            "accelerationPercentPoints": 29.06,
+            "currentPeriodRevenueNt": 177234000,
+            "priorPeriodRevenueNt": 103838000,
+            "currentGrowthPercent": 70.68,
+            "previousGrowthPercent": 50.06,
+            "accelerationPercentPoints": 20.62,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 533221000,
-            "priorPeriodRevenueNt": 414890000,
-            "currentGrowthPercent": 28.52,
-            "previousGrowthPercent": 1.59,
-            "accelerationPercentPoints": 26.93,
+            "currentPeriodRevenueNt": 542072000,
+            "priorPeriodRevenueNt": 421062000,
+            "currentGrowthPercent": 28.74,
+            "previousGrowthPercent": -5.22,
+            "accelerationPercentPoints": 33.96,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 948111000,
-            "priorPeriodRevenueNt": 735304000,
-            "currentGrowthPercent": 28.94,
-            "previousGrowthPercent": -9.76,
-            "accelerationPercentPoints": 38.7,
+            "currentPeriodRevenueNt": 963134000,
+            "priorPeriodRevenueNt": 793677000,
+            "currentGrowthPercent": 21.35,
+            "previousGrowthPercent": 1.95,
+            "accelerationPercentPoints": 19.4,
             "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 1683415000,
-            "priorPeriodRevenueNt": 1628427000,
-            "currentGrowthPercent": 3.38,
-            "previousGrowthPercent": -16.75,
-            "accelerationPercentPoints": 20.12,
+            "currentPeriodRevenueNt": 1756811000,
+            "priorPeriodRevenueNt": 1576631000,
+            "currentGrowthPercent": 11.43,
+            "previousGrowthPercent": -17.58,
+            "accelerationPercentPoints": 29.01,
             "direction": "accelerating"
           }
         }
@@ -15771,54 +15771,54 @@
         "ticker": "6781",
         "name": "AES-KY",
         "classification": "Power & Thermal Components",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 1685061000,
-        "momPercent": 5.286174332597294,
-        "yoyPercent": 25.5805374354327,
-        "previousYoyPercent": 20.863899373348982,
-        "ytdYoyPercent": 26.007993453669652,
-        "accelerationPercentPoints": 4.72,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1723107000,
+        "momPercent": 2.2578411107965826,
+        "yoyPercent": 28.23637191745752,
+        "previousYoyPercent": 25.5805374354327,
+        "ytdYoyPercent": 26.350028443295034,
+        "accelerationPercentPoints": 2.66,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 1685061000,
-            "priorPeriodRevenueNt": 1600458000,
-            "currentGrowthPercent": 5.29,
-            "previousGrowthPercent": 5.12,
-            "accelerationPercentPoints": 0.17,
-            "direction": "accelerating"
+            "currentPeriodRevenueNt": 1723107000,
+            "priorPeriodRevenueNt": 1685061000,
+            "currentGrowthPercent": 2.26,
+            "previousGrowthPercent": 5.29,
+            "accelerationPercentPoints": -3.03,
+            "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 1685061000,
-            "priorPeriodRevenueNt": 1341817000,
-            "currentGrowthPercent": 25.58,
-            "previousGrowthPercent": 20.86,
-            "accelerationPercentPoints": 4.72,
+            "currentPeriodRevenueNt": 1723107000,
+            "priorPeriodRevenueNt": 1343696000,
+            "currentGrowthPercent": 28.24,
+            "previousGrowthPercent": 25.58,
+            "accelerationPercentPoints": 2.66,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 4808058000,
-            "priorPeriodRevenueNt": 4529845000,
-            "currentGrowthPercent": 6.14,
-            "previousGrowthPercent": 1.55,
-            "accelerationPercentPoints": 4.6,
+            "currentPeriodRevenueNt": 5008626000,
+            "priorPeriodRevenueNt": 4512271000,
+            "currentGrowthPercent": 11,
+            "previousGrowthPercent": -1.02,
+            "accelerationPercentPoints": 12.02,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 9337903000,
-            "priorPeriodRevenueNt": 8590248000,
-            "currentGrowthPercent": 8.7,
-            "previousGrowthPercent": 15.92,
-            "accelerationPercentPoints": -7.22,
+            "currentPeriodRevenueNt": 9520897000,
+            "priorPeriodRevenueNt": 8786665000,
+            "currentGrowthPercent": 8.36,
+            "previousGrowthPercent": 14.07,
+            "accelerationPercentPoints": -5.72,
             "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 17928151000,
-            "priorPeriodRevenueNt": 12965847000,
-            "currentGrowthPercent": 38.27,
-            "previousGrowthPercent": 40.6,
-            "accelerationPercentPoints": -2.32,
+            "currentPeriodRevenueNt": 18307562000,
+            "priorPeriodRevenueNt": 13579919000,
+            "currentGrowthPercent": 34.81,
+            "previousGrowthPercent": 46.79,
+            "accelerationPercentPoints": -11.97,
             "direction": "decelerating"
           }
         }
@@ -19821,54 +19821,54 @@
         "name": "CHICONY",
         "classification": "EMS & ODM",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 7056988000,
+        "momPercent": -10.543477503047066,
+        "yoyPercent": -12.23975785742773,
         "previousYoyPercent": -5.48446917125462,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": -6.271064905007405,
+        "accelerationPercentPoints": -6.76,
+        "direction": "decelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 7056988000,
             "priorPeriodRevenueNt": 7888735000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -10.54,
             "previousGrowthPercent": 9.16,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -19.7,
+            "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 7056988000,
             "priorPeriodRevenueNt": 8041213000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -12.24,
             "previousGrowthPercent": -5.48,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -6.76,
+            "direction": "decelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 22172651000,
             "priorPeriodRevenueNt": 22448752000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -1.23,
             "previousGrowthPercent": -3.82,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 2.59,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 44621403000,
             "priorPeriodRevenueNt": 47538865000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -6.14,
             "previousGrowthPercent": -1.58,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -4.56,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 92160268000,
             "priorPeriodRevenueNt": 101394818000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -9.11,
             "previousGrowthPercent": 3.34,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -12.45,
+            "direction": "decelerating"
           }
         }
       },
@@ -21018,54 +21018,54 @@
         "name": "Weltrend",
         "classification": "Analog & Power IC Design",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 403610000,
+        "momPercent": 8.460575181524538,
+        "yoyPercent": 42.92897993873612,
         "previousYoyPercent": 18.283561926860667,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 30.13356778344465,
+        "accelerationPercentPoints": 24.65,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 403610000,
             "priorPeriodRevenueNt": 372126000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 8.46,
             "previousGrowthPercent": -6.28,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 14.74,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 403610000,
             "priorPeriodRevenueNt": 282385000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 42.93,
             "previousGrowthPercent": 18.28,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 24.65,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1172779000,
             "priorPeriodRevenueNt": 1023754000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 14.56,
             "previousGrowthPercent": -3.41,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 17.97,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2196533000,
             "priorPeriodRevenueNt": 1976706000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 11.12,
             "previousGrowthPercent": 13.06,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -1.94,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 4173239000,
             "priorPeriodRevenueNt": 3408502000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 22.44,
             "previousGrowthPercent": 11.23,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 11.21,
+            "direction": "accelerating"
           }
         }
       },
@@ -22386,54 +22386,54 @@
         "name": "I-CHIUN",
         "classification": "LED & Optoelectronics",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 739794000,
+        "momPercent": 5.530932739532767,
+        "yoyPercent": 42.51556067555775,
         "previousYoyPercent": 35.04104084435686,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 27.53104066349265,
+        "accelerationPercentPoints": 7.8,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 739794000,
             "priorPeriodRevenueNt": 701021000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 5.53,
             "previousGrowthPercent": 1.08,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 4.45,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 739794000,
             "priorPeriodRevenueNt": 519097000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 42.52,
             "previousGrowthPercent": 34.71,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 7.8,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2134328000,
             "priorPeriodRevenueNt": 1728828000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 23.46,
             "previousGrowthPercent": 8.11,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 15.35,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 3863156000,
             "priorPeriodRevenueNt": 3137808000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 23.12,
             "previousGrowthPercent": 2.8,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 20.32,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 7000964000,
             "priorPeriodRevenueNt": 5974392000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 17.18,
             "previousGrowthPercent": 12.42,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 4.76,
+            "direction": "accelerating"
           }
         }
       },
@@ -24096,54 +24096,54 @@
         "name": "TXC",
         "classification": "Passive Components",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1365597000,
+        "momPercent": 14.475057443032691,
+        "yoyPercent": 22.9140301957304,
         "previousYoyPercent": 19.977169638636614,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 9.936999019362617,
+        "accelerationPercentPoints": 2.94,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1365597000,
             "priorPeriodRevenueNt": 1192921000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 14.48,
             "previousGrowthPercent": -1.99,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 16.47,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1365597000,
             "priorPeriodRevenueNt": 1111018000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 22.91,
             "previousGrowthPercent": 19.98,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 2.94,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 3775677000,
             "priorPeriodRevenueNt": 3411213000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 10.68,
             "previousGrowthPercent": -0.1,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 10.78,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 7186890000,
             "priorPeriodRevenueNt": 6921596000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 3.83,
             "previousGrowthPercent": 6.45,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -2.62,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 14108486000,
             "priorPeriodRevenueNt": 13476486000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 4.69,
             "previousGrowthPercent": 12.07,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -7.39,
+            "direction": "decelerating"
           }
         }
       },
@@ -25863,54 +25863,54 @@
         "name": "GUC",
         "classification": "IP & Design Services",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 5769170000,
+        "momPercent": 17.057034658736754,
+        "yoyPercent": 158.38135946958366,
         "previousYoyPercent": 103.71897307865596,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 102.54848095176932,
+        "accelerationPercentPoints": 54.66,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 5769170000,
             "priorPeriodRevenueNt": 4928512000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 17.06,
             "previousGrowthPercent": 5.45,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 11.61,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 5769170000,
             "priorPeriodRevenueNt": 2232812000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 158.38,
             "previousGrowthPercent": 103.72,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 54.66,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 15371694000,
             "priorPeriodRevenueNt": 11506003000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 33.6,
             "previousGrowthPercent": -10.94,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 44.54,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 26877697000,
             "priorPeriodRevenueNt": 23015787000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 16.78,
             "previousGrowthPercent": 72.76,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -55.98,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 49893484000,
             "priorPeriodRevenueNt": 25091940000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 98.84,
             "previousGrowthPercent": -4.32,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 103.16,
+            "direction": "accelerating"
           }
         }
       },
@@ -26604,54 +26604,54 @@
         "name": "COPARTNER",
         "classification": "Interconnect",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 412542000,
+        "momPercent": 11.399084055215917,
+        "yoyPercent": 38.32829254880396,
         "previousYoyPercent": 38.08316430020284,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 28.955961720508334,
+        "accelerationPercentPoints": 0.25,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 412542000,
             "priorPeriodRevenueNt": 370328000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 11.4,
             "previousGrowthPercent": -5.45,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 16.85,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 412542000,
             "priorPeriodRevenueNt": 298234000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 38.33,
             "previousGrowthPercent": 38.08,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 0.25,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1174551000,
             "priorPeriodRevenueNt": 1080227000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 8.73,
             "previousGrowthPercent": 6,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 2.73,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2254778000,
             "priorPeriodRevenueNt": 1866739000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 20.79,
             "previousGrowthPercent": 3.34,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 17.45,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 4121517000,
             "priorPeriodRevenueNt": 3545466000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 16.25,
             "previousGrowthPercent": 3.57,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 12.67,
+            "direction": "accelerating"
           }
         }
       },
@@ -30993,54 +30993,54 @@
         "name": "ITEQ",
         "classification": "CCL & PCB Materials",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 4749174000,
+        "momPercent": 12.708651098459704,
+        "yoyPercent": 96.87955881359228,
         "previousYoyPercent": 47.940002057417395,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 34.72716429794154,
+        "accelerationPercentPoints": 48.94,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 4749174000,
             "priorPeriodRevenueNt": 4213673000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 12.71,
             "previousGrowthPercent": 10.8,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 1.91,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 4749174000,
             "priorPeriodRevenueNt": 2412223000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 96.88,
             "previousGrowthPercent": 47.94,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 48.94,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 12765711000,
             "priorPeriodRevenueNt": 9492849000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 34.48,
             "previousGrowthPercent": 1.74,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 32.74,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 22258560000,
             "priorPeriodRevenueNt": 17392542000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 27.98,
             "previousGrowthPercent": 4.49,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 23.48,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 39651102000,
             "priorPeriodRevenueNt": 31770243000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 24.81,
             "previousGrowthPercent": 14.25,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 10.56,
+            "direction": "accelerating"
           }
         }
       },
@@ -33501,54 +33501,54 @@
         "name": "VLI",
         "classification": "Connectivity & Interface IC Design",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 177234000,
+        "momPercent": -2.8897363403248075,
+        "yoyPercent": 70.6831795681735,
         "previousYoyPercent": 50.05919884233375,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 22.500664022189227,
+        "accelerationPercentPoints": 20.62,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 177234000,
             "priorPeriodRevenueNt": 182508000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -2.89,
             "previousGrowthPercent": 0.1,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -2.99,
+            "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 177234000,
             "priorPeriodRevenueNt": 103838000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 70.68,
             "previousGrowthPercent": 50.06,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 20.62,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 542072000,
             "priorPeriodRevenueNt": 421062000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 28.74,
             "previousGrowthPercent": -5.22,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 33.96,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 963134000,
             "priorPeriodRevenueNt": 793677000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 21.35,
             "previousGrowthPercent": 1.95,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 19.4,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1756811000,
             "priorPeriodRevenueNt": 1576631000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 11.43,
             "previousGrowthPercent": -17.58,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 29.01,
+            "direction": "accelerating"
           }
         }
       },
@@ -33672,54 +33672,54 @@
         "name": "AES-KY",
         "classification": "Power & Thermal Components",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1723107000,
+        "momPercent": 2.2578411107965826,
+        "yoyPercent": 28.23637191745752,
         "previousYoyPercent": 25.5805374354327,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 26.350028443295034,
+        "accelerationPercentPoints": 2.66,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1723107000,
             "priorPeriodRevenueNt": 1685061000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 2.26,
             "previousGrowthPercent": 5.29,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -3.03,
+            "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1723107000,
             "priorPeriodRevenueNt": 1343696000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 28.24,
             "previousGrowthPercent": 25.58,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 2.66,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 5008626000,
             "priorPeriodRevenueNt": 4512271000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 11,
             "previousGrowthPercent": -1.02,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 12.02,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 9520897000,
             "priorPeriodRevenueNt": 8786665000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 8.36,
             "previousGrowthPercent": 14.07,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -5.72,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 18307562000,
             "priorPeriodRevenueNt": 13579919000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 34.81,
             "previousGrowthPercent": 46.79,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -11.97,
+            "direction": "decelerating"
           }
         }
       },
