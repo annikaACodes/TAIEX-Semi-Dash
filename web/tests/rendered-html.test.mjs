@@ -374,6 +374,16 @@ test("ships complete, internally consistent dashboard data", async () => {
   );
   assert.ok(exactTimestamp);
   assert.match(exactTimestamp.publicationTimestamp, /^20\d{2}-/);
+  const publicProxyTimestamp = Object.values(bundle.companies)
+    .flatMap((company) => company.history)
+    .find((row) =>
+      [
+        "CNYES_PUBLICATION_CORROBORATED_PROXY",
+        "MONEYDJ_PUBLICATION_CORROBORATED_PROXY",
+      ].includes(row.publicationTimestampBasis),
+    );
+  assert.ok(publicProxyTimestamp);
+  assert.match(publicProxyTimestamp.publicationTimestamp, /^20\d{2}-/);
 
   const exchangeRateByMonth = new Map(
     exchangeRates.map((rate) => [rate.month, rate]),

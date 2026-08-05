@@ -95,11 +95,21 @@ For revenue data, use the following priority:
 1. Official Taiwan government / exchange / MOPS source
 2. Company filings or company investor-relations data, if company-level validation is needed
 3. Licensed data vendor data, if approved
-4. Public web sources only for prototype testing and never as final production authority unless approved
+4. Explicitly approved public web sources only as corroborating metadata; never
+   as the authority for revenue figures
+
+Approved narrow exceptions: the Cnyes structured `tw_revenue` feed and MoneyDJ's
+date-bounded revenue-news search may supply publication-time proxies for the
+latest 12 reporting months. Accept a record only after its company identity,
+reporting month, rounded revenue, and available growth metrics match a stored
+MOPS observation. Store the article URL and label the provider as a public-web
+proxy; neither is an original filing timestamp, and neither may override exact
+MOPS, MOPS first-observed, or an official IR calendar date. Do not use generic
+news search or earnings-call dates for monthly-report timing.
 
 If a company IR site denies automated access, retain the last verified
 announcement and use the company's rolling historical release estimate for
-uncovered months. Do not substitute an unapproved public web source.
+uncovered months. Do not substitute any other public web source.
 
 For benchmark data, use the following priority:
 

@@ -345,6 +345,12 @@ function formatPublicationBasis(value: string | null | undefined) {
     return "Exact MOPS announcement";
   }
   if (value === "MOPS_ARCHIVE_FIRST_OBSERVED") return "First observed";
+  if (value === "CNYES_PUBLICATION_CORROBORATED_PROXY") {
+    return "Cnyes public-web proxy";
+  }
+  if (value === "MONEYDJ_PUBLICATION_CORROBORATED_PROXY") {
+    return "MoneyDJ public-web proxy";
+  }
   if (value === "MOPS_ARCHIVE_HTTP_LAST_MODIFIED_CURRENT_VERSION") {
     return "Original time unavailable";
   }
@@ -360,9 +366,16 @@ function formatRevenuePublication(
   }
   if (!timestamp) return "Not available";
   const formatted = formatTimestamp(timestamp);
-  return basis === "MOPS_ARCHIVE_FIRST_OBSERVED"
-    ? `${formatted} (first observed)`
-    : formatted;
+  if (basis === "MOPS_ARCHIVE_FIRST_OBSERVED") {
+    return `${formatted} (first observed)`;
+  }
+  if (basis === "CNYES_PUBLICATION_CORROBORATED_PROXY") {
+    return `${formatted} (public proxy)`;
+  }
+  if (basis === "MONEYDJ_PUBLICATION_CORROBORATED_PROXY") {
+    return `${formatted} (public proxy)`;
+  }
+  return formatted;
 }
 
 function exportPublicationTimestamp(

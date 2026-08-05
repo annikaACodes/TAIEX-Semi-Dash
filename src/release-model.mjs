@@ -19,10 +19,14 @@ function median(values) {
 }
 
 export function buildReleaseProfile(history, updatedAtUtc) {
+  const sourceRank = { ir: 0, proxy: 1, actual: 2 };
   const byMonth = new Map();
   for (const item of history) {
     const prior = byMonth.get(item.reportingMonth);
-    if (!prior || (item.kind === "actual" && prior.kind !== "actual")) {
+    if (
+      !prior ||
+      (sourceRank[item.kind] ?? -1) > (sourceRank[prior.kind] ?? -1)
+    ) {
       byMonth.set(item.reportingMonth, item);
     }
   }
@@ -59,6 +63,15 @@ export function buildReleaseProfile(history, updatedAtUtc) {
     .map((item) => item.releaseMinuteLocal)
     .filter((value) => value !== null && value !== undefined);
   const sampleCount = observations.length;
+  const proxySampleCount = observations.filter(
+    (item) => item.kind === "proxy",
+  ).length;
+  const confidence =
+    sampleCount >= 6 && proxySampleCount < sampleCount
+      ? "high"
+      : sampleCount >= 3
+        ? "medium"
+        : "low";
 
   return {
     historySampleCount: sampleCount,
@@ -71,7 +84,7 @@ export function buildReleaseProfile(history, updatedAtUtc) {
     medianReleaseMinuteLocal: median(minuteValues),
     medianAbsoluteDeviationDays: median(deviations),
     forecastMethod: "company_history",
-    confidence: sampleCount >= 6 ? "high" : sampleCount >= 3 ? "medium" : "low",
+    confidence,
     profileAsOfReportingMonth: observations
       .map((item) => item.reportingMonth)
       .sort()

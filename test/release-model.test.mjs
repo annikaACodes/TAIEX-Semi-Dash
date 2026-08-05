@@ -72,6 +72,49 @@ test("release profiles retain only the latest 12 reporting months", () => {
   assert.equal(profile.profileAsOfReportingMonth, "2026-06-01");
 });
 
+test("proxy-only histories are capped at medium confidence", () => {
+  const months = Array.from({ length: 6 }, (_, index) =>
+    addMonths("2026-01-01", index),
+  );
+  const profile = buildReleaseProfile(
+    months.map((reportingMonth) => ({
+      kind: "proxy",
+      reportingMonth,
+      releaseDateLocal: addDays(reportingMonthEnd(reportingMonth), 6),
+      releaseMinuteLocal: 15 * 60,
+    })),
+    NOW,
+  );
+
+  assert.equal(profile.historySampleCount, 6);
+  assert.equal(profile.actualFirstSeenSampleCount, 0);
+  assert.equal(profile.confidence, "medium");
+});
+
+test("exact history wins over proxy evidence for the same month", () => {
+  const profile = buildReleaseProfile(
+    [
+      {
+        kind: "proxy",
+        reportingMonth: "2026-06-01",
+        releaseDateLocal: "2026-07-08",
+        releaseMinuteLocal: 15 * 60,
+      },
+      {
+        kind: "actual",
+        reportingMonth: "2026-06-01",
+        releaseDateLocal: "2026-07-05",
+        releaseMinuteLocal: 14 * 60,
+      },
+    ],
+    NOW,
+  );
+
+  assert.equal(profile.historySampleCount, 1);
+  assert.equal(profile.actualFirstSeenSampleCount, 1);
+  assert.equal(profile.medianReleaseOffsetDays, 5);
+});
+
 test("sparse company history is blended toward the cross-company median", () => {
   const fallback = buildHistoricalFallbackProfile(
     [

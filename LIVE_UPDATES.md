@@ -3,8 +3,8 @@
 ## What Runs Automatically
 
 The SQLite file remains the single database. A scheduled GitHub Actions workflow
-polls the official sources, validates each response, updates the database, and
-commits only meaningful changes.
+polls the official sources plus one validated public-web timestamp fallback,
+updates the database, and commits only meaningful changes.
 
 - Days 1-16: every 30 minutes
 - Days 17-31: every 6 hours for late filings and restatements
@@ -33,27 +33,30 @@ SQLite does not contain a clock or background process. The workflow in
 
 ## Source Priority
 
-1. The official MOPS latest financial/revenue feed provides the original
-   publication time for reports captured live.
-2. MOPS monthly revenue archive files are authoritative for revenue figures
-   and restatements; the updater's poll time is retained only as a clearly
-   labeled fallback when an exact filing time is unavailable.
-3. Explicit monthly revenue announcements in the official MOPS historical
-   material-information feed provide exact backfill dates when they match a
-   stored revenue month; corrections and multi-month summaries are excluded.
-4. Official company investor-relations calendars override forecast release dates.
-5. A company's rolling 12-month report-date history drives its forecast.
-6. A cross-company historical median provides a low-confidence cold-start
-   estimate until the company has enough of its own observations.
+Revenue figures and restatements always come from the official MOPS current feed
+or monthly archives. Publication-time evidence uses this order:
+
+1. Exact MOPS current-feed or material-announcement timestamp.
+2. The updater's first observation of a new MOPS filing.
+3. An official company investor-relations calendar date.
+4. A Cnyes or MoneyDJ monthly-revenue article timestamp, labeled as a
+   public-web proxy and accepted only when its identity and rounded metrics
+   corroborate a stored MOPS observation. The earlier validated proxy wins.
+
+An official IR calendar date overrides the forecast when available. Otherwise,
+the company's rolling 12-month report-date history drives the forecast; a
+cross-company median provides a low-confidence cold-start estimate.
 
 The official backfill archive timestamps are not used as historical filing
 times: the current archive server timestamp does not show when a company
 originally published an old month. MOPS does not expose a free public historical
 receipt-time endpoint for all monthly revenue filings. Exact history is therefore
-backfilled only from official MOPS revenue announcements, while official IR dates
-and updater first-observed times remain explicitly labeled lower-priority inputs.
-Completing a full-universe historical release-date backfill requires an approved
-licensed source, such as a TEJ export, or TWSE's paid MOPS push data.
+backfilled exactly only from official MOPS revenue announcements. A corroborated
+Cnyes or MoneyDJ article can fill an otherwise unavailable date, but it remains
+explicitly labeled as a non-original proxy and never overrides MOPS or IR
+evidence. Generic web search and earnings-call dates are not used. A
+full-universe exact historical backfill still requires an approved licensed
+source, such as a TEJ export, or TWSE's paid MOPS push data.
 
 Official inputs:
 
@@ -67,6 +70,13 @@ Official inputs:
   `https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule`
 - Central Bank daily NTD/USD interbank spot rates:
   `https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01`
+
+Validated timing fallback:
+
+- Cnyes structured monthly-revenue category feed:
+  `https://api.cnyes.com/media/api/v1/newslist/category/tw_revenue`
+- MoneyDJ date-bounded revenue-news search, used only by the 12-month backfill:
+  `https://www.moneydj.com/kmdj/search/list.aspx`
 - TSMC calendar:
   `https://investor.tsmc.com/english/financial-calendar`
   (official Japanese and simplified-Chinese pages are transport fallbacks)
@@ -94,8 +104,9 @@ the company's own median is used without shrinkage. A reporting month's forecast
 uses only dates from earlier reporting months, so the actual filing cannot leak
 into its own expected date.
 
-- `high`: at least 6 trustworthy observations
+- `high`: at least 6 observations with at least one non-proxy date
 - `medium`: 3-5 observations
+- proxy-only history is capped at `medium`
 - `low`: fewer than 3 observations or only the regulatory prior
 - `history_expected_release_date_local`: the unchanged historical forecast
 - `effective_expected_release_date_local`: historical estimate, IR override, or
@@ -117,6 +128,7 @@ exceeds 12 reporting months.
 - `company_release_profiles`: learned cadence and confidence by company
 - `company_monthly_report_dates`: at most 12 report dates per company
 - `company_report_date_history`: searchable English report-date history view
+- `company_monthly_publication_evidence`: validated proxy article provenance
 - `company_reporting_sources`: enabled official IR sources and parser health
 - `company_release_events`: versioned dates detected on official IR calendars
 - `monthly_release_schedule`: forecast, override, actual, status, and anomaly
@@ -159,7 +171,14 @@ Requires Node.js 24 or newer; there are no third-party packages.
 node --test
 node scripts/update-exchange-rate.mjs
 node scripts/update-live-data.mjs
+node scripts/backfill-publication-dates.mjs --months 12
 ```
+
+The one-time backfill requests one bounded release-month window at a time and
+uses MOPS company names to resolve MoneyDJ headlines to tickers. Live polls use
+only Cnyes, with a two-minute overlap from the latest match and a seven-day
+maximum lookback, so normal runs usually need one small feed request. On Windows,
+`--curl` is available if the local Node network stack cannot reach Cnyes.
 
 Numeric ingestion is never blocked by note translation. A failed translation is
 stored as an English `pending` placeholder and retried on a later source poll.

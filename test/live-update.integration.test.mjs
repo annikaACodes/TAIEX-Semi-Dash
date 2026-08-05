@@ -524,7 +524,7 @@ test("non-retryable all-market MOPS failures still fail loudly", async () => {
   }
 });
 
-test("migrations reach version 7 and promote exact announcement timestamps", async () => {
+test("migrations reach version 9 and promote exact announcement timestamps", async () => {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-v5-test-"));
   const databasePath = join(temporaryDirectory, "test.sqlite");
   const sourceDatabase = new URL(
@@ -538,6 +538,8 @@ test("migrations reach version 7 and promote exact announcement timestamps", asy
     versionFour.exec(`
       DROP VIEW IF EXISTS monthly_usd_twd_exchange_rates;
       DROP TABLE IF EXISTS monthly_exchange_rates;
+      DROP TRIGGER IF EXISTS trim_company_monthly_publication_evidence_after_insert;
+      DROP TABLE IF EXISTS company_monthly_publication_evidence;
       UPDATE monthly_release_schedule
       SET actual_first_seen_at_utc = NULL,
           actual_first_seen_date_local = NULL,
@@ -554,7 +556,7 @@ test("migrations reach version 7 and promote exact announcement timestamps", asy
       nowUtc: "2026-08-03T13:30:00.000Z",
     });
     assert.equal(result.migrationApplied, true);
-    assert.equal(result.databaseVersion, 7);
+    assert.equal(result.databaseVersion, 9);
 
     const database = new DatabaseSync(databasePath, { readOnly: true });
     const mopsSeeds = database
@@ -599,6 +601,14 @@ test("migrations reach version 7 and promote exact announcement timestamps", asy
         WHERE type = 'table' AND name = 'monthly_exchange_rates'
       `)
       .get();
+    const evidenceTrigger = database
+      .prepare(`
+        SELECT COUNT(*) AS row_count
+        FROM sqlite_master
+        WHERE type = 'trigger'
+          AND name = 'trim_company_monthly_publication_evidence_after_insert'
+      `)
+      .get();
     const exactPublicationTimestamps = database
       .prepare(`
         SELECT COUNT(*) AS row_count
@@ -622,6 +632,7 @@ test("migrations reach version 7 and promote exact announcement timestamps", asy
     assert.equal(correctionOnlyCompany.row_count, 0);
     assert.equal(maximumHistoryRows.maximum_count, 12);
     assert.equal(exchangeRateTable.row_count, 1);
+    assert.equal(evidenceTrigger.row_count, 1);
     assert.ok(exactPublicationTimestamps.row_count >= 197);
     assert.equal(
       sourcePriorities.find(

@@ -15,7 +15,7 @@ monthly revenue.
 - Release forecasts, official IR date overrides, first-seen times, confidence,
   status, and unusual-date flags
 
-The database schema is version 7 and all user-facing tables and views are in
+The database schema is version 9 and all user-facing tables and views are in
 English.
 
 ## Automatic Updates
@@ -37,4 +37,10 @@ and local commands.
 - `migrations/005_mops_announcement_seeds.sql`: official historical date seeds
 - `migrations/007_original_publication_timestamps.sql`: exact-time provenance
   and backfill migration
+- `migrations/008_public_web_timestamp_evidence.sql`: validated public-web
+  publication evidence and rolling-history migration
+- `migrations/009_moneydj_timestamp_evidence.sql`: second-source publication
+  evidence migration
+- `scripts/backfill-publication-dates.mjs`: bounded 12-month publication-date
+  backfill
 - `test/`: source parser and forecasting tests

@@ -15,7 +15,10 @@ const databasePath = resolve(
 );
 
 try {
-  const result = await runLiveUpdate({ databasePath });
+  const result = await runLiveUpdate({
+    databasePath,
+    enablePublicTimestampFallback: true,
+  });
   console.log(JSON.stringify(result, null, 2));
   if (result.deferred) {
     console.warn(`Poll deferred safely: ${result.deferredReason}`);

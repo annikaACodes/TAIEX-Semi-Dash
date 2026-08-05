@@ -26,6 +26,8 @@ import {
   resolveHistoricalEstimate,
 } from "./release-model.mjs";
 import { translateMopsNote } from "./translation.mjs";
+import { fetchCnyesRevenueWindow } from "./cnyes.mjs";
+import { syncCnyesPublicationEvidence } from "./publication-evidence.mjs";
 
 const DEFAULT_MIGRATION_PATH = fileURLToPath(
   new URL("../migrations/005_rolling_report_dates.sql", import.meta.url),
@@ -41,6 +43,15 @@ const DEFAULT_PUBLICATION_TIMESTAMP_MIGRATION_PATH = fileURLToPath(
     "../migrations/007_original_publication_timestamps.sql",
     import.meta.url,
   ),
+);
+const DEFAULT_PUBLIC_WEB_TIMESTAMP_MIGRATION_PATH = fileURLToPath(
+  new URL(
+    "../migrations/008_public_web_timestamp_evidence.sql",
+    import.meta.url,
+  ),
+);
+const DEFAULT_MONEYDJ_TIMESTAMP_MIGRATION_PATH = fileURLToPath(
+  new URL("../migrations/009_moneydj_timestamp_evidence.sql", import.meta.url),
 );
 const DEFAULT_IR_CONFIG_PATH = fileURLToPath(
   new URL("../config/ir_sources.json", import.meta.url),
@@ -204,14 +215,16 @@ function applyMigration(
   reportDateSeedSql,
   exchangeRateMigrationSql,
   publicationTimestampMigrationSql,
+  publicWebTimestampMigrationSql,
+  moneydjTimestampMigrationSql,
 ) {
   const version = Number(database.prepare("PRAGMA user_version").get().user_version);
-  if (version === 7) {
+  if (version === 9) {
     return false;
   }
-  if (version !== 4 && version !== 5 && version !== 6) {
+  if (![4, 5, 6, 7, 8].includes(version)) {
     throw new Error(
-      `Expected SQLite user_version 4, 5, 6, or 7, found ${version}`,
+      `Expected SQLite user_version 4, 5, 6, 7, 8, or 9, found ${version}`,
     );
   }
   database.exec("BEGIN IMMEDIATE");
@@ -223,7 +236,13 @@ function applyMigration(
     if (version === 4 || version === 5) {
       database.exec(exchangeRateMigrationSql);
     }
-    database.exec(publicationTimestampMigrationSql);
+    if (version <= 6) {
+      database.exec(publicationTimestampMigrationSql);
+    }
+    if (version <= 7) {
+      database.exec(publicWebTimestampMigrationSql);
+    }
+    database.exec(moneydjTimestampMigrationSql);
     database.exec("COMMIT");
     return true;
   } catch (error) {
@@ -269,6 +288,8 @@ async function collectRemoteInputs({
   targetReportingMonth,
   irConfig,
   mopsRetryDelaysMs,
+  enablePublicTimestampFallback,
+  cnyesStartAtUtc,
   overrides,
 }) {
   const errors = [];
@@ -379,6 +400,27 @@ async function collectRemoteInputs({
     });
   }
 
+  let cnyesRevenueArticles = [];
+  let cnyesRequests = 0;
+  if (enablePublicTimestampFallback) {
+    try {
+      const cnyes = await fetchCnyesRevenueWindow({
+        fetchFn,
+        startAtUtc: cnyesStartAtUtc,
+        endAtUtc: overrides?.observedAtUtc,
+        payloads: overrides?.cnyesPayloads ?? null,
+        maxPages: 30,
+      });
+      cnyesRevenueArticles = cnyes.records;
+      cnyesRequests = cnyes.requests;
+    } catch (error) {
+      errors.push({
+        source: "cnyes:revenue_news",
+        message: error.message,
+      });
+    }
+  }
+
   const mopsPayloads = mopsResults
     .map((result) => result.payload)
     .filter(Boolean);
@@ -387,6 +429,8 @@ async function collectRemoteInputs({
     irResults,
     mopsPayloads,
     mopsCurrentReports,
+    cnyesRevenueArticles,
+    cnyesRequests,
     errors,
   };
   if (mopsPayloads.length === 0) {
@@ -1198,8 +1242,16 @@ function collectReleaseHistory(database) {
     `)
     .all();
   for (const row of rows) {
+    const kind =
+      row.report_date_basis === "ir_calendar_matched"
+        ? "ir"
+        : ["cnyes_revenue_news", "moneydj_revenue_news"].includes(
+              row.report_date_basis,
+            )
+          ? "proxy"
+          : "actual";
     add(Number(row.company_id), {
-      kind: row.report_date_basis === "ir_calendar_matched" ? "ir" : "actual",
+      kind,
       reportingMonth: row.reporting_month,
       releaseDateLocal: row.reported_date_local,
       releaseMinuteLocal: timeToMinute(row.reported_time_local),
@@ -1595,6 +1647,22 @@ function refreshReleaseModel({
   };
 }
 
+function cnyesIncrementalStart(database, nowUtc) {
+  const latest = database
+    .prepare(`
+      SELECT MAX(published_at_utc) AS published_at_utc
+      FROM company_monthly_publication_evidence
+      WHERE evidence_basis = 'cnyes_revenue_news'
+    `)
+    .get()?.published_at_utc;
+  const now = new Date(nowUtc).valueOf();
+  const maximumLookback = now - 7 * 86_400_000;
+  const overlapStart = latest
+    ? new Date(latest).valueOf() - 2 * 60_000
+    : maximumLookback;
+  return new Date(Math.max(maximumLookback, overlapStart)).toISOString();
+}
+
 function checkDatabase(database) {
   const foreignKeyFailures = database.prepare("PRAGMA foreign_key_check").all();
   if (foreignKeyFailures.length > 0) {
@@ -1616,6 +1684,9 @@ export async function refreshReleaseForecasts({
   exchangeRateMigrationPath = DEFAULT_EXCHANGE_RATE_MIGRATION_PATH,
   publicationTimestampMigrationPath =
     DEFAULT_PUBLICATION_TIMESTAMP_MIGRATION_PATH,
+  publicWebTimestampMigrationPath =
+    DEFAULT_PUBLIC_WEB_TIMESTAMP_MIGRATION_PATH,
+  moneydjTimestampMigrationPath = DEFAULT_MONEYDJ_TIMESTAMP_MIGRATION_PATH,
   scheduleMonthCount = 13,
   holidays = new Set(),
 } = {}) {
@@ -1629,12 +1700,16 @@ export async function refreshReleaseForecasts({
     reportDateSeedSql,
     exchangeRateMigrationSql,
     publicationTimestampMigrationSql,
+    publicWebTimestampMigrationSql,
+    moneydjTimestampMigrationSql,
   ] =
     await Promise.all([
       readFile(migrationPath, "utf8"),
       readFile(reportDateSeedPath, "utf8"),
       readFile(exchangeRateMigrationPath, "utf8"),
       readFile(publicationTimestampMigrationPath, "utf8"),
+      readFile(publicWebTimestampMigrationPath, "utf8"),
+      readFile(moneydjTimestampMigrationPath, "utf8"),
     ]);
   const database = new DatabaseSync(databasePath);
   database.exec("PRAGMA foreign_keys = ON; PRAGMA busy_timeout = 30000");
@@ -1647,6 +1722,8 @@ export async function refreshReleaseForecasts({
       reportDateSeedSql,
       exchangeRateMigrationSql,
       publicationTimestampMigrationSql,
+      publicWebTimestampMigrationSql,
+      moneydjTimestampMigrationSql,
     );
     const companies = getCompanies(database);
     database.exec("BEGIN IMMEDIATE");
@@ -1667,7 +1744,7 @@ export async function refreshReleaseForecasts({
     }
     checkDatabase(database);
     return {
-      databaseVersion: 7,
+      databaseVersion: 9,
       migrationApplied,
       targetReportingMonth,
       companies: companies.length,
@@ -1691,9 +1768,13 @@ export async function runLiveUpdate({
   exchangeRateMigrationPath = DEFAULT_EXCHANGE_RATE_MIGRATION_PATH,
   publicationTimestampMigrationPath =
     DEFAULT_PUBLICATION_TIMESTAMP_MIGRATION_PATH,
+  publicWebTimestampMigrationPath =
+    DEFAULT_PUBLIC_WEB_TIMESTAMP_MIGRATION_PATH,
+  moneydjTimestampMigrationPath = DEFAULT_MONEYDJ_TIMESTAMP_MIGRATION_PATH,
   irConfigPath = DEFAULT_IR_CONFIG_PATH,
   scheduleMonthCount = 13,
   mopsRetryDelaysMs = MOPS_RETRY_DELAYS_MS,
+  enablePublicTimestampFallback = false,
   overrides = null,
 } = {}) {
   if (!databasePath) {
@@ -1706,12 +1787,16 @@ export async function runLiveUpdate({
     reportDateSeedSql,
     exchangeRateMigrationSql,
     publicationTimestampMigrationSql,
+    publicWebTimestampMigrationSql,
+    moneydjTimestampMigrationSql,
     irConfigText,
   ] = await Promise.all([
     readFile(migrationPath, "utf8"),
     readFile(reportDateSeedPath, "utf8"),
     readFile(exchangeRateMigrationPath, "utf8"),
     readFile(publicationTimestampMigrationPath, "utf8"),
+    readFile(publicWebTimestampMigrationPath, "utf8"),
+    readFile(moneydjTimestampMigrationPath, "utf8"),
     readFile(irConfigPath, "utf8"),
   ]);
   const irConfig = JSON.parse(irConfigText);
@@ -1726,16 +1811,23 @@ export async function runLiveUpdate({
       reportDateSeedSql,
       exchangeRateMigrationSql,
       publicationTimestampMigrationSql,
+      publicWebTimestampMigrationSql,
+      moneydjTimestampMigrationSql,
     );
     const companies = getCompanies(database);
     const companiesByTicker = new Map(
       companies.map((company) => [company.ticker, company]),
     );
+    const cnyesStartAtUtc = enablePublicTimestampFallback
+      ? cnyesIncrementalStart(database, normalizedNowUtc)
+      : null;
     const remote = await collectRemoteInputs({
       fetchFn,
       targetReportingMonth,
       irConfig,
       mopsRetryDelaysMs,
+      enablePublicTimestampFallback,
+      cnyesStartAtUtc,
       overrides: {
         ...overrides,
         observedAtUtc: normalizedNowUtc,
@@ -1744,13 +1836,17 @@ export async function runLiveUpdate({
     if (remote.deferred) {
       checkDatabase(database);
       return {
-        databaseVersion: 7,
+        databaseVersion: 9,
         migrationApplied,
         targetReportingMonth,
         companies: companies.length,
         mopsMarketsChecked: 0,
         mopsUniverseRowsSeen: 0,
         mopsCurrentReportsSeen: remote.mopsCurrentReports.length,
+        cnyesRequests: remote.cnyesRequests,
+        cnyesArticlesSeen: remote.cnyesRevenueArticles.length,
+        cnyesArticlesMatched: 0,
+        cnyesEvidenceChanged: 0,
         irSourcesChecked: remote.irResults.length,
         irEventsChanged: 0,
         revenueObservationsInserted: 0,
@@ -1808,9 +1904,17 @@ export async function runLiveUpdate({
         companiesByTicker,
         normalizedNowUtc,
       );
+      const cnyesSync = syncCnyesPublicationEvidence(
+        database,
+        remote.cnyesRevenueArticles,
+        normalizedNowUtc,
+      );
       const reportDatesChanged =
-        firstObservedReportDatesChanged + exactReportDatesChanged;
+        firstObservedReportDatesChanged +
+        exactReportDatesChanged +
+        cnyesSync.reportDatesChanged;
       const publicationTimestampsChanged =
+        cnyesSync.publicationTimestampsChanged +
         enrichPublicationTimestamps(database);
       const releaseModel = refreshReleaseModel({
         database,
@@ -1828,6 +1932,7 @@ export async function runLiveUpdate({
         irSync.eventsChanged +
         translationsChanged +
         revenue.inserted +
+        cnyesSync.evidenceChanged +
         reportDatesChanged +
         publicationTimestampsChanged +
         releaseModel.profilesChanged +
@@ -1864,13 +1969,17 @@ export async function runLiveUpdate({
           );
       }
       result = {
-        databaseVersion: 7,
+        databaseVersion: 9,
         migrationApplied,
         targetReportingMonth,
         companies: companies.length,
         mopsMarketsChecked: remote.mopsPayloads.length,
         mopsUniverseRowsSeen: selectedRows.length,
         mopsCurrentReportsSeen: remote.mopsCurrentReports.length,
+        cnyesRequests: remote.cnyesRequests,
+        cnyesArticlesSeen: cnyesSync.articlesSeen,
+        cnyesArticlesMatched: cnyesSync.matched,
+        cnyesEvidenceChanged: cnyesSync.evidenceChanged,
         irSourcesChecked: remote.irResults.length,
         irEventsChanged: irSync.eventsChanged,
         revenueObservationsInserted: revenue.inserted,
