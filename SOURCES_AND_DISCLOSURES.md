@@ -97,6 +97,11 @@ For revenue data, use the following priority:
 3. Licensed data vendor data, if approved
 4. Public web sources only for prototype testing and never as final production authority unless approved
 
+If a company blocks the GitHub runner, a text-rendering service may transport
+the company's official IR page only after direct requests fail. Accept the
+result only when its reported host and path match the configured official URL;
+the renderer is not a separate data authority.
+
 For benchmark data, use the following priority:
 
 1. Licensed official benchmark-provider data

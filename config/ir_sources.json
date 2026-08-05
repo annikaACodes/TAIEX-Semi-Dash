@@ -8,6 +8,7 @@
       "https://investor.tsmc.com/japanese/financial-calendar",
       "https://investor.tsmc.com/schinese/financial-calendar"
     ],
+    "readerFallback": true,
     "parserName": "tsmc",
     "priority": 1,
     "enabled": true
@@ -29,6 +30,7 @@
     "fallbackUrls": [
       "https://www.umc.com/en/IR/ir_overview"
     ],
+    "readerFallback": true,
     "parserName": "umc",
     "priority": 1,
     "enabled": true

@@ -54,6 +54,7 @@ const RETRYABLE_HTTP_STATUSES = new Set([
   503,
   504,
 ]);
+const READER_BASE_URL = "https://r.jina.ai/http://";
 
 function sleep(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -116,6 +117,33 @@ function irSourceUrls(source) {
   );
 }
 
+function readerFallbackUrl(sourceUrl) {
+  const url = new URL(sourceUrl);
+  return `${READER_BASE_URL}${url.host}${url.pathname}${url.search}`;
+}
+
+function validateReaderPayload(text, sourceUrl) {
+  const sourceMatch = /^\s*URL Source:\s*(https?:\/\/\S+)\s*$/im.exec(text);
+  if (!sourceMatch) {
+    throw new Error("reader response did not identify its source URL");
+  }
+  if (/^\s*Warning:\s*Target URL returned error\b/im.test(text)) {
+    throw new Error("reader could not load the official source page");
+  }
+
+  const expected = new URL(sourceUrl);
+  const received = new URL(sourceMatch[1]);
+  const normalizePath = (value) => value.replace(/\/+$/, "") || "/";
+  if (
+    received.hostname.toLowerCase() !== expected.hostname.toLowerCase() ||
+    normalizePath(received.pathname) !== normalizePath(expected.pathname)
+  ) {
+    throw new Error(
+      `reader source mismatch: expected ${expected.hostname}${expected.pathname}, received ${received.hostname}${received.pathname}`,
+    );
+  }
+}
+
 async function collectIrCalendar({ source, fetchFn, override }) {
   const overrideText =
     typeof override === "string" ? override : override?.text;
@@ -153,6 +181,22 @@ async function collectIrCalendar({ source, fetchFn, override }) {
           ? error.message
           : `${url}: ${error.message}`,
       );
+    }
+  }
+
+  if (source.readerFallback === true) {
+    const url = readerFallbackUrl(source.sourceUrl);
+    try {
+      const fetched = await fetchTextWithRetry(fetchFn, url);
+      validateReaderPayload(fetched.text, source.sourceUrl);
+      return {
+        source,
+        events: parseIrCalendar(source.parserName, fetched.text),
+        error: null,
+        fetchedUrl: source.sourceUrl,
+      };
+    } catch (error) {
+      failures.push(`verified reader fallback: ${error.message}`);
     }
   }
 

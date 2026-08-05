@@ -262,6 +262,169 @@ test(
   },
 );
 
+test(
+  "verified reader fallback recovers when every direct TSMC page blocks automation",
+  { timeout: 30_000 },
+  async () => {
+    const temporaryDirectory = await mkdtemp(
+      join(tmpdir(), "taiwan-ir-reader-test-"),
+    );
+    const databasePath = join(temporaryDirectory, "test.sqlite");
+    await copyFile(
+      new URL("../taiwan_semiconductor_companies.sqlite", import.meta.url),
+      databasePath,
+    );
+
+    const mopsPayloads = Object.fromEntries(
+      ["sii", "otc", "rotc", "pub"].map((market) => [
+        market,
+        {
+          text:
+            market === "sii"
+              ? `${HEADER}\n${TSMC_ROW}\n`
+              : `${HEADER}\n`,
+          lastModified: "Wed, 03 Jan 2035 00:00:00 GMT",
+        },
+      ]),
+    );
+    const requested = [];
+
+    try {
+      const result = await runLiveUpdate({
+        databasePath,
+        nowUtc: "2035-01-03T00:00:00.000Z",
+        fetchFn: async (url) => {
+          requested.push(url);
+          if (url.startsWith("https://investor.tsmc.com/")) {
+            return new Response(null, {
+              status: 403,
+              statusText: "Forbidden",
+            });
+          }
+          if (
+            url.startsWith("https://r.jina.ai/http://investor.tsmc.com/")
+          ) {
+            return new Response(`
+              Title: Financial Calendar - Taiwan Semiconductor Manufacturing Company Limited
+              URL Source: http://investor.tsmc.com/english/financial-calendar
+              Markdown Content:
+
+              January 10, 2035 (Wed)
+
+              TSMC Monthly Sales - December 2034
+            `, { status: 200 });
+          }
+          throw new Error(`Unexpected URL: ${url}`);
+        },
+        overrides: {
+          holidayPayload: "[]",
+          irPayloads: {
+            2317: IR_PAYLOADS[2317],
+            2303: IR_PAYLOADS[2303],
+            2454: IR_PAYLOADS[2454],
+          },
+          mopsPayloads,
+        },
+      });
+
+      assert.deepEqual(requested, [
+        "https://investor.tsmc.com/english/financial-calendar",
+        "https://investor.tsmc.com/japanese/financial-calendar",
+        "https://investor.tsmc.com/schinese/financial-calendar",
+        "https://r.jina.ai/http://investor.tsmc.com/english/financial-calendar",
+      ]);
+      assert.equal(result.errors.length, 0);
+
+      const updated = new DatabaseSync(databasePath, { readOnly: true });
+      const source = updated
+        .prepare(`
+          SELECT s.last_error_message, s.last_success_at_utc
+          FROM company_reporting_sources AS s
+          JOIN companies AS c ON c.company_id = s.company_id
+          WHERE c.ticker = '2330' AND s.parser_name = 'tsmc'
+        `)
+        .get();
+      const event = updated
+        .prepare(`
+          SELECT e.reporting_month, e.announced_release_date_local
+          FROM company_release_events AS e
+          JOIN companies AS c ON c.company_id = e.company_id
+          WHERE c.ticker = '2330' AND e.reporting_month = '2034-12-01'
+            AND e.is_current = 1
+        `)
+        .get();
+      updated.close();
+
+      assert.equal(source.last_error_message, null);
+      assert.equal(source.last_success_at_utc, "2035-01-03T00:00:00.000Z");
+      assert.equal(event.announced_release_date_local, "2035-01-10");
+    } finally {
+      await rm(temporaryDirectory, { recursive: true, force: true });
+    }
+  },
+);
+
+test("reader fallback rejects content attributed to another source", async () => {
+  const temporaryDirectory = await mkdtemp(
+    join(tmpdir(), "taiwan-ir-reader-source-test-"),
+  );
+  const databasePath = join(temporaryDirectory, "test.sqlite");
+  await copyFile(
+    new URL("../taiwan_semiconductor_companies.sqlite", import.meta.url),
+    databasePath,
+  );
+
+  try {
+    const result = await runLiveUpdate({
+      databasePath,
+      nowUtc: "2035-01-03T00:00:00.000Z",
+      fetchFn: async (url) => {
+        if (url.startsWith("https://investor.tsmc.com/")) {
+          return new Response(null, {
+            status: 403,
+            statusText: "Forbidden",
+          });
+        }
+        if (url.startsWith("https://r.jina.ai/http://investor.tsmc.com/")) {
+          return new Response(`
+            URL Source: https://example.com/financial-calendar
+
+            January 10, 2035 (Wed)
+
+            TSMC Monthly Sales - December 2034
+          `, { status: 200 });
+        }
+        throw new Error(`Unexpected URL: ${url}`);
+      },
+      overrides: {
+        holidayPayload: "[]",
+        irPayloads: {
+          2317: IR_PAYLOADS[2317],
+          2303: IR_PAYLOADS[2303],
+          2454: IR_PAYLOADS[2454],
+        },
+        mopsPayloads: Object.fromEntries(
+          ["sii", "otc", "rotc", "pub"].map((market) => [
+            market,
+            {
+              text:
+                market === "sii"
+                  ? `${HEADER}\n${TSMC_ROW}\n`
+                  : `${HEADER}\n`,
+              lastModified: "Wed, 03 Jan 2035 00:00:00 GMT",
+            },
+          ]),
+        ),
+      },
+    });
+
+    assert.equal(result.errors.length, 1);
+    assert.match(result.errors[0].message, /reader source mismatch/i);
+  } finally {
+    await rm(temporaryDirectory, { recursive: true, force: true });
+  }
+});
+
 test("temporary all-market MOPS redirects defer without changing data", async () => {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-live-defer-"));
   const databasePath = join(temporaryDirectory, "test.sqlite");
