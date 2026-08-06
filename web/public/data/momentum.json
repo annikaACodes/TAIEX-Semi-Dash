@@ -11606,6 +11606,63 @@
         }
       },
       {
+        "companyId": 315,
+        "ticker": "5274",
+        "name": "ASPEED",
+        "classification": "Logic IC Design",
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1524018000,
+        "momPercent": 16.31993710859834,
+        "yoyPercent": 97.59287014515903,
+        "previousYoyPercent": 67.47066184525202,
+        "ytdYoyPercent": 68.05540554444981,
+        "accelerationPercentPoints": 30.12,
+        "direction": "accelerating",
+        "periods": {
+          "mom": {
+            "currentPeriodRevenueNt": 1524018000,
+            "priorPeriodRevenueNt": 1310195000,
+            "currentGrowthPercent": 16.32,
+            "previousGrowthPercent": 2.19,
+            "accelerationPercentPoints": 14.13,
+            "direction": "accelerating"
+          },
+          "yoy": {
+            "currentPeriodRevenueNt": 1524018000,
+            "priorPeriodRevenueNt": 771292000,
+            "currentGrowthPercent": 97.59,
+            "previousGrowthPercent": 67.47,
+            "accelerationPercentPoints": 30.12,
+            "direction": "accelerating"
+          },
+          "3m": {
+            "currentPeriodRevenueNt": 4116387000,
+            "priorPeriodRevenueNt": 3525433000,
+            "currentGrowthPercent": 16.76,
+            "previousGrowthPercent": 34.93,
+            "accelerationPercentPoints": -18.16,
+            "direction": "decelerating"
+          },
+          "6m": {
+            "currentPeriodRevenueNt": 7641820000,
+            "priorPeriodRevenueNt": 4902282000,
+            "currentGrowthPercent": 55.88,
+            "previousGrowthPercent": 11.87,
+            "accelerationPercentPoints": 44.01,
+            "direction": "accelerating"
+          },
+          "ltm": {
+            "currentPeriodRevenueNt": 12544102000,
+            "priorPeriodRevenueNt": 8571916000,
+            "currentGrowthPercent": 46.34,
+            "previousGrowthPercent": 89.65,
+            "accelerationPercentPoints": -43.31,
+            "direction": "decelerating"
+          }
+        }
+      },
+      {
         "companyId": 204,
         "ticker": "5285",
         "name": "Jih Lin",
@@ -29502,6 +29559,63 @@
             "previousGrowthPercent": 34.36,
             "accelerationPercentPoints": null,
             "direction": "unavailable"
+          }
+        }
+      },
+      {
+        "companyId": 315,
+        "ticker": "5274",
+        "name": "ASPEED",
+        "classification": "Logic IC Design",
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 1524018000,
+        "momPercent": 16.31993710859834,
+        "yoyPercent": 97.59287014515903,
+        "previousYoyPercent": 67.47066184525202,
+        "ytdYoyPercent": 68.05540554444981,
+        "accelerationPercentPoints": 30.12,
+        "direction": "accelerating",
+        "periods": {
+          "mom": {
+            "currentPeriodRevenueNt": 1524018000,
+            "priorPeriodRevenueNt": 1310195000,
+            "currentGrowthPercent": 16.32,
+            "previousGrowthPercent": 2.19,
+            "accelerationPercentPoints": 14.13,
+            "direction": "accelerating"
+          },
+          "yoy": {
+            "currentPeriodRevenueNt": 1524018000,
+            "priorPeriodRevenueNt": 771292000,
+            "currentGrowthPercent": 97.59,
+            "previousGrowthPercent": 67.47,
+            "accelerationPercentPoints": 30.12,
+            "direction": "accelerating"
+          },
+          "3m": {
+            "currentPeriodRevenueNt": 4116387000,
+            "priorPeriodRevenueNt": 3525433000,
+            "currentGrowthPercent": 16.76,
+            "previousGrowthPercent": 34.93,
+            "accelerationPercentPoints": -18.16,
+            "direction": "decelerating"
+          },
+          "6m": {
+            "currentPeriodRevenueNt": 7641820000,
+            "priorPeriodRevenueNt": 4902282000,
+            "currentGrowthPercent": 55.88,
+            "previousGrowthPercent": 11.87,
+            "accelerationPercentPoints": 44.01,
+            "direction": "accelerating"
+          },
+          "ltm": {
+            "currentPeriodRevenueNt": 12544102000,
+            "priorPeriodRevenueNt": 8571916000,
+            "currentGrowthPercent": 46.34,
+            "previousGrowthPercent": 89.65,
+            "accelerationPercentPoints": -43.31,
+            "direction": "decelerating"
           }
         }
       },
@@ -47406,6 +47520,63 @@
         }
       },
       {
+        "companyId": 315,
+        "ticker": "5274",
+        "name": "ASPEED",
+        "classification": "Logic IC Design",
+        "analysisMonth": "2026-06",
+        "latestMonth": "2026-06",
+        "latestRevenueNt": 1310195000,
+        "momPercent": 2.185428810754235,
+        "yoyPercent": 67.47066184525202,
+        "previousYoyPercent": 68.73818861369199,
+        "ytdYoyPercent": 62.77159751511307,
+        "accelerationPercentPoints": -1.27,
+        "direction": "decelerating",
+        "periods": {
+          "mom": {
+            "currentPeriodRevenueNt": 1310195000,
+            "priorPeriodRevenueNt": 1282174000,
+            "currentGrowthPercent": 2.19,
+            "previousGrowthPercent": 0.25,
+            "accelerationPercentPoints": 1.94,
+            "direction": "accelerating"
+          },
+          "yoy": {
+            "currentPeriodRevenueNt": 1310195000,
+            "priorPeriodRevenueNt": 782343000,
+            "currentGrowthPercent": 67.47,
+            "previousGrowthPercent": 68.74,
+            "accelerationPercentPoints": -1.27,
+            "direction": "decelerating"
+          },
+          "3m": {
+            "currentPeriodRevenueNt": 3871409000,
+            "priorPeriodRevenueNt": 3146757000,
+            "currentGrowthPercent": 23.03,
+            "previousGrowthPercent": 28.8,
+            "accelerationPercentPoints": -5.77,
+            "direction": "decelerating"
+          },
+          "6m": {
+            "currentPeriodRevenueNt": 7018166000,
+            "priorPeriodRevenueNt": 4773210000,
+            "currentGrowthPercent": 47.03,
+            "previousGrowthPercent": 10.7,
+            "accelerationPercentPoints": 36.33,
+            "direction": "accelerating"
+          },
+          "ltm": {
+            "currentPeriodRevenueNt": 11791376000,
+            "priorPeriodRevenueNt": 8401813000,
+            "currentGrowthPercent": 40.34,
+            "previousGrowthPercent": 102.43,
+            "accelerationPercentPoints": -62.09,
+            "direction": "decelerating"
+          }
+        }
+      },
+      {
         "companyId": 204,
         "ticker": "5285",
         "name": "Jih Lin",
@@ -65302,6 +65473,63 @@
             "previousGrowthPercent": 25.9,
             "accelerationPercentPoints": 22.91,
             "direction": "accelerating"
+          }
+        }
+      },
+      {
+        "companyId": 315,
+        "ticker": "5274",
+        "name": "ASPEED",
+        "classification": "Logic IC Design",
+        "analysisMonth": "2026-05",
+        "latestMonth": "2026-05",
+        "latestRevenueNt": 1282174000,
+        "momPercent": 0.24502752064048036,
+        "yoyPercent": 68.73818861369199,
+        "previousYoyPercent": 81.593085197006,
+        "ytdYoyPercent": 61.729958331940246,
+        "accelerationPercentPoints": -12.85,
+        "direction": "decelerating",
+        "periods": {
+          "mom": {
+            "currentPeriodRevenueNt": 1282174000,
+            "priorPeriodRevenueNt": 1279040000,
+            "currentGrowthPercent": 0.25,
+            "previousGrowthPercent": 3.53,
+            "accelerationPercentPoints": -3.29,
+            "direction": "decelerating"
+          },
+          "yoy": {
+            "currentPeriodRevenueNt": 1282174000,
+            "priorPeriodRevenueNt": 759860000,
+            "currentGrowthPercent": 68.74,
+            "previousGrowthPercent": 81.59,
+            "accelerationPercentPoints": -12.85,
+            "direction": "decelerating"
+          },
+          "3m": {
+            "currentPeriodRevenueNt": 3796643000,
+            "priorPeriodRevenueNt": 2783542000,
+            "currentGrowthPercent": 36.4,
+            "previousGrowthPercent": 16.7,
+            "accelerationPercentPoints": 19.7,
+            "direction": "accelerating"
+          },
+          "6m": {
+            "currentPeriodRevenueNt": 6580185000,
+            "priorPeriodRevenueNt": 4683339000,
+            "currentGrowthPercent": 40.5,
+            "previousGrowthPercent": 9.78,
+            "accelerationPercentPoints": 30.72,
+            "direction": "accelerating"
+          },
+          "ltm": {
+            "currentPeriodRevenueNt": 11263524000,
+            "priorPeriodRevenueNt": 8124284000,
+            "currentGrowthPercent": 38.64,
+            "previousGrowthPercent": 109.82,
+            "accelerationPercentPoints": -71.18,
+            "direction": "decelerating"
           }
         }
       },

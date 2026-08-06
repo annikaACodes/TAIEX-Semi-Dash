@@ -344,6 +344,9 @@ function formatPublicationBasis(value: string | null | undefined) {
   if (value === "MOPS_MATERIAL_ANNOUNCEMENT_EXACT") {
     return "Exact MOPS announcement";
   }
+  if (value === "COMPANY_IR_MONTHLY_REVENUE_EXACT") {
+    return "Exact company IR time";
+  }
   if (value === "MOPS_ARCHIVE_FIRST_OBSERVED") return "First observed";
   if (value === "CNYES_PUBLICATION_CORROBORATED_PROXY") {
     return "Cnyes public-web proxy";
@@ -2605,9 +2608,6 @@ export function Dashboard() {
                 >
                   <Icon size={16} />
                   {item.label}
-                  {item.id === "freshness" && data && data.freshness.summary.overdue > 0 && (
-                    <span className="nav-alert">{data.freshness.summary.overdue}</span>
-                  )}
                 </button>
               );
             })}

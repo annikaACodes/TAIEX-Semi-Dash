@@ -98,6 +98,11 @@ For revenue data, use the following priority:
 4. Explicitly approved public web sources only as corroborating metadata; never
    as the authority for revenue figures
 
+For ticker 5274, ASPEED's official monthly-revenue archive may supply the exact
+company publication timestamp after its reporting month, revenue, MoM, YoY,
+cumulative YTD revenue, and YTD YoY all match the stored MOPS observation. MOPS
+remains authoritative for every revenue figure and restatement.
+
 Approved narrow exceptions: the Cnyes structured `tw_revenue` feed and MoneyDJ's
 date-bounded revenue-news search may supply publication-time proxies for the
 latest 12 reporting months. Accept a record only after its company identity,

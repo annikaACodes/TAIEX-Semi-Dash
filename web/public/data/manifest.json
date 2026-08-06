@@ -1,5 +1,5 @@
 {
-  "generatedDateTaipei": "2026-08-06",
+  "generatedDateTaipei": "2026-08-07",
   "latestRevenueMonth": "2026-07",
   "targetReportingMonth": "2026-07",
   "exchangeRateHistory": {
@@ -15,9 +15,9 @@
     "latestObservationDate": "2026-07-31",
     "sourceLastUpdatedDate": "2026-08-03"
   },
-  "companyCount": 314,
+  "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 18537,
+  "revenueObservationCount": 18598,
   "companies": [
     {
       "id": 1,
@@ -3272,6 +3272,22 @@
       "latestYtdRevenueNt": 6220554000,
       "latestYtdYoyPercent": 5.396872838137528,
       "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "restatementFlag": false
+    },
+    {
+      "id": 315,
+      "ticker": "5274",
+      "name": "ASPEED",
+      "classifications": [
+        "Logic IC Design"
+      ],
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1524018000,
+      "latestMomPercent": 16.31993710859834,
+      "latestYoyPercent": 97.59287014515903,
+      "latestYtdRevenueNt": 8542184000,
+      "latestYtdYoyPercent": 68.05540554444981,
+      "latestPublicationTimestamp": "2026-08-05T11:21:35.634Z",
       "restatementFlag": false
     },
     {

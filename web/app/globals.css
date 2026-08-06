@@ -227,19 +227,6 @@ footer {
   color: #ffffff;
 }
 
-.nav-alert {
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9px;
-  background: #d15a54;
-  color: #ffffff;
-  font-size: 10px;
-}
-
 .main-content {
   min-height: calc(100vh - 170px);
   padding: 28px 0 42px;

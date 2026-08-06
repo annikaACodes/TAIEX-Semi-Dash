@@ -524,7 +524,7 @@ test("non-retryable all-market MOPS failures still fail loudly", async () => {
   }
 });
 
-test("migrations reach version 9 and promote exact announcement timestamps", async () => {
+test("migrations reach version 10 and promote exact announcement timestamps", async () => {
   const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-v5-test-"));
   const databasePath = join(temporaryDirectory, "test.sqlite");
   const sourceDatabase = new URL(
@@ -556,7 +556,7 @@ test("migrations reach version 9 and promote exact announcement timestamps", asy
       nowUtc: "2026-08-03T13:30:00.000Z",
     });
     assert.equal(result.migrationApplied, true);
-    assert.equal(result.databaseVersion, 9);
+    assert.equal(result.databaseVersion, 10);
 
     const database = new DatabaseSync(databasePath, { readOnly: true });
     const mopsSeeds = database

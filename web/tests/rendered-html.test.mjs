@@ -139,6 +139,7 @@ test("ships complete, internally consistent dashboard data", async () => {
     momentum,
     freshness,
     tsmc,
+    aspeed,
     compressedBundle,
   ] = await Promise.all([
     readJson("../public/data/manifest.json"),
@@ -147,11 +148,12 @@ test("ships complete, internally consistent dashboard data", async () => {
     readJson("../public/data/momentum.json"),
     readJson("../public/data/freshness.json"),
     readJson("../public/data/companies/2330.json"),
+    readJson("../public/data/companies/5274.json"),
     readFile(new URL("../public/data/dashboard-bundle.json.gz", import.meta.url)),
   ]);
   const bundle = JSON.parse(gunzipSync(compressedBundle).toString("utf8"));
 
-  assert.equal(manifest.companyCount, 314);
+  assert.equal(manifest.companyCount, 315);
   assert.equal(manifest.companies.length, manifest.companyCount);
   assert.ok(manifest.revenueObservationCount >= 18_446);
   assert.equal(manifest.exchangeRateHistory.baseCurrency, "USD");
@@ -227,6 +229,15 @@ test("ships complete, internally consistent dashboard data", async () => {
   );
   assert.equal(tsmc.company.ticker, "2330");
   assert.ok(tsmc.history.length >= 60);
+  assert.equal(aspeed.company.ticker, "5274");
+  assert.equal(aspeed.company.name, "ASPEED");
+  assert.ok(aspeed.company.classifications.includes("Logic IC Design"));
+  assert.equal(aspeed.history.length, 61);
+  assert.equal(aspeed.history.at(-1).month, "2026-07");
+  assert.equal(
+    aspeed.history.at(-1).publicationTimestampBasis,
+    "COMPANY_IR_MONTHLY_REVENUE_EXACT",
+  );
   assert.equal(bundle.manifest.companyCount, manifest.companyCount);
   assert.deepEqual(
     bundle.manifest.exchangeRateHistory,
@@ -242,6 +253,7 @@ test("ships complete, internally consistent dashboard data", async () => {
     manifest.revenueObservationCount,
   );
   assert.deepEqual(bundle.companies["2330"], tsmc);
+  assert.deepEqual(bundle.companies["5274"], aspeed);
   assert.deepEqual(bundle.subsectors, subsectors);
   assert.deepEqual(bundle.momentum, momentum);
 

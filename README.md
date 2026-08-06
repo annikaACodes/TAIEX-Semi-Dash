@@ -7,7 +7,7 @@ monthly revenue.
 
 `taiwan_semiconductor_companies.sqlite` contains:
 
-- 314 companies searchable by English company name, ticker, or classification
+- 315 companies searchable by English company name, ticker, or classification
 - Monthly revenue history in whole New Taiwan dollars
 - Month-over-month, year-over-year, cumulative YTD, and YTD YoY metrics
 - Publication timestamps and restatement flags
@@ -15,7 +15,7 @@ monthly revenue.
 - Release forecasts, official IR date overrides, first-seen times, confidence,
   status, and unusual-date flags
 
-The database schema is version 9 and all user-facing tables and views are in
+The database schema is version 10 and all user-facing tables and views are in
 English.
 
 ## Automatic Updates
@@ -41,6 +41,10 @@ and local commands.
   publication evidence and rolling-history migration
 - `migrations/009_moneydj_timestamp_evidence.sql`: second-source publication
   evidence migration
+- `migrations/010_company_ir_timestamp_evidence.sql`: exact company IR monthly
+  release evidence and provenance
+- `scripts/backfill-company-revenue.mjs`: reproducible MOPS company onboarding
+- `scripts/backfill-aspeed-report-dates.mjs`: official ASPEED timestamp backfill
 - `scripts/backfill-publication-dates.mjs`: bounded 12-month publication-date
   backfill
 - `test/`: source parser and forecasting tests

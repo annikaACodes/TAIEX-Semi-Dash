@@ -37,9 +37,11 @@ Revenue figures and restatements always come from the official MOPS current feed
 or monthly archives. Publication-time evidence uses this order:
 
 1. Exact MOPS current-feed or material-announcement timestamp.
-2. The updater's first observation of a new MOPS filing.
-3. An official company investor-relations calendar date.
-4. A Cnyes or MoneyDJ monthly-revenue article timestamp, labeled as a
+2. An exact official company monthly-revenue release timestamp whose metrics
+   match the stored MOPS observation.
+3. The updater's first observation of a new MOPS filing.
+4. An official company investor-relations calendar date.
+5. A Cnyes or MoneyDJ monthly-revenue article timestamp, labeled as a
    public-web proxy and accepted only when its identity and rounded metrics
    corroborate a stored MOPS observation. The earlier validated proxy wins.
 
@@ -47,16 +49,16 @@ An official IR calendar date overrides the forecast when available. Otherwise,
 the company's rolling 12-month report-date history drives the forecast; a
 cross-company median provides a low-confidence cold-start estimate.
 
-The official backfill archive timestamps are not used as historical filing
-times: the current archive server timestamp does not show when a company
-originally published an old month. MOPS does not expose a free public historical
-receipt-time endpoint for all monthly revenue filings. Exact history is therefore
-backfilled exactly only from official MOPS revenue announcements. A corroborated
-Cnyes or MoneyDJ article can fill an otherwise unavailable date, but it remains
-explicitly labeled as a non-original proxy and never overrides MOPS or IR
-evidence. Generic web search and earnings-call dates are not used. A
-full-universe exact historical backfill still requires an approved licensed
-source, such as a TEJ export, or TWSE's paid MOPS push data.
+MOPS archive server timestamps are not used as historical filing times because
+they do not show when a company originally published an old month. MOPS does not
+expose a free public historical receipt-time endpoint for all monthly revenue
+filings. Exact history is backfilled only from official MOPS announcements or an
+official company monthly-revenue release that matches the MOPS figures. A
+corroborated Cnyes or MoneyDJ article can fill an otherwise unavailable date,
+but it remains explicitly labeled as a non-original proxy and never overrides
+MOPS or official IR evidence. Generic web search and earnings-call dates are not
+used. A full-universe exact historical backfill still requires an approved
+licensed source, such as a TEJ export, or TWSE's paid MOPS push data.
 
 Official inputs:
 
@@ -70,6 +72,8 @@ Official inputs:
   `https://openapi.twse.com.tw/v1/holidaySchedule/holidaySchedule`
 - Central Bank daily NTD/USD interbank spot rates:
   `https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01`
+- ASPEED official monthly-revenue archive for ticker 5274 timestamps:
+  `https://www.aspeedtech.com/app/1/news_title`
 
 Validated timing fallback:
 
@@ -128,7 +132,8 @@ exceeds 12 reporting months.
 - `company_release_profiles`: learned cadence and confidence by company
 - `company_monthly_report_dates`: at most 12 report dates per company
 - `company_report_date_history`: searchable English report-date history view
-- `company_monthly_publication_evidence`: validated proxy article provenance
+- `company_monthly_publication_evidence`: validated official IR and proxy
+  publication provenance
 - `company_reporting_sources`: enabled official IR sources and parser health
 - `company_release_events`: versioned dates detected on official IR calendars
 - `monthly_release_schedule`: forecast, override, actual, status, and anomaly
@@ -172,6 +177,7 @@ node --test
 node scripts/update-exchange-rate.mjs
 node scripts/update-live-data.mjs
 node scripts/backfill-publication-dates.mjs --months 12
+node scripts/backfill-aspeed-report-dates.mjs --months 12
 ```
 
 The one-time backfill requests one bounded release-month window at a time and

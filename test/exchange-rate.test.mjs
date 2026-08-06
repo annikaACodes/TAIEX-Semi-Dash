@@ -208,7 +208,7 @@ test("exchange-rate updater accepts schemas newer than migration 006", async () 
 
     const database = new DatabaseSync(databasePath, { readOnly: true });
     try {
-      assert.equal(database.prepare("PRAGMA user_version").get().user_version, 9);
+      assert.equal(database.prepare("PRAGMA user_version").get().user_version, 10);
       assert.ok(
         database
           .prepare("SELECT 1 FROM monthly_exchange_rates LIMIT 1")

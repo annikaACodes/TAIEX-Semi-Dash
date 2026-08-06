@@ -53,6 +53,12 @@ const DEFAULT_PUBLIC_WEB_TIMESTAMP_MIGRATION_PATH = fileURLToPath(
 const DEFAULT_MONEYDJ_TIMESTAMP_MIGRATION_PATH = fileURLToPath(
   new URL("../migrations/009_moneydj_timestamp_evidence.sql", import.meta.url),
 );
+const DEFAULT_COMPANY_IR_TIMESTAMP_MIGRATION_PATH = fileURLToPath(
+  new URL(
+    "../migrations/010_company_ir_timestamp_evidence.sql",
+    import.meta.url,
+  ),
+);
 const DEFAULT_IR_CONFIG_PATH = fileURLToPath(
   new URL("../config/ir_sources.json", import.meta.url),
 );
@@ -217,14 +223,15 @@ function applyMigration(
   publicationTimestampMigrationSql,
   publicWebTimestampMigrationSql,
   moneydjTimestampMigrationSql,
+  companyIrTimestampMigrationSql,
 ) {
   const version = Number(database.prepare("PRAGMA user_version").get().user_version);
-  if (version === 9) {
+  if (version === 10) {
     return false;
   }
-  if (![4, 5, 6, 7, 8].includes(version)) {
+  if (![4, 5, 6, 7, 8, 9].includes(version)) {
     throw new Error(
-      `Expected SQLite user_version 4, 5, 6, 7, 8, or 9, found ${version}`,
+      `Expected SQLite user_version 4 through 10, found ${version}`,
     );
   }
   database.exec("BEGIN IMMEDIATE");
@@ -242,7 +249,10 @@ function applyMigration(
     if (version <= 7) {
       database.exec(publicWebTimestampMigrationSql);
     }
-    database.exec(moneydjTimestampMigrationSql);
+    if (version <= 8) {
+      database.exec(moneydjTimestampMigrationSql);
+    }
+    database.exec(companyIrTimestampMigrationSql);
     database.exec("COMMIT");
     return true;
   } catch (error) {
@@ -1179,7 +1189,8 @@ function enrichPublicationTimestamps(database) {
         AND d.reported_at_utc IS NOT NULL
         AND d.report_date_basis IN (
           'mops_current_feed',
-          'mops_revenue_announcement'
+          'mops_revenue_announcement',
+          'company_ir_monthly_revenue'
         )
         AND NOT EXISTS (
           SELECT 1
@@ -1206,7 +1217,9 @@ function enrichPublicationTimestamps(database) {
     const basis =
       row.report_date_basis === "mops_current_feed"
         ? "MOPS_CURRENT_REPORT_FEED_EXACT"
-        : "MOPS_MATERIAL_ANNOUNCEMENT_EXACT";
+        : row.report_date_basis === "mops_revenue_announcement"
+          ? "MOPS_MATERIAL_ANNOUNCEMENT_EXACT"
+          : "COMPANY_IR_MONTHLY_REVENUE_EXACT";
     changed += Number(
       update.run(
         row.reported_at_utc,
@@ -1687,6 +1700,8 @@ export async function refreshReleaseForecasts({
   publicWebTimestampMigrationPath =
     DEFAULT_PUBLIC_WEB_TIMESTAMP_MIGRATION_PATH,
   moneydjTimestampMigrationPath = DEFAULT_MONEYDJ_TIMESTAMP_MIGRATION_PATH,
+  companyIrTimestampMigrationPath =
+    DEFAULT_COMPANY_IR_TIMESTAMP_MIGRATION_PATH,
   scheduleMonthCount = 13,
   holidays = new Set(),
 } = {}) {
@@ -1702,6 +1717,7 @@ export async function refreshReleaseForecasts({
     publicationTimestampMigrationSql,
     publicWebTimestampMigrationSql,
     moneydjTimestampMigrationSql,
+    companyIrTimestampMigrationSql,
   ] =
     await Promise.all([
       readFile(migrationPath, "utf8"),
@@ -1710,6 +1726,7 @@ export async function refreshReleaseForecasts({
       readFile(publicationTimestampMigrationPath, "utf8"),
       readFile(publicWebTimestampMigrationPath, "utf8"),
       readFile(moneydjTimestampMigrationPath, "utf8"),
+      readFile(companyIrTimestampMigrationPath, "utf8"),
     ]);
   const database = new DatabaseSync(databasePath);
   database.exec("PRAGMA foreign_keys = ON; PRAGMA busy_timeout = 30000");
@@ -1724,6 +1741,7 @@ export async function refreshReleaseForecasts({
       publicationTimestampMigrationSql,
       publicWebTimestampMigrationSql,
       moneydjTimestampMigrationSql,
+      companyIrTimestampMigrationSql,
     );
     const companies = getCompanies(database);
     database.exec("BEGIN IMMEDIATE");
@@ -1744,7 +1762,7 @@ export async function refreshReleaseForecasts({
     }
     checkDatabase(database);
     return {
-      databaseVersion: 9,
+      databaseVersion: 10,
       migrationApplied,
       targetReportingMonth,
       companies: companies.length,
@@ -1771,6 +1789,8 @@ export async function runLiveUpdate({
   publicWebTimestampMigrationPath =
     DEFAULT_PUBLIC_WEB_TIMESTAMP_MIGRATION_PATH,
   moneydjTimestampMigrationPath = DEFAULT_MONEYDJ_TIMESTAMP_MIGRATION_PATH,
+  companyIrTimestampMigrationPath =
+    DEFAULT_COMPANY_IR_TIMESTAMP_MIGRATION_PATH,
   irConfigPath = DEFAULT_IR_CONFIG_PATH,
   scheduleMonthCount = 13,
   mopsRetryDelaysMs = MOPS_RETRY_DELAYS_MS,
@@ -1789,6 +1809,7 @@ export async function runLiveUpdate({
     publicationTimestampMigrationSql,
     publicWebTimestampMigrationSql,
     moneydjTimestampMigrationSql,
+    companyIrTimestampMigrationSql,
     irConfigText,
   ] = await Promise.all([
     readFile(migrationPath, "utf8"),
@@ -1797,6 +1818,7 @@ export async function runLiveUpdate({
     readFile(publicationTimestampMigrationPath, "utf8"),
     readFile(publicWebTimestampMigrationPath, "utf8"),
     readFile(moneydjTimestampMigrationPath, "utf8"),
+    readFile(companyIrTimestampMigrationPath, "utf8"),
     readFile(irConfigPath, "utf8"),
   ]);
   const irConfig = JSON.parse(irConfigText);
@@ -1813,6 +1835,7 @@ export async function runLiveUpdate({
       publicationTimestampMigrationSql,
       publicWebTimestampMigrationSql,
       moneydjTimestampMigrationSql,
+      companyIrTimestampMigrationSql,
     );
     const companies = getCompanies(database);
     const companiesByTicker = new Map(
@@ -1836,7 +1859,7 @@ export async function runLiveUpdate({
     if (remote.deferred) {
       checkDatabase(database);
       return {
-        databaseVersion: 9,
+        databaseVersion: 10,
         migrationApplied,
         targetReportingMonth,
         companies: companies.length,
@@ -1969,7 +1992,7 @@ export async function runLiveUpdate({
           );
       }
       result = {
-        databaseVersion: 9,
+        databaseVersion: 10,
         migrationApplied,
         targetReportingMonth,
         companies: companies.length,
