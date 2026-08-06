@@ -25,6 +25,9 @@ jobs:
     steps:
       - name: Check out the dashboard source
         uses: actions/checkout@v4
+        with:
+          # Updater runs may push data after their original commit was checked out.
+          ref: main
 
       - name: Use Node.js 24
         uses: actions/setup-node@v4
