@@ -34,9 +34,9 @@ function applyMigration(database, migrationSql) {
   const version = Number(
     database.prepare("PRAGMA user_version").get().user_version,
   );
-  if (version === 6) return false;
+  if (version >= 6) return false;
   if (version !== 5) {
-    throw new Error(`Expected SQLite user_version 5 or 6, found ${version}`);
+    throw new Error(`Expected SQLite user_version 5 or newer, found ${version}`);
   }
   database.exec("BEGIN IMMEDIATE");
   try {

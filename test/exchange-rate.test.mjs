@@ -1,7 +1,18 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import {
+  copyFile,
+  mkdtemp,
+  readFile,
+  rm,
+  writeFile,
+} from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import test from "node:test";
 import { DatabaseSync } from "node:sqlite";
+import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
 
 import {
   buildMonthlyUsdTwdRates,
@@ -11,6 +22,8 @@ import {
   syncMonthlyUsdTwdRates,
 } from "../src/exchange-rate.mjs";
 import { translateRevenueHistory } from "../web/app/fx-calculations.ts";
+
+const execFileAsync = promisify(execFile);
 
 function payload(rows) {
   return {
@@ -164,6 +177,49 @@ test("monthly exchange-rate sync is idempotent and updates corrections", async (
     },
   );
   database.close();
+});
+
+test("exchange-rate updater accepts schemas newer than migration 006", async () => {
+  const temporaryDirectory = await mkdtemp(join(tmpdir(), "taiwan-fx-schema-"));
+  const databasePath = join(temporaryDirectory, "companies.sqlite");
+  const inputPath = join(temporaryDirectory, "rates.json");
+
+  try {
+    await copyFile(
+      new URL("../taiwan_semiconductor_companies.sqlite", import.meta.url),
+      databasePath,
+    );
+    await writeFile(
+      inputPath,
+      JSON.stringify(payload([["20260731", "32.292"]])),
+      "utf8",
+    );
+
+    const { stdout } = await execFileAsync(process.execPath, [
+      fileURLToPath(
+        new URL("../scripts/update-exchange-rate.mjs", import.meta.url),
+      ),
+      "--database",
+      databasePath,
+      "--input",
+      inputPath,
+    ]);
+    assert.match(stdout, /CBC monthly USD\/TWD rates/);
+
+    const database = new DatabaseSync(databasePath, { readOnly: true });
+    try {
+      assert.equal(database.prepare("PRAGMA user_version").get().user_version, 9);
+      assert.ok(
+        database
+          .prepare("SELECT 1 FROM monthly_exchange_rates LIMIT 1")
+          .get(),
+      );
+    } finally {
+      database.close();
+    }
+  } finally {
+    await rm(temporaryDirectory, { recursive: true, force: true });
+  }
 });
 
 test("CBC exchange-rate fetch retries and parses JSON", async () => {
