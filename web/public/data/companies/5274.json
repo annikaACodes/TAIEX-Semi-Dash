@@ -861,7 +861,7 @@
       "sourceMarket": "otc",
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_3.csv",
       "sourceReportDate": "2026-07-28",
-      "sourceNoteTranslationStatus": "pending"
+      "sourceNoteTranslationStatus": "complete"
     },
     {
       "month": "2026-04",
@@ -876,7 +876,7 @@
       "sourceMarket": "otc",
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_4.csv",
       "sourceReportDate": "2026-07-28",
-      "sourceNoteTranslationStatus": "pending"
+      "sourceNoteTranslationStatus": "complete"
     },
     {
       "month": "2026-05",
@@ -891,7 +891,7 @@
       "sourceMarket": "otc",
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_5.csv",
       "sourceReportDate": "2026-07-29",
-      "sourceNoteTranslationStatus": "pending"
+      "sourceNoteTranslationStatus": "complete"
     },
     {
       "month": "2026-06",
@@ -906,7 +906,7 @@
       "sourceMarket": "otc",
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_6.csv",
       "sourceReportDate": "2026-07-29",
-      "sourceNoteTranslationStatus": "pending"
+      "sourceNoteTranslationStatus": "complete"
     },
     {
       "month": "2026-07",
@@ -921,7 +921,7 @@
       "sourceMarket": "otc",
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_7.csv",
       "sourceReportDate": "2026-08-07",
-      "sourceNoteTranslationStatus": "pending"
+      "sourceNoteTranslationStatus": "complete"
     }
   ]
 }
