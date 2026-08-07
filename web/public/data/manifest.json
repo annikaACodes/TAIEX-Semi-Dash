@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 18698,
+  "revenueObservationCount": 18699,
   "companies": [
     {
       "id": 1,
@@ -3538,13 +3538,13 @@
       "classifications": [
         "LED & Optoelectronics"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 203955000,
-      "latestMomPercent": 12.01271954394174,
-      "latestYoyPercent": 6.726286100020408,
-      "latestYtdRevenueNt": 1079272000,
-      "latestYtdYoyPercent": 6.972364672929432,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 205558000,
+      "latestMomPercent": 0.7859576867446251,
+      "latestYoyPercent": 12.75066918250033,
+      "latestYtdRevenueNt": 1284830000,
+      "latestYtdYoyPercent": 7.844931205135609,
+      "latestPublicationTimestamp": "2026-08-07T11:26:02.685Z",
       "restatementFlag": false
     },
     {

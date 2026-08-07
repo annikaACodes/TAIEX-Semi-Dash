@@ -8584,10 +8584,10 @@
       },
       {
         "month": "2026-07",
-        "aggregateRevenueNt": 6026195000,
-        "simpleYoyPercent": 31.36,
-        "revenueWeightedYoyPercent": 25.62,
-        "reportingCompanies": 9
+        "aggregateRevenueNt": 6231753000,
+        "simpleYoyPercent": 29.5,
+        "revenueWeightedYoyPercent": 25.2,
+        "reportingCompanies": 10
       }
     ],
     "Solar & PV": [
@@ -14369,9 +14369,9 @@
       },
       "LED & Optoelectronics": {
         "month": "mix",
-        "aggregateRevenueNt": 6945884000,
-        "simpleYoyPercent": 24.44,
-        "revenueWeightedYoyPercent": 26.69,
+        "aggregateRevenueNt": 6947487000,
+        "simpleYoyPercent": 24.79,
+        "revenueWeightedYoyPercent": 26.86,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -14380,7 +14380,7 @@
             "reportingMonth": "2026-07",
             "revenueNt": 2388026000,
             "yoyPercent": 24.918382837196187,
-            "revenueWeightPercent": 34.38,
+            "revenueWeightPercent": 34.37,
             "simpleYoyContributionPercentPoints": 1.47,
             "revenueWeightedYoyContributionPercentPoints": 8.57
           },
@@ -14410,7 +14410,7 @@
             "reportingMonth": "2026-06",
             "revenueNt": 333753000,
             "yoyPercent": 68.69247448786183,
-            "revenueWeightPercent": 4.81,
+            "revenueWeightPercent": 4.8,
             "simpleYoyContributionPercentPoints": 4.04,
             "revenueWeightedYoyContributionPercentPoints": 3.3
           },
@@ -14437,12 +14437,12 @@
           {
             "ticker": "6168",
             "name": "HARVATEK CORPOR",
-            "reportingMonth": "2026-06",
-            "revenueNt": 203955000,
-            "yoyPercent": 6.726286100020408,
-            "revenueWeightPercent": 2.94,
-            "simpleYoyContributionPercentPoints": 0.4,
-            "revenueWeightedYoyContributionPercentPoints": 0.2
+            "reportingMonth": "2026-07",
+            "revenueNt": 205558000,
+            "yoyPercent": 12.75066918250033,
+            "revenueWeightPercent": 2.96,
+            "simpleYoyContributionPercentPoints": 0.75,
+            "revenueWeightedYoyContributionPercentPoints": 0.38
           },
           {
             "ticker": "3437",
@@ -17904,10 +17904,10 @@
       },
       "LED & Optoelectronics": {
         "month": "2026-07",
-        "aggregateRevenueNt": 6026195000,
-        "simpleYoyPercent": 31.36,
-        "revenueWeightedYoyPercent": 25.62,
-        "reportingCompanies": 9,
+        "aggregateRevenueNt": 6231753000,
+        "simpleYoyPercent": 29.5,
+        "revenueWeightedYoyPercent": 25.2,
+        "reportingCompanies": 10,
         "companies": [
           {
             "ticker": "3714",
@@ -17915,9 +17915,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 2388026000,
             "yoyPercent": 24.918382837196187,
-            "revenueWeightPercent": 39.63,
-            "simpleYoyContributionPercentPoints": 2.77,
-            "revenueWeightedYoyContributionPercentPoints": 9.87
+            "revenueWeightPercent": 38.32,
+            "simpleYoyContributionPercentPoints": 2.49,
+            "revenueWeightedYoyContributionPercentPoints": 9.55
           },
           {
             "ticker": "2393",
@@ -17925,9 +17925,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 1974254000,
             "yoyPercent": 17.439202991399608,
-            "revenueWeightPercent": 32.76,
-            "simpleYoyContributionPercentPoints": 1.94,
-            "revenueWeightedYoyContributionPercentPoints": 5.71
+            "revenueWeightPercent": 31.68,
+            "simpleYoyContributionPercentPoints": 1.74,
+            "revenueWeightedYoyContributionPercentPoints": 5.52
           },
           {
             "ticker": "2486",
@@ -17935,9 +17935,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 739794000,
             "yoyPercent": 42.51556067555775,
-            "revenueWeightPercent": 12.28,
-            "simpleYoyContributionPercentPoints": 4.72,
-            "revenueWeightedYoyContributionPercentPoints": 5.22
+            "revenueWeightPercent": 11.87,
+            "simpleYoyContributionPercentPoints": 4.25,
+            "revenueWeightedYoyContributionPercentPoints": 5.05
           },
           {
             "ticker": "3591",
@@ -17945,9 +17945,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 269503000,
             "yoyPercent": 28.53123107225807,
-            "revenueWeightPercent": 4.47,
-            "simpleYoyContributionPercentPoints": 3.17,
-            "revenueWeightedYoyContributionPercentPoints": 1.28
+            "revenueWeightPercent": 4.32,
+            "simpleYoyContributionPercentPoints": 2.85,
+            "revenueWeightedYoyContributionPercentPoints": 1.23
           },
           {
             "ticker": "2426",
@@ -17955,9 +17955,19 @@
             "reportingMonth": "2026-07",
             "revenueNt": 255443000,
             "yoyPercent": 36.31696631072261,
-            "revenueWeightPercent": 4.24,
-            "simpleYoyContributionPercentPoints": 4.04,
-            "revenueWeightedYoyContributionPercentPoints": 1.54
+            "revenueWeightPercent": 4.1,
+            "simpleYoyContributionPercentPoints": 3.63,
+            "revenueWeightedYoyContributionPercentPoints": 1.49
+          },
+          {
+            "ticker": "6168",
+            "name": "HARVATEK CORPOR",
+            "reportingMonth": "2026-07",
+            "revenueNt": 205558000,
+            "yoyPercent": 12.75066918250033,
+            "revenueWeightPercent": 3.3,
+            "simpleYoyContributionPercentPoints": 1.28,
+            "revenueWeightedYoyContributionPercentPoints": 0.42
           },
           {
             "ticker": "3031",
@@ -17965,9 +17975,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 123461000,
             "yoyPercent": 44.139211245242485,
-            "revenueWeightPercent": 2.05,
-            "simpleYoyContributionPercentPoints": 4.9,
-            "revenueWeightedYoyContributionPercentPoints": 0.9
+            "revenueWeightPercent": 1.98,
+            "simpleYoyContributionPercentPoints": 4.41,
+            "revenueWeightedYoyContributionPercentPoints": 0.87
           },
           {
             "ticker": "4956",
@@ -17975,8 +17985,8 @@
             "reportingMonth": "2026-07",
             "revenueNt": 120161000,
             "yoyPercent": 0.7461998306377913,
-            "revenueWeightPercent": 1.99,
-            "simpleYoyContributionPercentPoints": 0.08,
+            "revenueWeightPercent": 1.93,
+            "simpleYoyContributionPercentPoints": 0.07,
             "revenueWeightedYoyContributionPercentPoints": 0.01
           },
           {
@@ -17985,9 +17995,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 89866000,
             "yoyPercent": 31.60237823272706,
-            "revenueWeightPercent": 1.49,
-            "simpleYoyContributionPercentPoints": 3.51,
-            "revenueWeightedYoyContributionPercentPoints": 0.47
+            "revenueWeightPercent": 1.44,
+            "simpleYoyContributionPercentPoints": 3.16,
+            "revenueWeightedYoyContributionPercentPoints": 0.46
           },
           {
             "ticker": "6164",
@@ -17995,9 +18005,9 @@
             "reportingMonth": "2026-07",
             "revenueNt": 65687000,
             "yoyPercent": 56.05578257151002,
-            "revenueWeightPercent": 1.09,
-            "simpleYoyContributionPercentPoints": 6.23,
-            "revenueWeightedYoyContributionPercentPoints": 0.61
+            "revenueWeightPercent": 1.05,
+            "simpleYoyContributionPercentPoints": 5.61,
+            "revenueWeightedYoyContributionPercentPoints": 0.59
           },
           {
             "ticker": "2429",
@@ -18052,16 +18062,6 @@
           {
             "ticker": "4949",
             "name": "WIN WIN",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "6168",
-            "name": "HARVATEK CORPOR",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,

@@ -2,10 +2,10 @@
   "asOfDateTaipei": "2026-08-07",
   "targetReportingMonth": "2026-07",
   "summary": {
-    "reported": 192,
-    "pending": 123,
+    "reported": 193,
+    "pending": 122,
     "overdue": 2,
-    "unusual": 28
+    "unusual": 29
   },
   "companies": [
     {
@@ -4612,21 +4612,21 @@
       "ticker": "6168",
       "name": "HARVATEK CORPOR",
       "classification": "LED & Optoelectronics",
-      "reported": false,
-      "expectedDate": "2026-08-10",
-      "expectedTime": "17:07:00",
+      "reported": true,
+      "expectedDate": "2026-08-07",
+      "expectedTime": "19:26:02",
       "regulatoryDeadline": "2026-08-10",
-      "scheduleSource": "company_history",
+      "scheduleSource": "actual_first_seen",
       "forecastConfidence": "medium",
       "historySampleCount": 3,
-      "releaseStatus": "forecast",
+      "releaseStatus": "reported",
       "overdue": false,
-      "unusualReportDate": false,
-      "unusualReason": null,
-      "deviationFromHistoryDays": null,
-      "publicationTimestamp": null,
-      "publicationTimestampBasis": null,
-      "latestRevenueMonth": "2026-06"
+      "unusualReportDate": true,
+      "unusualReason": "EARLY",
+      "deviationFromHistoryDays": -3,
+      "publicationTimestamp": "2026-08-07T11:26:02.685Z",
+      "publicationTimestampBasis": "MOPS_ARCHIVE_FIRST_OBSERVED",
+      "latestRevenueMonth": "2026-07"
     },
     {
       "companyId": 220,

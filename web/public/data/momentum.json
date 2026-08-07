@@ -12522,54 +12522,54 @@
         "ticker": "6168",
         "name": "HARVATEK CORPOR",
         "classification": "LED & Optoelectronics",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 203955000,
-        "momPercent": 12.01271954394174,
-        "yoyPercent": 6.726286100020408,
-        "previousYoyPercent": 3.2784653605744687,
-        "ytdYoyPercent": 6.972364672929432,
-        "accelerationPercentPoints": 3.45,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 205558000,
+        "momPercent": 0.7859576867446251,
+        "yoyPercent": 12.75066918250033,
+        "previousYoyPercent": 6.726286100020408,
+        "ytdYoyPercent": 7.844931205135609,
+        "accelerationPercentPoints": 6.02,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 203955000,
-            "priorPeriodRevenueNt": 182082000,
-            "currentGrowthPercent": 12.01,
-            "previousGrowthPercent": -5.5,
-            "accelerationPercentPoints": 17.51,
-            "direction": "accelerating"
+            "currentPeriodRevenueNt": 205558000,
+            "priorPeriodRevenueNt": 203955000,
+            "currentGrowthPercent": 0.79,
+            "previousGrowthPercent": 12.01,
+            "accelerationPercentPoints": -11.23,
+            "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 203955000,
-            "priorPeriodRevenueNt": 191101000,
-            "currentGrowthPercent": 6.73,
-            "previousGrowthPercent": 3.28,
-            "accelerationPercentPoints": 3.45,
+            "currentPeriodRevenueNt": 205558000,
+            "priorPeriodRevenueNt": 182312000,
+            "currentGrowthPercent": 12.75,
+            "previousGrowthPercent": 6.73,
+            "accelerationPercentPoints": 6.02,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 578719000,
-            "priorPeriodRevenueNt": 500714000,
-            "currentGrowthPercent": 15.58,
-            "previousGrowthPercent": -1.56,
-            "accelerationPercentPoints": 17.14,
+            "currentPeriodRevenueNt": 591595000,
+            "priorPeriodRevenueNt": 529336000,
+            "currentGrowthPercent": 11.76,
+            "previousGrowthPercent": 5.61,
+            "accelerationPercentPoints": 6.15,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 1079433000,
-            "priorPeriodRevenueNt": 1062204000,
-            "currentGrowthPercent": 1.62,
-            "previousGrowthPercent": 5.27,
-            "accelerationPercentPoints": -3.65,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 1120931000,
+            "priorPeriodRevenueNt": 1043952000,
+            "currentGrowthPercent": 7.37,
+            "previousGrowthPercent": 0.32,
+            "accelerationPercentPoints": 7.05,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 2141637000,
-            "priorPeriodRevenueNt": 2010762000,
-            "currentGrowthPercent": 6.51,
-            "previousGrowthPercent": 0.78,
-            "accelerationPercentPoints": 5.73,
+            "currentPeriodRevenueNt": 2164883000,
+            "priorPeriodRevenueNt": 2008851000,
+            "currentGrowthPercent": 7.77,
+            "previousGrowthPercent": -0.18,
+            "accelerationPercentPoints": 7.95,
             "direction": "accelerating"
           }
         }
@@ -30480,54 +30480,54 @@
         "name": "HARVATEK CORPOR",
         "classification": "LED & Optoelectronics",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 205558000,
+        "momPercent": 0.7859576867446251,
+        "yoyPercent": 12.75066918250033,
         "previousYoyPercent": 6.726286100020408,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 7.844931205135609,
+        "accelerationPercentPoints": 6.02,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 205558000,
             "priorPeriodRevenueNt": 203955000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 0.79,
             "previousGrowthPercent": 12.01,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -11.23,
+            "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 205558000,
             "priorPeriodRevenueNt": 182312000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 12.75,
             "previousGrowthPercent": 6.73,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 6.02,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 591595000,
             "priorPeriodRevenueNt": 529336000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 11.76,
             "previousGrowthPercent": 5.61,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 6.15,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1120931000,
             "priorPeriodRevenueNt": 1043952000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 7.37,
             "previousGrowthPercent": 0.32,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 7.05,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2164883000,
             "priorPeriodRevenueNt": 2008851000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 7.77,
             "previousGrowthPercent": -0.18,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 7.95,
+            "direction": "accelerating"
           }
         }
       },
