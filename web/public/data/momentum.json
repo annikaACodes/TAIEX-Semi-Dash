@@ -15942,54 +15942,54 @@
         "ticker": "6799",
         "name": "M3TEK",
         "classification": "Analog & Power IC Design",
-        "analysisMonth": "2026-06",
-        "latestMonth": "2026-06",
-        "latestRevenueNt": 83988000,
-        "momPercent": -0.7574235782060523,
-        "yoyPercent": 6.471609852566459,
-        "previousYoyPercent": 2.881143704640222,
-        "ytdYoyPercent": 2.3417538985226436,
-        "accelerationPercentPoints": 3.59,
+        "analysisMonth": "2026-07",
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 88603000,
+        "momPercent": 5.494832595132638,
+        "yoyPercent": 15.919408647870739,
+        "previousYoyPercent": 6.471609852566459,
+        "ytdYoyPercent": 4.166307724494155,
+        "accelerationPercentPoints": 9.45,
         "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 83988000,
-            "priorPeriodRevenueNt": 84629000,
-            "currentGrowthPercent": -0.76,
-            "previousGrowthPercent": -8.89,
-            "accelerationPercentPoints": 8.14,
+            "currentPeriodRevenueNt": 88603000,
+            "priorPeriodRevenueNt": 83988000,
+            "currentGrowthPercent": 5.49,
+            "previousGrowthPercent": -0.76,
+            "accelerationPercentPoints": 6.25,
             "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 83988000,
-            "priorPeriodRevenueNt": 78883000,
-            "currentGrowthPercent": 6.47,
-            "previousGrowthPercent": 2.88,
-            "accelerationPercentPoints": 3.59,
+            "currentPeriodRevenueNt": 88603000,
+            "priorPeriodRevenueNt": 76435000,
+            "currentGrowthPercent": 15.92,
+            "previousGrowthPercent": 6.47,
+            "accelerationPercentPoints": 9.45,
             "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 261508000,
-            "priorPeriodRevenueNt": 242388000,
-            "currentGrowthPercent": 7.89,
-            "previousGrowthPercent": 2.2,
-            "accelerationPercentPoints": 5.69,
-            "direction": "accelerating"
+            "currentPeriodRevenueNt": 257220000,
+            "priorPeriodRevenueNt": 254631000,
+            "currentGrowthPercent": 1.02,
+            "previousGrowthPercent": 5.62,
+            "accelerationPercentPoints": -4.6,
+            "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 503896000,
-            "priorPeriodRevenueNt": 474299000,
-            "currentGrowthPercent": 6.24,
-            "previousGrowthPercent": -3.67,
-            "accelerationPercentPoints": 9.91,
+            "currentPeriodRevenueNt": 511851000,
+            "priorPeriodRevenueNt": 478512000,
+            "currentGrowthPercent": 6.97,
+            "previousGrowthPercent": -1.91,
+            "accelerationPercentPoints": 8.88,
             "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 978195000,
-            "priorPeriodRevenueNt": 934825000,
-            "currentGrowthPercent": 4.64,
-            "previousGrowthPercent": -7.59,
-            "accelerationPercentPoints": 12.23,
+            "currentPeriodRevenueNt": 990363000,
+            "priorPeriodRevenueNt": 936741000,
+            "currentGrowthPercent": 5.72,
+            "previousGrowthPercent": -5.87,
+            "accelerationPercentPoints": 11.59,
             "direction": "accelerating"
           }
         }
@@ -33900,54 +33900,54 @@
         "name": "M3TEK",
         "classification": "Analog & Power IC Design",
         "analysisMonth": "2026-07",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-07",
+        "latestRevenueNt": 88603000,
+        "momPercent": 5.494832595132638,
+        "yoyPercent": 15.919408647870739,
         "previousYoyPercent": 6.471609852566459,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 4.166307724494155,
+        "accelerationPercentPoints": 9.45,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 88603000,
             "priorPeriodRevenueNt": 83988000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 5.49,
             "previousGrowthPercent": -0.76,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 6.25,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 88603000,
             "priorPeriodRevenueNt": 76435000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 15.92,
             "previousGrowthPercent": 6.47,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 9.45,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 257220000,
             "priorPeriodRevenueNt": 254631000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 1.02,
             "previousGrowthPercent": 5.62,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -4.6,
+            "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 511851000,
             "priorPeriodRevenueNt": 478512000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 6.97,
             "previousGrowthPercent": -1.91,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 8.88,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 990363000,
             "priorPeriodRevenueNt": 936741000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 5.72,
             "previousGrowthPercent": -5.87,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 11.59,
+            "direction": "accelerating"
           }
         }
       },

@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 18699,
+  "revenueObservationCount": 18700,
   "companies": [
     {
       "id": 1,
@@ -4502,13 +4502,13 @@
       "classifications": [
         "Analog & Power IC Design"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 83988000,
-      "latestMomPercent": -0.7574235782060523,
-      "latestYoyPercent": 6.471609852566459,
-      "latestYtdRevenueNt": 503896000,
-      "latestYtdYoyPercent": 2.3417538985226436,
-      "latestPublicationTimestamp": "2026-07-07T06:39:14.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 88603000,
+      "latestMomPercent": 5.494832595132638,
+      "latestYoyPercent": 15.919408647870739,
+      "latestYtdRevenueNt": 592499000,
+      "latestYtdYoyPercent": 4.166307724494155,
+      "latestPublicationTimestamp": "2026-08-07T13:53:51.742Z",
       "restatementFlag": false
     },
     {
