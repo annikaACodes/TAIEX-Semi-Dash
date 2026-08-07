@@ -907,6 +907,21 @@
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_6.csv",
       "sourceReportDate": "2026-07-29",
       "sourceNoteTranslationStatus": null
+    },
+    {
+      "month": "2026-07",
+      "revenueNt": 266608000,
+      "momPercent": 8.4738039148673,
+      "yoyPercent": 25.84693959433753,
+      "cumulativeYtdRevenueNt": 1689840000,
+      "ytdYoyPercent": 7.881592253240584,
+      "publicationTimestamp": "2026-08-07T10:07:50.131Z",
+      "restatementFlag": false,
+      "publicationTimestampBasis": "MOPS_ARCHIVE_FIRST_OBSERVED",
+      "sourceMarket": "sii",
+      "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_7.csv",
+      "sourceReportDate": "2026-08-07",
+      "sourceNoteTranslationStatus": null
     }
   ]
 }
