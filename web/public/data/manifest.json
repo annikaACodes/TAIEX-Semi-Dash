@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 18701,
+  "revenueObservationCount": 18702,
   "companies": [
     {
       "id": 1,
@@ -1131,13 +1131,13 @@
       "classifications": [
         "Fab Equipment & Automation"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 869119000,
-      "latestMomPercent": -14.977969689736536,
-      "latestYoyPercent": 94.07732107248208,
-      "latestYtdRevenueNt": 5044050000,
-      "latestYtdYoyPercent": 78.92076095195968,
-      "latestPublicationTimestamp": "2026-07-28T06:08:48.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 1167511000,
+      "latestMomPercent": 34.33269782388833,
+      "latestYoyPercent": 132.72536273917663,
+      "latestYtdRevenueNt": 6211561000,
+      "latestYtdYoyPercent": 87.04889933877817,
+      "latestPublicationTimestamp": "2026-08-08T02:12:07.390Z",
       "restatementFlag": false
     },
     {
