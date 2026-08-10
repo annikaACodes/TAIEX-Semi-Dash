@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 18705,
+  "revenueObservationCount": 18706,
   "companies": [
     {
       "id": 1,
@@ -1742,13 +1742,13 @@
       "classifications": [
         "Logic IC Design"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 177144000,
-      "latestMomPercent": 1.91642742487616,
-      "latestYoyPercent": 167.50830564784053,
-      "latestYtdRevenueNt": 822869000,
-      "latestYtdYoyPercent": 42.89095493442987,
-      "latestPublicationTimestamp": "2026-07-13T06:39:15.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 184990000,
+      "latestMomPercent": 4.429164973129206,
+      "latestYoyPercent": 270.5877639328499,
+      "latestYtdRevenueNt": 1007859000,
+      "latestYtdYoyPercent": 61.05386791096055,
+      "latestPublicationTimestamp": "2026-08-10T05:58:53.559Z",
       "restatementFlag": false
     },
     {
