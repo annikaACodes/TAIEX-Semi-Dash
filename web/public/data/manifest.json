@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 18704,
+  "revenueObservationCount": 18705,
   "companies": [
     {
       "id": 1,
@@ -731,13 +731,13 @@
       "classifications": [
         "Passive Components"
       ],
-      "latestMonth": "2026-06",
-      "latestRevenueNt": 332034000,
-      "latestMomPercent": 1.9384747636006385,
-      "latestYoyPercent": 33.54704034557791,
-      "latestYtdRevenueNt": 1800569000,
-      "latestYtdYoyPercent": 15.182086913244762,
-      "latestPublicationTimestamp": "2026-07-08T04:20:21.000Z",
+      "latestMonth": "2026-07",
+      "latestRevenueNt": 356396000,
+      "latestMomPercent": 7.337200407187216,
+      "latestYoyPercent": 19.793350789387883,
+      "latestYtdRevenueNt": 2156964000,
+      "latestYtdYoyPercent": 15.919314081556537,
+      "latestPublicationTimestamp": "2026-08-10T04:16:14.669Z",
       "restatementFlag": false
     },
     {
