@@ -1781,6 +1781,7 @@ export async function runLiveUpdate({
   databasePath,
   fetchFn = globalThis.fetch,
   nowUtc = new Date().toISOString(),
+  targetReportingMonth: requestedReportingMonth = null,
   migrationPath = DEFAULT_MIGRATION_PATH,
   reportDateSeedPath = DEFAULT_REPORT_DATE_SEED_PATH,
   exchangeRateMigrationPath = DEFAULT_EXCHANGE_RATE_MIGRATION_PATH,
@@ -1801,7 +1802,11 @@ export async function runLiveUpdate({
     throw new Error("databasePath is required");
   }
   const normalizedNowUtc = new Date(nowUtc).toISOString();
-  const targetReportingMonth = previousTaipeiMonth(normalizedNowUtc);
+  const targetReportingMonth =
+    requestedReportingMonth ?? previousTaipeiMonth(normalizedNowUtc);
+  if (!/^20\d{2}-(?:0[1-9]|1[0-2])-01$/u.test(targetReportingMonth)) {
+    throw new Error("targetReportingMonth must use YYYY-MM-01");
+  }
   const [
     migrationSql,
     reportDateSeedSql,

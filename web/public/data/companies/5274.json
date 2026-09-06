@@ -922,6 +922,21 @@
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_7.csv",
       "sourceReportDate": "2026-08-07",
       "sourceNoteTranslationStatus": "complete"
+    },
+    {
+      "month": "2026-08",
+      "revenueNt": 1625937000,
+      "momPercent": 6.6875194387467864,
+      "yoyPercent": 118.41515263458373,
+      "cumulativeYtdRevenueNt": 10168121000,
+      "ytdYoyPercent": 74.48866403472434,
+      "publicationTimestamp": "2026-09-04T06:14:13.000Z",
+      "restatementFlag": false,
+      "publicationTimestampBasis": "MONEYDJ_PUBLICATION_CORROBORATED_PROXY",
+      "sourceMarket": "otc",
+      "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/otc/t21sc03_115_8.csv",
+      "sourceReportDate": "2026-09-07",
+      "sourceNoteTranslationStatus": "complete"
     }
   ]
 }

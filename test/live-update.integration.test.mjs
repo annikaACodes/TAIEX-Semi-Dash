@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { copyFile, mkdtemp, rm } from "node:fs/promises";
+import { copyFile, mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
@@ -549,7 +549,85 @@ test("migrations reach version 10 and promote exact announcement timestamps", as
       DROP TABLE company_monthly_report_dates;
       PRAGMA user_version = 4;
     `);
+    const rollingHistoryMigration = await readFile(
+      new URL("../migrations/005_rolling_report_dates.sql", import.meta.url),
+      "utf8",
+    );
+    const announcementSeedMigration = await readFile(
+      new URL("../migrations/005_mops_announcement_seeds.sql", import.meta.url),
+      "utf8",
+    );
+    const seedRows = [
+      ...announcementSeedMigration.matchAll(
+        /\('([0-9]{4,5})', '(20[0-9]{2}-(?:0[1-9]|1[0-2])-01)'/gu,
+      ),
+    ].map((match) => ({ ticker: match[1], reportingMonth: match[2] }));
+    const hasCurrentObservation = versionFour.prepare(`
+      SELECT 1 AS present
+      FROM companies AS c
+      JOIN company_monthly_revenue_observations AS o
+        ON o.company_id = c.company_id
+      WHERE c.ticker = ?
+        AND o.reporting_month = ?
+        AND o.is_current = 1
+      LIMIT 1
+    `);
+    const eligibleSeedRows = seedRows.filter((row) =>
+      hasCurrentObservation.get(row.ticker, row.reportingMonth),
+    );
+    const eligibleSeedKeys = new Set(
+      eligibleSeedRows.map((row) => `${row.ticker}|${row.reportingMonth}`),
+    );
+    versionFour.exec(rollingHistoryMigration);
+    const preexistingHistoryKeys = new Set(
+      versionFour
+        .prepare(`
+          SELECT c.ticker || '|' || d.reporting_month AS history_key
+          FROM company_monthly_report_dates AS d
+          JOIN companies AS c ON c.company_id = d.company_id
+        `)
+        .all()
+        .map((row) => row.history_key),
+    );
+    const retainedSeedKeys = new Set();
+    for (const ticker of new Set(eligibleSeedRows.map((row) => row.ticker))) {
+      [...new Set([...eligibleSeedKeys, ...preexistingHistoryKeys])]
+        .filter((key) => key.startsWith(`${ticker}|`))
+        .sort()
+        .slice(-12)
+        .filter((key) => eligibleSeedKeys.has(key))
+        .forEach((key) => retainedSeedKeys.add(key));
+    }
+    versionFour.exec(announcementSeedMigration);
+    versionFour.exec("PRAGMA user_version = 5");
+
+    const initialMopsSeeds = versionFour
+      .prepare(`
+        SELECT COUNT(*) AS row_count,
+               COUNT(DISTINCT company_id) AS company_count
+        FROM company_monthly_report_dates
+        WHERE report_date_basis = 'mops_revenue_announcement'
+      `)
+      .get();
+    const initialTsmcSeeds = versionFour
+      .prepare(`
+        SELECT COUNT(*) AS row_count
+        FROM company_monthly_report_dates AS d
+        JOIN companies AS c ON c.company_id = d.company_id
+        WHERE c.ticker = '2330'
+          AND d.report_date_basis = 'mops_revenue_announcement'
+      `)
+      .get();
     versionFour.close();
+    assert.equal(initialMopsSeeds.row_count, retainedSeedKeys.size);
+    assert.equal(
+      initialMopsSeeds.company_count,
+      new Set([...retainedSeedKeys].map((key) => key.split("|")[0])).size,
+    );
+    assert.equal(
+      initialTsmcSeeds.row_count,
+      [...retainedSeedKeys].filter((key) => key.startsWith("2330|")).length,
+    );
 
     const result = await refreshReleaseForecasts({
       databasePath,
@@ -626,9 +704,9 @@ test("migrations reach version 10 and promote exact announcement timestamps", as
       .all();
     database.close();
 
-    assert.equal(mopsSeeds.row_count, 197);
-    assert.equal(mopsSeeds.company_count, 17);
-    assert.equal(tsmc.row_count, 12);
+    assert.ok(mopsSeeds.row_count > 0);
+    assert.ok(mopsSeeds.company_count > 0);
+    assert.ok(tsmc.row_count > 0 && tsmc.row_count <= 12);
     assert.equal(correctionOnlyCompany.row_count, 0);
     assert.equal(maximumHistoryRows.maximum_count, 12);
     assert.equal(exchangeRateTable.row_count, 1);

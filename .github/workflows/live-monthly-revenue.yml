@@ -37,7 +37,7 @@ jobs:
         run: node scripts/update-exchange-rate.mjs
 
       - name: Poll official sources and update SQLite
-        run: node scripts/update-live-data.mjs
+        run: node scripts/update-live-data.mjs --no-git-sync
 
       - name: Regenerate website data
         run: node web/scripts/build-dashboard-data.mjs
