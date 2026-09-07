@@ -180,12 +180,15 @@ node scripts/backfill-publication-dates.mjs --months 12
 node scripts/backfill-aspeed-report-dates.mjs --months 12
 ```
 
-A normal local `update-live-data.mjs` run also refreshes exchange rates, rebuilds
-the website dataset, commits the SQLite file and generated `web/public/data`
-files, and pushes the current branch to `origin`. It includes any existing local
-changes to the repository's SQLite file. Use `--no-git-sync` when an update must
-remain local; GitHub Actions uses that option because the workflow performs its
-own commit and deployment steps.
+A normal local database-writing script rebuilds the website dataset, validates
+SQLite integrity and foreign keys, commits the SQLite file and generated
+`web/public/data` files, and pushes the current branch to `origin`. Before
+writing, it fast-forwards the current branch from `origin` so an unattended push
+does not start from stale data. This applies to live updates, exchange-rate
+refreshes, company onboarding, and publication or ASPEED date backfills, and
+includes any existing local changes to the repository's SQLite file. Use
+`--no-git-sync` when an update must remain local; GitHub Actions uses that option
+where the workflow performs its own commit and deployment steps.
 
 The one-time backfill requests one bounded release-month window at a time and
 uses MOPS company names to resolve MoneyDJ headlines to tickers. Live polls use

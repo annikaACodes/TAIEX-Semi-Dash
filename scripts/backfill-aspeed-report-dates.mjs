@@ -4,6 +4,10 @@ import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 
 import { backfillAspeedReportDates } from "../src/aspeed-backfill.mjs";
+import {
+  prepareLocalDatabaseUpdate,
+  syncLocalDatabaseChanges,
+} from "../src/local-git-sync.mjs";
 
 function argumentValue(name) {
   const index = process.argv.indexOf(name);
@@ -47,13 +51,19 @@ async function curlFetch(url) {
 }
 
 try {
+  await prepareLocalDatabaseUpdate({ repositoryRoot, databasePath });
   const result = await backfillAspeedReportDates({
     databasePath,
     monthCount,
     nowUtc,
     fetchFn: useCurl ? curlFetch : globalThis.fetch,
   });
-  console.log(JSON.stringify(result, null, 2));
+  const gitSync = await syncLocalDatabaseChanges({
+    repositoryRoot,
+    databasePath,
+    commitMessage: "Update ASPEED report-date history",
+  });
+  console.log(JSON.stringify({ ...result, gitSync }, null, 2));
 } catch (error) {
   console.error(error.stack ?? error.message);
   process.exitCode = 1;

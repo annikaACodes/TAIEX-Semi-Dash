@@ -4,6 +4,10 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 
 import { backfillPublicationDates } from "../src/publication-backfill.mjs";
+import {
+  prepareLocalDatabaseUpdate,
+  syncLocalDatabaseChanges,
+} from "../src/local-git-sync.mjs";
 
 function argumentValue(name) {
   const index = process.argv.indexOf(name);
@@ -50,6 +54,7 @@ async function curlFetch(url) {
 }
 
 try {
+  await prepareLocalDatabaseUpdate({ repositoryRoot, databasePath });
   const result = await backfillPublicationDates({
     databasePath,
     monthCount,
@@ -63,7 +68,12 @@ try {
       );
     },
   });
-  console.log(JSON.stringify(result, null, 2));
+  const gitSync = await syncLocalDatabaseChanges({
+    repositoryRoot,
+    databasePath,
+    commitMessage: "Update publication-date history",
+  });
+  console.log(JSON.stringify({ ...result, gitSync }, null, 2));
 } catch (error) {
   console.error(error.stack ?? error.message);
   process.exitCode = 1;

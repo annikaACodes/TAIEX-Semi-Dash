@@ -5,6 +5,10 @@ import { fileURLToPath } from "node:url";
 import { DatabaseSync } from "node:sqlite";
 
 import { sha256 } from "../src/hash.mjs";
+import {
+  prepareLocalDatabaseUpdate,
+  syncLocalDatabaseChanges,
+} from "../src/local-git-sync.mjs";
 import { MOPS_MARKETS, parseCsv, parseMopsArchive } from "../src/mops.mjs";
 import { translateMopsNote } from "../src/translation.mjs";
 
@@ -391,6 +395,8 @@ if (!/^\d{4,5}$/.test(ticker)) throw new Error("--ticker is required");
 if (!market) throw new Error(`Unsupported --market: ${marketCode}`);
 if (startMonth > endMonth) throw new Error("--start must not follow --end");
 
+await prepareLocalDatabaseUpdate({ repositoryRoot, databasePath });
+
 const csvText = await readFile(universePath, "utf8");
 const { companies: universe, company } = prepareUniverse(csvText, ticker);
 const sourceDatabase = new DatabaseSync(databasePath, { readOnly: true });
@@ -416,6 +422,7 @@ const nowUtc = new Date().toISOString();
 const translations = await prepareTranslations(databasePath, collected, nowUtc);
 const database = new DatabaseSync(databasePath);
 database.exec("PRAGMA foreign_keys = ON; PRAGMA busy_timeout = 30000");
+let output;
 try {
   database.exec("BEGIN IMMEDIATE");
   try {
@@ -435,22 +442,16 @@ try {
       collected,
     );
     database.exec("COMMIT");
-    console.log(
-      JSON.stringify(
-        {
-          companyId,
-          ticker,
-          companyNameEnglish: company.companyNameEnglish,
-          classification: company.classificationSourceText,
-          marketCode,
-          observationsInserted,
-          firstReportingMonth: collected[0]?.row.reportingMonth ?? null,
-          lastReportingMonth: collected.at(-1)?.row.reportingMonth ?? null,
-        },
-        null,
-        2,
-      ),
-    );
+    output = {
+      companyId,
+      ticker,
+      companyNameEnglish: company.companyNameEnglish,
+      classification: company.classificationSourceText,
+      marketCode,
+      observationsInserted,
+      firstReportingMonth: collected[0]?.row.reportingMonth ?? null,
+      lastReportingMonth: collected.at(-1)?.row.reportingMonth ?? null,
+    };
   } catch (error) {
     database.exec("ROLLBACK");
     throw error;
@@ -458,3 +459,10 @@ try {
 } finally {
   database.close();
 }
+
+const gitSync = await syncLocalDatabaseChanges({
+  repositoryRoot,
+  databasePath,
+  commitMessage: `Backfill ${ticker} monthly revenue`,
+});
+console.log(JSON.stringify({ ...output, gitSync }, null, 2));

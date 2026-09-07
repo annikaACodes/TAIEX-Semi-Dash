@@ -4,6 +4,11 @@ import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 
 import { backfillAspeedReportDates } from "../src/aspeed-backfill.mjs";
+import {
+  localGitSyncDecision,
+  prepareLocalDatabaseUpdate,
+  syncLocalDatabaseChanges,
+} from "../src/local-git-sync.mjs";
 import { runLiveUpdate } from "../src/live-update.mjs";
 
 const execFileAsync = promisify(execFile);
@@ -33,12 +38,6 @@ if (
   throw new Error("--target-month must use YYYY-MM");
 }
 
-function pathsMatch(left, right) {
-  return process.platform === "win32"
-    ? left.toLowerCase() === right.toLowerCase()
-    : left === right;
-}
-
 async function runCommand(command, argumentsList, { relayOutput = false } = {}) {
   const result = await execFileAsync(command, argumentsList, {
     cwd: repositoryRoot,
@@ -50,71 +49,10 @@ async function runCommand(command, argumentsList, { relayOutput = false } = {}) 
   return result.stdout.trim();
 }
 
-async function syncLocalDatabaseChanges() {
-  const databaseRelativePath = "taiwan_semiconductor_companies.sqlite";
-  const dashboardDataPath = "web/public/data";
-  const databaseStatus = await runCommand("git", [
-    "status",
-    "--porcelain",
-    "--untracked-files=all",
-    "--",
-    databaseRelativePath,
-  ]);
-  if (!databaseStatus) return { status: "unchanged" };
+const localGitSync = localGitSyncDecision({ repositoryRoot, databasePath });
+const localGitSyncEnabled = localGitSync.enabled;
 
-  await runCommand(
-    process.execPath,
-    [
-      resolve(repositoryRoot, "web/scripts/build-dashboard-data.mjs"),
-      "--database",
-      databasePath,
-    ],
-    { relayOutput: true },
-  );
-
-  const branch = await runCommand("git", ["branch", "--show-current"]);
-  if (!branch) {
-    throw new Error("Cannot automatically publish from a detached Git HEAD.");
-  }
-
-  const publishedPaths = [databaseRelativePath, dashboardDataPath];
-  await runCommand("git", ["add", "--", ...publishedPaths]);
-  const stagedStatus = await runCommand("git", [
-    "status",
-    "--porcelain",
-    "--untracked-files=all",
-    "--",
-    ...publishedPaths,
-  ]);
-  if (!stagedStatus) return { status: "unchanged" };
-
-  await runCommand(
-    "git",
-    [
-      "commit",
-      "--only",
-      "-m",
-      "Update live Taiwan monthly revenue",
-      "--",
-      ...publishedPaths,
-    ],
-    { relayOutput: true },
-  );
-  const commit = await runCommand("git", ["rev-parse", "HEAD"]);
-  await runCommand("git", ["push", "origin", branch], { relayOutput: true });
-  return { status: "pushed", branch, commit };
-}
-
-const localGitSyncEnabled =
-  !process.argv.includes("--no-git-sync") &&
-  process.env.GITHUB_ACTIONS !== "true" &&
-  pathsMatch(databasePath, canonicalDatabasePath);
-
-if (
-  !process.argv.includes("--no-git-sync") &&
-  process.env.GITHUB_ACTIONS !== "true" &&
-  !pathsMatch(databasePath, canonicalDatabasePath)
-) {
+if (localGitSync.reason === "database-outside-repository") {
   console.warn(
     "Automatic Git sync is skipped for a database outside the repository.",
   );
@@ -122,12 +60,14 @@ if (
 
 try {
   if (localGitSyncEnabled) {
+    await prepareLocalDatabaseUpdate({ repositoryRoot, databasePath });
     await runCommand(
       process.execPath,
       [
         resolve(repositoryRoot, "scripts/update-exchange-rate.mjs"),
         "--database",
         databasePath,
+        "--no-git-sync",
       ],
       { relayOutput: true },
     );
@@ -154,8 +94,12 @@ try {
     console.warn(`ASPEED IR timestamp poll failed non-fatally: ${message}`);
   }
   const gitSync = localGitSyncEnabled
-    ? await syncLocalDatabaseChanges()
-    : { status: "skipped" };
+    ? await syncLocalDatabaseChanges({
+        repositoryRoot,
+        databasePath,
+        commitMessage: "Update live Taiwan monthly revenue",
+      })
+    : { status: "skipped", reason: localGitSync.reason };
   console.log(JSON.stringify({ ...result, aspeedIr, gitSync }, null, 2));
   if (result.deferred) {
     console.warn(`Poll deferred safely: ${result.deferredReason}`);

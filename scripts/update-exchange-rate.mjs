@@ -8,8 +8,13 @@ import {
   fetchMonthlyUsdTwdRates,
   syncMonthlyUsdTwdRates,
 } from "../src/exchange-rate.mjs";
+import {
+  prepareLocalDatabaseUpdate,
+  syncLocalDatabaseChanges,
+} from "../src/local-git-sync.mjs";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
+const repositoryRoot = resolve(scriptDirectory, "..");
 
 function argumentValue(name, fallback = null) {
   const index = process.argv.indexOf(name);
@@ -29,6 +34,8 @@ const migrationPath = resolve(
     resolve(scriptDirectory, "../migrations/006_monthly_exchange_rates.sql"),
   ),
 );
+
+await prepareLocalDatabaseUpdate({ repositoryRoot, databasePath });
 
 function applyMigration(database, migrationSql) {
   const version = Number(
@@ -106,4 +113,13 @@ try {
   if (migrationApplied) console.log("Applied SQLite migration 006.");
 } finally {
   database.close();
+}
+
+const gitSync = await syncLocalDatabaseChanges({
+  repositoryRoot,
+  databasePath,
+  commitMessage: "Update monthly USD/TWD exchange rates",
+});
+if (gitSync.status === "pushed") {
+  console.log(`Committed and pushed database changes in ${gitSync.commit}.`);
 }
