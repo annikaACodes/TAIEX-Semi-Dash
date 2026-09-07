@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 18947,
+  "revenueObservationCount": 18951,
   "companies": [
     {
       "id": 1,
@@ -2271,13 +2271,13 @@
       "classifications": [
         "OSAT"
       ],
-      "latestMonth": "2026-07",
-      "latestRevenueNt": 1218533000,
-      "latestMomPercent": 7.016998423551006,
-      "latestYoyPercent": 98.00183615933963,
-      "latestYtdRevenueNt": 6282055000,
-      "latestYtdYoyPercent": 20.292463997787955,
-      "latestPublicationTimestamp": "2026-08-07T10:07:50.131Z",
+      "latestMonth": "2026-08",
+      "latestRevenueNt": 1247981000,
+      "latestMomPercent": 2.4166764461857,
+      "latestYoyPercent": 109.75810219812358,
+      "latestYtdRevenueNt": 7530036000,
+      "latestYtdYoyPercent": 29.44255734638869,
+      "latestPublicationTimestamp": "2026-09-07T15:45:19.288Z",
       "restatementFlag": false
     },
     {
@@ -3762,13 +3762,13 @@
       "classifications": [
         "Sensors & Optical Modules"
       ],
-      "latestMonth": "2026-07",
-      "latestRevenueNt": 2753000,
-      "latestMomPercent": -81.90125567023864,
-      "latestYoyPercent": 112.91569992266048,
-      "latestYtdRevenueNt": 29510000,
-      "latestYtdYoyPercent": 36.92464736451373,
-      "latestPublicationTimestamp": "2026-08-10T07:58:50.704Z",
+      "latestMonth": "2026-08",
+      "latestRevenueNt": 3234000,
+      "latestMomPercent": 17.47184889211769,
+      "latestYoyPercent": 139.20118343195267,
+      "latestYtdRevenueNt": 32744000,
+      "latestYtdYoyPercent": 42.96192804750262,
+      "latestPublicationTimestamp": "2026-09-07T15:45:19.288Z",
       "restatementFlag": false
     },
     {
@@ -3842,13 +3842,13 @@
       "classifications": [
         "PCB & Flex Circuits"
       ],
-      "latestMonth": "2026-07",
-      "latestRevenueNt": 2045178000,
-      "latestMomPercent": 19.212044906095898,
-      "latestYoyPercent": 3.9666034448839413,
-      "latestYtdRevenueNt": 12892244000,
-      "latestYtdYoyPercent": 2.032547703389115,
-      "latestPublicationTimestamp": "2026-08-07T10:07:50.131Z",
+      "latestMonth": "2026-08",
+      "latestRevenueNt": 1997131000,
+      "latestMomPercent": -2.349282067379954,
+      "latestYoyPercent": 1.3293210163115807,
+      "latestYtdRevenueNt": 14889375000,
+      "latestYtdYoyPercent": 1.9376497421841383,
+      "latestPublicationTimestamp": "2026-09-07T15:45:19.288Z",
       "restatementFlag": false
     },
     {
@@ -4356,13 +4356,13 @@
       "classifications": [
         "Analog & Power IC Design"
       ],
-      "latestMonth": "2026-07",
-      "latestRevenueNt": 304063000,
-      "latestMomPercent": -18.17487035826061,
-      "latestYoyPercent": -15.466906868836826,
-      "latestYtdRevenueNt": 2404849000,
-      "latestYtdYoyPercent": -6.2775387910641225,
-      "latestPublicationTimestamp": "2026-08-07T10:07:50.131Z",
+      "latestMonth": "2026-08",
+      "latestRevenueNt": 353609000,
+      "latestMomPercent": 16.29464946409132,
+      "latestYoyPercent": -15.967442965779467,
+      "latestYtdRevenueNt": 2758458000,
+      "latestYtdYoyPercent": -7.6427808768595185,
+      "latestPublicationTimestamp": "2026-09-07T15:45:19.288Z",
       "restatementFlag": false
     },
     {
