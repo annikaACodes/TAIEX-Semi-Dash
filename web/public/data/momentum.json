@@ -1350,54 +1350,54 @@
         "ticker": "2359",
         "name": "SOLOMON",
         "classification": "Fab Equipment & Automation",
-        "analysisMonth": "2026-07",
-        "latestMonth": "2026-07",
-        "latestRevenueNt": 411460000,
-        "momPercent": -29.09370707942794,
-        "yoyPercent": 36.32222218540962,
-        "previousYoyPercent": 35.56207073774704,
-        "ytdYoyPercent": 7.920574761347511,
-        "accelerationPercentPoints": 0.76,
-        "direction": "accelerating",
+        "analysisMonth": "2026-08",
+        "latestMonth": "2026-08",
+        "latestRevenueNt": 275860000,
+        "momPercent": -32.9558158751762,
+        "yoyPercent": -18.145105055918055,
+        "previousYoyPercent": 36.32222218540962,
+        "ytdYoyPercent": 4.884055025296205,
+        "accelerationPercentPoints": -54.47,
+        "direction": "decelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 411460000,
-            "priorPeriodRevenueNt": 580287000,
-            "currentGrowthPercent": -29.09,
-            "previousGrowthPercent": 10.37,
-            "accelerationPercentPoints": -39.47,
+            "currentPeriodRevenueNt": 275860000,
+            "priorPeriodRevenueNt": 411460000,
+            "currentGrowthPercent": -32.96,
+            "previousGrowthPercent": -29.09,
+            "accelerationPercentPoints": -3.86,
             "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 411460000,
-            "priorPeriodRevenueNt": 301829000,
-            "currentGrowthPercent": 36.32,
-            "previousGrowthPercent": 35.56,
-            "accelerationPercentPoints": 0.76,
-            "direction": "accelerating"
+            "currentPeriodRevenueNt": 275860000,
+            "priorPeriodRevenueNt": 337011000,
+            "currentGrowthPercent": -18.15,
+            "previousGrowthPercent": 36.32,
+            "accelerationPercentPoints": -54.47,
+            "direction": "decelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 1517502000,
-            "priorPeriodRevenueNt": 878404000,
-            "currentGrowthPercent": 72.76,
-            "previousGrowthPercent": -15.71,
-            "accelerationPercentPoints": 88.47,
-            "direction": "accelerating"
+            "currentPeriodRevenueNt": 1267607000,
+            "priorPeriodRevenueNt": 1162269000,
+            "currentGrowthPercent": 9.06,
+            "previousGrowthPercent": 24.33,
+            "accelerationPercentPoints": -15.27,
+            "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 2395906000,
-            "priorPeriodRevenueNt": 2050122000,
-            "currentGrowthPercent": 16.87,
-            "previousGrowthPercent": -8.24,
-            "accelerationPercentPoints": 25.11,
+            "currentPeriodRevenueNt": 2429876000,
+            "priorPeriodRevenueNt": 1955001000,
+            "currentGrowthPercent": 24.29,
+            "previousGrowthPercent": -10.24,
+            "accelerationPercentPoints": 34.53,
             "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 4446028000,
-            "priorPeriodRevenueNt": 4167144000,
-            "currentGrowthPercent": 6.69,
-            "previousGrowthPercent": 16.28,
-            "accelerationPercentPoints": -9.59,
+            "currentPeriodRevenueNt": 4384877000,
+            "priorPeriodRevenueNt": 4209694000,
+            "currentGrowthPercent": 4.16,
+            "previousGrowthPercent": 17.22,
+            "accelerationPercentPoints": -13.06,
             "direction": "decelerating"
           }
         }
@@ -19308,54 +19308,54 @@
         "name": "SOLOMON",
         "classification": "Fab Equipment & Automation",
         "analysisMonth": "2026-08",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-08",
+        "latestRevenueNt": 275860000,
+        "momPercent": -32.9558158751762,
+        "yoyPercent": -18.145105055918055,
         "previousYoyPercent": 36.32222218540962,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 4.884055025296205,
+        "accelerationPercentPoints": -54.47,
+        "direction": "decelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 275860000,
             "priorPeriodRevenueNt": 411460000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -32.96,
             "previousGrowthPercent": -29.09,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -3.86,
+            "direction": "decelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 275860000,
             "priorPeriodRevenueNt": 337011000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -18.15,
             "previousGrowthPercent": 36.32,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -54.47,
+            "direction": "decelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1267607000,
             "priorPeriodRevenueNt": 1162269000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 9.06,
             "previousGrowthPercent": 24.33,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -15.27,
+            "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2429876000,
             "priorPeriodRevenueNt": 1955001000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 24.29,
             "previousGrowthPercent": -10.24,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 34.53,
+            "direction": "accelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 4384877000,
             "priorPeriodRevenueNt": 4209694000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 4.16,
             "previousGrowthPercent": 17.22,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -13.06,
+            "direction": "decelerating"
           }
         }
       },
