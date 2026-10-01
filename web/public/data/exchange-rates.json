@@ -866,5 +866,19 @@
     "sourceUrl": "https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01",
     "sourceLastUpdatedDate": "2026-08-31",
     "retrievedAtUtc": "2026-09-06T20:09:37.426Z"
+  },
+  {
+    "month": "2026-09",
+    "baseCurrency": "USD",
+    "quoteCurrency": "TWD",
+    "averageTwdPerUsd": 31.71635,
+    "dailyObservationCount": 20,
+    "firstObservationDate": "2026-09-01",
+    "lastObservationDate": "2026-09-30",
+    "averageMethod": "arithmetic_mean_daily_1600_interbank_spot",
+    "sourceName": "Central Bank of the Republic of China (Taiwan)",
+    "sourceUrl": "https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01",
+    "sourceLastUpdatedDate": "2026-10-01",
+    "retrievedAtUtc": "2026-10-01T05:39:24.062Z"
   }
 ]

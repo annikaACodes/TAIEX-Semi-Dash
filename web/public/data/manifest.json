@@ -1,6 +1,6 @@
 {
   "generatedDateTaipei": "2026-10-01",
-  "latestRevenueMonth": "2026-08",
+  "latestRevenueMonth": "2026-09",
   "targetReportingMonth": "2026-09",
   "exchangeRateHistory": {
     "baseCurrency": "USD",
@@ -9,15 +9,15 @@
     "sourceName": "Central Bank of the Republic of China (Taiwan)",
     "sourceUrl": "https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01",
     "coverageStartMonth": "2021-07",
-    "coverageEndMonth": "2026-08",
-    "monthlyRateCount": 62,
-    "latestAverageTwdPerUsd": 32.036524,
-    "latestObservationDate": "2026-08-31",
-    "sourceLastUpdatedDate": "2026-08-31"
+    "coverageEndMonth": "2026-09",
+    "monthlyRateCount": 63,
+    "latestAverageTwdPerUsd": 31.71635,
+    "latestObservationDate": "2026-09-30",
+    "sourceLastUpdatedDate": "2026-10-01"
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19136,
+  "revenueObservationCount": 19139,
   "companies": [
     {
       "id": 1,
@@ -651,13 +651,13 @@
       "classifications": [
         "PCB & Flex Circuits"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 1113296000,
-      "latestMomPercent": -4.575228384278727,
-      "latestYoyPercent": 16.41519792118706,
-      "latestYtdRevenueNt": 8361231000,
-      "latestYtdYoyPercent": 17.16694209456082,
-      "latestPublicationTimestamp": "2026-09-01T10:19:04.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 1136758000,
+      "latestMomPercent": 2.1074359379715726,
+      "latestYoyPercent": 15.05938915458387,
+      "latestYtdRevenueNt": 9497989000,
+      "latestYtdYoyPercent": 16.910643139757248,
+      "latestPublicationTimestamp": "2026-10-01T13:01:31.649Z",
       "restatementFlag": false
     },
     {
@@ -1598,13 +1598,13 @@
       "classifications": [
         "Test & Inspection Equipment"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 997357000,
-      "latestMomPercent": -3.488647766760305,
-      "latestYoyPercent": 31.881394189510655,
-      "latestYtdRevenueNt": 7418733000,
-      "latestYtdYoyPercent": 27.416001854889267,
-      "latestPublicationTimestamp": "2026-09-01T08:39:12.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 868016000,
+      "latestMomPercent": -12.968375416225083,
+      "latestYoyPercent": 54.01687411836724,
+      "latestYtdRevenueNt": 8286749000,
+      "latestYtdYoyPercent": 29.7636013582763,
+      "latestPublicationTimestamp": "2026-10-01T13:01:31.649Z",
       "restatementFlag": false
     },
     {
@@ -4002,13 +4002,13 @@
       "classifications": [
         "Fab Equipment & Automation"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 611320000,
-      "latestMomPercent": -4.193080750695451,
-      "latestYoyPercent": 15.539377169954319,
-      "latestYtdRevenueNt": 4817848000,
-      "latestYtdYoyPercent": 11.497804340405343,
-      "latestPublicationTimestamp": "2026-09-01T08:59:05.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 695372000,
+      "latestMomPercent": 13.749263887980108,
+      "latestYoyPercent": 30.84183193467053,
+      "latestYtdRevenueNt": 5513220000,
+      "latestYtdYoyPercent": 13.616425398532916,
+      "latestPublicationTimestamp": "2026-10-01T13:01:31.649Z",
       "restatementFlag": false
     },
     {
