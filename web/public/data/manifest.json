@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19145,
+  "revenueObservationCount": 19150,
   "companies": [
     {
       "id": 1,
@@ -1019,13 +1019,13 @@
       "classifications": [
         "Display IC Design"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 740683000,
-      "latestMomPercent": -15.665395602931682,
-      "latestYoyPercent": -36.72388444133861,
-      "latestYtdRevenueNt": 8048575000,
-      "latestYtdYoyPercent": -3.414824453264119,
-      "latestPublicationTimestamp": "2026-09-04T10:44:08.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 601864000,
+      "latestMomPercent": -18.742025940922094,
+      "latestYoyPercent": -46.89935064935065,
+      "latestYtdRevenueNt": 8650439000,
+      "latestYtdYoyPercent": -8.621257715433995,
+      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
       "restatementFlag": false
     },
     {
@@ -1983,13 +1983,13 @@
       "classifications": [
         "Display & Optical Components"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 381999000,
-      "latestMomPercent": 3.532023189065689,
-      "latestYoyPercent": 38.86429069970337,
-      "latestYtdRevenueNt": 2640531000,
-      "latestYtdYoyPercent": 17.805431701312642,
-      "latestPublicationTimestamp": "2026-09-02T07:44:13.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 369485000,
+      "latestMomPercent": -3.2759248060858797,
+      "latestYoyPercent": 7.592651371097606,
+      "latestYtdRevenueNt": 3010016000,
+      "latestYtdYoyPercent": 16.448607169868986,
+      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
       "restatementFlag": false
     },
     {
@@ -2479,13 +2479,13 @@
       "classifications": [
         "Test & Inspection Equipment"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 361158000,
-      "latestMomPercent": 0.4167836756483224,
-      "latestYoyPercent": 35.677791635986594,
-      "latestYtdRevenueNt": 2631861000,
-      "latestYtdYoyPercent": 14.39307833166791,
-      "latestPublicationTimestamp": "2026-09-02T10:44:05.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 372810000,
+      "latestMomPercent": 3.2262887711195654,
+      "latestYoyPercent": 63.2010716349437,
+      "latestYtdRevenueNt": 3004671000,
+      "latestYtdYoyPercent": 18.801472271547034,
+      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
       "restatementFlag": false
     },
     {
@@ -2544,13 +2544,13 @@
       "classifications": [
         "LED & Optoelectronics"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 271207000,
-      "latestMomPercent": 0.632274965399272,
-      "latestYoyPercent": 44.13254324661866,
-      "latestYtdRevenueNt": 1812643000,
-      "latestYtdYoyPercent": 14.371715030254848,
-      "latestPublicationTimestamp": "2026-09-02T08:29:11.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 239163000,
+      "latestMomPercent": -11.815329250351208,
+      "latestYoyPercent": 40.5510075751788,
+      "latestYtdRevenueNt": 2051806000,
+      "latestYtdYoyPercent": 16.909957715846616,
+      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
       "restatementFlag": false
     },
     {
@@ -3522,13 +3522,13 @@
       "classifications": [
         "LED & Optoelectronics"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 55352000,
-      "latestMomPercent": -15.733706821745551,
-      "latestYoyPercent": -12.054528988385579,
-      "latestYtdRevenueNt": 519530000,
-      "latestYtdYoyPercent": -1.546922168761003,
-      "latestPublicationTimestamp": "2026-09-03T09:34:07.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 70547000,
+      "latestMomPercent": 27.451582598641423,
+      "latestYoyPercent": 47.12924148574527,
+      "latestYtdRevenueNt": 590077000,
+      "latestYtdYoyPercent": 2.507634953669121,
+      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
       "restatementFlag": false
     },
     {
