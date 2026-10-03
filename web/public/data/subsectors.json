@@ -11407,6 +11407,13 @@
         "simpleYoyPercent": 29.02,
         "revenueWeightedYoyPercent": 50.34,
         "reportingCompanies": 4
+      },
+      {
+        "month": "2026-09",
+        "aggregateRevenueNt": 5585816000,
+        "simpleYoyPercent": 57.82,
+        "revenueWeightedYoyPercent": 57.82,
+        "reportingCompanies": 1
       }
     ],
     "Sensor & Imaging IC Design": [
@@ -15302,9 +15309,9 @@
       },
       "IC Substrates": {
         "month": "mix",
-        "aggregateRevenueNt": 27990862000,
-        "simpleYoyPercent": 29.02,
-        "revenueWeightedYoyPercent": 50.34,
+        "aggregateRevenueNt": 28223978000,
+        "simpleYoyPercent": 33.33,
+        "revenueWeightedYoyPercent": 53.67,
         "reportingCompanies": 4,
         "companies": [
           {
@@ -15313,19 +15320,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 17745519000,
             "yoyPercent": 56.25723917867715,
-            "revenueWeightPercent": 63.4,
+            "revenueWeightPercent": 62.87,
             "simpleYoyContributionPercentPoints": 14.06,
-            "revenueWeightedYoyContributionPercentPoints": 35.67
+            "revenueWeightedYoyContributionPercentPoints": 35.37
           },
           {
             "ticker": "8046",
             "name": "N.P.C",
-            "reportingMonth": "2026-08",
-            "revenueNt": 5352700000,
-            "yoyPercent": 40.59000155490278,
-            "revenueWeightPercent": 19.12,
-            "simpleYoyContributionPercentPoints": 10.15,
-            "revenueWeightedYoyContributionPercentPoints": 7.76
+            "reportingMonth": "2026-09",
+            "revenueNt": 5585816000,
+            "yoyPercent": 57.81553056554688,
+            "revenueWeightPercent": 19.79,
+            "simpleYoyContributionPercentPoints": 14.45,
+            "revenueWeightedYoyContributionPercentPoints": 11.44
           },
           {
             "ticker": "3189",
@@ -15333,9 +15340,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 4809631000,
             "yoyPercent": 40.57567965225748,
-            "revenueWeightPercent": 17.18,
+            "revenueWeightPercent": 17.04,
             "simpleYoyContributionPercentPoints": 10.14,
-            "revenueWeightedYoyContributionPercentPoints": 6.97
+            "revenueWeightedYoyContributionPercentPoints": 6.91
           },
           {
             "ticker": "6552",
@@ -15343,7 +15350,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 83012000,
             "yoyPercent": -21.342480291085508,
-            "revenueWeightPercent": 0.3,
+            "revenueWeightPercent": 0.29,
             "simpleYoyContributionPercentPoints": -5.34,
             "revenueWeightedYoyContributionPercentPoints": -0.06
           }
@@ -18837,11 +18844,21 @@
       },
       "IC Substrates": {
         "month": "2026-09",
-        "aggregateRevenueNt": 0,
-        "simpleYoyPercent": null,
-        "revenueWeightedYoyPercent": null,
-        "reportingCompanies": 0,
+        "aggregateRevenueNt": 5585816000,
+        "simpleYoyPercent": 57.82,
+        "revenueWeightedYoyPercent": 57.82,
+        "reportingCompanies": 1,
         "companies": [
+          {
+            "ticker": "8046",
+            "name": "N.P.C",
+            "reportingMonth": "2026-09",
+            "revenueNt": 5585816000,
+            "yoyPercent": 57.81553056554688,
+            "revenueWeightPercent": 100,
+            "simpleYoyContributionPercentPoints": 57.82,
+            "revenueWeightedYoyContributionPercentPoints": 57.82
+          },
           {
             "ticker": "3037",
             "name": "UNIMICRON",
@@ -18865,16 +18882,6 @@
           {
             "ticker": "6552",
             "name": "JMC",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "8046",
-            "name": "N.P.C",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,

@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19150,
+  "revenueObservationCount": 19151,
   "companies": [
     {
       "id": 1,
@@ -4823,13 +4823,13 @@
       "classifications": [
         "IC Substrates"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 5352700000,
-      "latestMomPercent": -1.6002754537845574,
-      "latestYoyPercent": 40.59000155490278,
-      "latestYtdRevenueNt": 35545167000,
-      "latestYtdYoyPercent": 39.56279377447245,
-      "latestPublicationTimestamp": "2026-09-03T06:14:14.000Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 5585816000,
+      "latestMomPercent": 4.3551105049787955,
+      "latestYoyPercent": 57.81553056554688,
+      "latestYtdRevenueNt": 41130983000,
+      "latestYtdYoyPercent": 41.78990079460085,
+      "latestPublicationTimestamp": "2026-10-03T05:40:32.533Z",
       "restatementFlag": false
     },
     {
