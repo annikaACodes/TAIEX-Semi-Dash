@@ -447,10 +447,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 4173871000,
-        "simpleYoyPercent": 2.25,
-        "revenueWeightedYoyPercent": -1.39,
-        "reportingCompanies": 2
+        "aggregateRevenueNt": 7239316000,
+        "simpleYoyPercent": 0.95,
+        "revenueWeightedYoyPercent": 1.46,
+        "reportingCompanies": 4
       }
     ],
     "Precision Mechanics": [
@@ -890,10 +890,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 18879449000,
-        "simpleYoyPercent": 103.71,
-        "revenueWeightedYoyPercent": 54.95,
-        "reportingCompanies": 2
+        "aggregateRevenueNt": 20099354000,
+        "simpleYoyPercent": 44.57,
+        "revenueWeightedYoyPercent": 49.92,
+        "reportingCompanies": 4
       }
     ],
     "Discrete & Power Semiconductors": [
@@ -1773,6 +1773,13 @@
         "simpleYoyPercent": 44.39,
         "revenueWeightedYoyPercent": 52.57,
         "reportingCompanies": 5
+      },
+      {
+        "month": "2026-09",
+        "aggregateRevenueNt": 25350431000,
+        "simpleYoyPercent": 27.22,
+        "revenueWeightedYoyPercent": 27.22,
+        "reportingCompanies": 1
       }
     ],
     "EMS & ODM": [
@@ -2655,10 +2662,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 9953320000,
-        "simpleYoyPercent": 8.04,
-        "revenueWeightedYoyPercent": 14.6,
-        "reportingCompanies": 3
+        "aggregateRevenueNt": 14715838000,
+        "simpleYoyPercent": 36.33,
+        "revenueWeightedYoyPercent": 36.05,
+        "reportingCompanies": 5
       }
     ],
     "Passive Components": [
@@ -3098,10 +3105,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 1821816000,
-        "simpleYoyPercent": 20.68,
-        "revenueWeightedYoyPercent": 16.58,
-        "reportingCompanies": 3
+        "aggregateRevenueNt": 3206867000,
+        "simpleYoyPercent": 32.18,
+        "revenueWeightedYoyPercent": 33.52,
+        "reportingCompanies": 5
       }
     ],
     "Interconnect": [
@@ -3984,10 +3991,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 3325476000,
-        "simpleYoyPercent": 30.88,
-        "revenueWeightedYoyPercent": 29.7,
-        "reportingCompanies": 2
+        "aggregateRevenueNt": 3920928000,
+        "simpleYoyPercent": 30.59,
+        "revenueWeightedYoyPercent": 29.75,
+        "reportingCompanies": 3
       }
     ],
     "Memory": [
@@ -4427,10 +4434,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 81989491000,
-        "simpleYoyPercent": 348.42,
-        "revenueWeightedYoyPercent": 449.65,
-        "reportingCompanies": 4
+        "aggregateRevenueNt": 91026128000,
+        "simpleYoyPercent": 306.97,
+        "revenueWeightedYoyPercent": 429.47,
+        "reportingCompanies": 6
       }
     ],
     "Wafer & Process Materials": [
@@ -5310,6 +5317,13 @@
         "simpleYoyPercent": 58.04,
         "revenueWeightedYoyPercent": 94.38,
         "reportingCompanies": 19
+      },
+      {
+        "month": "2026-09",
+        "aggregateRevenueNt": 7627110000,
+        "simpleYoyPercent": 25.31,
+        "revenueWeightedYoyPercent": 34.07,
+        "reportingCompanies": 4
       }
     ],
     "Packaging Materials": [
@@ -5746,6 +5760,13 @@
         "simpleYoyPercent": 28.96,
         "revenueWeightedYoyPercent": 43.02,
         "reportingCompanies": 5
+      },
+      {
+        "month": "2026-09",
+        "aggregateRevenueNt": 2360811000,
+        "simpleYoyPercent": 0.03,
+        "revenueWeightedYoyPercent": 33.37,
+        "reportingCompanies": 2
       }
     ],
     "Fab Equipment & Automation": [
@@ -6185,10 +6206,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 3444537000,
-        "simpleYoyPercent": 24.82,
-        "revenueWeightedYoyPercent": 19.48,
-        "reportingCompanies": 3
+        "aggregateRevenueNt": 3769330000,
+        "simpleYoyPercent": 22.79,
+        "revenueWeightedYoyPercent": 19.24,
+        "reportingCompanies": 4
       }
     ],
     "Test & Inspection Equipment": [
@@ -6628,10 +6649,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 1817151000,
-        "simpleYoyPercent": 48.12,
-        "revenueWeightedYoyPercent": 50.73,
-        "reportingCompanies": 4
+        "aggregateRevenueNt": 9927126000,
+        "simpleYoyPercent": 81.11,
+        "revenueWeightedYoyPercent": 163,
+        "reportingCompanies": 6
       }
     ],
     "Connectivity & Interface IC Design": [
@@ -7957,10 +7978,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 28196267000,
-        "simpleYoyPercent": 86.87,
-        "revenueWeightedYoyPercent": 151.27,
-        "reportingCompanies": 3
+        "aggregateRevenueNt": 29217164000,
+        "simpleYoyPercent": 115.57,
+        "revenueWeightedYoyPercent": 153.03,
+        "reportingCompanies": 4
       }
     ],
     "Logic IC Design": [
@@ -8400,10 +8421,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 13049769000,
-        "simpleYoyPercent": 166.49,
-        "revenueWeightedYoyPercent": 290.7,
-        "reportingCompanies": 4
+        "aggregateRevenueNt": 13082334000,
+        "simpleYoyPercent": 125.49,
+        "revenueWeightedYoyPercent": 289.88,
+        "reportingCompanies": 5
       }
     ],
     "LED & Optoelectronics": [
@@ -8843,10 +8864,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 3420564000,
-        "simpleYoyPercent": 27.91,
-        "revenueWeightedYoyPercent": 28.65,
-        "reportingCompanies": 6
+        "aggregateRevenueNt": 5345073000,
+        "simpleYoyPercent": 26.59,
+        "revenueWeightedYoyPercent": 25.04,
+        "reportingCompanies": 7
       }
     ],
     "Solar & PV": [
@@ -10165,10 +10186,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 2588537000,
-        "simpleYoyPercent": 44.62,
-        "revenueWeightedYoyPercent": 53.02,
-        "reportingCompanies": 2
+        "aggregateRevenueNt": 2648735000,
+        "simpleYoyPercent": 16.44,
+        "revenueWeightedYoyPercent": 50.9,
+        "reportingCompanies": 3
       }
     ],
     "Display IC Design": [
@@ -11494,10 +11515,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 5585816000,
-        "simpleYoyPercent": 57.82,
-        "revenueWeightedYoyPercent": 57.82,
-        "reportingCompanies": 1
+        "aggregateRevenueNt": 10831918000,
+        "simpleYoyPercent": 22.34,
+        "revenueWeightedYoyPercent": 50.87,
+        "reportingCompanies": 3
       }
     ],
     "Sensor & Imaging IC Design": [
@@ -11948,9 +11969,9 @@
     "mix": {
       "Power & Thermal Components": {
         "month": "mix",
-        "aggregateRevenueNt": 85168898000,
-        "simpleYoyPercent": 21.98,
-        "revenueWeightedYoyPercent": 32.94,
+        "aggregateRevenueNt": 85175380000,
+        "simpleYoyPercent": 20.7,
+        "revenueWeightedYoyPercent": 32.51,
         "reportingCompanies": 22,
         "companies": [
           {
@@ -11996,12 +12017,12 @@
           {
             "ticker": "2421",
             "name": "SUNON",
-            "reportingMonth": "2026-08",
-            "revenueNt": 1974148000,
-            "yoyPercent": 26.03114025371601,
-            "revenueWeightPercent": 2.32,
-            "simpleYoyContributionPercentPoints": 1.18,
-            "revenueWeightedYoyContributionPercentPoints": 0.6
+            "reportingMonth": "2026-09",
+            "revenueNt": 2048924000,
+            "yoyPercent": 16.539893784934115,
+            "revenueWeightPercent": 2.41,
+            "simpleYoyContributionPercentPoints": 0.75,
+            "revenueWeightedYoyContributionPercentPoints": 0.4
           },
           {
             "ticker": "6409",
@@ -12034,16 +12055,6 @@
             "revenueWeightedYoyContributionPercentPoints": 0.2
           },
           {
-            "ticker": "3015",
-            "name": "FSP",
-            "reportingMonth": "2026-08",
-            "revenueNt": 1084815000,
-            "yoyPercent": 1.295496203805812,
-            "revenueWeightPercent": 1.27,
-            "simpleYoyContributionPercentPoints": 0.06,
-            "revenueWeightedYoyContributionPercentPoints": 0.02
-          },
-          {
             "ticker": "3032",
             "name": "COMPUCASE",
             "reportingMonth": "2026-08",
@@ -12052,6 +12063,16 @@
             "revenueWeightPercent": 1.27,
             "simpleYoyContributionPercentPoints": -0.07,
             "revenueWeightedYoyContributionPercentPoints": -0.02
+          },
+          {
+            "ticker": "3015",
+            "name": "FSP",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1016521000,
+            "yoyPercent": -17.22081025023799,
+            "revenueWeightPercent": 1.19,
+            "simpleYoyContributionPercentPoints": -0.78,
+            "revenueWeightedYoyContributionPercentPoints": -0.21
           },
           {
             "ticker": "2457",
@@ -12177,9 +12198,9 @@
       },
       "Precision Mechanics": {
         "month": "mix",
-        "aggregateRevenueNt": 28034976000,
-        "simpleYoyPercent": 21.8,
-        "revenueWeightedYoyPercent": 42.76,
+        "aggregateRevenueNt": 28020921000,
+        "simpleYoyPercent": 22.5,
+        "revenueWeightedYoyPercent": 43.01,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -12188,7 +12209,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 14415056000,
             "yoyPercent": 11.199827203159714,
-            "revenueWeightPercent": 51.42,
+            "revenueWeightPercent": 51.44,
             "simpleYoyContributionPercentPoints": 0.66,
             "revenueWeightedYoyContributionPercentPoints": 5.76
           },
@@ -12198,9 +12219,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 4464393000,
             "yoyPercent": 196.22466238072266,
-            "revenueWeightPercent": 15.92,
+            "revenueWeightPercent": 15.93,
             "simpleYoyContributionPercentPoints": 11.54,
-            "revenueWeightedYoyContributionPercentPoints": 31.25
+            "revenueWeightedYoyContributionPercentPoints": 31.26
           },
           {
             "ticker": "6805",
@@ -12225,12 +12246,12 @@
           {
             "ticker": "2474",
             "name": "CATCHER",
-            "reportingMonth": "2026-08",
-            "revenueNt": 1003130000,
-            "yoyPercent": -40.457521383248356,
-            "revenueWeightPercent": 3.58,
-            "simpleYoyContributionPercentPoints": -2.38,
-            "revenueWeightedYoyContributionPercentPoints": -1.45
+            "reportingMonth": "2026-09",
+            "revenueNt": 1028108000,
+            "yoyPercent": -34.18895770868487,
+            "revenueWeightPercent": 3.67,
+            "simpleYoyContributionPercentPoints": -2.01,
+            "revenueWeightedYoyContributionPercentPoints": -1.25
           },
           {
             "ticker": "2476",
@@ -12258,7 +12279,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 724367000,
             "yoyPercent": 1.596814505836052,
-            "revenueWeightPercent": 2.58,
+            "revenueWeightPercent": 2.59,
             "simpleYoyContributionPercentPoints": 0.09,
             "revenueWeightedYoyContributionPercentPoints": 0.04
           },
@@ -12278,7 +12299,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 441444000,
             "yoyPercent": 28.179561259600167,
-            "revenueWeightPercent": 1.57,
+            "revenueWeightPercent": 1.58,
             "simpleYoyContributionPercentPoints": 1.66,
             "revenueWeightedYoyContributionPercentPoints": 0.44
           },
@@ -12298,7 +12319,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 292945000,
             "yoyPercent": 24.039361310237073,
-            "revenueWeightPercent": 1.04,
+            "revenueWeightPercent": 1.05,
             "simpleYoyContributionPercentPoints": 1.41,
             "revenueWeightedYoyContributionPercentPoints": 0.25
           },
@@ -12325,12 +12346,12 @@
           {
             "ticker": "2415",
             "name": "CX TECH",
-            "reportingMonth": "2026-08",
-            "revenueNt": 230830000,
-            "yoyPercent": -0.5989983679339939,
-            "revenueWeightPercent": 0.82,
-            "simpleYoyContributionPercentPoints": -0.04,
-            "revenueWeightedYoyContributionPercentPoints": 0
+            "reportingMonth": "2026-09",
+            "revenueNt": 191797000,
+            "yoyPercent": 5.056829074576179,
+            "revenueWeightPercent": 0.68,
+            "simpleYoyContributionPercentPoints": 0.3,
+            "revenueWeightedYoyContributionPercentPoints": 0.03
           },
           {
             "ticker": "4999",
@@ -12445,9 +12466,9 @@
       },
       "Foundry": {
         "month": "mix",
-        "aggregateRevenueNt": 547546208000,
-        "simpleYoyPercent": 44.39,
-        "revenueWeightedYoyPercent": 52.57,
+        "aggregateRevenueNt": 547851998000,
+        "simpleYoyPercent": 43.69,
+        "revenueWeightedYoyPercent": 52.39,
         "reportingCompanies": 5,
         "companies": [
           {
@@ -12456,19 +12477,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 514805337000,
             "yoyPercent": 53.320053714712955,
-            "revenueWeightPercent": 94.02,
+            "revenueWeightPercent": 93.97,
             "simpleYoyContributionPercentPoints": 10.66,
-            "revenueWeightedYoyContributionPercentPoints": 50.13
+            "revenueWeightedYoyContributionPercentPoints": 50.1
           },
           {
             "ticker": "2303",
             "name": "UMC",
-            "reportingMonth": "2026-08",
-            "revenueNt": 25044641000,
-            "yoyPercent": 30.71441291503008,
-            "revenueWeightPercent": 4.57,
-            "simpleYoyContributionPercentPoints": 6.14,
-            "revenueWeightedYoyContributionPercentPoints": 1.4
+            "reportingMonth": "2026-09",
+            "revenueNt": 25350431000,
+            "yoyPercent": 27.215377995124747,
+            "revenueWeightPercent": 4.63,
+            "simpleYoyContributionPercentPoints": 5.44,
+            "revenueWeightedYoyContributionPercentPoints": 1.26
           },
           {
             "ticker": "6770",
@@ -12478,7 +12499,7 @@
             "yoyPercent": 76.19282844889565,
             "revenueWeightPercent": 1.28,
             "simpleYoyContributionPercentPoints": 15.24,
-            "revenueWeightedYoyContributionPercentPoints": 0.98
+            "revenueWeightedYoyContributionPercentPoints": 0.97
           },
           {
             "ticker": "3016",
@@ -12653,9 +12674,9 @@
       },
       "PCB & Flex Circuits": {
         "month": "mix",
-        "aggregateRevenueNt": 75124763000,
-        "simpleYoyPercent": 37.14,
-        "revenueWeightedYoyPercent": 43.1,
+        "aggregateRevenueNt": 75576341000,
+        "simpleYoyPercent": 39.04,
+        "revenueWeightedYoyPercent": 44.04,
         "reportingCompanies": 20,
         "companies": [
           {
@@ -12664,9 +12685,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 20666117000,
             "yoyPercent": 41.05228119001421,
-            "revenueWeightPercent": 27.51,
+            "revenueWeightPercent": 27.34,
             "simpleYoyContributionPercentPoints": 2.05,
-            "revenueWeightedYoyContributionPercentPoints": 11.29
+            "revenueWeightedYoyContributionPercentPoints": 11.23
           },
           {
             "ticker": "2368",
@@ -12674,9 +12695,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 10383971000,
             "yoyPercent": 76.38825024031777,
-            "revenueWeightPercent": 13.82,
+            "revenueWeightPercent": 13.74,
             "simpleYoyContributionPercentPoints": 3.82,
-            "revenueWeightedYoyContributionPercentPoints": 10.56
+            "revenueWeightedYoyContributionPercentPoints": 10.5
           },
           {
             "ticker": "3044",
@@ -12684,9 +12705,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 10224358000,
             "yoyPercent": 65.47995924001005,
-            "revenueWeightPercent": 13.61,
+            "revenueWeightPercent": 13.53,
             "simpleYoyContributionPercentPoints": 3.27,
-            "revenueWeightedYoyContributionPercentPoints": 8.91
+            "revenueWeightedYoyContributionPercentPoints": 8.86
           },
           {
             "ticker": "2313",
@@ -12694,9 +12715,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 8617380000,
             "yoyPercent": 15.018893793137691,
-            "revenueWeightPercent": 11.47,
+            "revenueWeightPercent": 11.4,
             "simpleYoyContributionPercentPoints": 0.75,
-            "revenueWeightedYoyContributionPercentPoints": 1.72
+            "revenueWeightedYoyContributionPercentPoints": 1.71
           },
           {
             "ticker": "5469",
@@ -12704,9 +12725,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 6543125000,
             "yoyPercent": 26.409668850860886,
-            "revenueWeightPercent": 8.71,
+            "revenueWeightPercent": 8.66,
             "simpleYoyContributionPercentPoints": 1.32,
-            "revenueWeightedYoyContributionPercentPoints": 2.3
+            "revenueWeightedYoyContributionPercentPoints": 2.29
           },
           {
             "ticker": "6191",
@@ -12714,19 +12735,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 3801319000,
             "yoyPercent": 20.44511842142368,
-            "revenueWeightPercent": 5.06,
+            "revenueWeightPercent": 5.03,
             "simpleYoyContributionPercentPoints": 1.02,
             "revenueWeightedYoyContributionPercentPoints": 1.03
           },
           {
             "ticker": "3715",
             "name": "Dynamic Holding",
-            "reportingMonth": "2026-08",
-            "revenueNt": 2932061000,
-            "yoyPercent": 83.96056599949932,
-            "revenueWeightPercent": 3.9,
-            "simpleYoyContributionPercentPoints": 4.2,
-            "revenueWeightedYoyContributionPercentPoints": 3.28
+            "reportingMonth": "2026-09",
+            "revenueNt": 3226476000,
+            "yoyPercent": 84.69522628124143,
+            "revenueWeightPercent": 4.27,
+            "simpleYoyContributionPercentPoints": 4.23,
+            "revenueWeightedYoyContributionPercentPoints": 3.62
           },
           {
             "ticker": "8213",
@@ -12734,9 +12755,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 2100473000,
             "yoyPercent": 35.04738452834071,
-            "revenueWeightPercent": 2.8,
+            "revenueWeightPercent": 2.78,
             "simpleYoyContributionPercentPoints": 1.75,
-            "revenueWeightedYoyContributionPercentPoints": 0.98
+            "revenueWeightedYoyContributionPercentPoints": 0.97
           },
           {
             "ticker": "6269",
@@ -12744,9 +12765,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1997131000,
             "yoyPercent": 1.3293210163115807,
-            "revenueWeightPercent": 2.66,
+            "revenueWeightPercent": 2.64,
             "simpleYoyContributionPercentPoints": 0.07,
             "revenueWeightedYoyContributionPercentPoints": 0.04
+          },
+          {
+            "ticker": "4927",
+            "name": "Apex",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1536042000,
+            "yoyPercent": 72.82861855651544,
+            "revenueWeightPercent": 2.03,
+            "simpleYoyContributionPercentPoints": 3.64,
+            "revenueWeightedYoyContributionPercentPoints": 1.48
           },
           {
             "ticker": "2355",
@@ -12754,7 +12785,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1468680000,
             "yoyPercent": 13.434620312851182,
-            "revenueWeightPercent": 1.95,
+            "revenueWeightPercent": 1.94,
             "simpleYoyContributionPercentPoints": 0.67,
             "revenueWeightedYoyContributionPercentPoints": 0.26
           },
@@ -12764,19 +12795,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1459946000,
             "yoyPercent": 26.12946199475075,
-            "revenueWeightPercent": 1.94,
+            "revenueWeightPercent": 1.93,
             "simpleYoyContributionPercentPoints": 1.31,
-            "revenueWeightedYoyContributionPercentPoints": 0.51
-          },
-          {
-            "ticker": "4927",
-            "name": "Apex",
-            "reportingMonth": "2026-08",
-            "revenueNt": 1378879000,
-            "yoyPercent": 35.519426974762084,
-            "revenueWeightPercent": 1.84,
-            "simpleYoyContributionPercentPoints": 1.78,
-            "revenueWeightedYoyContributionPercentPoints": 0.65
+            "revenueWeightedYoyContributionPercentPoints": 0.5
           },
           {
             "ticker": "2402",
@@ -12784,7 +12805,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1136758000,
             "yoyPercent": 15.05938915458387,
-            "revenueWeightPercent": 1.51,
+            "revenueWeightPercent": 1.5,
             "simpleYoyContributionPercentPoints": 0.75,
             "revenueWeightedYoyContributionPercentPoints": 0.23
           },
@@ -12794,7 +12815,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 599097000,
             "yoyPercent": 45.69444140456857,
-            "revenueWeightPercent": 0.8,
+            "revenueWeightPercent": 0.79,
             "simpleYoyContributionPercentPoints": 2.28,
             "revenueWeightedYoyContributionPercentPoints": 0.36
           },
@@ -12804,7 +12825,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 568307000,
             "yoyPercent": 15.951204384178762,
-            "revenueWeightPercent": 0.76,
+            "revenueWeightPercent": 0.75,
             "simpleYoyContributionPercentPoints": 0.8,
             "revenueWeightedYoyContributionPercentPoints": 0.12
           },
@@ -12834,7 +12855,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 199182000,
             "yoyPercent": -5.972601187722462,
-            "revenueWeightPercent": 0.27,
+            "revenueWeightPercent": 0.26,
             "simpleYoyContributionPercentPoints": -0.3,
             "revenueWeightedYoyContributionPercentPoints": -0.02
           },
@@ -12862,9 +12883,9 @@
       },
       "Passive Components": {
         "month": "mix",
-        "aggregateRevenueNt": 30248605000,
-        "simpleYoyPercent": 40.7,
-        "revenueWeightedYoyPercent": 46.9,
+        "aggregateRevenueNt": 30298071000,
+        "simpleYoyPercent": 41.37,
+        "revenueWeightedYoyPercent": 47.13,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -12873,9 +12894,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 16332196000,
             "yoyPercent": 51.799610560411935,
-            "revenueWeightPercent": 53.99,
+            "revenueWeightPercent": 53.91,
             "simpleYoyContributionPercentPoints": 3.05,
-            "revenueWeightedYoyContributionPercentPoints": 27.97
+            "revenueWeightedYoyContributionPercentPoints": 27.92
           },
           {
             "ticker": "2492",
@@ -12883,9 +12904,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 4568665000,
             "yoyPercent": 45.54208446583508,
-            "revenueWeightPercent": 15.1,
+            "revenueWeightPercent": 15.08,
             "simpleYoyContributionPercentPoints": 2.68,
-            "revenueWeightedYoyContributionPercentPoints": 6.88
+            "revenueWeightedYoyContributionPercentPoints": 6.87
           },
           {
             "ticker": "3026",
@@ -12893,7 +12914,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1439761000,
             "yoyPercent": 33.21856745910945,
-            "revenueWeightPercent": 4.76,
+            "revenueWeightPercent": 4.75,
             "simpleYoyContributionPercentPoints": 1.95,
             "revenueWeightedYoyContributionPercentPoints": 1.58
           },
@@ -12903,7 +12924,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1415241000,
             "yoyPercent": 14.600444557810736,
-            "revenueWeightPercent": 4.68,
+            "revenueWeightPercent": 4.67,
             "simpleYoyContributionPercentPoints": 0.86,
             "revenueWeightedYoyContributionPercentPoints": 0.68
           },
@@ -12915,7 +12936,7 @@
             "yoyPercent": 51.18935687397397,
             "revenueWeightPercent": 4.33,
             "simpleYoyContributionPercentPoints": 3.01,
-            "revenueWeightedYoyContributionPercentPoints": 2.22
+            "revenueWeightedYoyContributionPercentPoints": 2.21
           },
           {
             "ticker": "2428",
@@ -12923,19 +12944,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 942587000,
             "yoyPercent": 51.21457814625632,
-            "revenueWeightPercent": 3.12,
+            "revenueWeightPercent": 3.11,
             "simpleYoyContributionPercentPoints": 3.01,
-            "revenueWeightedYoyContributionPercentPoints": 1.6
+            "revenueWeightedYoyContributionPercentPoints": 1.59
           },
           {
             "ticker": "7788",
             "name": "SONG CHUAN",
-            "reportingMonth": "2026-08",
-            "revenueNt": 872043000,
-            "yoyPercent": 66.40771696817036,
-            "revenueWeightPercent": 2.88,
-            "simpleYoyContributionPercentPoints": 3.91,
-            "revenueWeightedYoyContributionPercentPoints": 1.91
+            "reportingMonth": "2026-09",
+            "revenueNt": 877203000,
+            "yoyPercent": 73.30205267005157,
+            "revenueWeightPercent": 2.9,
+            "simpleYoyContributionPercentPoints": 4.31,
+            "revenueWeightedYoyContributionPercentPoints": 2.12
           },
           {
             "ticker": "2375",
@@ -12960,12 +12981,12 @@
           {
             "ticker": "6449",
             "name": "APAQ",
-            "reportingMonth": "2026-08",
-            "revenueNt": 463542000,
-            "yoyPercent": 21.16686053350411,
-            "revenueWeightPercent": 1.53,
-            "simpleYoyContributionPercentPoints": 1.25,
-            "revenueWeightedYoyContributionPercentPoints": 0.32
+            "reportingMonth": "2026-09",
+            "revenueNt": 507848000,
+            "yoyPercent": 25.554223271567547,
+            "revenueWeightPercent": 1.68,
+            "simpleYoyContributionPercentPoints": 1.5,
+            "revenueWeightedYoyContributionPercentPoints": 0.43
           },
           {
             "ticker": "2413",
@@ -13290,8 +13311,8 @@
       },
       "OSAT": {
         "month": "mix",
-        "aggregateRevenueNt": 110889509000,
-        "simpleYoyPercent": 35.49,
+        "aggregateRevenueNt": 110875732000,
+        "simpleYoyPercent": 35.46,
         "revenueWeightedYoyPercent": 41.97,
         "reportingCompanies": 15,
         "companies": [
@@ -13301,7 +13322,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 82247374000,
             "yoyPercent": 45.65918579706578,
-            "revenueWeightPercent": 74.17,
+            "revenueWeightPercent": 74.18,
             "simpleYoyContributionPercentPoints": 3.04,
             "revenueWeightedYoyContributionPercentPoints": 33.87
           },
@@ -13438,20 +13459,20 @@
           {
             "ticker": "6525",
             "name": "GEM",
-            "reportingMonth": "2026-08",
-            "revenueNt": 609229000,
-            "yoyPercent": 30.531915805351296,
-            "revenueWeightPercent": 0.55,
-            "simpleYoyContributionPercentPoints": 2.04,
-            "revenueWeightedYoyContributionPercentPoints": 0.17
+            "reportingMonth": "2026-09",
+            "revenueNt": 595452000,
+            "yoyPercent": 30.02696830405398,
+            "revenueWeightPercent": 0.54,
+            "simpleYoyContributionPercentPoints": 2,
+            "revenueWeightedYoyContributionPercentPoints": 0.16
           }
         ]
       },
       "Memory": {
         "month": "mix",
-        "aggregateRevenueNt": 110110336000,
-        "simpleYoyPercent": 265.38,
-        "revenueWeightedYoyPercent": 385.14,
+        "aggregateRevenueNt": 111520528000,
+        "simpleYoyPercent": 264.94,
+        "revenueWeightedYoyPercent": 383.85,
         "reportingCompanies": 10,
         "companies": [
           {
@@ -13460,9 +13481,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 45091089000,
             "yoyPercent": 576.622775031737,
-            "revenueWeightPercent": 40.95,
+            "revenueWeightPercent": 40.43,
             "simpleYoyContributionPercentPoints": 57.66,
-            "revenueWeightedYoyContributionPercentPoints": 236.13
+            "revenueWeightedYoyContributionPercentPoints": 233.15
           },
           {
             "ticker": "2344",
@@ -13470,9 +13491,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 28248909000,
             "yoyPercent": 256.6686868151223,
-            "revenueWeightPercent": 25.66,
+            "revenueWeightPercent": 25.33,
             "simpleYoyContributionPercentPoints": 25.67,
-            "revenueWeightedYoyContributionPercentPoints": 65.85
+            "revenueWeightedYoyContributionPercentPoints": 65.02
           },
           {
             "ticker": "2337",
@@ -13480,9 +13501,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 8145267000,
             "yoyPercent": 218.53271706735816,
-            "revenueWeightPercent": 7.4,
+            "revenueWeightPercent": 7.3,
             "simpleYoyContributionPercentPoints": 21.85,
-            "revenueWeightedYoyContributionPercentPoints": 16.17
+            "revenueWeightedYoyContributionPercentPoints": 15.96
           },
           {
             "ticker": "3006",
@@ -13490,9 +13511,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 7460769000,
             "yoyPercent": 470.2347504677583,
-            "revenueWeightPercent": 6.78,
+            "revenueWeightPercent": 6.69,
             "simpleYoyContributionPercentPoints": 47.02,
-            "revenueWeightedYoyContributionPercentPoints": 31.86
+            "revenueWeightedYoyContributionPercentPoints": 31.46
           },
           {
             "ticker": "6770",
@@ -13500,19 +13521,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 7008845000,
             "yoyPercent": 76.19282844889565,
-            "revenueWeightPercent": 6.37,
+            "revenueWeightPercent": 6.28,
             "simpleYoyContributionPercentPoints": 7.62,
-            "revenueWeightedYoyContributionPercentPoints": 4.85
+            "revenueWeightedYoyContributionPercentPoints": 4.79
           },
           {
             "ticker": "2451",
             "name": "Transcend",
-            "reportingMonth": "2026-08",
-            "revenueNt": 4837166000,
-            "yoyPercent": 275.4659980905217,
-            "revenueWeightPercent": 4.39,
-            "simpleYoyContributionPercentPoints": 27.55,
-            "revenueWeightedYoyContributionPercentPoints": 12.1
+            "reportingMonth": "2026-09",
+            "revenueNt": 6035203000,
+            "yoyPercent": 290.42308535778307,
+            "revenueWeightPercent": 5.41,
+            "simpleYoyContributionPercentPoints": 29.04,
+            "revenueWeightedYoyContributionPercentPoints": 15.72
           },
           {
             "ticker": "4967",
@@ -13520,19 +13541,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 3513003000,
             "yoyPercent": 275.0567709273065,
-            "revenueWeightPercent": 3.19,
+            "revenueWeightPercent": 3.15,
             "simpleYoyContributionPercentPoints": 27.51,
-            "revenueWeightedYoyContributionPercentPoints": 8.78
+            "revenueWeightedYoyContributionPercentPoints": 8.66
           },
           {
             "ticker": "8271",
             "name": "Apacer",
-            "reportingMonth": "2026-08",
-            "revenueNt": 2789279000,
-            "yoyPercent": 177.10455204752728,
-            "revenueWeightPercent": 2.53,
-            "simpleYoyContributionPercentPoints": 17.71,
-            "revenueWeightedYoyContributionPercentPoints": 4.49
+            "reportingMonth": "2026-09",
+            "revenueNt": 3001434000,
+            "yoyPercent": 157.7119075565386,
+            "revenueWeightPercent": 2.69,
+            "simpleYoyContributionPercentPoints": 15.77,
+            "revenueWeightedYoyContributionPercentPoints": 4.24
           },
           {
             "ticker": "3135",
@@ -13540,9 +13561,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1827285000,
             "yoyPercent": 237.786227791755,
-            "revenueWeightPercent": 1.66,
+            "revenueWeightPercent": 1.64,
             "simpleYoyContributionPercentPoints": 23.78,
-            "revenueWeightedYoyContributionPercentPoints": 3.95
+            "revenueWeightedYoyContributionPercentPoints": 3.9
           },
           {
             "ticker": "6531",
@@ -13550,9 +13571,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1188724000,
             "yoyPercent": 90.15263732080071,
-            "revenueWeightPercent": 1.08,
+            "revenueWeightPercent": 1.07,
             "simpleYoyContributionPercentPoints": 9.02,
-            "revenueWeightedYoyContributionPercentPoints": 0.97
+            "revenueWeightedYoyContributionPercentPoints": 0.96
           }
         ]
       },
@@ -13667,9 +13688,9 @@
       },
       "Semiconductor Distribution": {
         "month": "mix",
-        "aggregateRevenueNt": 522887001000,
-        "simpleYoyPercent": 58.04,
-        "revenueWeightedYoyPercent": 94.38,
+        "aggregateRevenueNt": 523008847000,
+        "simpleYoyPercent": 56.42,
+        "revenueWeightedYoyPercent": 94.29,
         "reportingCompanies": 19,
         "companies": [
           {
@@ -13678,9 +13699,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 198383815000,
             "yoyPercent": 98.21291582397657,
-            "revenueWeightPercent": 37.94,
+            "revenueWeightPercent": 37.93,
             "simpleYoyContributionPercentPoints": 5.17,
-            "revenueWeightedYoyContributionPercentPoints": 37.26
+            "revenueWeightedYoyContributionPercentPoints": 37.25
           },
           {
             "ticker": "3702",
@@ -13690,7 +13711,7 @@
             "yoyPercent": 80.45926827221638,
             "revenueWeightPercent": 27.2,
             "simpleYoyContributionPercentPoints": 4.23,
-            "revenueWeightedYoyContributionPercentPoints": 21.89
+            "revenueWeightedYoyContributionPercentPoints": 21.88
           },
           {
             "ticker": "2347",
@@ -13700,7 +13721,7 @@
             "yoyPercent": 122.01643193808464,
             "revenueWeightPercent": 14.19,
             "simpleYoyContributionPercentPoints": 6.42,
-            "revenueWeightedYoyContributionPercentPoints": 17.32
+            "revenueWeightedYoyContributionPercentPoints": 17.31
           },
           {
             "ticker": "8112",
@@ -13775,12 +13796,12 @@
           {
             "ticker": "6776",
             "name": "Weblink",
-            "reportingMonth": "2026-08",
-            "revenueNt": 3246279000,
-            "yoyPercent": 41.523879775203014,
-            "revenueWeightPercent": 0.62,
-            "simpleYoyContributionPercentPoints": 2.19,
-            "revenueWeightedYoyContributionPercentPoints": 0.26
+            "reportingMonth": "2026-09",
+            "revenueNt": 3368141000,
+            "yoyPercent": 35.92164170973228,
+            "revenueWeightPercent": 0.64,
+            "simpleYoyContributionPercentPoints": 1.89,
+            "revenueWeightedYoyContributionPercentPoints": 0.23
           },
           {
             "ticker": "6189",
@@ -13793,6 +13814,16 @@
             "revenueWeightedYoyContributionPercentPoints": 0.06
           },
           {
+            "ticker": "8070",
+            "name": "CHANG WAH",
+            "reportingMonth": "2026-09",
+            "revenueNt": 2295985000,
+            "yoyPercent": 35.30818171960379,
+            "revenueWeightPercent": 0.44,
+            "simpleYoyContributionPercentPoints": 1.86,
+            "revenueWeightedYoyContributionPercentPoints": 0.16
+          },
+          {
             "ticker": "3312",
             "name": "GMI",
             "reportingMonth": "2026-08",
@@ -13803,24 +13834,14 @@
             "revenueWeightedYoyContributionPercentPoints": 0.15
           },
           {
-            "ticker": "8070",
-            "name": "CHANG WAH",
-            "reportingMonth": "2026-08",
-            "revenueNt": 2232762000,
-            "yoyPercent": 37.57073355876061,
-            "revenueWeightPercent": 0.43,
-            "simpleYoyContributionPercentPoints": 1.98,
-            "revenueWeightedYoyContributionPercentPoints": 0.16
-          },
-          {
             "ticker": "3090",
             "name": "NDB",
-            "reportingMonth": "2026-08",
-            "revenueNt": 1912802000,
-            "yoyPercent": 38.4488218327368,
-            "revenueWeightPercent": 0.37,
-            "simpleYoyContributionPercentPoints": 2.02,
-            "revenueWeightedYoyContributionPercentPoints": 0.14
+            "reportingMonth": "2026-09",
+            "revenueNt": 1852758000,
+            "yoyPercent": 31.27121568205119,
+            "revenueWeightPercent": 0.35,
+            "simpleYoyContributionPercentPoints": 1.65,
+            "revenueWeightedYoyContributionPercentPoints": 0.11
           },
           {
             "ticker": "3528",
@@ -13835,11 +13856,11 @@
           {
             "ticker": "8072",
             "name": "AV TECH",
-            "reportingMonth": "2026-08",
-            "revenueNt": 113421000,
-            "yoyPercent": 14.526177613974857,
+            "reportingMonth": "2026-09",
+            "revenueNt": 110226000,
+            "yoyPercent": -1.2656867223819632,
             "revenueWeightPercent": 0.02,
-            "simpleYoyContributionPercentPoints": 0.76,
+            "simpleYoyContributionPercentPoints": -0.07,
             "revenueWeightedYoyContributionPercentPoints": 0
           },
           {
@@ -13866,20 +13887,20 @@
       },
       "Packaging Materials": {
         "month": "mix",
-        "aggregateRevenueNt": 5579341000,
-        "simpleYoyPercent": 28.96,
-        "revenueWeightedYoyPercent": 43.02,
+        "aggregateRevenueNt": 5624378000,
+        "simpleYoyPercent": 25.72,
+        "revenueWeightedYoyPercent": 42.08,
         "reportingCompanies": 5,
         "companies": [
           {
             "ticker": "8070",
             "name": "CHANG WAH",
-            "reportingMonth": "2026-08",
-            "revenueNt": 2232762000,
-            "yoyPercent": 37.57073355876061,
-            "revenueWeightPercent": 40.02,
-            "simpleYoyContributionPercentPoints": 7.51,
-            "revenueWeightedYoyContributionPercentPoints": 15.04
+            "reportingMonth": "2026-09",
+            "revenueNt": 2295985000,
+            "yoyPercent": 35.30818171960379,
+            "revenueWeightPercent": 40.82,
+            "simpleYoyContributionPercentPoints": 7.06,
+            "revenueWeightedYoyContributionPercentPoints": 14.41
           },
           {
             "ticker": "3305",
@@ -13887,9 +13908,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1387596000,
             "yoyPercent": 47.40192209431158,
-            "revenueWeightPercent": 24.87,
+            "revenueWeightPercent": 24.67,
             "simpleYoyContributionPercentPoints": 9.48,
-            "revenueWeightedYoyContributionPercentPoints": 11.79
+            "revenueWeightedYoyContributionPercentPoints": 11.69
           },
           {
             "ticker": "2351",
@@ -13897,9 +13918,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1326062000,
             "yoyPercent": 61.221187315428,
-            "revenueWeightPercent": 23.77,
+            "revenueWeightPercent": 23.58,
             "simpleYoyContributionPercentPoints": 12.24,
-            "revenueWeightedYoyContributionPercentPoints": 14.55
+            "revenueWeightedYoyContributionPercentPoints": 14.43
           },
           {
             "ticker": "5285",
@@ -13907,27 +13928,27 @@
             "reportingMonth": "2026-08",
             "revenueNt": 549909000,
             "yoyPercent": 19.926592779660574,
-            "revenueWeightPercent": 9.86,
+            "revenueWeightPercent": 9.78,
             "simpleYoyContributionPercentPoints": 3.99,
-            "revenueWeightedYoyContributionPercentPoints": 1.96
+            "revenueWeightedYoyContributionPercentPoints": 1.95
           },
           {
             "ticker": "6552",
             "name": "JMC",
-            "reportingMonth": "2026-08",
-            "revenueNt": 83012000,
-            "yoyPercent": -21.342480291085508,
-            "revenueWeightPercent": 1.49,
-            "simpleYoyContributionPercentPoints": -4.27,
-            "revenueWeightedYoyContributionPercentPoints": -0.32
+            "reportingMonth": "2026-09",
+            "revenueNt": 64826000,
+            "yoyPercent": -35.25687120485778,
+            "revenueWeightPercent": 1.15,
+            "simpleYoyContributionPercentPoints": -7.05,
+            "revenueWeightedYoyContributionPercentPoints": -0.41
           }
         ]
       },
       "Fab Equipment & Automation": {
         "month": "mix",
-        "aggregateRevenueNt": 42439492000,
-        "simpleYoyPercent": 60.53,
-        "revenueWeightedYoyPercent": 74.51,
+        "aggregateRevenueNt": 42488425000,
+        "simpleYoyPercent": 62.46,
+        "revenueWeightedYoyPercent": 74.67,
         "reportingCompanies": 18,
         "companies": [
           {
@@ -13936,9 +13957,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 11018647000,
             "yoyPercent": 41.68738766970338,
-            "revenueWeightPercent": 25.96,
+            "revenueWeightPercent": 25.93,
             "simpleYoyContributionPercentPoints": 2.32,
-            "revenueWeightedYoyContributionPercentPoints": 10.82
+            "revenueWeightedYoyContributionPercentPoints": 10.81
           },
           {
             "ticker": "2404",
@@ -13946,9 +13967,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 9392377000,
             "yoyPercent": 59.050412994601615,
-            "revenueWeightPercent": 22.13,
+            "revenueWeightPercent": 22.11,
             "simpleYoyContributionPercentPoints": 3.28,
-            "revenueWeightedYoyContributionPercentPoints": 13.07
+            "revenueWeightedYoyContributionPercentPoints": 13.05
           },
           {
             "ticker": "6196",
@@ -13956,9 +13977,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 7219605000,
             "yoyPercent": 83.88589994276812,
-            "revenueWeightPercent": 17.01,
+            "revenueWeightPercent": 16.99,
             "simpleYoyContributionPercentPoints": 4.66,
-            "revenueWeightedYoyContributionPercentPoints": 14.27
+            "revenueWeightedYoyContributionPercentPoints": 14.25
           },
           {
             "ticker": "6691",
@@ -13966,9 +13987,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 5287292000,
             "yoyPercent": 213.69818881487726,
-            "revenueWeightPercent": 12.46,
+            "revenueWeightPercent": 12.44,
             "simpleYoyContributionPercentPoints": 11.87,
-            "revenueWeightedYoyContributionPercentPoints": 26.62
+            "revenueWeightedYoyContributionPercentPoints": 26.59
           },
           {
             "ticker": "3413",
@@ -13976,7 +13997,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2358998000,
             "yoyPercent": 14.549108783870073,
-            "revenueWeightPercent": 5.56,
+            "revenueWeightPercent": 5.55,
             "simpleYoyContributionPercentPoints": 0.81,
             "revenueWeightedYoyContributionPercentPoints": 0.81
           },
@@ -13986,7 +14007,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1068346000,
             "yoyPercent": 18.057239217229007,
-            "revenueWeightPercent": 2.52,
+            "revenueWeightPercent": 2.51,
             "simpleYoyContributionPercentPoints": 1,
             "revenueWeightedYoyContributionPercentPoints": 0.45
           },
@@ -13996,7 +14017,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 928232000,
             "yoyPercent": 73.70780965783624,
-            "revenueWeightPercent": 2.19,
+            "revenueWeightPercent": 2.18,
             "simpleYoyContributionPercentPoints": 4.09,
             "revenueWeightedYoyContributionPercentPoints": 1.61
           },
@@ -14016,9 +14037,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 770701000,
             "yoyPercent": 97.75305404524683,
-            "revenueWeightPercent": 1.82,
+            "revenueWeightPercent": 1.81,
             "simpleYoyContributionPercentPoints": 5.43,
-            "revenueWeightedYoyContributionPercentPoints": 1.78
+            "revenueWeightedYoyContributionPercentPoints": 1.77
           },
           {
             "ticker": "6438",
@@ -14028,7 +14049,7 @@
             "yoyPercent": 30.84183193467053,
             "revenueWeightPercent": 1.64,
             "simpleYoyContributionPercentPoints": 1.71,
-            "revenueWeightedYoyContributionPercentPoints": 0.51
+            "revenueWeightedYoyContributionPercentPoints": 0.5
           },
           {
             "ticker": "6192",
@@ -14078,17 +14099,17 @@
             "yoyPercent": 111.49808375067597,
             "revenueWeightPercent": 0.85,
             "simpleYoyContributionPercentPoints": 6.19,
-            "revenueWeightedYoyContributionPercentPoints": 0.95
+            "revenueWeightedYoyContributionPercentPoints": 0.94
           },
           {
             "ticker": "2359",
             "name": "SOLOMON",
-            "reportingMonth": "2026-08",
-            "revenueNt": 275860000,
-            "yoyPercent": -18.145105055918055,
-            "revenueWeightPercent": 0.65,
-            "simpleYoyContributionPercentPoints": -1.01,
-            "revenueWeightedYoyContributionPercentPoints": -0.12
+            "reportingMonth": "2026-09",
+            "revenueNt": 324793000,
+            "yoyPercent": 16.68972008953111,
+            "revenueWeightPercent": 0.76,
+            "simpleYoyContributionPercentPoints": 0.93,
+            "revenueWeightedYoyContributionPercentPoints": 0.13
           },
           {
             "ticker": "6658",
@@ -14114,20 +14135,20 @@
       },
       "Test & Inspection Equipment": {
         "month": "mix",
-        "aggregateRevenueNt": 14887326000,
-        "simpleYoyPercent": 83.24,
-        "revenueWeightedYoyPercent": 125.9,
+        "aggregateRevenueNt": 15659237000,
+        "simpleYoyPercent": 75.29,
+        "revenueWeightedYoyPercent": 135.51,
         "reportingCompanies": 12,
         "companies": [
           {
             "ticker": "2360",
             "name": "CHROMA",
-            "reportingMonth": "2026-08",
-            "revenueNt": 5632401000,
-            "yoyPercent": 156.29654201767283,
-            "revenueWeightPercent": 37.83,
-            "simpleYoyContributionPercentPoints": 13.02,
-            "revenueWeightedYoyContributionPercentPoints": 59.13
+            "reportingMonth": "2026-09",
+            "revenueNt": 6859602000,
+            "yoyPercent": 206.46824005093208,
+            "revenueWeightPercent": 43.81,
+            "simpleYoyContributionPercentPoints": 17.21,
+            "revenueWeightedYoyContributionPercentPoints": 90.44
           },
           {
             "ticker": "7769",
@@ -14135,19 +14156,19 @@
             "reportingMonth": "2026-08",
             "revenueNt": 5218962000,
             "yoyPercent": 91.58397305250298,
-            "revenueWeightPercent": 35.06,
+            "revenueWeightPercent": 33.33,
             "simpleYoyContributionPercentPoints": 7.63,
-            "revenueWeightedYoyContributionPercentPoints": 32.11
+            "revenueWeightedYoyContributionPercentPoints": 30.52
           },
           {
             "ticker": "6515",
             "name": "WinWay",
-            "reportingMonth": "2026-08",
-            "revenueNt": 1705663000,
-            "yoyPercent": 233.36649415222965,
-            "revenueWeightPercent": 11.46,
-            "simpleYoyContributionPercentPoints": 19.45,
-            "revenueWeightedYoyContributionPercentPoints": 26.74
+            "reportingMonth": "2026-09",
+            "revenueNt": 1250373000,
+            "yoyPercent": 87.71719907400457,
+            "revenueWeightPercent": 7.98,
+            "simpleYoyContributionPercentPoints": 7.31,
+            "revenueWeightedYoyContributionPercentPoints": 7
           },
           {
             "ticker": "3030",
@@ -14155,9 +14176,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 868016000,
             "yoyPercent": 54.01687411836724,
-            "revenueWeightPercent": 5.83,
+            "revenueWeightPercent": 5.54,
             "simpleYoyContributionPercentPoints": 4.5,
-            "revenueWeightedYoyContributionPercentPoints": 3.15
+            "revenueWeightedYoyContributionPercentPoints": 2.99
           },
           {
             "ticker": "3563",
@@ -14165,9 +14186,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 372810000,
             "yoyPercent": 63.2010716349437,
-            "revenueWeightPercent": 2.5,
+            "revenueWeightPercent": 2.38,
             "simpleYoyContributionPercentPoints": 5.27,
-            "revenueWeightedYoyContributionPercentPoints": 1.58
+            "revenueWeightedYoyContributionPercentPoints": 1.5
           },
           {
             "ticker": "7822",
@@ -14175,9 +14196,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 311736000,
             "yoyPercent": 38.572736728869764,
-            "revenueWeightPercent": 2.09,
+            "revenueWeightPercent": 1.99,
             "simpleYoyContributionPercentPoints": 3.21,
-            "revenueWeightedYoyContributionPercentPoints": 0.81
+            "revenueWeightedYoyContributionPercentPoints": 0.77
           },
           {
             "ticker": "2423",
@@ -14185,9 +14206,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 299614000,
             "yoyPercent": 28.149700598802394,
-            "revenueWeightPercent": 2.01,
+            "revenueWeightPercent": 1.91,
             "simpleYoyContributionPercentPoints": 2.35,
-            "revenueWeightedYoyContributionPercentPoints": 0.57
+            "revenueWeightedYoyContributionPercentPoints": 0.54
           },
           {
             "ticker": "6830",
@@ -14195,9 +14216,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 264589000,
             "yoyPercent": 36.70812170938758,
-            "revenueWeightPercent": 1.78,
+            "revenueWeightPercent": 1.69,
             "simpleYoyContributionPercentPoints": 3.06,
-            "revenueWeightedYoyContributionPercentPoints": 0.65
+            "revenueWeightedYoyContributionPercentPoints": 0.62
           },
           {
             "ticker": "6706",
@@ -14205,9 +14226,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 77628000,
             "yoyPercent": 120.52782591403653,
-            "revenueWeightPercent": 0.52,
+            "revenueWeightPercent": 0.5,
             "simpleYoyContributionPercentPoints": 10.04,
-            "revenueWeightedYoyContributionPercentPoints": 0.63
+            "revenueWeightedYoyContributionPercentPoints": 0.6
           },
           {
             "ticker": "6909",
@@ -14215,9 +14236,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 60579000,
             "yoyPercent": 29.348336678481445,
-            "revenueWeightPercent": 0.41,
+            "revenueWeightPercent": 0.39,
             "simpleYoyContributionPercentPoints": 2.45,
-            "revenueWeightedYoyContributionPercentPoints": 0.12
+            "revenueWeightedYoyContributionPercentPoints": 0.11
           },
           {
             "ticker": "3055",
@@ -14225,9 +14246,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 47561000,
             "yoyPercent": 108.23555166374781,
-            "revenueWeightPercent": 0.32,
+            "revenueWeightPercent": 0.3,
             "simpleYoyContributionPercentPoints": 9.02,
-            "revenueWeightedYoyContributionPercentPoints": 0.35
+            "revenueWeightedYoyContributionPercentPoints": 0.33
           },
           {
             "ticker": "3535",
@@ -14235,7 +14256,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 27767000,
             "yoyPercent": 38.91140127069888,
-            "revenueWeightPercent": 0.19,
+            "revenueWeightPercent": 0.18,
             "simpleYoyContributionPercentPoints": 3.24,
             "revenueWeightedYoyContributionPercentPoints": 0.07
           }
@@ -14501,9 +14522,9 @@
       },
       "CCL & PCB Materials": {
         "month": "mix",
-        "aggregateRevenueNt": 29595526000,
-        "simpleYoyPercent": 80.79,
-        "revenueWeightedYoyPercent": 149.08,
+        "aggregateRevenueNt": 29810546000,
+        "simpleYoyPercent": 92.19,
+        "revenueWeightedYoyPercent": 151.31,
         "reportingCompanies": 6,
         "companies": [
           {
@@ -14512,9 +14533,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 21532230000,
             "yoyPercent": 168.87284393304373,
-            "revenueWeightPercent": 72.76,
+            "revenueWeightPercent": 72.23,
             "simpleYoyContributionPercentPoints": 28.15,
-            "revenueWeightedYoyContributionPercentPoints": 122.86
+            "revenueWeightedYoyContributionPercentPoints": 121.98
           },
           {
             "ticker": "6213",
@@ -14522,9 +14543,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 5824212000,
             "yoyPercent": 110.7353905337519,
-            "revenueWeightPercent": 19.68,
+            "revenueWeightPercent": 19.54,
             "simpleYoyContributionPercentPoints": 18.46,
-            "revenueWeightedYoyContributionPercentPoints": 21.79
+            "revenueWeightedYoyContributionPercentPoints": 21.63
+          },
+          {
+            "ticker": "6672",
+            "name": "Ventec",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1020897000,
+            "yoyPercent": 201.68440214066825,
+            "revenueWeightPercent": 3.42,
+            "simpleYoyContributionPercentPoints": 33.61,
+            "revenueWeightedYoyContributionPercentPoints": 6.91
           },
           {
             "ticker": "8039",
@@ -14532,19 +14563,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 839825000,
             "yoyPercent": -19.005391121526873,
-            "revenueWeightPercent": 2.84,
+            "revenueWeightPercent": 2.82,
             "simpleYoyContributionPercentPoints": -3.17,
             "revenueWeightedYoyContributionPercentPoints": -0.54
-          },
-          {
-            "ticker": "6672",
-            "name": "Ventec",
-            "reportingMonth": "2026-08",
-            "revenueNt": 805877000,
-            "yoyPercent": 133.2447678339368,
-            "revenueWeightPercent": 2.72,
-            "simpleYoyContributionPercentPoints": 22.21,
-            "revenueWeightedYoyContributionPercentPoints": 3.63
           },
           {
             "ticker": "4989",
@@ -14552,9 +14573,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 408656000,
             "yoyPercent": 101.82935261463086,
-            "revenueWeightPercent": 1.38,
+            "revenueWeightPercent": 1.37,
             "simpleYoyContributionPercentPoints": 16.97,
-            "revenueWeightedYoyContributionPercentPoints": 1.41
+            "revenueWeightedYoyContributionPercentPoints": 1.4
           },
           {
             "ticker": "3645",
@@ -14570,9 +14591,9 @@
       },
       "Logic IC Design": {
         "month": "mix",
-        "aggregateRevenueNt": 80738302000,
-        "simpleYoyPercent": 79.58,
-        "revenueWeightedYoyPercent": 84.14,
+        "aggregateRevenueNt": 80739085000,
+        "simpleYoyPercent": 79.15,
+        "revenueWeightedYoyPercent": 84.13,
         "reportingCompanies": 14,
         "companies": [
           {
@@ -14581,7 +14602,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 64183361000,
             "yoyPercent": 44.0812520934518,
-            "revenueWeightPercent": 79.5,
+            "revenueWeightPercent": 79.49,
             "simpleYoyContributionPercentPoints": 3.15,
             "revenueWeightedYoyContributionPercentPoints": 35.04
           },
@@ -14708,20 +14729,20 @@
           {
             "ticker": "6243",
             "name": "ENE",
-            "reportingMonth": "2026-08",
-            "revenueNt": 31782000,
-            "yoyPercent": -32.53518435967649,
+            "reportingMonth": "2026-09",
+            "revenueNt": 32565000,
+            "yoyPercent": -38.51367936106338,
             "revenueWeightPercent": 0.04,
-            "simpleYoyContributionPercentPoints": -2.32,
-            "revenueWeightedYoyContributionPercentPoints": -0.01
+            "simpleYoyContributionPercentPoints": -2.75,
+            "revenueWeightedYoyContributionPercentPoints": -0.02
           }
         ]
       },
       "LED & Optoelectronics": {
         "month": "mix",
-        "aggregateRevenueNt": 6645976000,
-        "simpleYoyPercent": 31.37,
-        "revenueWeightedYoyPercent": 29.26,
+        "aggregateRevenueNt": 6707803000,
+        "simpleYoyPercent": 31.63,
+        "revenueWeightedYoyPercent": 30.41,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -14730,19 +14751,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2126893000,
             "yoyPercent": 18.799600071495597,
-            "revenueWeightPercent": 32,
+            "revenueWeightPercent": 31.71,
             "simpleYoyContributionPercentPoints": 1.11,
-            "revenueWeightedYoyContributionPercentPoints": 6.02
+            "revenueWeightedYoyContributionPercentPoints": 5.96
           },
           {
             "ticker": "2393",
             "name": "EVERLIGHT",
-            "reportingMonth": "2026-08",
-            "revenueNt": 1862682000,
-            "yoyPercent": 14.104232991248065,
-            "revenueWeightPercent": 28.03,
-            "simpleYoyContributionPercentPoints": 0.83,
-            "revenueWeightedYoyContributionPercentPoints": 3.95
+            "reportingMonth": "2026-09",
+            "revenueNt": 1924509000,
+            "yoyPercent": 18.615487307370152,
+            "revenueWeightPercent": 28.69,
+            "simpleYoyContributionPercentPoints": 1.1,
+            "revenueWeightedYoyContributionPercentPoints": 5.34
           },
           {
             "ticker": "2486",
@@ -14750,9 +14771,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 784787000,
             "yoyPercent": 56.830680809905594,
-            "revenueWeightPercent": 11.81,
+            "revenueWeightPercent": 11.7,
             "simpleYoyContributionPercentPoints": 3.34,
-            "revenueWeightedYoyContributionPercentPoints": 6.71
+            "revenueWeightedYoyContributionPercentPoints": 6.65
           },
           {
             "ticker": "4949",
@@ -14760,9 +14781,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 309939000,
             "yoyPercent": 107.5919947488982,
-            "revenueWeightPercent": 4.66,
+            "revenueWeightPercent": 4.62,
             "simpleYoyContributionPercentPoints": 6.33,
-            "revenueWeightedYoyContributionPercentPoints": 5.02
+            "revenueWeightedYoyContributionPercentPoints": 4.97
           },
           {
             "ticker": "2426",
@@ -14770,9 +14791,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 253312000,
             "yoyPercent": 38.57482029343866,
-            "revenueWeightPercent": 3.81,
+            "revenueWeightPercent": 3.78,
             "simpleYoyContributionPercentPoints": 2.27,
-            "revenueWeightedYoyContributionPercentPoints": 1.47
+            "revenueWeightedYoyContributionPercentPoints": 1.46
           },
           {
             "ticker": "3591",
@@ -14780,9 +14801,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 239163000,
             "yoyPercent": 40.5510075751788,
-            "revenueWeightPercent": 3.6,
+            "revenueWeightPercent": 3.57,
             "simpleYoyContributionPercentPoints": 2.39,
-            "revenueWeightedYoyContributionPercentPoints": 1.46
+            "revenueWeightedYoyContributionPercentPoints": 1.45
           },
           {
             "ticker": "2466",
@@ -14790,9 +14811,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 224958000,
             "yoyPercent": 59.9166856232939,
-            "revenueWeightPercent": 3.38,
+            "revenueWeightPercent": 3.35,
             "simpleYoyContributionPercentPoints": 3.52,
-            "revenueWeightedYoyContributionPercentPoints": 2.03
+            "revenueWeightedYoyContributionPercentPoints": 2.01
           },
           {
             "ticker": "6168",
@@ -14800,9 +14821,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 221377000,
             "yoyPercent": 18.51905389054854,
-            "revenueWeightPercent": 3.33,
+            "revenueWeightPercent": 3.3,
             "simpleYoyContributionPercentPoints": 1.09,
-            "revenueWeightedYoyContributionPercentPoints": 0.62
+            "revenueWeightedYoyContributionPercentPoints": 0.61
           },
           {
             "ticker": "3031",
@@ -14810,9 +14831,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 118780000,
             "yoyPercent": 27.820762534032088,
-            "revenueWeightPercent": 1.79,
+            "revenueWeightPercent": 1.77,
             "simpleYoyContributionPercentPoints": 1.64,
-            "revenueWeightedYoyContributionPercentPoints": 0.5
+            "revenueWeightedYoyContributionPercentPoints": 0.49
           },
           {
             "ticker": "4956",
@@ -14820,7 +14841,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 100170000,
             "yoyPercent": -18.027823240589196,
-            "revenueWeightPercent": 1.51,
+            "revenueWeightPercent": 1.49,
             "simpleYoyContributionPercentPoints": -1.06,
             "revenueWeightedYoyContributionPercentPoints": -0.27
           },
@@ -14830,7 +14851,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 99004000,
             "yoyPercent": 22.204530025303956,
-            "revenueWeightPercent": 1.49,
+            "revenueWeightPercent": 1.48,
             "simpleYoyContributionPercentPoints": 1.31,
             "revenueWeightedYoyContributionPercentPoints": 0.33
           },
@@ -14840,7 +14861,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 70547000,
             "yoyPercent": 47.12924148574527,
-            "revenueWeightPercent": 1.06,
+            "revenueWeightPercent": 1.05,
             "simpleYoyContributionPercentPoints": 2.77,
             "revenueWeightedYoyContributionPercentPoints": 0.5
           },
@@ -14850,7 +14871,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 70379000,
             "yoyPercent": -42.512089132849766,
-            "revenueWeightPercent": 1.06,
+            "revenueWeightPercent": 1.05,
             "simpleYoyContributionPercentPoints": -2.5,
             "revenueWeightedYoyContributionPercentPoints": -0.45
           },
@@ -14860,9 +14881,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 67354000,
             "yoyPercent": 126.96455047850115,
-            "revenueWeightPercent": 1.01,
+            "revenueWeightPercent": 1,
             "simpleYoyContributionPercentPoints": 7.47,
-            "revenueWeightedYoyContributionPercentPoints": 1.29
+            "revenueWeightedYoyContributionPercentPoints": 1.27
           },
           {
             "ticker": "6226",
@@ -14870,7 +14891,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 53179000,
             "yoyPercent": 13.05780555732721,
-            "revenueWeightPercent": 0.8,
+            "revenueWeightPercent": 0.79,
             "simpleYoyContributionPercentPoints": 0.77,
             "revenueWeightedYoyContributionPercentPoints": 0.1
           },
@@ -14880,7 +14901,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 28303000,
             "yoyPercent": -9.206685272511468,
-            "revenueWeightPercent": 0.43,
+            "revenueWeightPercent": 0.42,
             "simpleYoyContributionPercentPoints": -0.54,
             "revenueWeightedYoyContributionPercentPoints": -0.04
           },
@@ -15186,8 +15207,8 @@
       },
       "Analog & Power IC Design": {
         "month": "mix",
-        "aggregateRevenueNt": 6463114000,
-        "simpleYoyPercent": 17.22,
+        "aggregateRevenueNt": 6463200000,
+        "simpleYoyPercent": 17.26,
         "revenueWeightedYoyPercent": 41.93,
         "reportingCompanies": 8,
         "companies": [
@@ -15264,11 +15285,11 @@
           {
             "ticker": "3257",
             "name": "CHAMPION",
-            "reportingMonth": "2026-08",
-            "revenueNt": 60112000,
-            "yoyPercent": -40.26848972048054,
+            "reportingMonth": "2026-09",
+            "revenueNt": 60198000,
+            "yoyPercent": -39.93893921858163,
             "revenueWeightPercent": 0.93,
-            "simpleYoyContributionPercentPoints": -5.03,
+            "simpleYoyContributionPercentPoints": -4.99,
             "revenueWeightedYoyContributionPercentPoints": -0.37
           }
         ]
@@ -15393,9 +15414,9 @@
       },
       "IC Substrates": {
         "month": "mix",
-        "aggregateRevenueNt": 28223978000,
-        "simpleYoyPercent": 33.33,
-        "revenueWeightedYoyPercent": 53.67,
+        "aggregateRevenueNt": 28577437000,
+        "simpleYoyPercent": 30.82,
+        "revenueWeightedYoyPercent": 54.22,
         "reportingCompanies": 4,
         "companies": [
           {
@@ -15404,9 +15425,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 17745519000,
             "yoyPercent": 56.25723917867715,
-            "revenueWeightPercent": 62.87,
+            "revenueWeightPercent": 62.1,
             "simpleYoyContributionPercentPoints": 14.06,
-            "revenueWeightedYoyContributionPercentPoints": 35.37
+            "revenueWeightedYoyContributionPercentPoints": 34.93
           },
           {
             "ticker": "8046",
@@ -15414,29 +15435,29 @@
             "reportingMonth": "2026-09",
             "revenueNt": 5585816000,
             "yoyPercent": 57.81553056554688,
-            "revenueWeightPercent": 19.79,
+            "revenueWeightPercent": 19.55,
             "simpleYoyContributionPercentPoints": 14.45,
-            "revenueWeightedYoyContributionPercentPoints": 11.44
+            "revenueWeightedYoyContributionPercentPoints": 11.3
           },
           {
             "ticker": "3189",
             "name": "KINSUS",
-            "reportingMonth": "2026-08",
-            "revenueNt": 4809631000,
-            "yoyPercent": 40.57567965225748,
-            "revenueWeightPercent": 17.04,
-            "simpleYoyContributionPercentPoints": 10.14,
-            "revenueWeightedYoyContributionPercentPoints": 6.91
+            "reportingMonth": "2026-09",
+            "revenueNt": 5181276000,
+            "yoyPercent": 44.468538291045796,
+            "revenueWeightPercent": 18.13,
+            "simpleYoyContributionPercentPoints": 11.12,
+            "revenueWeightedYoyContributionPercentPoints": 8.06
           },
           {
             "ticker": "6552",
             "name": "JMC",
-            "reportingMonth": "2026-08",
-            "revenueNt": 83012000,
-            "yoyPercent": -21.342480291085508,
-            "revenueWeightPercent": 0.29,
-            "simpleYoyContributionPercentPoints": -5.34,
-            "revenueWeightedYoyContributionPercentPoints": -0.06
+            "reportingMonth": "2026-09",
+            "revenueNt": 64826000,
+            "yoyPercent": -35.25687120485778,
+            "revenueWeightPercent": 0.23,
+            "simpleYoyContributionPercentPoints": -8.81,
+            "revenueWeightedYoyContributionPercentPoints": -0.08
           }
         ]
       },
@@ -15483,10 +15504,10 @@
     "2026-09": {
       "Power & Thermal Components": {
         "month": "2026-09",
-        "aggregateRevenueNt": 4173871000,
-        "simpleYoyPercent": 2.25,
-        "revenueWeightedYoyPercent": -1.39,
-        "reportingCompanies": 2,
+        "aggregateRevenueNt": 7239316000,
+        "simpleYoyPercent": 0.95,
+        "revenueWeightedYoyPercent": 1.46,
+        "reportingCompanies": 4,
         "companies": [
           {
             "ticker": "6412",
@@ -15494,9 +15515,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2413451000,
             "yoyPercent": -20.976894071853387,
-            "revenueWeightPercent": 57.82,
-            "simpleYoyContributionPercentPoints": -10.49,
-            "revenueWeightedYoyContributionPercentPoints": -12.13
+            "revenueWeightPercent": 33.34,
+            "simpleYoyContributionPercentPoints": -5.24,
+            "revenueWeightedYoyContributionPercentPoints": -6.99
+          },
+          {
+            "ticker": "2421",
+            "name": "SUNON",
+            "reportingMonth": "2026-09",
+            "revenueNt": 2048924000,
+            "yoyPercent": 16.539893784934115,
+            "revenueWeightPercent": 28.3,
+            "simpleYoyContributionPercentPoints": 4.13,
+            "revenueWeightedYoyContributionPercentPoints": 4.68
           },
           {
             "ticker": "6781",
@@ -15504,9 +15535,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1760420000,
             "yoyPercent": 25.468970943757697,
-            "revenueWeightPercent": 42.18,
-            "simpleYoyContributionPercentPoints": 12.73,
-            "revenueWeightedYoyContributionPercentPoints": 10.74
+            "revenueWeightPercent": 24.32,
+            "simpleYoyContributionPercentPoints": 6.37,
+            "revenueWeightedYoyContributionPercentPoints": 6.19
+          },
+          {
+            "ticker": "3015",
+            "name": "FSP",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1016521000,
+            "yoyPercent": -17.22081025023799,
+            "revenueWeightPercent": 14.04,
+            "simpleYoyContributionPercentPoints": -4.31,
+            "revenueWeightedYoyContributionPercentPoints": -2.42
           },
           {
             "ticker": "1471",
@@ -15539,16 +15580,6 @@
             "revenueWeightedYoyContributionPercentPoints": null
           },
           {
-            "ticker": "2421",
-            "name": "SUNON",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
             "ticker": "2431",
             "name": "LIEN CHANG",
             "reportingMonth": null,
@@ -15561,16 +15592,6 @@
           {
             "ticker": "2457",
             "name": "PHIHONG",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "3015",
-            "name": "FSP",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -15712,10 +15733,10 @@
       },
       "Precision Mechanics": {
         "month": "2026-09",
-        "aggregateRevenueNt": 18879449000,
-        "simpleYoyPercent": 103.71,
-        "revenueWeightedYoyPercent": 54.95,
-        "reportingCompanies": 2,
+        "aggregateRevenueNt": 20099354000,
+        "simpleYoyPercent": 44.57,
+        "revenueWeightedYoyPercent": 49.92,
+        "reportingCompanies": 4,
         "companies": [
           {
             "ticker": "2354",
@@ -15723,9 +15744,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 14415056000,
             "yoyPercent": 11.199827203159714,
-            "revenueWeightPercent": 76.35,
-            "simpleYoyContributionPercentPoints": 5.6,
-            "revenueWeightedYoyContributionPercentPoints": 8.55
+            "revenueWeightPercent": 71.72,
+            "simpleYoyContributionPercentPoints": 2.8,
+            "revenueWeightedYoyContributionPercentPoints": 8.03
           },
           {
             "ticker": "2059",
@@ -15733,33 +15754,33 @@
             "reportingMonth": "2026-09",
             "revenueNt": 4464393000,
             "yoyPercent": 196.22466238072266,
-            "revenueWeightPercent": 23.65,
-            "simpleYoyContributionPercentPoints": 98.11,
-            "revenueWeightedYoyContributionPercentPoints": 46.4
-          },
-          {
-            "ticker": "1582",
-            "name": "SYNCMOLD",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "2415",
-            "name": "CX TECH",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "revenueWeightPercent": 22.21,
+            "simpleYoyContributionPercentPoints": 49.06,
+            "revenueWeightedYoyContributionPercentPoints": 43.58
           },
           {
             "ticker": "2474",
             "name": "CATCHER",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1028108000,
+            "yoyPercent": -34.18895770868487,
+            "revenueWeightPercent": 5.12,
+            "simpleYoyContributionPercentPoints": -8.55,
+            "revenueWeightedYoyContributionPercentPoints": -1.75
+          },
+          {
+            "ticker": "2415",
+            "name": "CX TECH",
+            "reportingMonth": "2026-09",
+            "revenueNt": 191797000,
+            "yoyPercent": 5.056829074576179,
+            "revenueWeightPercent": 0.95,
+            "simpleYoyContributionPercentPoints": 1.26,
+            "revenueWeightedYoyContributionPercentPoints": 0.05
+          },
+          {
+            "ticker": "1582",
+            "name": "SYNCMOLD",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -15980,20 +16001,20 @@
       },
       "Foundry": {
         "month": "2026-09",
-        "aggregateRevenueNt": 0,
-        "simpleYoyPercent": null,
-        "revenueWeightedYoyPercent": null,
-        "reportingCompanies": 0,
+        "aggregateRevenueNt": 25350431000,
+        "simpleYoyPercent": 27.22,
+        "revenueWeightedYoyPercent": 27.22,
+        "reportingCompanies": 1,
         "companies": [
           {
             "ticker": "2303",
             "name": "UMC",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "reportingMonth": "2026-09",
+            "revenueNt": 25350431000,
+            "yoyPercent": 27.215377995124747,
+            "revenueWeightPercent": 100,
+            "simpleYoyContributionPercentPoints": 27.22,
+            "revenueWeightedYoyContributionPercentPoints": 27.22
           },
           {
             "ticker": "2330",
@@ -16188,10 +16209,10 @@
       },
       "PCB & Flex Circuits": {
         "month": "2026-09",
-        "aggregateRevenueNt": 9953320000,
-        "simpleYoyPercent": 8.04,
-        "revenueWeightedYoyPercent": 14.6,
-        "reportingCompanies": 3,
+        "aggregateRevenueNt": 14715838000,
+        "simpleYoyPercent": 36.33,
+        "revenueWeightedYoyPercent": 36.05,
+        "reportingCompanies": 5,
         "companies": [
           {
             "ticker": "2313",
@@ -16199,9 +16220,29 @@
             "reportingMonth": "2026-09",
             "revenueNt": 8617380000,
             "yoyPercent": 15.018893793137691,
-            "revenueWeightPercent": 86.58,
-            "simpleYoyContributionPercentPoints": 5.01,
-            "revenueWeightedYoyContributionPercentPoints": 13
+            "revenueWeightPercent": 58.56,
+            "simpleYoyContributionPercentPoints": 3,
+            "revenueWeightedYoyContributionPercentPoints": 8.79
+          },
+          {
+            "ticker": "3715",
+            "name": "Dynamic Holding",
+            "reportingMonth": "2026-09",
+            "revenueNt": 3226476000,
+            "yoyPercent": 84.69522628124143,
+            "revenueWeightPercent": 21.93,
+            "simpleYoyContributionPercentPoints": 16.94,
+            "revenueWeightedYoyContributionPercentPoints": 18.57
+          },
+          {
+            "ticker": "4927",
+            "name": "Apex",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1536042000,
+            "yoyPercent": 72.82861855651544,
+            "revenueWeightPercent": 10.44,
+            "simpleYoyContributionPercentPoints": 14.57,
+            "revenueWeightedYoyContributionPercentPoints": 7.6
           },
           {
             "ticker": "2402",
@@ -16209,9 +16250,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1136758000,
             "yoyPercent": 15.05938915458387,
-            "revenueWeightPercent": 11.42,
-            "simpleYoyContributionPercentPoints": 5.02,
-            "revenueWeightedYoyContributionPercentPoints": 1.72
+            "revenueWeightPercent": 7.72,
+            "simpleYoyContributionPercentPoints": 3.01,
+            "revenueWeightedYoyContributionPercentPoints": 1.16
           },
           {
             "ticker": "3321",
@@ -16219,9 +16260,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 199182000,
             "yoyPercent": -5.972601187722462,
-            "revenueWeightPercent": 2,
-            "simpleYoyContributionPercentPoints": -1.99,
-            "revenueWeightedYoyContributionPercentPoints": -0.12
+            "revenueWeightPercent": 1.35,
+            "simpleYoyContributionPercentPoints": -1.19,
+            "revenueWeightedYoyContributionPercentPoints": -0.08
           },
           {
             "ticker": "2316",
@@ -16276,26 +16317,6 @@
           {
             "ticker": "3229",
             "name": "CHEER TIME",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "3715",
-            "name": "Dynamic Holding",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "4927",
-            "name": "Apex",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -16397,10 +16418,10 @@
       },
       "Passive Components": {
         "month": "2026-09",
-        "aggregateRevenueNt": 1821816000,
-        "simpleYoyPercent": 20.68,
-        "revenueWeightedYoyPercent": 16.58,
-        "reportingCompanies": 3,
+        "aggregateRevenueNt": 3206867000,
+        "simpleYoyPercent": 32.18,
+        "revenueWeightedYoyPercent": 33.52,
+        "reportingCompanies": 5,
         "companies": [
           {
             "ticker": "3042",
@@ -16408,9 +16429,29 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1415241000,
             "yoyPercent": 14.600444557810736,
-            "revenueWeightPercent": 77.68,
-            "simpleYoyContributionPercentPoints": 4.87,
-            "revenueWeightedYoyContributionPercentPoints": 11.34
+            "revenueWeightPercent": 44.13,
+            "simpleYoyContributionPercentPoints": 2.92,
+            "revenueWeightedYoyContributionPercentPoints": 6.44
+          },
+          {
+            "ticker": "7788",
+            "name": "SONG CHUAN",
+            "reportingMonth": "2026-09",
+            "revenueNt": 877203000,
+            "yoyPercent": 73.30205267005157,
+            "revenueWeightPercent": 27.35,
+            "simpleYoyContributionPercentPoints": 14.66,
+            "revenueWeightedYoyContributionPercentPoints": 20.05
+          },
+          {
+            "ticker": "6449",
+            "name": "APAQ",
+            "reportingMonth": "2026-09",
+            "revenueNt": 507848000,
+            "yoyPercent": 25.554223271567547,
+            "revenueWeightPercent": 15.84,
+            "simpleYoyContributionPercentPoints": 5.11,
+            "revenueWeightedYoyContributionPercentPoints": 4.05
           },
           {
             "ticker": "6862",
@@ -16418,9 +16459,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 217779000,
             "yoyPercent": 20.134709480965803,
-            "revenueWeightPercent": 11.95,
-            "simpleYoyContributionPercentPoints": 6.71,
-            "revenueWeightedYoyContributionPercentPoints": 2.41
+            "revenueWeightPercent": 6.79,
+            "simpleYoyContributionPercentPoints": 4.03,
+            "revenueWeightedYoyContributionPercentPoints": 1.37
           },
           {
             "ticker": "2483",
@@ -16428,9 +16469,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 188796000,
             "yoyPercent": 27.300801715360706,
-            "revenueWeightPercent": 10.36,
-            "simpleYoyContributionPercentPoints": 9.1,
-            "revenueWeightedYoyContributionPercentPoints": 2.83
+            "revenueWeightPercent": 5.89,
+            "simpleYoyContributionPercentPoints": 5.46,
+            "revenueWeightedYoyContributionPercentPoints": 1.61
           },
           {
             "ticker": "2327",
@@ -16543,28 +16584,8 @@
             "revenueWeightedYoyContributionPercentPoints": null
           },
           {
-            "ticker": "6449",
-            "name": "APAQ",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
             "ticker": "6834",
             "name": "EVEROHMS",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "7788",
-            "name": "SONG CHUAN",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -16825,10 +16846,10 @@
       },
       "OSAT": {
         "month": "2026-09",
-        "aggregateRevenueNt": 3325476000,
-        "simpleYoyPercent": 30.88,
-        "revenueWeightedYoyPercent": 29.7,
-        "reportingCompanies": 2,
+        "aggregateRevenueNt": 3920928000,
+        "simpleYoyPercent": 30.59,
+        "revenueWeightedYoyPercent": 29.75,
+        "reportingCompanies": 3,
         "companies": [
           {
             "ticker": "6257",
@@ -16836,9 +16857,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2088797000,
             "yoyPercent": 26.26890212755668,
-            "revenueWeightPercent": 62.81,
-            "simpleYoyContributionPercentPoints": 13.13,
-            "revenueWeightedYoyContributionPercentPoints": 16.5
+            "revenueWeightPercent": 53.27,
+            "simpleYoyContributionPercentPoints": 8.76,
+            "revenueWeightedYoyContributionPercentPoints": 13.99
           },
           {
             "ticker": "8131",
@@ -16846,9 +16867,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1236679000,
             "yoyPercent": 35.486673503015005,
-            "revenueWeightPercent": 37.19,
-            "simpleYoyContributionPercentPoints": 17.74,
-            "revenueWeightedYoyContributionPercentPoints": 13.2
+            "revenueWeightPercent": 31.54,
+            "simpleYoyContributionPercentPoints": 11.83,
+            "revenueWeightedYoyContributionPercentPoints": 11.19
+          },
+          {
+            "ticker": "6525",
+            "name": "GEM",
+            "reportingMonth": "2026-09",
+            "revenueNt": 595452000,
+            "yoyPercent": 30.02696830405398,
+            "revenueWeightPercent": 15.19,
+            "simpleYoyContributionPercentPoints": 10.01,
+            "revenueWeightedYoyContributionPercentPoints": 4.56
           },
           {
             "ticker": "2329",
@@ -16941,16 +16972,6 @@
             "revenueWeightedYoyContributionPercentPoints": null
           },
           {
-            "ticker": "6525",
-            "name": "GEM",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
             "ticker": "6789",
             "name": "VisEra",
             "reportingMonth": null,
@@ -16984,10 +17005,10 @@
       },
       "Memory": {
         "month": "2026-09",
-        "aggregateRevenueNt": 81989491000,
-        "simpleYoyPercent": 348.42,
-        "revenueWeightedYoyPercent": 449.65,
-        "reportingCompanies": 4,
+        "aggregateRevenueNt": 91026128000,
+        "simpleYoyPercent": 306.97,
+        "revenueWeightedYoyPercent": 429.47,
+        "reportingCompanies": 6,
         "companies": [
           {
             "ticker": "2408",
@@ -16995,9 +17016,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 45091089000,
             "yoyPercent": 576.622775031737,
-            "revenueWeightPercent": 55,
-            "simpleYoyContributionPercentPoints": 144.16,
-            "revenueWeightedYoyContributionPercentPoints": 317.12
+            "revenueWeightPercent": 49.54,
+            "simpleYoyContributionPercentPoints": 96.1,
+            "revenueWeightedYoyContributionPercentPoints": 285.64
           },
           {
             "ticker": "2344",
@@ -17005,9 +17026,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 28248909000,
             "yoyPercent": 256.6686868151223,
-            "revenueWeightPercent": 34.45,
-            "simpleYoyContributionPercentPoints": 64.17,
-            "revenueWeightedYoyContributionPercentPoints": 88.43
+            "revenueWeightPercent": 31.03,
+            "simpleYoyContributionPercentPoints": 42.78,
+            "revenueWeightedYoyContributionPercentPoints": 79.65
           },
           {
             "ticker": "3006",
@@ -17015,9 +17036,29 @@
             "reportingMonth": "2026-09",
             "revenueNt": 7460769000,
             "yoyPercent": 470.2347504677583,
-            "revenueWeightPercent": 9.1,
-            "simpleYoyContributionPercentPoints": 117.56,
-            "revenueWeightedYoyContributionPercentPoints": 42.79
+            "revenueWeightPercent": 8.2,
+            "simpleYoyContributionPercentPoints": 78.37,
+            "revenueWeightedYoyContributionPercentPoints": 38.54
+          },
+          {
+            "ticker": "2451",
+            "name": "Transcend",
+            "reportingMonth": "2026-09",
+            "revenueNt": 6035203000,
+            "yoyPercent": 290.42308535778307,
+            "revenueWeightPercent": 6.63,
+            "simpleYoyContributionPercentPoints": 48.4,
+            "revenueWeightedYoyContributionPercentPoints": 19.26
+          },
+          {
+            "ticker": "8271",
+            "name": "Apacer",
+            "reportingMonth": "2026-09",
+            "revenueNt": 3001434000,
+            "yoyPercent": 157.7119075565386,
+            "revenueWeightPercent": 3.3,
+            "simpleYoyContributionPercentPoints": 26.29,
+            "revenueWeightedYoyContributionPercentPoints": 5.2
           },
           {
             "ticker": "6531",
@@ -17025,23 +17066,13 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1188724000,
             "yoyPercent": 90.15263732080071,
-            "revenueWeightPercent": 1.45,
-            "simpleYoyContributionPercentPoints": 22.54,
-            "revenueWeightedYoyContributionPercentPoints": 1.31
+            "revenueWeightPercent": 1.31,
+            "simpleYoyContributionPercentPoints": 15.03,
+            "revenueWeightedYoyContributionPercentPoints": 1.18
           },
           {
             "ticker": "2337",
             "name": "Macronix",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "2451",
-            "name": "Transcend",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -17072,16 +17103,6 @@
           {
             "ticker": "6770",
             "name": "PSMC",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "8271",
-            "name": "Apacer",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -17202,11 +17223,51 @@
       },
       "Semiconductor Distribution": {
         "month": "2026-09",
-        "aggregateRevenueNt": 0,
-        "simpleYoyPercent": null,
-        "revenueWeightedYoyPercent": null,
-        "reportingCompanies": 0,
+        "aggregateRevenueNt": 7627110000,
+        "simpleYoyPercent": 25.31,
+        "revenueWeightedYoyPercent": 34.07,
+        "reportingCompanies": 4,
         "companies": [
+          {
+            "ticker": "6776",
+            "name": "Weblink",
+            "reportingMonth": "2026-09",
+            "revenueNt": 3368141000,
+            "yoyPercent": 35.92164170973228,
+            "revenueWeightPercent": 44.16,
+            "simpleYoyContributionPercentPoints": 8.98,
+            "revenueWeightedYoyContributionPercentPoints": 15.86
+          },
+          {
+            "ticker": "8070",
+            "name": "CHANG WAH",
+            "reportingMonth": "2026-09",
+            "revenueNt": 2295985000,
+            "yoyPercent": 35.30818171960379,
+            "revenueWeightPercent": 30.1,
+            "simpleYoyContributionPercentPoints": 8.83,
+            "revenueWeightedYoyContributionPercentPoints": 10.63
+          },
+          {
+            "ticker": "3090",
+            "name": "NDB",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1852758000,
+            "yoyPercent": 31.27121568205119,
+            "revenueWeightPercent": 24.29,
+            "simpleYoyContributionPercentPoints": 7.82,
+            "revenueWeightedYoyContributionPercentPoints": 7.6
+          },
+          {
+            "ticker": "8072",
+            "name": "AV TECH",
+            "reportingMonth": "2026-09",
+            "revenueNt": 110226000,
+            "yoyPercent": -1.2656867223819632,
+            "revenueWeightPercent": 1.45,
+            "simpleYoyContributionPercentPoints": -0.32,
+            "revenueWeightedYoyContributionPercentPoints": -0.02
+          },
           {
             "ticker": "2347",
             "name": "Synnex",
@@ -17270,16 +17331,6 @@
           {
             "ticker": "3055",
             "name": "Spirox Corp.",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "3090",
-            "name": "NDB",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -17358,36 +17409,6 @@
             "revenueWeightedYoyContributionPercentPoints": null
           },
           {
-            "ticker": "6776",
-            "name": "Weblink",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "8070",
-            "name": "CHANG WAH",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "8072",
-            "name": "AV TECH",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
             "ticker": "8112",
             "name": "Supreme",
             "reportingMonth": null,
@@ -17401,11 +17422,31 @@
       },
       "Packaging Materials": {
         "month": "2026-09",
-        "aggregateRevenueNt": 0,
-        "simpleYoyPercent": null,
-        "revenueWeightedYoyPercent": null,
-        "reportingCompanies": 0,
+        "aggregateRevenueNt": 2360811000,
+        "simpleYoyPercent": 0.03,
+        "revenueWeightedYoyPercent": 33.37,
+        "reportingCompanies": 2,
         "companies": [
+          {
+            "ticker": "8070",
+            "name": "CHANG WAH",
+            "reportingMonth": "2026-09",
+            "revenueNt": 2295985000,
+            "yoyPercent": 35.30818171960379,
+            "revenueWeightPercent": 97.25,
+            "simpleYoyContributionPercentPoints": 17.65,
+            "revenueWeightedYoyContributionPercentPoints": 34.34
+          },
+          {
+            "ticker": "6552",
+            "name": "JMC",
+            "reportingMonth": "2026-09",
+            "revenueNt": 64826000,
+            "yoyPercent": -35.25687120485778,
+            "revenueWeightPercent": 2.75,
+            "simpleYoyContributionPercentPoints": -17.63,
+            "revenueWeightedYoyContributionPercentPoints": -0.97
+          },
           {
             "ticker": "2351",
             "name": "SDI",
@@ -17435,35 +17476,15 @@
             "revenueWeightPercent": null,
             "simpleYoyContributionPercentPoints": null,
             "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "6552",
-            "name": "JMC",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "8070",
-            "name": "CHANG WAH",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
           }
         ]
       },
       "Fab Equipment & Automation": {
         "month": "2026-09",
-        "aggregateRevenueNt": 3444537000,
-        "simpleYoyPercent": 24.82,
-        "revenueWeightedYoyPercent": 19.48,
-        "reportingCompanies": 3,
+        "aggregateRevenueNt": 3769330000,
+        "simpleYoyPercent": 22.79,
+        "revenueWeightedYoyPercent": 19.24,
+        "reportingCompanies": 4,
         "companies": [
           {
             "ticker": "3413",
@@ -17471,9 +17492,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2358998000,
             "yoyPercent": 14.549108783870073,
-            "revenueWeightPercent": 68.49,
-            "simpleYoyContributionPercentPoints": 4.85,
-            "revenueWeightedYoyContributionPercentPoints": 9.96
+            "revenueWeightPercent": 62.58,
+            "simpleYoyContributionPercentPoints": 3.64,
+            "revenueWeightedYoyContributionPercentPoints": 9.11
           },
           {
             "ticker": "6438",
@@ -17481,9 +17502,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 695372000,
             "yoyPercent": 30.84183193467053,
-            "revenueWeightPercent": 20.19,
-            "simpleYoyContributionPercentPoints": 10.28,
-            "revenueWeightedYoyContributionPercentPoints": 6.23
+            "revenueWeightPercent": 18.45,
+            "simpleYoyContributionPercentPoints": 7.71,
+            "revenueWeightedYoyContributionPercentPoints": 5.69
           },
           {
             "ticker": "6937",
@@ -17491,19 +17512,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 390167000,
             "yoyPercent": 29.061463195186413,
-            "revenueWeightPercent": 11.33,
-            "simpleYoyContributionPercentPoints": 9.69,
-            "revenueWeightedYoyContributionPercentPoints": 3.29
+            "revenueWeightPercent": 10.35,
+            "simpleYoyContributionPercentPoints": 7.27,
+            "revenueWeightedYoyContributionPercentPoints": 3.01
           },
           {
             "ticker": "2359",
             "name": "SOLOMON",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "reportingMonth": "2026-09",
+            "revenueNt": 324793000,
+            "yoyPercent": 16.68972008953111,
+            "revenueWeightPercent": 8.62,
+            "simpleYoyContributionPercentPoints": 4.17,
+            "revenueWeightedYoyContributionPercentPoints": 1.44
           },
           {
             "ticker": "2404",
@@ -17649,20 +17670,40 @@
       },
       "Test & Inspection Equipment": {
         "month": "2026-09",
-        "aggregateRevenueNt": 1817151000,
-        "simpleYoyPercent": 48.12,
-        "revenueWeightedYoyPercent": 50.73,
-        "reportingCompanies": 4,
+        "aggregateRevenueNt": 9927126000,
+        "simpleYoyPercent": 81.11,
+        "revenueWeightedYoyPercent": 163,
+        "reportingCompanies": 6,
         "companies": [
+          {
+            "ticker": "2360",
+            "name": "CHROMA",
+            "reportingMonth": "2026-09",
+            "revenueNt": 6859602000,
+            "yoyPercent": 206.46824005093208,
+            "revenueWeightPercent": 69.1,
+            "simpleYoyContributionPercentPoints": 34.41,
+            "revenueWeightedYoyContributionPercentPoints": 142.67
+          },
+          {
+            "ticker": "6515",
+            "name": "WinWay",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1250373000,
+            "yoyPercent": 87.71719907400457,
+            "revenueWeightPercent": 12.6,
+            "simpleYoyContributionPercentPoints": 14.62,
+            "revenueWeightedYoyContributionPercentPoints": 11.05
+          },
           {
             "ticker": "3030",
             "name": "TRI",
             "reportingMonth": "2026-09",
             "revenueNt": 868016000,
             "yoyPercent": 54.01687411836724,
-            "revenueWeightPercent": 47.77,
-            "simpleYoyContributionPercentPoints": 13.5,
-            "revenueWeightedYoyContributionPercentPoints": 25.8
+            "revenueWeightPercent": 8.74,
+            "simpleYoyContributionPercentPoints": 9,
+            "revenueWeightedYoyContributionPercentPoints": 4.72
           },
           {
             "ticker": "3563",
@@ -17670,9 +17711,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 372810000,
             "yoyPercent": 63.2010716349437,
-            "revenueWeightPercent": 20.52,
-            "simpleYoyContributionPercentPoints": 15.8,
-            "revenueWeightedYoyContributionPercentPoints": 12.97
+            "revenueWeightPercent": 3.76,
+            "simpleYoyContributionPercentPoints": 10.53,
+            "revenueWeightedYoyContributionPercentPoints": 2.37
           },
           {
             "ticker": "7822",
@@ -17680,9 +17721,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 311736000,
             "yoyPercent": 38.572736728869764,
-            "revenueWeightPercent": 17.16,
-            "simpleYoyContributionPercentPoints": 9.64,
-            "revenueWeightedYoyContributionPercentPoints": 6.62
+            "revenueWeightPercent": 3.14,
+            "simpleYoyContributionPercentPoints": 6.43,
+            "revenueWeightedYoyContributionPercentPoints": 1.21
           },
           {
             "ticker": "6830",
@@ -17690,19 +17731,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 264589000,
             "yoyPercent": 36.70812170938758,
-            "revenueWeightPercent": 14.56,
-            "simpleYoyContributionPercentPoints": 9.18,
-            "revenueWeightedYoyContributionPercentPoints": 5.34
-          },
-          {
-            "ticker": "2360",
-            "name": "CHROMA",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "revenueWeightPercent": 2.67,
+            "simpleYoyContributionPercentPoints": 6.12,
+            "revenueWeightedYoyContributionPercentPoints": 0.98
           },
           {
             "ticker": "2423",
@@ -17727,16 +17758,6 @@
           {
             "ticker": "3535",
             "name": "Favite",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "6515",
-            "name": "WinWay",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
@@ -18036,10 +18057,10 @@
       },
       "CCL & PCB Materials": {
         "month": "2026-09",
-        "aggregateRevenueNt": 28196267000,
-        "simpleYoyPercent": 86.87,
-        "revenueWeightedYoyPercent": 151.27,
-        "reportingCompanies": 3,
+        "aggregateRevenueNt": 29217164000,
+        "simpleYoyPercent": 115.57,
+        "revenueWeightedYoyPercent": 153.03,
+        "reportingCompanies": 4,
         "companies": [
           {
             "ticker": "2383",
@@ -18047,9 +18068,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 21532230000,
             "yoyPercent": 168.87284393304373,
-            "revenueWeightPercent": 76.37,
-            "simpleYoyContributionPercentPoints": 56.29,
-            "revenueWeightedYoyContributionPercentPoints": 128.96
+            "revenueWeightPercent": 73.7,
+            "simpleYoyContributionPercentPoints": 42.22,
+            "revenueWeightedYoyContributionPercentPoints": 124.45
           },
           {
             "ticker": "6213",
@@ -18057,9 +18078,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 5824212000,
             "yoyPercent": 110.7353905337519,
-            "revenueWeightPercent": 20.66,
-            "simpleYoyContributionPercentPoints": 36.91,
-            "revenueWeightedYoyContributionPercentPoints": 22.87
+            "revenueWeightPercent": 19.93,
+            "simpleYoyContributionPercentPoints": 27.68,
+            "revenueWeightedYoyContributionPercentPoints": 22.07
+          },
+          {
+            "ticker": "6672",
+            "name": "Ventec",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1020897000,
+            "yoyPercent": 201.68440214066825,
+            "revenueWeightPercent": 3.49,
+            "simpleYoyContributionPercentPoints": 50.42,
+            "revenueWeightedYoyContributionPercentPoints": 7.05
           },
           {
             "ticker": "8039",
@@ -18067,9 +18098,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 839825000,
             "yoyPercent": -19.005391121526873,
-            "revenueWeightPercent": 2.98,
-            "simpleYoyContributionPercentPoints": -6.34,
-            "revenueWeightedYoyContributionPercentPoints": -0.57
+            "revenueWeightPercent": 2.87,
+            "simpleYoyContributionPercentPoints": -4.75,
+            "revenueWeightedYoyContributionPercentPoints": -0.55
           },
           {
             "ticker": "3645",
@@ -18090,25 +18121,15 @@
             "revenueWeightPercent": null,
             "simpleYoyContributionPercentPoints": null,
             "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "6672",
-            "name": "Ventec",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
           }
         ]
       },
       "Logic IC Design": {
         "month": "2026-09",
-        "aggregateRevenueNt": 13049769000,
-        "simpleYoyPercent": 166.49,
-        "revenueWeightedYoyPercent": 290.7,
-        "reportingCompanies": 4,
+        "aggregateRevenueNt": 13082334000,
+        "simpleYoyPercent": 125.49,
+        "revenueWeightedYoyPercent": 289.88,
+        "reportingCompanies": 5,
         "companies": [
           {
             "ticker": "3006",
@@ -18116,9 +18137,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 7460769000,
             "yoyPercent": 470.2347504677583,
-            "revenueWeightPercent": 57.17,
-            "simpleYoyContributionPercentPoints": 117.56,
-            "revenueWeightedYoyContributionPercentPoints": 268.84
+            "revenueWeightPercent": 57.03,
+            "simpleYoyContributionPercentPoints": 94.05,
+            "revenueWeightedYoyContributionPercentPoints": 268.17
           },
           {
             "ticker": "4919",
@@ -18126,9 +18147,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2763950000,
             "yoyPercent": 4.659673830026434,
-            "revenueWeightPercent": 21.18,
-            "simpleYoyContributionPercentPoints": 1.16,
-            "revenueWeightedYoyContributionPercentPoints": 0.99
+            "revenueWeightPercent": 21.13,
+            "simpleYoyContributionPercentPoints": 0.93,
+            "revenueWeightedYoyContributionPercentPoints": 0.98
           },
           {
             "ticker": "5274",
@@ -18136,9 +18157,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1636326000,
             "yoyPercent": 100.93225781496548,
-            "revenueWeightPercent": 12.54,
-            "simpleYoyContributionPercentPoints": 25.23,
-            "revenueWeightedYoyContributionPercentPoints": 12.66
+            "revenueWeightPercent": 12.51,
+            "simpleYoyContributionPercentPoints": 20.19,
+            "revenueWeightedYoyContributionPercentPoints": 12.62
           },
           {
             "ticker": "6531",
@@ -18146,9 +18167,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1188724000,
             "yoyPercent": 90.15263732080071,
-            "revenueWeightPercent": 9.11,
-            "simpleYoyContributionPercentPoints": 22.54,
-            "revenueWeightedYoyContributionPercentPoints": 8.21
+            "revenueWeightPercent": 9.09,
+            "simpleYoyContributionPercentPoints": 18.03,
+            "revenueWeightedYoyContributionPercentPoints": 8.19
+          },
+          {
+            "ticker": "6243",
+            "name": "ENE",
+            "reportingMonth": "2026-09",
+            "revenueNt": 32565000,
+            "yoyPercent": -38.51367936106338,
+            "revenueWeightPercent": 0.25,
+            "simpleYoyContributionPercentPoints": -7.7,
+            "revenueWeightedYoyContributionPercentPoints": -0.1
           },
           {
             "ticker": "2388",
@@ -18231,16 +18262,6 @@
             "revenueWeightedYoyContributionPercentPoints": null
           },
           {
-            "ticker": "6243",
-            "name": "ENE",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
             "ticker": "7749",
             "name": "iGo-KY",
             "reportingMonth": null,
@@ -18254,10 +18275,10 @@
       },
       "LED & Optoelectronics": {
         "month": "2026-09",
-        "aggregateRevenueNt": 3420564000,
-        "simpleYoyPercent": 27.91,
-        "revenueWeightedYoyPercent": 28.65,
-        "reportingCompanies": 6,
+        "aggregateRevenueNt": 5345073000,
+        "simpleYoyPercent": 26.59,
+        "revenueWeightedYoyPercent": 25.04,
+        "reportingCompanies": 7,
         "companies": [
           {
             "ticker": "3714",
@@ -18265,9 +18286,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2126893000,
             "yoyPercent": 18.799600071495597,
-            "revenueWeightPercent": 62.18,
-            "simpleYoyContributionPercentPoints": 3.13,
-            "revenueWeightedYoyContributionPercentPoints": 11.69
+            "revenueWeightPercent": 39.79,
+            "simpleYoyContributionPercentPoints": 2.69,
+            "revenueWeightedYoyContributionPercentPoints": 7.48
+          },
+          {
+            "ticker": "2393",
+            "name": "EVERLIGHT",
+            "reportingMonth": "2026-09",
+            "revenueNt": 1924509000,
+            "yoyPercent": 18.615487307370152,
+            "revenueWeightPercent": 36.01,
+            "simpleYoyContributionPercentPoints": 2.66,
+            "revenueWeightedYoyContributionPercentPoints": 6.7
           },
           {
             "ticker": "2486",
@@ -18275,9 +18306,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 784787000,
             "yoyPercent": 56.830680809905594,
-            "revenueWeightPercent": 22.94,
-            "simpleYoyContributionPercentPoints": 9.47,
-            "revenueWeightedYoyContributionPercentPoints": 13.04
+            "revenueWeightPercent": 14.68,
+            "simpleYoyContributionPercentPoints": 8.12,
+            "revenueWeightedYoyContributionPercentPoints": 8.34
           },
           {
             "ticker": "3591",
@@ -18285,9 +18316,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 239163000,
             "yoyPercent": 40.5510075751788,
-            "revenueWeightPercent": 6.99,
-            "simpleYoyContributionPercentPoints": 6.76,
-            "revenueWeightedYoyContributionPercentPoints": 2.84
+            "revenueWeightPercent": 4.47,
+            "simpleYoyContributionPercentPoints": 5.79,
+            "revenueWeightedYoyContributionPercentPoints": 1.81
           },
           {
             "ticker": "4956",
@@ -18295,9 +18326,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 100170000,
             "yoyPercent": -18.027823240589196,
-            "revenueWeightPercent": 2.93,
-            "simpleYoyContributionPercentPoints": -3,
-            "revenueWeightedYoyContributionPercentPoints": -0.53
+            "revenueWeightPercent": 1.87,
+            "simpleYoyContributionPercentPoints": -2.58,
+            "revenueWeightedYoyContributionPercentPoints": -0.34
           },
           {
             "ticker": "5244",
@@ -18305,9 +18336,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 99004000,
             "yoyPercent": 22.204530025303956,
-            "revenueWeightPercent": 2.89,
-            "simpleYoyContributionPercentPoints": 3.7,
-            "revenueWeightedYoyContributionPercentPoints": 0.64
+            "revenueWeightPercent": 1.85,
+            "simpleYoyContributionPercentPoints": 3.17,
+            "revenueWeightedYoyContributionPercentPoints": 0.41
           },
           {
             "ticker": "6164",
@@ -18315,19 +18346,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 70547000,
             "yoyPercent": 47.12924148574527,
-            "revenueWeightPercent": 2.06,
-            "simpleYoyContributionPercentPoints": 7.85,
-            "revenueWeightedYoyContributionPercentPoints": 0.97
-          },
-          {
-            "ticker": "2393",
-            "name": "EVERLIGHT",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "revenueWeightPercent": 1.32,
+            "simpleYoyContributionPercentPoints": 6.73,
+            "revenueWeightedYoyContributionPercentPoints": 0.62
           },
           {
             "ticker": "2426",
@@ -18721,10 +18742,10 @@
       },
       "Analog & Power IC Design": {
         "month": "2026-09",
-        "aggregateRevenueNt": 2588537000,
-        "simpleYoyPercent": 44.62,
-        "revenueWeightedYoyPercent": 53.02,
-        "reportingCompanies": 2,
+        "aggregateRevenueNt": 2648735000,
+        "simpleYoyPercent": 16.44,
+        "revenueWeightedYoyPercent": 50.9,
+        "reportingCompanies": 3,
         "companies": [
           {
             "ticker": "4961",
@@ -18732,9 +18753,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 2175317000,
             "yoyPercent": 56.951656554680845,
-            "revenueWeightPercent": 84.04,
-            "simpleYoyContributionPercentPoints": 28.48,
-            "revenueWeightedYoyContributionPercentPoints": 47.86
+            "revenueWeightPercent": 82.13,
+            "simpleYoyContributionPercentPoints": 18.98,
+            "revenueWeightedYoyContributionPercentPoints": 46.77
           },
           {
             "ticker": "2436",
@@ -18742,19 +18763,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 413220000,
             "yoyPercent": 32.29390107251481,
-            "revenueWeightPercent": 15.96,
-            "simpleYoyContributionPercentPoints": 16.15,
-            "revenueWeightedYoyContributionPercentPoints": 5.16
+            "revenueWeightPercent": 15.6,
+            "simpleYoyContributionPercentPoints": 10.76,
+            "revenueWeightedYoyContributionPercentPoints": 5.04
           },
           {
             "ticker": "3257",
             "name": "CHAMPION",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "reportingMonth": "2026-09",
+            "revenueNt": 60198000,
+            "yoyPercent": -39.93893921858163,
+            "revenueWeightPercent": 2.27,
+            "simpleYoyContributionPercentPoints": -13.31,
+            "revenueWeightedYoyContributionPercentPoints": -0.91
           },
           {
             "ticker": "3588",
@@ -18928,10 +18949,10 @@
       },
       "IC Substrates": {
         "month": "2026-09",
-        "aggregateRevenueNt": 5585816000,
-        "simpleYoyPercent": 57.82,
-        "revenueWeightedYoyPercent": 57.82,
-        "reportingCompanies": 1,
+        "aggregateRevenueNt": 10831918000,
+        "simpleYoyPercent": 22.34,
+        "revenueWeightedYoyPercent": 50.87,
+        "reportingCompanies": 3,
         "companies": [
           {
             "ticker": "8046",
@@ -18939,33 +18960,33 @@
             "reportingMonth": "2026-09",
             "revenueNt": 5585816000,
             "yoyPercent": 57.81553056554688,
-            "revenueWeightPercent": 100,
-            "simpleYoyContributionPercentPoints": 57.82,
-            "revenueWeightedYoyContributionPercentPoints": 57.82
-          },
-          {
-            "ticker": "3037",
-            "name": "UNIMICRON",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "revenueWeightPercent": 51.57,
+            "simpleYoyContributionPercentPoints": 19.27,
+            "revenueWeightedYoyContributionPercentPoints": 29.81
           },
           {
             "ticker": "3189",
             "name": "KINSUS",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
+            "reportingMonth": "2026-09",
+            "revenueNt": 5181276000,
+            "yoyPercent": 44.468538291045796,
+            "revenueWeightPercent": 47.83,
+            "simpleYoyContributionPercentPoints": 14.82,
+            "revenueWeightedYoyContributionPercentPoints": 21.27
           },
           {
             "ticker": "6552",
             "name": "JMC",
+            "reportingMonth": "2026-09",
+            "revenueNt": 64826000,
+            "yoyPercent": -35.25687120485778,
+            "revenueWeightPercent": 0.6,
+            "simpleYoyContributionPercentPoints": -11.75,
+            "revenueWeightedYoyContributionPercentPoints": -0.21
+          },
+          {
+            "ticker": "3037",
+            "name": "UNIMICRON",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
