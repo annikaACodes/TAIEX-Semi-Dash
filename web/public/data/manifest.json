@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19222,
+  "revenueObservationCount": 19225,
   "companies": [
     {
       "id": 1,
@@ -523,13 +523,13 @@
       "classifications": [
         "Connectivity & Interface IC Design"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 12459133000,
-      "latestMomPercent": -3.381240495941536,
-      "latestYoyPercent": 28.083000681580568,
-      "latestYtdRevenueNt": 99330051000,
-      "latestYtdYoyPercent": 14.973736275733478,
-      "latestPublicationTimestamp": "2026-09-07T04:24:14.760Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 12377529000,
+      "latestMomPercent": -0.6549733436507982,
+      "latestYoyPercent": 23.353298366288925,
+      "latestYtdRevenueNt": 111707580000,
+      "latestYtdYoyPercent": 15.845706809869483,
+      "latestPublicationTimestamp": "2026-10-07T05:44:56.852Z",
       "restatementFlag": false
     },
     {
@@ -1147,13 +1147,13 @@
       "classifications": [
         "Passive Components"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 1310529000,
-      "latestMomPercent": -1.301540656012038,
-      "latestYoyPercent": 51.18935687397397,
-      "latestYtdRevenueNt": 9263430000,
-      "latestYtdYoyPercent": 24.37989170066266,
-      "latestPublicationTimestamp": "2026-09-07T09:38:47.556Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 1338516000,
+      "latestMomPercent": 2.1355498428497195,
+      "latestYoyPercent": 39.51202123767624,
+      "latestYtdRevenueNt": 10601946000,
+      "latestYtdYoyPercent": 26.10678237179495,
+      "latestPublicationTimestamp": "2026-10-07T05:44:56.852Z",
       "restatementFlag": false
     },
     {
@@ -4518,13 +4518,13 @@
       "classifications": [
         "Precision Mechanics"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 1528275000,
-      "latestMomPercent": 12.37026988276037,
-      "latestYoyPercent": 29.136067855214495,
-      "latestYtdRevenueNt": 10811903000,
-      "latestYtdYoyPercent": 49.808172599628804,
-      "latestPublicationTimestamp": "2026-09-07T09:38:47.556Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 1613339000,
+      "latestMomPercent": 5.566013969998855,
+      "latestYoyPercent": 32.17438109017265,
+      "latestYtdRevenueNt": 12425242000,
+      "latestYtdYoyPercent": 47.25725810073954,
+      "latestPublicationTimestamp": "2026-10-07T05:44:56.852Z",
       "restatementFlag": false
     },
     {
