@@ -10185,54 +10185,54 @@
         "ticker": "4912",
         "name": "Lemtech-KY",
         "classification": "Precision Mechanics",
-        "analysisMonth": "2026-08",
-        "latestMonth": "2026-08",
-        "latestRevenueNt": 657064000,
-        "momPercent": -10.0516091938288,
-        "yoyPercent": 32.22226470452108,
-        "previousYoyPercent": 66.35391853670312,
-        "ytdYoyPercent": 30.75857341115665,
-        "accelerationPercentPoints": -34.13,
-        "direction": "decelerating",
+        "analysisMonth": "2026-09",
+        "latestMonth": "2026-09",
+        "latestRevenueNt": 845044000,
+        "momPercent": 28.609085264144742,
+        "yoyPercent": 48.6928903864934,
+        "previousYoyPercent": 32.22226470452108,
+        "ytdYoyPercent": 33.078703687895896,
+        "accelerationPercentPoints": 16.47,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 657064000,
-            "priorPeriodRevenueNt": 730490000,
-            "currentGrowthPercent": -10.05,
-            "previousGrowthPercent": 12.85,
-            "accelerationPercentPoints": -22.91,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 845044000,
+            "priorPeriodRevenueNt": 657064000,
+            "currentGrowthPercent": 28.61,
+            "previousGrowthPercent": -10.05,
+            "accelerationPercentPoints": 38.66,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 657064000,
-            "priorPeriodRevenueNt": 496939000,
-            "currentGrowthPercent": 32.22,
-            "previousGrowthPercent": 66.35,
-            "accelerationPercentPoints": -34.13,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 845044000,
+            "priorPeriodRevenueNt": 568315000,
+            "currentGrowthPercent": 48.69,
+            "previousGrowthPercent": 32.22,
+            "accelerationPercentPoints": 16.47,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 2034842000,
-            "priorPeriodRevenueNt": 1779025000,
-            "currentGrowthPercent": 14.38,
-            "previousGrowthPercent": -0.07,
-            "accelerationPercentPoints": 14.45,
+            "currentPeriodRevenueNt": 2232598000,
+            "priorPeriodRevenueNt": 1873081000,
+            "currentGrowthPercent": 19.19,
+            "previousGrowthPercent": 7.62,
+            "accelerationPercentPoints": 11.58,
             "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 3813867000,
-            "priorPeriodRevenueNt": 3685091000,
-            "currentGrowthPercent": 3.49,
-            "previousGrowthPercent": 31.42,
-            "accelerationPercentPoints": -27.92,
+            "currentPeriodRevenueNt": 4105679000,
+            "priorPeriodRevenueNt": 3670008000,
+            "currentGrowthPercent": 11.87,
+            "previousGrowthPercent": 28.13,
+            "accelerationPercentPoints": -16.26,
             "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 7498958000,
-            "priorPeriodRevenueNt": 5865425000,
-            "currentGrowthPercent": 27.85,
-            "previousGrowthPercent": 6.8,
-            "accelerationPercentPoints": 21.05,
+            "currentPeriodRevenueNt": 7775687000,
+            "priorPeriodRevenueNt": 5925915000,
+            "currentGrowthPercent": 31.21,
+            "previousGrowthPercent": 8.36,
+            "accelerationPercentPoints": 22.85,
             "direction": "accelerating"
           }
         }
@@ -28143,54 +28143,54 @@
         "name": "Lemtech-KY",
         "classification": "Precision Mechanics",
         "analysisMonth": "2026-09",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-09",
+        "latestRevenueNt": 845044000,
+        "momPercent": 28.609085264144742,
+        "yoyPercent": 48.6928903864934,
         "previousYoyPercent": 32.22226470452108,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": 33.078703687895896,
+        "accelerationPercentPoints": 16.47,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 845044000,
             "priorPeriodRevenueNt": 657064000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 28.61,
             "previousGrowthPercent": -10.05,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 38.66,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 845044000,
             "priorPeriodRevenueNt": 568315000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 48.69,
             "previousGrowthPercent": 32.22,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 16.47,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2232598000,
             "priorPeriodRevenueNt": 1873081000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 19.19,
             "previousGrowthPercent": 7.62,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 11.58,
+            "direction": "accelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 4105679000,
             "priorPeriodRevenueNt": 3670008000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 11.87,
             "previousGrowthPercent": 28.13,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -16.26,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 7775687000,
             "priorPeriodRevenueNt": 5925915000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 31.21,
             "previousGrowthPercent": 8.36,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 22.85,
+            "direction": "accelerating"
           }
         }
       },

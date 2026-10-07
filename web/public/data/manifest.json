@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19267,
+  "revenueObservationCount": 19268,
   "companies": [
     {
       "id": 1,
@@ -2880,13 +2880,13 @@
       "classifications": [
         "Precision Mechanics"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 657064000,
-      "latestMomPercent": -10.0516091938288,
-      "latestYoyPercent": 32.22226470452108,
-      "latestYtdRevenueNt": 5001165000,
-      "latestYtdYoyPercent": 30.75857341115665,
-      "latestPublicationTimestamp": "2026-09-08T11:41:05.971Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 845044000,
+      "latestMomPercent": 28.609085264144742,
+      "latestYoyPercent": 48.6928903864934,
+      "latestYtdRevenueNt": 5846210000,
+      "latestYtdYoyPercent": 33.078703687895896,
+      "latestPublicationTimestamp": "2026-10-07T23:45:17.932Z",
       "restatementFlag": false
     },
     {

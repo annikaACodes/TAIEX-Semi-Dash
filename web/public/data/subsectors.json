@@ -890,10 +890,10 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 22746367000,
-        "simpleYoyPercent": 44.04,
+        "aggregateRevenueNt": 23591411000,
+        "simpleYoyPercent": 44.7,
         "revenueWeightedYoyPercent": 48.83,
-        "reportingCompanies": 6
+        "reportingCompanies": 7
       }
     ],
     "Discrete & Power Semiconductors": [
@@ -12198,9 +12198,9 @@
       },
       "Precision Mechanics": {
         "month": "mix",
-        "aggregateRevenueNt": 28188873000,
-        "simpleYoyPercent": 23.43,
-        "revenueWeightedYoyPercent": 43.61,
+        "aggregateRevenueNt": 28376853000,
+        "simpleYoyPercent": 24.4,
+        "revenueWeightedYoyPercent": 44.02,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -12209,9 +12209,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 14415056000,
             "yoyPercent": 11.199827203159714,
-            "revenueWeightPercent": 51.14,
+            "revenueWeightPercent": 50.8,
             "simpleYoyContributionPercentPoints": 0.66,
-            "revenueWeightedYoyContributionPercentPoints": 5.73
+            "revenueWeightedYoyContributionPercentPoints": 5.69
           },
           {
             "ticker": "2059",
@@ -12219,9 +12219,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 4464393000,
             "yoyPercent": 196.22466238072266,
-            "revenueWeightPercent": 15.84,
+            "revenueWeightPercent": 15.73,
             "simpleYoyContributionPercentPoints": 11.54,
-            "revenueWeightedYoyContributionPercentPoints": 31.08
+            "revenueWeightedYoyContributionPercentPoints": 30.87
           },
           {
             "ticker": "6805",
@@ -12229,9 +12229,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1613339000,
             "yoyPercent": 32.17438109017265,
-            "revenueWeightPercent": 5.72,
+            "revenueWeightPercent": 5.69,
             "simpleYoyContributionPercentPoints": 1.89,
-            "revenueWeightedYoyContributionPercentPoints": 1.84
+            "revenueWeightedYoyContributionPercentPoints": 1.83
           },
           {
             "ticker": "5243",
@@ -12239,9 +12239,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 1373168000,
             "yoyPercent": 54.12471687397441,
-            "revenueWeightPercent": 4.87,
+            "revenueWeightPercent": 4.84,
             "simpleYoyContributionPercentPoints": 3.18,
-            "revenueWeightedYoyContributionPercentPoints": 2.64
+            "revenueWeightedYoyContributionPercentPoints": 2.62
           },
           {
             "ticker": "2476",
@@ -12249,9 +12249,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1033674000,
             "yoyPercent": 53.76058739003543,
-            "revenueWeightPercent": 3.67,
+            "revenueWeightPercent": 3.64,
             "simpleYoyContributionPercentPoints": 3.16,
-            "revenueWeightedYoyContributionPercentPoints": 1.97
+            "revenueWeightedYoyContributionPercentPoints": 1.96
           },
           {
             "ticker": "2474",
@@ -12259,9 +12259,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1028108000,
             "yoyPercent": -34.18895770868487,
-            "revenueWeightPercent": 3.65,
+            "revenueWeightPercent": 3.62,
             "simpleYoyContributionPercentPoints": -2.01,
-            "revenueWeightedYoyContributionPercentPoints": -1.25
+            "revenueWeightedYoyContributionPercentPoints": -1.24
+          },
+          {
+            "ticker": "4912",
+            "name": "Lemtech-KY",
+            "reportingMonth": "2026-09",
+            "revenueNt": 845044000,
+            "yoyPercent": 48.6928903864934,
+            "revenueWeightPercent": 2.98,
+            "simpleYoyContributionPercentPoints": 2.86,
+            "revenueWeightedYoyContributionPercentPoints": 1.45
           },
           {
             "ticker": "3376",
@@ -12269,7 +12279,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 830265000,
             "yoyPercent": -10.00744640377718,
-            "revenueWeightPercent": 2.95,
+            "revenueWeightPercent": 2.93,
             "simpleYoyContributionPercentPoints": -0.59,
             "revenueWeightedYoyContributionPercentPoints": -0.29
           },
@@ -12279,19 +12289,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 724367000,
             "yoyPercent": 1.596814505836052,
-            "revenueWeightPercent": 2.57,
+            "revenueWeightPercent": 2.55,
             "simpleYoyContributionPercentPoints": 0.09,
             "revenueWeightedYoyContributionPercentPoints": 0.04
-          },
-          {
-            "ticker": "4912",
-            "name": "Lemtech-KY",
-            "reportingMonth": "2026-08",
-            "revenueNt": 657064000,
-            "yoyPercent": 32.22226470452108,
-            "revenueWeightPercent": 2.33,
-            "simpleYoyContributionPercentPoints": 1.9,
-            "revenueWeightedYoyContributionPercentPoints": 0.75
           },
           {
             "ticker": "3679",
@@ -12299,7 +12299,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 441444000,
             "yoyPercent": 28.179561259600167,
-            "revenueWeightPercent": 1.57,
+            "revenueWeightPercent": 1.56,
             "simpleYoyContributionPercentPoints": 1.66,
             "revenueWeightedYoyContributionPercentPoints": 0.44
           },
@@ -12319,7 +12319,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 292945000,
             "yoyPercent": 24.039361310237073,
-            "revenueWeightPercent": 1.04,
+            "revenueWeightPercent": 1.03,
             "simpleYoyContributionPercentPoints": 1.41,
             "revenueWeightedYoyContributionPercentPoints": 0.25
           },
@@ -12329,9 +12329,9 @@
             "reportingMonth": "2026-08",
             "revenueNt": 278477000,
             "yoyPercent": 54.178385560845975,
-            "revenueWeightPercent": 0.99,
+            "revenueWeightPercent": 0.98,
             "simpleYoyContributionPercentPoints": 3.19,
-            "revenueWeightedYoyContributionPercentPoints": 0.54
+            "revenueWeightedYoyContributionPercentPoints": 0.53
           },
           {
             "ticker": "3543",
@@ -12369,7 +12369,7 @@
             "reportingMonth": "2026-08",
             "revenueNt": 52454000,
             "yoyPercent": -29.803008404261014,
-            "revenueWeightPercent": 0.19,
+            "revenueWeightPercent": 0.18,
             "simpleYoyContributionPercentPoints": -1.75,
             "revenueWeightedYoyContributionPercentPoints": -0.06
           }
@@ -15733,10 +15733,10 @@
       },
       "Precision Mechanics": {
         "month": "2026-09",
-        "aggregateRevenueNt": 22746367000,
-        "simpleYoyPercent": 44.04,
+        "aggregateRevenueNt": 23591411000,
+        "simpleYoyPercent": 44.7,
         "revenueWeightedYoyPercent": 48.83,
-        "reportingCompanies": 6,
+        "reportingCompanies": 7,
         "companies": [
           {
             "ticker": "2354",
@@ -15744,9 +15744,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 14415056000,
             "yoyPercent": 11.199827203159714,
-            "revenueWeightPercent": 63.37,
-            "simpleYoyContributionPercentPoints": 1.87,
-            "revenueWeightedYoyContributionPercentPoints": 7.1
+            "revenueWeightPercent": 61.1,
+            "simpleYoyContributionPercentPoints": 1.6,
+            "revenueWeightedYoyContributionPercentPoints": 6.84
           },
           {
             "ticker": "2059",
@@ -15754,9 +15754,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 4464393000,
             "yoyPercent": 196.22466238072266,
-            "revenueWeightPercent": 19.63,
-            "simpleYoyContributionPercentPoints": 32.7,
-            "revenueWeightedYoyContributionPercentPoints": 38.51
+            "revenueWeightPercent": 18.92,
+            "simpleYoyContributionPercentPoints": 28.03,
+            "revenueWeightedYoyContributionPercentPoints": 37.13
           },
           {
             "ticker": "6805",
@@ -15764,9 +15764,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1613339000,
             "yoyPercent": 32.17438109017265,
-            "revenueWeightPercent": 7.09,
-            "simpleYoyContributionPercentPoints": 5.36,
-            "revenueWeightedYoyContributionPercentPoints": 2.28
+            "revenueWeightPercent": 6.84,
+            "simpleYoyContributionPercentPoints": 4.6,
+            "revenueWeightedYoyContributionPercentPoints": 2.2
           },
           {
             "ticker": "2476",
@@ -15774,9 +15774,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1033674000,
             "yoyPercent": 53.76058739003543,
-            "revenueWeightPercent": 4.54,
-            "simpleYoyContributionPercentPoints": 8.96,
-            "revenueWeightedYoyContributionPercentPoints": 2.44
+            "revenueWeightPercent": 4.38,
+            "simpleYoyContributionPercentPoints": 7.68,
+            "revenueWeightedYoyContributionPercentPoints": 2.36
           },
           {
             "ticker": "2474",
@@ -15784,9 +15784,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1028108000,
             "yoyPercent": -34.18895770868487,
-            "revenueWeightPercent": 4.52,
-            "simpleYoyContributionPercentPoints": -5.7,
-            "revenueWeightedYoyContributionPercentPoints": -1.55
+            "revenueWeightPercent": 4.36,
+            "simpleYoyContributionPercentPoints": -4.88,
+            "revenueWeightedYoyContributionPercentPoints": -1.49
+          },
+          {
+            "ticker": "4912",
+            "name": "Lemtech-KY",
+            "reportingMonth": "2026-09",
+            "revenueNt": 845044000,
+            "yoyPercent": 48.6928903864934,
+            "revenueWeightPercent": 3.58,
+            "simpleYoyContributionPercentPoints": 6.96,
+            "revenueWeightedYoyContributionPercentPoints": 1.74
           },
           {
             "ticker": "2415",
@@ -15794,8 +15804,8 @@
             "reportingMonth": "2026-09",
             "revenueNt": 191797000,
             "yoyPercent": 5.056829074576179,
-            "revenueWeightPercent": 0.84,
-            "simpleYoyContributionPercentPoints": 0.84,
+            "revenueWeightPercent": 0.81,
+            "simpleYoyContributionPercentPoints": 0.72,
             "revenueWeightedYoyContributionPercentPoints": 0.04
           },
           {
@@ -15861,16 +15871,6 @@
           {
             "ticker": "4545",
             "name": "MAP",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "4912",
-            "name": "Lemtech-KY",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
