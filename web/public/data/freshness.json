@@ -1,11 +1,11 @@
 {
-  "asOfDateTaipei": "2026-10-07",
+  "asOfDateTaipei": "2026-10-08",
   "targetReportingMonth": "2026-09",
   "summary": {
     "reported": 131,
     "pending": 184,
-    "overdue": 1,
-    "unusual": 9
+    "overdue": 3,
+    "unusual": 11
   },
   "companies": [
     {
@@ -1788,7 +1788,7 @@
       "overdue": true,
       "unusualReportDate": true,
       "unusualReason": "LATE_NOT_YET_REPORTED",
-      "deviationFromHistoryDays": 2,
+      "deviationFromHistoryDays": 3,
       "publicationTimestamp": null,
       "publicationTimestampBasis": null,
       "latestRevenueMonth": "2026-08"
@@ -3212,11 +3212,11 @@
       "scheduleSource": "company_history",
       "forecastConfidence": "high",
       "historySampleCount": 9,
-      "releaseStatus": "forecast",
-      "overdue": false,
-      "unusualReportDate": false,
-      "unusualReason": null,
-      "deviationFromHistoryDays": null,
+      "releaseStatus": "overdue",
+      "overdue": true,
+      "unusualReportDate": true,
+      "unusualReason": "LATE_NOT_YET_REPORTED",
+      "deviationFromHistoryDays": 3,
       "publicationTimestamp": null,
       "publicationTimestampBasis": null,
       "latestRevenueMonth": "2026-08"
@@ -3989,11 +3989,11 @@
       "scheduleSource": "company_history",
       "forecastConfidence": "high",
       "historySampleCount": 10,
-      "releaseStatus": "forecast",
-      "overdue": false,
-      "unusualReportDate": false,
-      "unusualReason": null,
-      "deviationFromHistoryDays": null,
+      "releaseStatus": "overdue",
+      "overdue": true,
+      "unusualReportDate": true,
+      "unusualReason": "LATE_NOT_YET_REPORTED",
+      "deviationFromHistoryDays": 2,
       "publicationTimestamp": null,
       "publicationTimestampBasis": null,
       "latestRevenueMonth": "2026-08"
