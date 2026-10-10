@@ -2,10 +2,10 @@
   "asOfDateTaipei": "2026-10-10",
   "targetReportingMonth": "2026-09",
   "summary": {
-    "reported": 276,
-    "pending": 39,
+    "reported": 277,
+    "pending": 38,
     "overdue": 4,
-    "unusual": 66
+    "unusual": 67
   },
   "companies": [
     {
@@ -3394,21 +3394,21 @@
       "ticker": "3607",
       "name": "Coxon",
       "classification": "Precision Mechanics",
-      "reported": false,
-      "expectedDate": "2026-10-09",
-      "expectedTime": "15:17:00",
+      "reported": true,
+      "expectedDate": "2026-10-10",
+      "expectedTime": "23:50:15",
       "regulatoryDeadline": "2026-10-09",
-      "scheduleSource": "company_history",
+      "scheduleSource": "actual_first_seen",
       "forecastConfidence": "low",
       "historySampleCount": 2,
-      "releaseStatus": "forecast",
+      "releaseStatus": "reported",
       "overdue": false,
-      "unusualReportDate": false,
-      "unusualReason": null,
-      "deviationFromHistoryDays": null,
-      "publicationTimestamp": null,
-      "publicationTimestampBasis": null,
-      "latestRevenueMonth": "2026-08"
+      "unusualReportDate": true,
+      "unusualReason": "AFTER_REGULATORY_DEADLINE",
+      "deviationFromHistoryDays": 1,
+      "publicationTimestamp": "2026-10-10T15:50:15.053Z",
+      "publicationTimestampBasis": "MOPS_ARCHIVE_FIRST_OBSERVED",
+      "latestRevenueMonth": "2026-09"
     },
     {
       "companyId": 163,
