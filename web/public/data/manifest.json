@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19410,
+  "revenueObservationCount": 19411,
   "companies": [
     {
       "id": 1,
@@ -4404,13 +4404,13 @@
       "classifications": [
         "EMS & ODM"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 717916000,
-      "latestMomPercent": -9.32106624631179,
-      "latestYoyPercent": 12.676489606810348,
-      "latestYtdRevenueNt": 3947812000,
-      "latestYtdYoyPercent": 10.162715400269951,
-      "latestPublicationTimestamp": "2026-09-10T11:47:02.480Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 688293000,
+      "latestMomPercent": -4.126248753336045,
+      "latestYoyPercent": 23.80172097473937,
+      "latestYtdRevenueNt": 4636105000,
+      "latestYtdYoyPercent": 11.994493165132816,
+      "latestPublicationTimestamp": "2026-10-10T02:40:16.192Z",
       "restatementFlag": false
     },
     {

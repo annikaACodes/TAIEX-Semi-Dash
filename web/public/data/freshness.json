@@ -2,10 +2,10 @@
   "asOfDateTaipei": "2026-10-10",
   "targetReportingMonth": "2026-09",
   "summary": {
-    "reported": 274,
-    "pending": 41,
+    "reported": 275,
+    "pending": 40,
     "overdue": 5,
-    "unusual": 65
+    "unusual": 66
   },
   "companies": [
     {
@@ -5746,21 +5746,21 @@
       "ticker": "6743",
       "name": "AMPACS",
       "classification": "EMS & ODM",
-      "reported": false,
+      "reported": true,
       "expectedDate": "2026-10-10",
-      "expectedTime": "17:27:00",
+      "expectedTime": "10:40:16",
       "regulatoryDeadline": "2026-10-09",
-      "scheduleSource": "company_history",
+      "scheduleSource": "actual_first_seen",
       "forecastConfidence": "high",
       "historySampleCount": 9,
-      "releaseStatus": "forecast",
+      "releaseStatus": "reported",
       "overdue": false,
-      "unusualReportDate": false,
-      "unusualReason": null,
-      "deviationFromHistoryDays": null,
-      "publicationTimestamp": null,
-      "publicationTimestampBasis": null,
-      "latestRevenueMonth": "2026-08"
+      "unusualReportDate": true,
+      "unusualReason": "AFTER_REGULATORY_DEADLINE",
+      "deviationFromHistoryDays": 0,
+      "publicationTimestamp": "2026-10-10T02:40:16.192Z",
+      "publicationTimestampBasis": "MOPS_ARCHIVE_FIRST_OBSERVED",
+      "latestRevenueMonth": "2026-09"
     },
     {
       "companyId": 274,
