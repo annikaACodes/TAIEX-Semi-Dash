@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19411,
+  "revenueObservationCount": 19412,
   "companies": [
     {
       "id": 1,
@@ -3698,13 +3698,13 @@
       "classifications": [
         "Sensors & Optical Modules"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 556720000,
-      "latestMomPercent": 6.196648449645674,
-      "latestYoyPercent": 106.76387351719937,
-      "latestYtdRevenueNt": 3495280000,
-      "latestYtdYoyPercent": 69.57475804178434,
-      "latestPublicationTimestamp": "2026-09-07T09:38:47.556Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 668759000,
+      "latestMomPercent": 20.124838338841787,
+      "latestYoyPercent": 81.57256696034645,
+      "latestYtdRevenueNt": 4164039000,
+      "latestYtdYoyPercent": 71.39362622544883,
+      "latestPublicationTimestamp": "2026-10-10T09:42:43.479Z",
       "restatementFlag": false
     },
     {
