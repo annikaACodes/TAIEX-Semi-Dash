@@ -1,5 +1,5 @@
 {
-  "generatedDateTaipei": "2026-10-10",
+  "generatedDateTaipei": "2026-10-11",
   "latestRevenueMonth": "2026-09",
   "targetReportingMonth": "2026-09",
   "exchangeRateHistory": {
@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19413,
+  "revenueObservationCount": 19414,
   "companies": [
     {
       "id": 1,
@@ -3394,13 +3394,13 @@
       "classifications": [
         "Interconnect"
       ],
-      "latestMonth": "2026-08",
-      "latestRevenueNt": 732630000,
-      "latestMomPercent": -1.735584854540821,
-      "latestYoyPercent": 10.76371827919599,
-      "latestYtdRevenueNt": 5488990000,
-      "latestYtdYoyPercent": 11.671333719067045,
-      "latestPublicationTimestamp": "2026-09-07T09:38:47.556Z",
+      "latestMonth": "2026-09",
+      "latestRevenueNt": 740971000,
+      "latestMomPercent": 1.1385010168843754,
+      "latestYoyPercent": 14.527651550279762,
+      "latestYtdRevenueNt": 6229961000,
+      "latestYtdYoyPercent": 12.003567596643684,
+      "latestPublicationTimestamp": "2026-10-10T20:00:11.462Z",
       "restatementFlag": false
     },
     {
