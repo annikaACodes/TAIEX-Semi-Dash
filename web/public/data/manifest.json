@@ -4019,13 +4019,13 @@
         "Solar & PV"
       ],
       "latestMonth": "2026-09",
-      "latestRevenueNt": 96562000,
-      "latestMomPercent": 45.10564121059117,
-      "latestYoyPercent": -48.15741436701385,
-      "latestYtdRevenueNt": 904467000,
-      "latestYtdYoyPercent": -37.725782397889276,
-      "latestPublicationTimestamp": "2026-10-08T13:18:07.692Z",
-      "restatementFlag": false
+      "latestRevenueNt": 88430000,
+      "latestMomPercent": 32.885522796261235,
+      "latestYoyPercent": -52.52335445076774,
+      "latestYtdRevenueNt": 896335000,
+      "latestYtdYoyPercent": -38.28568556466083,
+      "latestPublicationTimestamp": "2026-10-20T11:45:55.298Z",
+      "restatementFlag": true
     },
     {
       "id": 250,

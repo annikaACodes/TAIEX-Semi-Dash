@@ -9307,9 +9307,9 @@
       },
       {
         "month": "2026-09",
-        "aggregateRevenueNt": 1300865000,
-        "simpleYoyPercent": -1.34,
-        "revenueWeightedYoyPercent": 34.6,
+        "aggregateRevenueNt": 1292733000,
+        "simpleYoyPercent": -2.21,
+        "revenueWeightedYoyPercent": 34.82,
         "reportingCompanies": 5
       }
     ],
@@ -14926,9 +14926,9 @@
       },
       "Solar & PV": {
         "month": "mix",
-        "aggregateRevenueNt": 1300865000,
-        "simpleYoyPercent": -1.34,
-        "revenueWeightedYoyPercent": 34.6,
+        "aggregateRevenueNt": 1292733000,
+        "simpleYoyPercent": -2.21,
+        "revenueWeightedYoyPercent": 34.82,
         "reportingCompanies": 5,
         "companies": [
           {
@@ -14937,9 +14937,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 866590000,
             "yoyPercent": 62.28854584713688,
-            "revenueWeightPercent": 66.62,
+            "revenueWeightPercent": 67.04,
             "simpleYoyContributionPercentPoints": 12.46,
-            "revenueWeightedYoyContributionPercentPoints": 41.49
+            "revenueWeightedYoyContributionPercentPoints": 41.76
           },
           {
             "ticker": "3576",
@@ -14947,19 +14947,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 260402000,
             "yoyPercent": -8.344332632897936,
-            "revenueWeightPercent": 20.02,
+            "revenueWeightPercent": 20.14,
             "simpleYoyContributionPercentPoints": -1.67,
-            "revenueWeightedYoyContributionPercentPoints": -1.67
+            "revenueWeightedYoyContributionPercentPoints": -1.68
           },
           {
             "ticker": "6443",
             "name": "TSEC",
             "reportingMonth": "2026-09",
-            "revenueNt": 96562000,
-            "yoyPercent": -48.15741436701385,
-            "revenueWeightPercent": 7.42,
-            "simpleYoyContributionPercentPoints": -9.63,
-            "revenueWeightedYoyContributionPercentPoints": -3.57
+            "revenueNt": 88430000,
+            "yoyPercent": -52.52335445076774,
+            "revenueWeightPercent": 6.84,
+            "simpleYoyContributionPercentPoints": -10.5,
+            "revenueWeightedYoyContributionPercentPoints": -3.59
           },
           {
             "ticker": "6477",
@@ -14967,9 +14967,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 59060000,
             "yoyPercent": -47.019511101143756,
-            "revenueWeightPercent": 4.54,
+            "revenueWeightPercent": 4.57,
             "simpleYoyContributionPercentPoints": -9.4,
-            "revenueWeightedYoyContributionPercentPoints": -2.13
+            "revenueWeightedYoyContributionPercentPoints": -2.15
           },
           {
             "ticker": "4934",
@@ -14977,9 +14977,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 18251000,
             "yoyPercent": 34.534866578210234,
-            "revenueWeightPercent": 1.4,
+            "revenueWeightPercent": 1.41,
             "simpleYoyContributionPercentPoints": 6.91,
-            "revenueWeightedYoyContributionPercentPoints": 0.48
+            "revenueWeightedYoyContributionPercentPoints": 0.49
           }
         ]
       },
@@ -18461,9 +18461,9 @@
       },
       "Solar & PV": {
         "month": "2026-09",
-        "aggregateRevenueNt": 1300865000,
-        "simpleYoyPercent": -1.34,
-        "revenueWeightedYoyPercent": 34.6,
+        "aggregateRevenueNt": 1292733000,
+        "simpleYoyPercent": -2.21,
+        "revenueWeightedYoyPercent": 34.82,
         "reportingCompanies": 5,
         "companies": [
           {
@@ -18472,9 +18472,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 866590000,
             "yoyPercent": 62.28854584713688,
-            "revenueWeightPercent": 66.62,
+            "revenueWeightPercent": 67.04,
             "simpleYoyContributionPercentPoints": 12.46,
-            "revenueWeightedYoyContributionPercentPoints": 41.49
+            "revenueWeightedYoyContributionPercentPoints": 41.76
           },
           {
             "ticker": "3576",
@@ -18482,19 +18482,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 260402000,
             "yoyPercent": -8.344332632897936,
-            "revenueWeightPercent": 20.02,
+            "revenueWeightPercent": 20.14,
             "simpleYoyContributionPercentPoints": -1.67,
-            "revenueWeightedYoyContributionPercentPoints": -1.67
+            "revenueWeightedYoyContributionPercentPoints": -1.68
           },
           {
             "ticker": "6443",
             "name": "TSEC",
             "reportingMonth": "2026-09",
-            "revenueNt": 96562000,
-            "yoyPercent": -48.15741436701385,
-            "revenueWeightPercent": 7.42,
-            "simpleYoyContributionPercentPoints": -9.63,
-            "revenueWeightedYoyContributionPercentPoints": -3.57
+            "revenueNt": 88430000,
+            "yoyPercent": -52.52335445076774,
+            "revenueWeightPercent": 6.84,
+            "simpleYoyContributionPercentPoints": -10.5,
+            "revenueWeightedYoyContributionPercentPoints": -3.59
           },
           {
             "ticker": "6477",
@@ -18502,9 +18502,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 59060000,
             "yoyPercent": -47.019511101143756,
-            "revenueWeightPercent": 4.54,
+            "revenueWeightPercent": 4.57,
             "simpleYoyContributionPercentPoints": -9.4,
-            "revenueWeightedYoyContributionPercentPoints": -2.13
+            "revenueWeightedYoyContributionPercentPoints": -2.15
           },
           {
             "ticker": "4934",
@@ -18512,9 +18512,9 @@
             "reportingMonth": "2026-09",
             "revenueNt": 18251000,
             "yoyPercent": 34.534866578210234,
-            "revenueWeightPercent": 1.4,
+            "revenueWeightPercent": 1.41,
             "simpleYoyContributionPercentPoints": 6.91,
-            "revenueWeightedYoyContributionPercentPoints": 0.48
+            "revenueWeightedYoyContributionPercentPoints": 0.49
           }
         ]
       },
