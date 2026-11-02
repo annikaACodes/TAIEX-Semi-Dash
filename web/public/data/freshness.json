@@ -1,5 +1,5 @@
 {
-  "asOfDateTaipei": "2026-11-02",
+  "asOfDateTaipei": "2026-11-03",
   "targetReportingMonth": "2026-10",
   "summary": {
     "reported": 3,
@@ -2083,7 +2083,7 @@
       "unusualReportDate": false,
       "unusualReason": null,
       "deviationFromHistoryDays": 1,
-      "publicationTimestamp": "2026-11-02T09:18:58.328Z",
+      "publicationTimestamp": "2026-11-02T19:43:40.689Z",
       "publicationTimestampBasis": "MOPS_ARCHIVE_FIRST_OBSERVED",
       "latestRevenueMonth": "2026-10"
     },

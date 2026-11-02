@@ -960,12 +960,12 @@
       "yoyPercent": 71.92792324679422,
       "cumulativeYtdRevenueNt": 9213217000,
       "ytdYoyPercent": 33.04466992687986,
-      "publicationTimestamp": "2026-11-02T09:18:58.328Z",
-      "restatementFlag": false,
+      "publicationTimestamp": "2026-11-02T19:43:40.689Z",
+      "restatementFlag": true,
       "publicationTimestampBasis": "MOPS_ARCHIVE_FIRST_OBSERVED",
       "sourceMarket": "sii",
       "sourceUrl": "https://mopsov.twse.com.tw/nas/t21/sii/t21sc03_115_10.csv",
-      "sourceReportDate": "2026-11-02",
+      "sourceReportDate": "2026-11-03",
       "sourceNoteTranslationStatus": "complete"
     }
   ]
