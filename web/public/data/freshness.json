@@ -1,11 +1,11 @@
 {
-  "asOfDateTaipei": "2026-11-03",
+  "asOfDateTaipei": "2026-11-04",
   "targetReportingMonth": "2026-10",
   "summary": {
-    "reported": 16,
-    "pending": 299,
+    "reported": 17,
+    "pending": 298,
     "overdue": 0,
-    "unusual": 1
+    "unusual": 2
   },
   "companies": [
     {
@@ -2575,21 +2575,21 @@
       "ticker": "3168",
       "name": "DATA IMAGE",
       "classification": "Display & Optical Components",
-      "reported": false,
-      "expectedDate": "2026-11-02",
-      "expectedTime": "18:02:00",
+      "reported": true,
+      "expectedDate": "2026-11-04",
+      "expectedTime": "01:43:36",
       "regulatoryDeadline": "2026-11-10",
-      "scheduleSource": "company_history",
+      "scheduleSource": "actual_first_seen",
       "forecastConfidence": "high",
       "historySampleCount": 10,
-      "releaseStatus": "forecast",
+      "releaseStatus": "reported",
       "overdue": false,
-      "unusualReportDate": false,
-      "unusualReason": null,
-      "deviationFromHistoryDays": null,
-      "publicationTimestamp": null,
-      "publicationTimestampBasis": null,
-      "latestRevenueMonth": "2026-09"
+      "unusualReportDate": true,
+      "unusualReason": "LATE",
+      "deviationFromHistoryDays": 2,
+      "publicationTimestamp": "2026-11-03T17:43:36.692Z",
+      "publicationTimestampBasis": "MOPS_ARCHIVE_FIRST_OBSERVED",
+      "latestRevenueMonth": "2026-10"
     },
     {
       "companyId": 124,

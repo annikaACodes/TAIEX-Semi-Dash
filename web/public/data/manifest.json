@@ -1,5 +1,5 @@
 {
-  "generatedDateTaipei": "2026-11-03",
+  "generatedDateTaipei": "2026-11-04",
   "latestRevenueMonth": "2026-10",
   "targetReportingMonth": "2026-10",
   "exchangeRateHistory": {
@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19467,
+  "revenueObservationCount": 19468,
   "companies": [
     {
       "id": 1,
@@ -1983,13 +1983,13 @@
       "classifications": [
         "Display & Optical Components"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 369485000,
-      "latestMomPercent": -3.2759248060858797,
-      "latestYoyPercent": 7.592651371097606,
-      "latestYtdRevenueNt": 3010016000,
-      "latestYtdYoyPercent": 16.448607169868986,
-      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 377710000,
+      "latestMomPercent": 2.2260714237384467,
+      "latestYoyPercent": 52.66314759876159,
+      "latestYtdRevenueNt": 3387726000,
+      "latestYtdYoyPercent": 19.612154114436567,
+      "latestPublicationTimestamp": "2026-11-03T17:43:36.692Z",
       "restatementFlag": false
     },
     {
