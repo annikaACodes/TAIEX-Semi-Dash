@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19454,
+  "revenueObservationCount": 19467,
   "companies": [
     {
       "id": 1,
@@ -699,13 +699,13 @@
       "classifications": [
         "Memory"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 45091089000,
-      "latestMomPercent": 0.8968865436206379,
-      "latestYoyPercent": 576.622775031737,
-      "latestYtdRevenueNt": 265284971000,
-      "latestYtdYoyPercent": 626.9495065095125,
-      "latestPublicationTimestamp": "2026-10-05T09:33:51.948Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 46476051000,
+      "latestMomPercent": 3.071476051509867,
+      "latestYoyPercent": 487.72943534104417,
+      "latestYtdRevenueNt": 311761022000,
+      "latestYtdYoyPercent": 602.154485146844,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -1019,13 +1019,13 @@
       "classifications": [
         "Display IC Design"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 601864000,
-      "latestMomPercent": -18.742025940922094,
-      "latestYoyPercent": -46.89935064935065,
-      "latestYtdRevenueNt": 8650439000,
-      "latestYtdYoyPercent": -8.621257715433995,
-      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 461336000,
+      "latestMomPercent": -23.348796405832548,
+      "latestYoyPercent": -53.72507638327452,
+      "latestYtdRevenueNt": 9111775000,
+      "latestYtdYoyPercent": -12.918669935546564,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -1243,13 +1243,13 @@
       "classifications": [
         "Passive Components"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 188796000,
-      "latestMomPercent": 0.3796216543847896,
-      "latestYoyPercent": 27.300801715360706,
-      "latestYtdRevenueNt": 1624110000,
-      "latestYtdYoyPercent": 22.546408290336846,
-      "latestPublicationTimestamp": "2026-10-05T09:33:51.948Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 195756000,
+      "latestMomPercent": 3.6865187821775884,
+      "latestYoyPercent": 41.22281138404934,
+      "latestYtdRevenueNt": 1819866000,
+      "latestYtdYoyPercent": 24.314834789130806,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -1388,13 +1388,13 @@
         "Memory",
         "Logic IC Design"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 7460769000,
-      "latestMomPercent": -5.617184807805287,
-      "latestYoyPercent": 470.2347504677583,
-      "latestYtdRevenueNt": 43363345000,
-      "latestYtdYoyPercent": 343.911329000345,
-      "latestPublicationTimestamp": "2026-10-02T08:55:32.018Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 6545937000,
+      "latestMomPercent": -12.261899544135463,
+      "latestYoyPercent": 430.0611365734368,
+      "latestYtdRevenueNt": 49909282000,
+      "latestYtdYoyPercent": 353.58017683428835,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -1534,13 +1534,13 @@
       "classifications": [
         "Interconnect"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 3348769000,
-      "latestMomPercent": 2.078689839833005,
-      "latestYoyPercent": 25.50859974986498,
-      "latestYtdRevenueNt": 27183346000,
-      "latestYtdYoyPercent": 15.241050745224879,
-      "latestPublicationTimestamp": "2026-10-02T08:55:32.018Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 3388496000,
+      "latestMomPercent": 1.18631652407198,
+      "latestYoyPercent": 31.997039460870244,
+      "latestYtdRevenueNt": 30571842000,
+      "latestYtdYoyPercent": 16.885620604794834,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -1838,13 +1838,13 @@
       "classifications": [
         "Display & Optical Components"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 150266000,
-      "latestMomPercent": -6.507970085735973,
-      "latestYoyPercent": 2.1370019439648726,
-      "latestYtdRevenueNt": 1430525000,
-      "latestYtdYoyPercent": 5.48870910770869,
-      "latestPublicationTimestamp": "2026-10-02T08:55:32.018Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 153840000,
+      "latestMomPercent": 2.378448883979077,
+      "latestYoyPercent": -11.868834427525522,
+      "latestYtdRevenueNt": 1584365000,
+      "latestYtdYoyPercent": 3.50922581306908,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -2367,13 +2367,13 @@
       "classifications": [
         "Sensor & Imaging IC Design"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 171632000,
-      "latestMomPercent": -3.5856528944190096,
-      "latestYoyPercent": -4.254737558504734,
-      "latestYtdRevenueNt": 1662415000,
-      "latestYtdYoyPercent": 30.825371267941698,
-      "latestPublicationTimestamp": "2026-10-02T08:55:32.018Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 143824000,
+      "latestMomPercent": -16.202106833224573,
+      "latestYoyPercent": -14.182573257832964,
+      "latestYtdRevenueNt": 1806239000,
+      "latestYtdYoyPercent": 25.58099597721208,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -2479,13 +2479,13 @@
       "classifications": [
         "Test & Inspection Equipment"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 372810000,
-      "latestMomPercent": 3.2262887711195654,
-      "latestYoyPercent": 63.2010716349437,
-      "latestYtdRevenueNt": 3004671000,
-      "latestYtdYoyPercent": 18.801472271547034,
-      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 403332000,
+      "latestMomPercent": 8.187012150961616,
+      "latestYoyPercent": 95.58715133646274,
+      "latestYtdRevenueNt": 3408003000,
+      "latestYtdYoyPercent": 24.59024723903795,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -2544,13 +2544,13 @@
       "classifications": [
         "LED & Optoelectronics"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 239163000,
-      "latestMomPercent": -11.815329250351208,
-      "latestYoyPercent": 40.5510075751788,
-      "latestYtdRevenueNt": 2051806000,
-      "latestYtdYoyPercent": 16.909957715846616,
-      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 264128000,
+      "latestMomPercent": 10.43848755869428,
+      "latestYoyPercent": 35.57818659658344,
+      "latestYtdRevenueNt": 2315934000,
+      "latestYtdYoyPercent": 18.77516543605729,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -3362,13 +3362,13 @@
       "classifications": [
         "Sensors & Optical Modules"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 37784000,
-      "latestMomPercent": -21.96451806109172,
-      "latestYoyPercent": -16.44405130473242,
-      "latestYtdRevenueNt": 584519000,
-      "latestYtdYoyPercent": 77.499180098874,
-      "latestPublicationTimestamp": "2026-10-08T13:18:07.692Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 50143000,
+      "latestMomPercent": 32.7096125344061,
+      "latestYoyPercent": -19.189363416599516,
+      "latestYtdRevenueNt": 634662000,
+      "latestYtdYoyPercent": 62.16957918217893,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -3522,13 +3522,13 @@
       "classifications": [
         "LED & Optoelectronics"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 70547000,
-      "latestMomPercent": 27.451582598641423,
-      "latestYoyPercent": 47.12924148574527,
-      "latestYtdRevenueNt": 590077000,
-      "latestYtdYoyPercent": 2.507634953669121,
-      "latestPublicationTimestamp": "2026-10-02T15:43:04.730Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 54950000,
+      "latestMomPercent": -22.108665145222336,
+      "latestYoyPercent": 49.357179745046345,
+      "latestYtdRevenueNt": 645027000,
+      "latestYtdYoyPercent": 5.322051555027244,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -4823,13 +4823,13 @@
       "classifications": [
         "IC Substrates"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 5585816000,
-      "latestMomPercent": 4.3551105049787955,
-      "latestYoyPercent": 57.81553056554688,
-      "latestYtdRevenueNt": 41130983000,
-      "latestYtdYoyPercent": 41.78990079460085,
-      "latestPublicationTimestamp": "2026-10-03T05:40:32.533Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 6288839000,
+      "latestMomPercent": 12.585860329090682,
+      "latestYoyPercent": 69.67407659622229,
+      "latestYtdRevenueNt": 47419822000,
+      "latestYtdYoyPercent": 44.94903594774039,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
@@ -5016,13 +5016,13 @@
       "classifications": [
         "Display & Optical Components"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 1627061000,
-      "latestMomPercent": 1.8025954621645786,
-      "latestYoyPercent": 8.408579081326707,
-      "latestYtdRevenueNt": 14380980000,
-      "latestYtdYoyPercent": 6.380100080726489,
-      "latestPublicationTimestamp": "2026-10-02T08:55:32.018Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 1604350000,
+      "latestMomPercent": -1.3958296585069645,
+      "latestYoyPercent": 9.797042970279142,
+      "latestYtdRevenueNt": 15985330000,
+      "latestYtdYoyPercent": 6.7134064185470415,
+      "latestPublicationTimestamp": "2026-11-03T09:57:41.554Z",
       "restatementFlag": false
     },
     {
