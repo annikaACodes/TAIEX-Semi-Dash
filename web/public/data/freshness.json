@@ -1,11 +1,11 @@
 {
-  "asOfDateTaipei": "2026-11-05",
+  "asOfDateTaipei": "2026-11-06",
   "targetReportingMonth": "2026-10",
   "summary": {
     "reported": 68,
     "pending": 247,
-    "overdue": 0,
-    "unusual": 5
+    "overdue": 1,
+    "unusual": 6
   },
   "companies": [
     {
@@ -5921,11 +5921,11 @@
       "scheduleSource": "company_history",
       "forecastConfidence": "medium",
       "historySampleCount": 3,
-      "releaseStatus": "forecast",
-      "overdue": false,
-      "unusualReportDate": false,
-      "unusualReason": null,
-      "deviationFromHistoryDays": null,
+      "releaseStatus": "overdue",
+      "overdue": true,
+      "unusualReportDate": true,
+      "unusualReason": "LATE_NOT_YET_REPORTED",
+      "deviationFromHistoryDays": 3,
       "publicationTimestamp": null,
       "publicationTimestampBasis": null,
       "latestRevenueMonth": "2026-09"
