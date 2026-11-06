@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19519,
+  "revenueObservationCount": 19521,
   "companies": [
     {
       "id": 1,
@@ -395,13 +395,13 @@
       "classifications": [
         "Fab Equipment & Automation"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 324793000,
-      "latestMomPercent": 17.73834553759153,
-      "latestYoyPercent": 16.68972008953111,
-      "latestYtdRevenueNt": 3359009000,
-      "latestYtdYoyPercent": 5.9202279974886975,
-      "latestPublicationTimestamp": "2026-10-06T14:25:41.747Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 360661000,
+      "latestMomPercent": 11.043341451324382,
+      "latestYoyPercent": -8.136188118307507,
+      "latestYtdRevenueNt": 3719670000,
+      "latestYtdYoyPercent": 4.37174002284597,
+      "latestPublicationTimestamp": "2026-11-06T02:14:44.867Z",
       "restatementFlag": false
     },
     {
@@ -523,13 +523,13 @@
       "classifications": [
         "Connectivity & Interface IC Design"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 12377529000,
-      "latestMomPercent": -0.6549733436507982,
-      "latestYoyPercent": 23.353298366288925,
-      "latestYtdRevenueNt": 111707580000,
-      "latestYtdYoyPercent": 15.845706809869483,
-      "latestPublicationTimestamp": "2026-10-07T05:44:56.852Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 11973494000,
+      "latestMomPercent": -3.2642621964367846,
+      "latestYoyPercent": 32.11121069583314,
+      "latestYtdRevenueNt": 123681074000,
+      "latestYtdYoyPercent": 17.243146153451004,
+      "latestPublicationTimestamp": "2026-11-06T02:14:44.867Z",
       "restatementFlag": false
     },
     {
