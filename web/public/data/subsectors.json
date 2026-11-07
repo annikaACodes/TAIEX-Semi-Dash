@@ -7654,10 +7654,10 @@
       },
       {
         "month": "2026-10",
-        "aggregateRevenueNt": 16691106000,
-        "simpleYoyPercent": 1.38,
-        "revenueWeightedYoyPercent": 1.39,
-        "reportingCompanies": 6
+        "aggregateRevenueNt": 17294806000,
+        "simpleYoyPercent": 8.16,
+        "revenueWeightedYoyPercent": 3.05,
+        "reportingCompanies": 7
       }
     ],
     "CCL & PCB Materials": [
@@ -14549,9 +14549,9 @@
       },
       "Sensors & Optical Modules": {
         "month": "mix",
-        "aggregateRevenueNt": 20411469000,
-        "simpleYoyPercent": 8.46,
-        "revenueWeightedYoyPercent": 5.64,
+        "aggregateRevenueNt": 20346410000,
+        "simpleYoyPercent": 6.42,
+        "revenueWeightedYoyPercent": 4.43,
         "reportingCompanies": 16,
         "companies": [
           {
@@ -14560,9 +14560,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 6147886000,
             "yoyPercent": 11.116340495843271,
-            "revenueWeightPercent": 30.12,
+            "revenueWeightPercent": 30.22,
             "simpleYoyContributionPercentPoints": 0.69,
-            "revenueWeightedYoyContributionPercentPoints": 3.35
+            "revenueWeightedYoyContributionPercentPoints": 3.36
           },
           {
             "ticker": "3008",
@@ -14570,7 +14570,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 5845633000,
             "yoyPercent": -7.047648941801592,
-            "revenueWeightPercent": 28.64,
+            "revenueWeightPercent": 28.73,
             "simpleYoyContributionPercentPoints": -0.44,
             "revenueWeightedYoyContributionPercentPoints": -2.02
           },
@@ -14580,7 +14580,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 2419346000,
             "yoyPercent": 2.7186184092651766,
-            "revenueWeightPercent": 11.85,
+            "revenueWeightPercent": 11.89,
             "simpleYoyContributionPercentPoints": 0.17,
             "revenueWeightedYoyContributionPercentPoints": 0.32
           },
@@ -14590,7 +14590,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 2126371000,
             "yoyPercent": -5.77816712462186,
-            "revenueWeightPercent": 10.42,
+            "revenueWeightPercent": 10.45,
             "simpleYoyContributionPercentPoints": -0.36,
             "revenueWeightedYoyContributionPercentPoints": -0.6
           },
@@ -14600,7 +14600,7 @@
             "reportingMonth": "2026-09",
             "revenueNt": 1216484000,
             "yoyPercent": 14.515137565883547,
-            "revenueWeightPercent": 5.96,
+            "revenueWeightPercent": 5.98,
             "simpleYoyContributionPercentPoints": 0.91,
             "revenueWeightedYoyContributionPercentPoints": 0.87
           },
@@ -14610,19 +14610,19 @@
             "reportingMonth": "2026-09",
             "revenueNt": 898238000,
             "yoyPercent": 0.32983910151516,
-            "revenueWeightPercent": 4.4,
+            "revenueWeightPercent": 4.41,
             "simpleYoyContributionPercentPoints": 0.02,
             "revenueWeightedYoyContributionPercentPoints": 0.01
           },
           {
             "ticker": "6209",
             "name": "KINKO",
-            "reportingMonth": "2026-09",
-            "revenueNt": 668759000,
-            "yoyPercent": 81.57256696034645,
-            "revenueWeightPercent": 3.28,
-            "simpleYoyContributionPercentPoints": 5.1,
-            "revenueWeightedYoyContributionPercentPoints": 2.67
+            "reportingMonth": "2026-10",
+            "revenueNt": 603700000,
+            "yoyPercent": 48.869851697318516,
+            "revenueWeightPercent": 2.97,
+            "simpleYoyContributionPercentPoints": 3.05,
+            "revenueWeightedYoyContributionPercentPoints": 1.45
           },
           {
             "ticker": "8249",
@@ -18084,10 +18084,10 @@
       },
       "Sensors & Optical Modules": {
         "month": "2026-10",
-        "aggregateRevenueNt": 16691106000,
-        "simpleYoyPercent": 1.38,
-        "revenueWeightedYoyPercent": 1.39,
-        "reportingCompanies": 6,
+        "aggregateRevenueNt": 17294806000,
+        "simpleYoyPercent": 8.16,
+        "revenueWeightedYoyPercent": 3.05,
+        "reportingCompanies": 7,
         "companies": [
           {
             "ticker": "4915",
@@ -18095,9 +18095,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 6147886000,
             "yoyPercent": 11.116340495843271,
-            "revenueWeightPercent": 36.83,
-            "simpleYoyContributionPercentPoints": 1.85,
-            "revenueWeightedYoyContributionPercentPoints": 4.09
+            "revenueWeightPercent": 35.55,
+            "simpleYoyContributionPercentPoints": 1.59,
+            "revenueWeightedYoyContributionPercentPoints": 3.95
           },
           {
             "ticker": "3008",
@@ -18105,9 +18105,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 5845633000,
             "yoyPercent": -7.047648941801592,
-            "revenueWeightPercent": 35.02,
-            "simpleYoyContributionPercentPoints": -1.17,
-            "revenueWeightedYoyContributionPercentPoints": -2.47
+            "revenueWeightPercent": 33.8,
+            "simpleYoyContributionPercentPoints": -1.01,
+            "revenueWeightedYoyContributionPercentPoints": -2.38
           },
           {
             "ticker": "3019",
@@ -18115,9 +18115,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 2419346000,
             "yoyPercent": 2.7186184092651766,
-            "revenueWeightPercent": 14.49,
-            "simpleYoyContributionPercentPoints": 0.45,
-            "revenueWeightedYoyContributionPercentPoints": 0.39
+            "revenueWeightPercent": 13.99,
+            "simpleYoyContributionPercentPoints": 0.39,
+            "revenueWeightedYoyContributionPercentPoints": 0.38
           },
           {
             "ticker": "3406",
@@ -18125,9 +18125,19 @@
             "reportingMonth": "2026-10",
             "revenueNt": 2126371000,
             "yoyPercent": -5.77816712462186,
-            "revenueWeightPercent": 12.74,
-            "simpleYoyContributionPercentPoints": -0.96,
-            "revenueWeightedYoyContributionPercentPoints": -0.74
+            "revenueWeightPercent": 12.29,
+            "simpleYoyContributionPercentPoints": -0.83,
+            "revenueWeightedYoyContributionPercentPoints": -0.71
+          },
+          {
+            "ticker": "6209",
+            "name": "KINKO",
+            "reportingMonth": "2026-10",
+            "revenueNt": 603700000,
+            "yoyPercent": 48.869851697318516,
+            "revenueWeightPercent": 3.49,
+            "simpleYoyContributionPercentPoints": 6.98,
+            "revenueWeightedYoyContributionPercentPoints": 1.71
           },
           {
             "ticker": "4976",
@@ -18135,8 +18145,8 @@
             "reportingMonth": "2026-10",
             "revenueNt": 101727000,
             "yoyPercent": 26.439624634889068,
-            "revenueWeightPercent": 0.61,
-            "simpleYoyContributionPercentPoints": 4.41,
+            "revenueWeightPercent": 0.59,
+            "simpleYoyContributionPercentPoints": 3.78,
             "revenueWeightedYoyContributionPercentPoints": 0.16
           },
           {
@@ -18145,8 +18155,8 @@
             "reportingMonth": "2026-10",
             "revenueNt": 50143000,
             "yoyPercent": -19.189363416599516,
-            "revenueWeightPercent": 0.3,
-            "simpleYoyContributionPercentPoints": -3.2,
+            "revenueWeightPercent": 0.29,
+            "simpleYoyContributionPercentPoints": -2.74,
             "revenueWeightedYoyContributionPercentPoints": -0.06
           },
           {
@@ -18192,16 +18202,6 @@
           {
             "ticker": "3504",
             "name": "Young Optics",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "6209",
-            "name": "KINKO",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
