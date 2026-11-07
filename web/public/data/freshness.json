@@ -1,5 +1,5 @@
 {
-  "asOfDateTaipei": "2026-11-07",
+  "asOfDateTaipei": "2026-11-08",
   "targetReportingMonth": "2026-10",
   "summary": {
     "reported": 152,
@@ -1788,7 +1788,7 @@
       "overdue": true,
       "unusualReportDate": true,
       "unusualReason": "LATE_NOT_YET_REPORTED",
-      "deviationFromHistoryDays": 2,
+      "deviationFromHistoryDays": 3,
       "publicationTimestamp": null,
       "publicationTimestampBasis": null,
       "latestRevenueMonth": "2026-09"
@@ -5925,7 +5925,7 @@
       "overdue": true,
       "unusualReportDate": true,
       "unusualReason": "LATE_NOT_YET_REPORTED",
-      "deviationFromHistoryDays": 4,
+      "deviationFromHistoryDays": 5,
       "publicationTimestamp": null,
       "publicationTimestampBasis": null,
       "latestRevenueMonth": "2026-09"
