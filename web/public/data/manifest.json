@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19603,
+  "revenueObservationCount": 19605,
   "companies": [
     {
       "id": 1,
@@ -1131,13 +1131,13 @@
       "classifications": [
         "Fab Equipment & Automation"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 945153000,
-      "latestMomPercent": 9.164524154371765,
-      "latestYoyPercent": 90.64998093808812,
-      "latestYtdRevenueNt": 8022519000,
-      "latestYtdYoyPercent": 84.20298673328344,
-      "latestPublicationTimestamp": "2026-10-08T13:18:07.692Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 1013344000,
+      "latestMomPercent": 7.2148107237664165,
+      "latestYoyPercent": 80.67875061959084,
+      "latestYtdRevenueNt": 9035864000,
+      "latestYtdYoyPercent": 83.80094521811333,
+      "latestPublicationTimestamp": "2026-11-08T05:50:27.037Z",
       "restatementFlag": false
     },
     {
@@ -2880,13 +2880,13 @@
       "classifications": [
         "Precision Mechanics"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 845044000,
-      "latestMomPercent": 28.609085264144742,
-      "latestYoyPercent": 48.6928903864934,
-      "latestYtdRevenueNt": 5846210000,
-      "latestYtdYoyPercent": 33.078703687895896,
-      "latestPublicationTimestamp": "2026-10-07T23:45:17.932Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 682457000,
+      "latestMomPercent": -19.240063239310615,
+      "latestYoyPercent": 4.553936378176648,
+      "latestYtdRevenueNt": 6528667000,
+      "latestYtdYoyPercent": 29.38868309531591,
+      "latestPublicationTimestamp": "2026-11-08T05:50:27.037Z",
       "restatementFlag": false
     },
     {
