@@ -17,7 +17,7 @@
   },
   "companyCount": 315,
   "classificationCount": 27,
-  "revenueObservationCount": 19606,
+  "revenueObservationCount": 19608,
   "companies": [
     {
       "id": 1,
@@ -731,13 +731,13 @@
       "classifications": [
         "Passive Components"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 311727000,
-      "latestMomPercent": -5.6196410405464325,
-      "latestYoyPercent": 10.626616935727137,
-      "latestYtdRevenueNt": 2798979000,
-      "latestYtdYoyPercent": 13.515595026527727,
-      "latestPublicationTimestamp": "2026-10-08T05:51:53.050Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 342115000,
+      "latestMomPercent": 9.748273328906382,
+      "latestYoyPercent": 19.671678128432408,
+      "latestYtdRevenueNt": 3141095000,
+      "latestYtdYoyPercent": 14.15521878179968,
+      "latestPublicationTimestamp": "2026-11-09T01:55:01.515Z",
       "restatementFlag": false
     },
     {
@@ -3554,13 +3554,13 @@
       "classifications": [
         "Display & Optical Components"
       ],
-      "latestMonth": "2026-09",
-      "latestRevenueNt": 3709925000,
-      "latestMomPercent": -2.785959178710795,
-      "latestYoyPercent": -6.934054797132206,
-      "latestYtdRevenueNt": 34411389000,
-      "latestYtdYoyPercent": -7.381187254195596,
-      "latestPublicationTimestamp": "2026-10-08T13:18:07.692Z",
+      "latestMonth": "2026-10",
+      "latestRevenueNt": 3296236000,
+      "latestMomPercent": -11.150872322216756,
+      "latestYoyPercent": -6.629933161336229,
+      "latestYtdRevenueNt": 37707625000,
+      "latestYtdYoyPercent": -7.315998440765674,
+      "latestPublicationTimestamp": "2026-11-09T01:55:01.515Z",
       "restatementFlag": false
     },
     {
