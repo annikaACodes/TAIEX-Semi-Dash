@@ -10527,54 +10527,54 @@
         "ticker": "4942",
         "name": "Chia Chang",
         "classification": "Precision Mechanics",
-        "analysisMonth": "2026-09",
-        "latestMonth": "2026-09",
-        "latestRevenueNt": 388918000,
-        "momPercent": -5.173637101748928,
-        "yoyPercent": -27.640201087300316,
-        "previousYoyPercent": -13.498025882869051,
-        "ytdYoyPercent": -10.387259896257731,
-        "accelerationPercentPoints": -14.14,
-        "direction": "decelerating",
+        "analysisMonth": "2026-10",
+        "latestMonth": "2026-10",
+        "latestRevenueNt": 389854000,
+        "momPercent": 0.2406676985894199,
+        "yoyPercent": -25.899188957505327,
+        "previousYoyPercent": -27.640201087300316,
+        "ytdYoyPercent": -12.039956192861576,
+        "accelerationPercentPoints": 1.74,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": 388918000,
-            "priorPeriodRevenueNt": 410137000,
-            "currentGrowthPercent": -5.17,
-            "previousGrowthPercent": -8.98,
-            "accelerationPercentPoints": 3.81,
+            "currentPeriodRevenueNt": 389854000,
+            "priorPeriodRevenueNt": 388918000,
+            "currentGrowthPercent": 0.24,
+            "previousGrowthPercent": -5.17,
+            "accelerationPercentPoints": 5.41,
             "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": 388918000,
-            "priorPeriodRevenueNt": 537478000,
-            "currentGrowthPercent": -27.64,
-            "previousGrowthPercent": -13.5,
-            "accelerationPercentPoints": -14.14,
-            "direction": "decelerating"
+            "currentPeriodRevenueNt": 389854000,
+            "priorPeriodRevenueNt": 526113000,
+            "currentGrowthPercent": -25.9,
+            "previousGrowthPercent": -27.64,
+            "accelerationPercentPoints": 1.74,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": 1249678000,
-            "priorPeriodRevenueNt": 1363302000,
-            "currentGrowthPercent": -8.33,
-            "previousGrowthPercent": 1.69,
-            "accelerationPercentPoints": -10.02,
+            "currentPeriodRevenueNt": 1188909000,
+            "priorPeriodRevenueNt": 1356853000,
+            "currentGrowthPercent": -12.38,
+            "previousGrowthPercent": 7.84,
+            "accelerationPercentPoints": -20.22,
             "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": 2612980000,
-            "priorPeriodRevenueNt": 3009964000,
-            "currentGrowthPercent": -13.19,
-            "previousGrowthPercent": 0.49,
-            "accelerationPercentPoints": -13.68,
+            "currentPeriodRevenueNt": 2545762000,
+            "priorPeriodRevenueNt": 2940923000,
+            "currentGrowthPercent": -13.44,
+            "previousGrowthPercent": -2.64,
+            "accelerationPercentPoints": -10.8,
             "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": 5622944000,
-            "priorPeriodRevenueNt": 5836313000,
-            "currentGrowthPercent": -3.66,
-            "previousGrowthPercent": 2.01,
-            "accelerationPercentPoints": -5.67,
+            "currentPeriodRevenueNt": 5486685000,
+            "priorPeriodRevenueNt": 5929015000,
+            "currentGrowthPercent": -7.46,
+            "previousGrowthPercent": 4.56,
+            "accelerationPercentPoints": -12.02,
             "direction": "decelerating"
           }
         }
@@ -28485,54 +28485,54 @@
         "name": "Chia Chang",
         "classification": "Precision Mechanics",
         "analysisMonth": "2026-10",
-        "latestMonth": null,
-        "latestRevenueNt": null,
-        "momPercent": null,
-        "yoyPercent": null,
+        "latestMonth": "2026-10",
+        "latestRevenueNt": 389854000,
+        "momPercent": 0.2406676985894199,
+        "yoyPercent": -25.899188957505327,
         "previousYoyPercent": -27.640201087300316,
-        "ytdYoyPercent": null,
-        "accelerationPercentPoints": null,
-        "direction": "unavailable",
+        "ytdYoyPercent": -12.039956192861576,
+        "accelerationPercentPoints": 1.74,
+        "direction": "accelerating",
         "periods": {
           "mom": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 389854000,
             "priorPeriodRevenueNt": 388918000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": 0.24,
             "previousGrowthPercent": -5.17,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 5.41,
+            "direction": "accelerating"
           },
           "yoy": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 389854000,
             "priorPeriodRevenueNt": 526113000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -25.9,
             "previousGrowthPercent": -27.64,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": 1.74,
+            "direction": "accelerating"
           },
           "3m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 1188909000,
             "priorPeriodRevenueNt": 1356853000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -12.38,
             "previousGrowthPercent": 7.84,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -20.22,
+            "direction": "decelerating"
           },
           "6m": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 2545762000,
             "priorPeriodRevenueNt": 2940923000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -13.44,
             "previousGrowthPercent": -2.64,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -10.8,
+            "direction": "decelerating"
           },
           "ltm": {
-            "currentPeriodRevenueNt": null,
+            "currentPeriodRevenueNt": 5486685000,
             "priorPeriodRevenueNt": 5929015000,
-            "currentGrowthPercent": null,
+            "currentGrowthPercent": -7.46,
             "previousGrowthPercent": 4.56,
-            "accelerationPercentPoints": null,
-            "direction": "unavailable"
+            "accelerationPercentPoints": -12.02,
+            "direction": "decelerating"
           }
         }
       },

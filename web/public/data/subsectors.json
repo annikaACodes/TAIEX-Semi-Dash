@@ -904,10 +904,10 @@
       },
       {
         "month": "2026-10",
-        "aggregateRevenueNt": 24852175000,
-        "simpleYoyPercent": 24.95,
-        "revenueWeightedYoyPercent": 33.37,
-        "reportingCompanies": 12
+        "aggregateRevenueNt": 25242029000,
+        "simpleYoyPercent": 21.04,
+        "revenueWeightedYoyPercent": 32.46,
+        "reportingCompanies": 13
       }
     ],
     "Discrete & Power Semiconductors": [
@@ -12394,9 +12394,9 @@
       },
       "Precision Mechanics": {
         "month": "mix",
-        "aggregateRevenueNt": 26129701000,
-        "simpleYoyPercent": 16.19,
-        "revenueWeightedYoyPercent": 31.68,
+        "aggregateRevenueNt": 26130637000,
+        "simpleYoyPercent": 16.29,
+        "revenueWeightedYoyPercent": 31.71,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -12405,7 +12405,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 12036897000,
             "yoyPercent": -19.313482371953214,
-            "revenueWeightPercent": 46.07,
+            "revenueWeightPercent": 46.06,
             "simpleYoyContributionPercentPoints": -1.14,
             "revenueWeightedYoyContributionPercentPoints": -8.9
           },
@@ -12417,7 +12417,7 @@
             "yoyPercent": 191.0633435081773,
             "revenueWeightPercent": 17.46,
             "simpleYoyContributionPercentPoints": 11.24,
-            "revenueWeightedYoyContributionPercentPoints": 33.36
+            "revenueWeightedYoyContributionPercentPoints": 33.35
           },
           {
             "ticker": "6805",
@@ -12502,12 +12502,12 @@
           {
             "ticker": "4942",
             "name": "Chia Chang",
-            "reportingMonth": "2026-09",
-            "revenueNt": 388918000,
-            "yoyPercent": -27.640201087300316,
+            "reportingMonth": "2026-10",
+            "revenueNt": 389854000,
+            "yoyPercent": -25.899188957505327,
             "revenueWeightPercent": 1.49,
-            "simpleYoyContributionPercentPoints": -1.63,
-            "revenueWeightedYoyContributionPercentPoints": -0.41
+            "simpleYoyContributionPercentPoints": -1.52,
+            "revenueWeightedYoyContributionPercentPoints": -0.39
           },
           {
             "ticker": "3607",
@@ -15929,10 +15929,10 @@
       },
       "Precision Mechanics": {
         "month": "2026-10",
-        "aggregateRevenueNt": 24852175000,
-        "simpleYoyPercent": 24.95,
-        "revenueWeightedYoyPercent": 33.37,
-        "reportingCompanies": 12,
+        "aggregateRevenueNt": 25242029000,
+        "simpleYoyPercent": 21.04,
+        "revenueWeightedYoyPercent": 32.46,
+        "reportingCompanies": 13,
         "companies": [
           {
             "ticker": "2354",
@@ -15940,9 +15940,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 12036897000,
             "yoyPercent": -19.313482371953214,
-            "revenueWeightPercent": 48.43,
-            "simpleYoyContributionPercentPoints": -1.61,
-            "revenueWeightedYoyContributionPercentPoints": -9.35
+            "revenueWeightPercent": 47.69,
+            "simpleYoyContributionPercentPoints": -1.49,
+            "revenueWeightedYoyContributionPercentPoints": -9.21
           },
           {
             "ticker": "2059",
@@ -15950,9 +15950,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 4561731000,
             "yoyPercent": 191.0633435081773,
-            "revenueWeightPercent": 18.36,
-            "simpleYoyContributionPercentPoints": 15.92,
-            "revenueWeightedYoyContributionPercentPoints": 35.07
+            "revenueWeightPercent": 18.07,
+            "simpleYoyContributionPercentPoints": 14.7,
+            "revenueWeightedYoyContributionPercentPoints": 34.53
           },
           {
             "ticker": "6805",
@@ -15960,9 +15960,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 1650424000,
             "yoyPercent": 26.45744995487012,
-            "revenueWeightPercent": 6.64,
-            "simpleYoyContributionPercentPoints": 2.2,
-            "revenueWeightedYoyContributionPercentPoints": 1.76
+            "revenueWeightPercent": 6.54,
+            "simpleYoyContributionPercentPoints": 2.04,
+            "revenueWeightedYoyContributionPercentPoints": 1.73
           },
           {
             "ticker": "5243",
@@ -15970,9 +15970,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 1564967000,
             "yoyPercent": 64.65987811755595,
-            "revenueWeightPercent": 6.3,
-            "simpleYoyContributionPercentPoints": 5.39,
-            "revenueWeightedYoyContributionPercentPoints": 4.07
+            "revenueWeightPercent": 6.2,
+            "simpleYoyContributionPercentPoints": 4.97,
+            "revenueWeightedYoyContributionPercentPoints": 4.01
           },
           {
             "ticker": "2474",
@@ -15980,9 +15980,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 1265821000,
             "yoyPercent": -12.90088632095952,
-            "revenueWeightPercent": 5.09,
-            "simpleYoyContributionPercentPoints": -1.08,
-            "revenueWeightedYoyContributionPercentPoints": -0.66
+            "revenueWeightPercent": 5.01,
+            "simpleYoyContributionPercentPoints": -0.99,
+            "revenueWeightedYoyContributionPercentPoints": -0.65
           },
           {
             "ticker": "2476",
@@ -15990,9 +15990,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 1012892000,
             "yoyPercent": 62.519073558552414,
-            "revenueWeightPercent": 4.08,
-            "simpleYoyContributionPercentPoints": 5.21,
-            "revenueWeightedYoyContributionPercentPoints": 2.55
+            "revenueWeightPercent": 4.01,
+            "simpleYoyContributionPercentPoints": 4.81,
+            "revenueWeightedYoyContributionPercentPoints": 2.51
           },
           {
             "ticker": "4912",
@@ -16000,9 +16000,9 @@
             "reportingMonth": "2026-10",
             "revenueNt": 682457000,
             "yoyPercent": 4.553936378176648,
-            "revenueWeightPercent": 2.75,
-            "simpleYoyContributionPercentPoints": 0.38,
-            "revenueWeightedYoyContributionPercentPoints": 0.13
+            "revenueWeightPercent": 2.7,
+            "simpleYoyContributionPercentPoints": 0.35,
+            "revenueWeightedYoyContributionPercentPoints": 0.12
           },
           {
             "ticker": "1582",
@@ -16010,8 +16010,8 @@
             "reportingMonth": "2026-10",
             "revenueNt": 681473000,
             "yoyPercent": -2.9275310708308107,
-            "revenueWeightPercent": 2.74,
-            "simpleYoyContributionPercentPoints": -0.24,
+            "revenueWeightPercent": 2.7,
+            "simpleYoyContributionPercentPoints": -0.23,
             "revenueWeightedYoyContributionPercentPoints": -0.08
           },
           {
@@ -16020,8 +16020,8 @@
             "reportingMonth": "2026-10",
             "revenueNt": 650493000,
             "yoyPercent": -13.85100102108521,
-            "revenueWeightPercent": 2.62,
-            "simpleYoyContributionPercentPoints": -1.15,
+            "revenueWeightPercent": 2.58,
+            "simpleYoyContributionPercentPoints": -1.07,
             "revenueWeightedYoyContributionPercentPoints": -0.36
           },
           {
@@ -16030,9 +16030,19 @@
             "reportingMonth": "2026-10",
             "revenueNt": 398116000,
             "yoyPercent": 14.821832864662197,
-            "revenueWeightPercent": 1.6,
-            "simpleYoyContributionPercentPoints": 1.24,
-            "revenueWeightedYoyContributionPercentPoints": 0.24
+            "revenueWeightPercent": 1.58,
+            "simpleYoyContributionPercentPoints": 1.14,
+            "revenueWeightedYoyContributionPercentPoints": 0.23
+          },
+          {
+            "ticker": "4942",
+            "name": "Chia Chang",
+            "reportingMonth": "2026-10",
+            "revenueNt": 389854000,
+            "yoyPercent": -25.899188957505327,
+            "revenueWeightPercent": 1.54,
+            "simpleYoyContributionPercentPoints": -1.99,
+            "revenueWeightedYoyContributionPercentPoints": -0.4
           },
           {
             "ticker": "2415",
@@ -16040,8 +16050,8 @@
             "reportingMonth": "2026-10",
             "revenueNt": 235367000,
             "yoyPercent": 17.163294970331727,
-            "revenueWeightPercent": 0.95,
-            "simpleYoyContributionPercentPoints": 1.43,
+            "revenueWeightPercent": 0.93,
+            "simpleYoyContributionPercentPoints": 1.32,
             "revenueWeightedYoyContributionPercentPoints": 0.16
           },
           {
@@ -16050,8 +16060,8 @@
             "reportingMonth": "2026-10",
             "revenueNt": 111537000,
             "yoyPercent": -32.88706503884038,
-            "revenueWeightPercent": 0.45,
-            "simpleYoyContributionPercentPoints": -2.74,
+            "revenueWeightPercent": 0.44,
+            "simpleYoyContributionPercentPoints": -2.53,
             "revenueWeightedYoyContributionPercentPoints": -0.15
           },
           {
@@ -16087,16 +16097,6 @@
           {
             "ticker": "4545",
             "name": "MAP",
-            "reportingMonth": null,
-            "revenueNt": null,
-            "yoyPercent": null,
-            "revenueWeightPercent": null,
-            "simpleYoyContributionPercentPoints": null,
-            "revenueWeightedYoyContributionPercentPoints": null
-          },
-          {
-            "ticker": "4942",
-            "name": "Chia Chang",
             "reportingMonth": null,
             "revenueNt": null,
             "yoyPercent": null,
