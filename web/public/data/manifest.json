@@ -2578,12 +2578,12 @@
       ],
       "latestMonth": "2026-10",
       "latestRevenueNt": 60250000,
-      "latestMomPercent": 3.3642711317744345,
+      "latestMomPercent": -6.528281982065842,
       "latestYoyPercent": -13.311847141089466,
       "latestYtdRevenueNt": 561252000,
       "latestYtdYoyPercent": -41.82241101581595,
-      "latestPublicationTimestamp": "2026-11-10T19:38:03.696Z",
-      "restatementFlag": false
+      "latestPublicationTimestamp": "2026-11-12T10:53:54.263Z",
+      "restatementFlag": true
     },
     {
       "id": 161,
@@ -3924,12 +3924,12 @@
       ],
       "latestMonth": "2026-10",
       "latestRevenueNt": 93922000,
-      "latestMomPercent": -8.15013299953059,
+      "latestMomPercent": -15.282550850133045,
       "latestYoyPercent": -21.077265661106676,
       "latestYtdRevenueNt": 1280665000,
       "latestYtdYoyPercent": -16.759721705851614,
-      "latestPublicationTimestamp": "2026-11-10T19:38:03.696Z",
-      "restatementFlag": false
+      "latestPublicationTimestamp": "2026-11-12T10:53:54.263Z",
+      "restatementFlag": true
     },
     {
       "id": 244,
