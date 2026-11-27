@@ -904,9 +904,9 @@
       },
       {
         "month": "2026-10",
-        "aggregateRevenueNt": 26144904000,
-        "simpleYoyPercent": 23.8,
-        "revenueWeightedYoyPercent": 32.94,
+        "aggregateRevenueNt": 26138737000,
+        "simpleYoyPercent": 23.27,
+        "revenueWeightedYoyPercent": 32.93,
         "reportingCompanies": 17
       }
     ],
@@ -12394,9 +12394,9 @@
       },
       "Precision Mechanics": {
         "month": "mix",
-        "aggregateRevenueNt": 26144904000,
-        "simpleYoyPercent": 23.8,
-        "revenueWeightedYoyPercent": 32.94,
+        "aggregateRevenueNt": 26138737000,
+        "simpleYoyPercent": 23.27,
+        "revenueWeightedYoyPercent": 32.93,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -12405,7 +12405,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 12036897000,
             "yoyPercent": -19.313482371953214,
-            "revenueWeightPercent": 46.04,
+            "revenueWeightPercent": 46.05,
             "simpleYoyContributionPercentPoints": -1.14,
             "revenueWeightedYoyContributionPercentPoints": -8.89
           },
@@ -12455,7 +12455,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 1012892000,
             "yoyPercent": 62.519073558552414,
-            "revenueWeightPercent": 3.87,
+            "revenueWeightPercent": 3.88,
             "simpleYoyContributionPercentPoints": 3.68,
             "revenueWeightedYoyContributionPercentPoints": 2.42
           },
@@ -12563,11 +12563,11 @@
             "ticker": "3593",
             "name": "Logah",
             "reportingMonth": "2026-10",
-            "revenueNt": 60250000,
-            "yoyPercent": -13.311847141089466,
-            "revenueWeightPercent": 0.23,
-            "simpleYoyContributionPercentPoints": -0.78,
-            "revenueWeightedYoyContributionPercentPoints": -0.03
+            "revenueNt": 54083000,
+            "yoyPercent": -22.184973094299444,
+            "revenueWeightPercent": 0.21,
+            "simpleYoyContributionPercentPoints": -1.3,
+            "revenueWeightedYoyContributionPercentPoints": -0.05
           }
         ]
       },
@@ -15929,9 +15929,9 @@
       },
       "Precision Mechanics": {
         "month": "2026-10",
-        "aggregateRevenueNt": 26144904000,
-        "simpleYoyPercent": 23.8,
-        "revenueWeightedYoyPercent": 32.94,
+        "aggregateRevenueNt": 26138737000,
+        "simpleYoyPercent": 23.27,
+        "revenueWeightedYoyPercent": 32.93,
         "reportingCompanies": 17,
         "companies": [
           {
@@ -15940,7 +15940,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 12036897000,
             "yoyPercent": -19.313482371953214,
-            "revenueWeightPercent": 46.04,
+            "revenueWeightPercent": 46.05,
             "simpleYoyContributionPercentPoints": -1.14,
             "revenueWeightedYoyContributionPercentPoints": -8.89
           },
@@ -15990,7 +15990,7 @@
             "reportingMonth": "2026-10",
             "revenueNt": 1012892000,
             "yoyPercent": 62.519073558552414,
-            "revenueWeightPercent": 3.87,
+            "revenueWeightPercent": 3.88,
             "simpleYoyContributionPercentPoints": 3.68,
             "revenueWeightedYoyContributionPercentPoints": 2.42
           },
@@ -16098,11 +16098,11 @@
             "ticker": "3593",
             "name": "Logah",
             "reportingMonth": "2026-10",
-            "revenueNt": 60250000,
-            "yoyPercent": -13.311847141089466,
-            "revenueWeightPercent": 0.23,
-            "simpleYoyContributionPercentPoints": -0.78,
-            "revenueWeightedYoyContributionPercentPoints": -0.03
+            "revenueNt": 54083000,
+            "yoyPercent": -22.184973094299444,
+            "revenueWeightPercent": 0.21,
+            "simpleYoyContributionPercentPoints": -1.3,
+            "revenueWeightedYoyContributionPercentPoints": -0.05
           }
         ]
       },
